@@ -158,7 +158,7 @@ const ResearchFacultyPage = () => {
 
       {/* Replace the old hero section with the Hero component */}
       <Hero 
-        title="Jules Stein Eye Institute"
+        title="Laboratories @ JSEI"
         subtitle="An Organized Research Unit of UCLA"
         description="Advancing Vision Science Through Innovative Research"
       />

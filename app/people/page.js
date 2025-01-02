@@ -158,8 +158,8 @@ const PeoplePage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Our People"
-        subtitle="Jules Stein Eye Institute"
+        title="People @ JSEI"
+        subtitle="Leadership and Administration"
         description="Leaders in Vision Research and Clinical Care"
       />
 

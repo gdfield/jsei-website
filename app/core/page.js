@@ -53,7 +53,7 @@ const CoreFacilitiesPage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Core Facilities"
+        title="Core Facilities @ JSEI"
         subtitle="Vision Research Core at UCLA"
         description="Supporting innovative vision research through state-of-the-art technology"
       />

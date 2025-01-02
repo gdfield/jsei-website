@@ -77,7 +77,7 @@ const ResearchPage = () => {
         <Navbar /> {/* Add the Navbar here */}
       {/* Replace the old hero section with the Hero component */}
       <Hero 
-        title="Research Areas at JSEI"
+        title="Research Areas @ JSEI"
         subtitle="Interdiciplinary and Multidisciplinary Research"
         description="Advancing vision research, eduation and training with diverse perspectives"
       />
