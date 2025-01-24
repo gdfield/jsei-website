@@ -13,17 +13,17 @@ const PeoplePage = () => {
         {
           name: "Anne Coleman",
           title: "Director",
-          imageUrl: "/images/people/coleman.jpg"
+          imageUrl: "/images/faculty/coleman.jpg"
         },
         {
           name: "Anthony Aldave",
           title: "Associate Director",
-          imageUrl: "/images/people/aldave.jpg"
+          imageUrl: "/images/faculty/aldave.jpg"
         },
         {
           name: "Alapakkam Sampath",
           title: "Associate Director",
-          imageUrl: "/images/people/sampath.jpg"
+          imageUrl: "/images/faculty/sampath.jpg"
         }
       ]
     },
@@ -33,17 +33,17 @@ const PeoplePage = () => {
         {
           name: "Gary Holland",
           title: "Director",
-          imageUrl: "/images/people/holland.jpg"
+          imageUrl: "/images/faculty/holland.jpg"
         },
         {
           name: "Irena Tsui",
           title: "Associate Director",
-          imageUrl: "/images/people/tsui.jpg"
+          imageUrl: "/images/faculty/tsui-i.jpg"
         },
         {
           name: "Stacy Pineles",
           title: "Associate Director",
-          imageUrl: "/images/people/pineles.jpg"
+          imageUrl: "/images/faculty/pineles.jpg"
         }
       ]
     },
@@ -53,7 +53,7 @@ const PeoplePage = () => {
         {
           name: "Irena Tsui",
           title: "Director",
-          imageUrl: "/images/people/tsui.jpg"
+          imageUrl: "/images/faculty/tsui-i.jpg"
         }
       ]
     },
@@ -63,7 +63,7 @@ const PeoplePage = () => {
         {
           name: "Kouros Nouri-Mahdavi",
           title: "Director",
-          imageUrl: "/images/people/kouros.jpg"
+          imageUrl: "/images/faculty/kouros.jpg"
         }
       ]
     },
@@ -73,12 +73,12 @@ const PeoplePage = () => {
         {
           name: "Anthony Aldave",
           title: "Director",
-          imageUrl: "/images/people/aldave.jpg"
+          imageUrl: "/images/faculty/aldave.jpg"
         },
         {
           name: "Sophie Deng",
           title: "Associate Director",
-          imageUrl: "/images/people/deng.jpg"
+          imageUrl: "/images/faculty/deng.jpg"
         }
       ]
     },

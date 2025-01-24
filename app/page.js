@@ -16,31 +16,31 @@ const ResearchDivisionPage = () => {
       title: "Laboratories",
       description: "Diverse individual laboratories operate independently and collaboratively make cutting-edge discoveries in eye biology and vision science. Click here to learn more",
       linkUrl: "/laboratories",
-      imageUrl: "images/mission/laboratories.jpg"
+      imageUrl: "/images/mission/laboratories.jpg"
     },
     {
       title: "Core Facilities",
       description: "JSEI has exceptional Core Facilities that assist the scientists and clinicians in accelerating research and innovation. Click here to learn more.",
       linkUrl: "/core",
-      imageUrl: "images/mission/cores.jpg"
+      imageUrl: "/images/mission/cores.jpg"
     },
     {
       title: "Education",
       description: "Training the next generation of vision scientists through graduate programs, postdoctoral fellowships, and research opportunities. We provide a collaborative environment for learning and scientific discovery.",
       linkUrl: "/education",
-      imageUrl: "images/mission/education.jpg"
+      imageUrl: "/images/mission/education.jpg"
     },
     {
       title: "Outreach",
       description: "Engaging with the community through scientific presentations, workshops, and educational programs. We're committed to sharing our knowledge and inspiring future scientists.",
       linkUrl: "/outreach",
-      imageUrl: "images/mission/outreach.jpg"
+      imageUrl: "/images/mission/outreach.jpg"
     },
     {
       title: "people",
-      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the people who make the JSEI excel here. .",
+      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the people who make the JSEI excel here.",
       linkUrl: "/people",
-      imageUrl: "images/mission/people.jpg"
+      imageUrl: "/images/mission/people.jpg"
     }
   ];
 
