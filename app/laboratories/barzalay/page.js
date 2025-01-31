@@ -43,9 +43,9 @@ export default function BarzalayPage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="Aya Barzalay-Wollman Laboratory"
-       subtitle="Robotic Microsurgery Innovation"
-       description="Advancing ophthalmic surgery through robotics"
+       title="Under Construction"
+       subtitle=""
+       description=""
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -57,9 +57,18 @@ export default function BarzalayPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h3 className="text-xl font-bold text-gray-900">Aya Barzalay-Wollman, Ph.D.</h3>
+             <h3 className="text-xl font-bold text-gray-900">Aya Barzalay-Wollman, M.D., Ph.D.</h3>
              <p className="text-gray-600">Assistant Professor</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
+             <p className="text-gray-600">Department of Ophthalmology</p>
+             <p className="ttext-gray-600">Jules Stein Eye Institute</p>
+             <a 
+                  href="https://www.uclahealth.org/providers/aya-barzelay-wollman" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
            </div>
          </div>
 

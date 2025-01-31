@@ -6,47 +6,57 @@ import Navbar from '@/app/components/Navbar';
 export default function WilliamsPage() {
  const publications = [
    {
-     title: "Cell-biology-based therapeutic strategies for retinal degenerative disease",
-     authors: "Williams DS, Chadha A, Hazim R, Gibbs D",
-     journal: "Journal of Cell Biology",
-     year: "2017",
-     citations: "57", 
-     doi: "https://doi.org/10.1083/jcb.201607025"
+     title: "Productive infection of the retinal pigment epithelium by SARS-CoV-2: Initial effects and consideration of long-term consequences",
+     authors: "Hultgren NW, Petcherski A, Torriano S, Komirisetty R, Sharma M, Zhou T, Burgess BL, Ngo J, Osto C, Shabane B, Shirihai OS, Kelesidis T, Williams DS",
+     journal: "PNAS Nexus",
+     year: "2025",
+     doi: "https://pubmed.ncbi.nlm.nih.gov/39712068/"
    },
    {
-     title: "The cytoplasmic tail of rhodopsin: role in desensitization and phosphorylation",
-     authors: "Azevedo AW, Doan T, Jeong H, Chan P, Williams D, Chen J, Rieke F",
+     title: "Spatiotemporal live-cell analysis of photoreceptor outer segment membrane ingestion by the retinal pigment epithelium reveals actin-regulated scission",
+     authors: "Umapathy A, Torten G, Paniagua, AE, Chung J, Tomlinson M, Lim C, Williams DS",
      journal: "Journal of Neuroscience",
-     year: "2015",  
-     citations: "43",
-     doi: "https://doi.org/10.1523/JNEUROSCI.3120-14.2015"
-   },
-   {
-     title: "Molecular insights into Rep1 and choroideremia pathogenesis: A predominant role for Rab27a in RPE function",
-     authors: "Wu X, Zhang H, Li W, Sallese M, Williams DS",
-     journal: "Journal of Cell Biology",
-     year: "2022",
-     citations: "12",
-     doi: "https://doi.org/10.1083/jcb.202110057" 
-   },
-   {
-     title: "Cones and cone pathways remain functional in advanced retinal degeneration",
-     authors: "Ellis EM, Paniagua AE, Scalabrino ML, Thapa M, Rathinavelu J, Jiao Y, Williams DS, Field GD, Fain GL, Sampath AP",
-     journal: "Current Biology",
      year: "2023",
-     citations: "New",
-     doi: "https://doi.org/10.1016/j.cub.2023.02.073"
+     doi: "https://pubmed.ncbi.nlm.nih.gov/36878726/"
+   },
+   {
+     title: "The cell biology of the retinal pigment epithelium",
+     authors: "Lakkaraju A, Umapathy A, Tan LX, Daniele L, Philp NJ, Boesze-Battaglia K, Williams DS",
+     journal: "Progress in Retina and Eye Research",
+     year: "2020",
+     doi: "https://pubmed.ncbi.nlm.nih.gov/32105772/"
+   },
+   {
+     title: "Microtubule motors transport phagosomes in the RPE, and lack of KLC1 leads to AMD-like pathogenesis",
+     authors: "Jiang M, Esteve-Rudd J, Lopes VS, Diemer T, Lillo C, Rump A, Williams DS",
+     journal: "Journal of Cell Biology",
+     year: "2015",
+     doi: "https://pubmed.ncbi.nlm.nih.gov/26261180/"
+   },
+   {
+     title: "Three-dimensional organization of nascent rod outer segment disk membranes",
+     authors: "Volland S, Hughes LC, Kong C, Burgess BL, Linberg KA, Luna G, Zhou AH, Fisher SK, Williams DS",
+     journal: "Proceedings of the National Academy Sciences",
+     year: "2015",
+     doi: "https://pubmed.ncbi.nlm.nih.gov/26578801/"
    }
  ];
 
  return (
    <div className="min-h-screen bg-gray-50">
-     <Navbar />
-     <Hero 
-       title="David S. Williams Laboratory"
-       subtitle="Photoreceptor Cell Biology and Retinal Disease"
-       description="Understanding protein transport in retinal cells"
-     />
+ <Navbar />
+      <div className="w-full h-64 md:h-96 relative overflow-hidden">
+        <img
+          src="/images/laboratory-banners/williams.jpg"
+          alt="Williams Laboratory Banner"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 20%' }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2">David Williams Laboratory</h1>
+          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2">Retinal Cell Biology</h2>
+        </div>
+      </div>
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
        <div className="flex flex-col md:flex-row gap-8 mb-12">
@@ -56,10 +66,20 @@ export default function WilliamsPage() {
              alt="Dr. David Williams"
              className="w-full rounded-lg shadow-lg"
            />
-           <div className="mt-4 space-y-2">
+           <div className="mt-4 space-y-1">
              <h3 className="text-xl font-bold text-gray-900">David S. Williams, Ph.D.</h3>
              <p className="text-gray-600">Professor</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
+             <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
+             <p className="text-gray-600">Director, Microscopy and Image Analysis Core</p>
+             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <a 
+                  href="https://profiles.ucla.edu/david.williams" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
            </div>
          </div>
 
@@ -103,7 +123,7 @@ export default function WilliamsPage() {
                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
                <p className="text-gray-700 mb-1">{pub.authors}</p>
                <p className="text-gray-600">
-                 {pub.journal} ({pub.year}) • {pub.citations} citations
+                 {pub.journal} ({pub.year})
                </p>
                <a 
                  href={pub.doi}

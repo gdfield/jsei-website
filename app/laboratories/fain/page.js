@@ -43,9 +43,9 @@ export default function FainPage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="Gordon L. Fain Laboratory"
-       subtitle="Photoreceptor Physiology and Adaptation"
-       description="Understanding visual processing at the cellular level"
+       title="UNDER CONSTRUCTION"
+       subtitle=""
+       description=""
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -59,8 +59,19 @@ export default function FainPage() {
            <div className="mt-4 space-y-2">
              <h3 className="text-xl font-bold text-gray-900">Gordon L. Fain, Ph.D.</h3>
              <p className="text-gray-600">Professor</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
-           </div>
+             <p className="text-gray-600">Department of Ophthalmology</p>
+             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://bioscience.ucla.edu/people/gordon-fain/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+                </div>
+                </div>
          </div>
 
          <div className="w-full md:w-2/3 space-y-6">

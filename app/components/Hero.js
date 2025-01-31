@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 const Hero = ({ title, subtitle, description }) => {
   const backgroundImages = [
     '/images/hero-background-1.jpg',
-    '/images/hero-background-2.jpg',
-    '/images/hero-background-3.jpg',
+    '/images/laboratory-banners/radu.jpg',
+    '/images/laboratory-banners/sampath.jpg',
+    '/images/laboratory-banners/yang.jpg',
+    '/images/laboratory-banners/field.jpg',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

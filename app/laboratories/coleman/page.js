@@ -6,36 +6,54 @@ import Navbar from '@/app/components/Navbar';
 export default function ColemanPage() {
  const publications = [
    {
-     title: "Population-based incidence of openangle glaucoma among Latino individuals living in Los Angeles: Los Angeles Latino Eye Study",
-     authors: "Coleman AL, Wilson MR, Kim BH, et al.",
-     journal: "JAMA Ophthalmology",
-     year: "2023",
-     citations: "4",
-     doi: "https://doi.org/10.1001/jamaophthalmol.2023.0034"
+     title: "Vision Impairment and Combined Vision and Hearing Impairment Predict Cognitive and Functional Decline in Older Women",
+     authors: "Lin MY, Gutierrez PR, Stone KL, Yaffe K, Ensrud KE, Fink HA, Sarkisian CA, Coleman AL, Mangione CM",
+     journal: "Journal of the American Geriatrics Society",
+     year: "2004",
+     volume: "52",
+     issue: "12",
+     pages: "1996-2002",
+     doi: "https://doi.org/10.1111/j.1532-5415.2004.52554.x"
    },
    {
-     title: "Vision Health Disparities in the United States by Race/Ethnicity and Visual Acuity in the National Health and Nutrition Examination Survey",
-     authors: "Coleman AL, Abraham AG, Swenor BK",
-     journal: "JAMA Ophthalmology",
-     year: "2022", 
-     citations: "18",
-     doi: "https://doi.org/10.1001/jamaophthalmol.2022.1492"
-   },
-   {
-     title: "Impact of the COVID-19 Pandemic on Eye Care at an Eye-Specific Emergency Department in an Outbreak Hotspot",
-     authors: "Coleman AL, Deng SX, Chen PP, et al.",
-     journal: "Clinical Ophthalmology",
-     year: "2021",
-     citations: "25",
-     doi: "https://doi.org/10.2147/OPTH.S296554"
-   },
-   {
-     title: "American Academy of Ophthalmology Preferred Practice Pattern: Primary Open-Angle Glaucoma",
-     authors: "Coleman AL, Caprioli J, Nouri-Mahdavi K, et al.",
+     title: "Disparities in Vision Health and Eye Care",
+     authors: "Elam AR, Tseng VL, Rodriguez TM, Mike EV, Warren AK, Coleman AL",
      journal: "Ophthalmology",
-     year: "2020",
-     citations: "245",
-     doi: "https://doi.org/10.1016/j.ophtha.2019.10.018"
+     year: "2022",
+     volume: "129",
+     issue: "10",
+     pages: "e89-e113",
+     doi: "https://doi.org/10.1016/j.ophtha.2022.07.010"
+   },
+   {
+     title: "Predictive factors for glaucomatous visual field progression in the Advanced Glaucoma Intervention Study",
+     authors: "Nouri-Mahdavi K, Hoffman D, Coleman AL, Liu G, Li G, Gaasterland D, Caprioli J",
+     journal: "Ophthalmology",
+     year: "2004",
+     volume: "111",
+     issue: "9",
+     pages: "1627-1635",
+     doi: "https://doi.org/10.1016/j.ophtha.2004.02.017"
+   },
+   {
+     title: "Intraocular Pressure Fluctuation: A Risk Factor for Visual Field Progression at Low Intraocular Pressures in the Advanced Glaucoma Intervention Study",
+     authors: "Caprioli J, Coleman AL",
+     journal: "Ophthalmology",
+     year: "2008",
+     volume: "115",
+     issue: "7",
+     pages: "1123-1129.e3",
+     doi: "https://doi.org/10.1016/j.ophtha.2007.10.031"
+   },
+   {
+     title: "Initial Clinical Experience With the Ahmed Glaucoma Valve Implant",
+     authors: "Coleman AL, Hill R, Wilson MR, Choplin N, Kotas-Neumann R, Tam M, Bacharach J, Panek WC",
+     journal: "American Journal of Ophthalmology",
+     year: "1995",
+     volume: "120",
+     issue: "1",
+     pages: "23-31",
+     doi: "https://doi.org/10.1016/S0002-9394(14)73755-9"
    }
  ];
 
@@ -58,40 +76,30 @@ export default function ColemanPage() {
            />
            <div className="mt-4 space-y-2">
              <h3 className="text-xl font-bold text-gray-900">Anne L. Coleman, M.D., Ph.D.</h3>
-             <p className="text-gray-600">Professor and Director</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
+             <p className="text-gray-600">Professor</p>
+             <p className="text-gray-600">Departments of Ophthalmology (Chair) and Epidemiology</p>
+             <p className="text-gray-600">Director</p>
+             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <a 
+                  href="https://profiles.ucla.edu/anne.coleman" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
            </div>
          </div>
 
          <div className="w-full md:w-2/3 space-y-6">
            <p className="text-gray-800">
-             The Coleman laboratory focuses on clinical epidemiology, health services research, and health disparities in ophthalmology. Our research aims to improve access to eye care and reduce vision health disparities in underserved populations.
-           </p>
-           
-           <div className="space-y-3">
-             <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-             <ul className="list-disc pl-6 space-y-2 text-gray-800">
-               <li>
-                 Population-based studies of eye disease prevalence and incidence
-               </li>
-               <li>
-                 Health disparities research in vision care access and outcomes
-               </li>
-               <li>
-                 Clinical trials in glaucoma and other eye diseases
-               </li>
-               <li>
-                 Health services research and quality of care assessment
-               </li>
-               <li>
-                 Public health approaches to preventing vision loss
-               </li>
-             </ul>
-           </div>
+           Dr. Coleman’s research areas of expertise include ophthalmology, health policy, community-based interventions, health disparities, big data, and behavioral health factors as they relate to ophthalmology, eye health, and vision research.  Dr. Coleman has investigated a number of risk factors and systemic outcomes of age-related eye diseases using multiple population-based studies including the National Health and Nutrition Examination Survey (NHANES), Thessaloniki Eye Study (TES) and Study of Osteoporotic Fractures (SOF).  In 2005-2008 NHANES data, she and collaborators found that an estimated 2.4 million persons in the US have undetected and untreated glaucoma, with a higher burden in minorities and the elderly. Other studies using the NHANES data include the association between atopic disease and glaucoma, association of exercise intensity and glaucoma, and dietary fatty acid intake with glaucoma in the US and the association of e-cigarette use and glaucoma. In the TES, the prevalence of pseudoexfoliation syndrome in Greece was 9% at baseline, and the 12-year incidence was 19.6%. In TES, we also examined prevalence and risk factors for age-related macular degeneration (AMD), and associations between ocular perfusion pressure and glaucoma. In SOF, the progression of AMD was associated with declining vision-specific quality of life, and AMD was a predictor of poor survival in women 80 years and older. Additional AMD risk factors examined in SOF included smoking, alcohol use, and postmenopausal hormonal therapy. As a whole these studies contribute information about the prevalence and incidence of age-related eye diseases in multiple populations worldwide, and associations between lifestyle, systemic factors, and age-related eye diseases.
+                      </p>
+          
 
            <p className="text-gray-800">
-             Our research combines epidemiological methods with clinical expertise to understand patterns of eye disease and barriers to care. This work has led to important insights about vision health disparities and the development of evidence-based guidelines for eye care delivery.
-           </p>
+           Dr. Coleman was the Principal Investigator for the UCLA Preschool Vision Program (UPVP), funded by a 4.1 million dollar grant from First 5LA. During this five-year program, we screened 90,000 children with the handheld auto-refractometer (Retinomax 3; Righton, Japan) and examined 9,713 of them with a comprehensive eye examination. There were 8,281 pairs of free eyeglasses given for refractive error and referrals were given to specialists for further care if needed. This study found that there is a large proportion of preschoolers with uncorrected refractive errors that have unmet needs in terms of refractive correction, and identified barriers, limitations and challenges for a successful vision screening programs. The study also suggested that the vision screening of preschoolers using the Retinomax machine did lead to the diagnosis and early treatment of uncorrected refractive errors and amblyopia.
+                      </p>
          </div>
        </div>
 
@@ -103,7 +111,7 @@ export default function ColemanPage() {
                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
                <p className="text-gray-700 mb-1">{pub.authors}</p>
                <p className="text-gray-600">
-                 {pub.journal} ({pub.year}) • {pub.citations} citations
+                 {pub.journal} {pub.year}; {pub.volume}({pub.issue}): {pub.pages}
                </p>
                <a 
                  href={pub.doi}

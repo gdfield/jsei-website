@@ -70,12 +70,20 @@ export default function SampathPage() {
               <h3 className="text-xl font-bold text-gray-900">Alapakkam Sampath, Ph.D.</h3>
               <p className="text-gray-600">Professor</p>
               <p className="text-gray-600">Grace and Walter Lantz Endowed Chair in Ophthalmology</p>
+              <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
               <p className="text-gray-600">Associate Director of Research</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
-              <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
-              <p className="text-gray-600">David Geffen School of Medicine</p>
-              <p className="text-gray-600">University of California, Los Angeles</p>
-            </div>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://profiles.ucla.edu/alapakkam.sampath" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+                </div>
+                            </div>
           </div>
 
           {/* Research Description */}

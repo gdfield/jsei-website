@@ -61,8 +61,19 @@ export default function GlasgowPage() {
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Ben J. Glasgow, M.D.</h3>
               <p className="text-gray-600">Professor</p>
-              <p className="text-blue-800">Department of Ophthalmology</p>
-            </div>
+              <p className="text-gray-600">Departments of Pathology and Laboratory Medicine and Ophthalmology</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://profiles.ucla.edu/ben.glasgow" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+                            </div>
+                            </div>
           </div>
 
           {/* Research Description */}

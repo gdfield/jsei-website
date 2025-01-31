@@ -6,36 +6,39 @@ import Navbar from '@/app/components/Navbar';
 export default function TsuiEdmundPage() {
   const publications = [
     {
+      title: "Automated quantification of anterior chamber cells using swept-source anterior segment optical coherence tomography",
+      authors: "Pillar S, Kadomoto S, Chen K, Gonzalez SS, Cherian N, Privratsky JK, Zargari N, Jackson NJ, Corradetti G, Chen JL, Sadda SR, Holland GN, Tsui E",
+      journal: "Journal of Ophthalmic Inflammation and Infection",
+      year: "2025",
+      doi: "https://joii-journal.springeropen.com/articles/10.1186/s12348-025-00456-y"
+    },
+    {
+      title: "Establishment of a Standard Technique for Determining Laser Flare Photometry Values during Assessment of Intraocular Inflammation",
+      authors: "Tsui E, Jackson NJ, Chen JL, Holland GN",
+      journal: "Ophthalmology Science",
+      year: "2024",
+      doi: "https://www.ophthalmologyscience.org/article/S2666-9145(24)00226-4/fulltext"
+    },
+    {
+      title: "The Use of Large Language Models to Generate Education Materials about Uveitis",
+      authors: "Kianian R, Sun D, Crowell EL, Tsui E",
+      journal: "Ophthalmology Retina",
+      year: "2024",
+      doi: "https://www.sciencedirect.com/science/article/pii/S2468653023004499?via%3Dihub"
+    },
+    {
+      title: "Pathogen Surveillance for Acute Infectious Conjunctivitis",
+      authors: "Tsui E, Sella R, Tham V, Kong AW, McClean E, Goren L, Bahar I, Cherian N, Ramirez J, Hughes RE Jr, Privratsky JK, Onclinx T, Feit-Leichman R, Cheng A, Molina I, Kim P, Yu C, Ruder K, Tan A, Chen C, Liu Y, Abraham T, Hinterwirth A, Zhong L, Porco TC, Lietman TM, Seitzman GD, Doan T; SCORPIO Study Group",
+      journal: "JAMA Ophthalmology",
+      year: "2023",
+      doi: "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2811380"
+    },
+    {
       title: "Quantification of Anterior Chamber Cells in Children With Uveitis Using Anterior Segment Optical Coherence Tomography",
       authors: "Tsui E, Chen JL, Jackson NJ, Leyva O, Rasheed H, Baghdasaryan E, Fung SSM, McCurdy DK, Sadda SR, Holland GN",
       journal: "American Journal of Ophthalmology",
       year: "2022",
-      citations: "New",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977418/"
-    },
-    {
-      title: "Outcomes of Uveitic Macular Edema in the First-line Antimetabolites as Steroid-Sparing Treatment Uveitis Trial",
-      authors: "Tsui E, Rathinam SR, Gonzales JA, Thundikandy R, Kanakath A, Balamurugan S, Vedhanayaki R, Lim LL, Suhler EB, Al-Dhibi HA, et al.",
-      journal: "Ophthalmology",
-      year: "2022",
-      citations: "New",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977419/"
-    },
-    {
-      title: "Recent Advances in the Treatment of Juvenile Idiopathic Arthritis-Associated Uveitis",
-      authors: "Tsui E, Gonzales JA",
-      journal: "Therapeutic Advances in Ophthalmology",
-      year: "2021",
-      citations: "25",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977420/"
-    },
-    {
-      title: "Evaluation of Segmental Retinal Arteritis with Optical Coherence Tomography Angiography",
-      authors: "Tsui E, Leong BCS, Mehta N, Gupta A, Goduni L, Cunningham ET Jr., Freund KB, Lee GD, Dedania VS, Yannuzzi LA, Modi YS",
-      journal: "Retinal Cases and Brief Reports",
-      year: "2019",
-      citations: "15",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977421/"
+      doi: "https://www.ajo.com/article/S0002-9394(22)00209-4/fulltext"
     }
   ];
 
@@ -48,7 +51,7 @@ export default function TsuiEdmundPage() {
         description="Advancing the diagnosis and treatment of uveitis through cutting-edge imaging technologies and clinical trials"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           {/* Profile Image */}
@@ -61,29 +64,61 @@ export default function TsuiEdmundPage() {
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Edmund Tsui, M.D., M.S.</h3>
               <p className="text-gray-600">Associate Professor-in-Residence</p>
-              <p className="text-blue-800">Stein Eye Institute</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://www.uclahealth.org/edmund-tsui" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+                <a 
+                  href="https://x.com/EdmundTsuiMD" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  X (Twitter)
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/edmundtsui/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a 
+                  href="https://pubmed.ncbi.nlm.nih.gov/?term=edmund+tsui&sort=date" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
             <p className="text-gray-800">
-              Dr. Edmund Tsui is a clinician-scientist specializing in uveitis and ocular inflammatory diseases. His research focuses on leveraging advanced imaging technologies such as anterior segment optical coherence tomography (AS-OCT) to improve the diagnosis and monitoring of uveitis. Dr. Tsui is also actively involved in clinical trials investigating novel therapeutics for uveitis.
+            The Tsui Research Group is committed to advancing the field of uveitis through innovative imaging analysis, improved diagnostic tools, and clinical trials. By leveraging advanced imaging modalities such as optical coherence tomography, we aim to quantify objectively intraocular inflammation and enhance diagnostic accuracy in uveitis. Our work also includes developing standardized methodologies for assessing inflammation, and conducting clinical trials to evaluate novel therapeutics in the treatment of uveitis and ocular inflammatory disease. 
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Key research questions include:</p>
+              <p className="text-gray-900 font-semibold">Our research focuses on these areas:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-800">
-                <li>How can multimodal imaging improve the diagnosis and monitoring of uveitis?</li>
-                <li>What are the most effective steroid-sparing therapies for uveitic macular edema?</li>
-                <li>How can AI-based tools enhance the analysis of ocular inflammatory biomarkers?</li>
-                <li>What are the long-term outcomes of systemic immunosuppressive therapies for uveitis?</li>
-                <li>How can imaging biomarkers be used to predict therapeutic response in uveitis patients?</li>
+                <li>Image Analysis: Develop and validate imaging biomarkers using optical coherence tomography (OCT) and other advanced imaging modalities to quantify intraocular inflammation and monitor disease activity in uveitis. This work aims to improve the objectivity of diagnostic assessments, enhance disease monitoring, and guide treatment decisions by leveraging cutting-edge imaging technologies.</li>
+                <li>Advanced Diagnostics: Utilize ocular fluid sampling techniques, such as aqueous and vitreous humor analysis, to improve the diagnosis of uveitis. This includes cytokine profiling, pathogen detection, and biomarker discovery to enable precision diagnostics and uncover underlying etiologies of ocular inflammation.</li>
+                <li>Clinical Trials: Design and conduct clinical trials to evaluate novel therapies and refine treatment strategies for uveitis and other ocular inflammatory diseases. Our research encompasses immune-modulating therapies, biologics, small molecules, and targeted immunotherapies aimed at reducing inflammation, preventing vision loss, and improving patient outcomes.</li>
               </ul>
             </div>
 
             <p className="text-gray-800">
-              In addition to his research efforts, Dr. Tsui is a dedicated educator and serves on multiple professional committees aimed at advancing ophthalmic education and advocacy. He is also an editorial board member for major ophthalmology journals.
+            These research areas reflect our group’s mission to advance the understanding, diagnosis, and treatment of uveitis and ocular inflammatory diseases through innovation and collaboration.
             </p>
           </div>
         </div>

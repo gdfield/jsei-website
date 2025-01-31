@@ -43,9 +43,9 @@ export default function GorinPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Michael B. Gorin Laboratory"
-        subtitle="Ophthalmic Genetics and Genomics"
-        description="Uncovering genetic factors in eye diseases"
+        title="UNDER CONSTRUCTION"
+        subtitle=""
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

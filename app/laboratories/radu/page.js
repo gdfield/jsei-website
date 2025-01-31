@@ -44,11 +44,20 @@ export default function RaduPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <Hero 
-        title="Roxana A. Radu Laboratory"
-        subtitle="Retinal Degeneration and Retinoid Biochemistry"
-        description="Advancing understanding and treatment of retinal diseases through innovative research on retinoid metabolism and retinal pigment epithelium biology"
-      />
+      <div className="w-full h-64 md:h-96 relative overflow-hidden">
+        <img
+          src="/images/laboratory-banners/radu.jpg"
+          alt="Sampath Laboratory Banner"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 10%' }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold text-center mb-2">Roxana A. Radu Laboratory</h1>
+          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2">Retinal Biochemistry and Disease Modeling</h2>
+          <p className="text-lg md:text-xl text-center">Understanding and treatment of retinal diseases through research on retinoid metabolism and pigment epithelium biology</p>
+        </div>
+      </div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
@@ -60,11 +69,22 @@ export default function RaduPage() {
               alt="Dr. Roxana A. Radu"
               className="w-full rounded-lg shadow-lg"
             />
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Roxana A. Radu, Ph.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
-              <p className="text-blue-800">Stein Eye Institute</p>
-            </div>
+              <p className="text-gray-600">Department of Ophthalmology</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://profiles.ucla.edu/roxana.radu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+                </div>
+                </div>
           </div>
 
           {/* Research Description */}

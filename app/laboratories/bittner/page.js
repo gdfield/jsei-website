@@ -47,8 +47,8 @@ export default function BittnerPage() {
       <Navbar />
       <Hero 
         title="Ava Bittner Laboratory"
-        subtitle="Low Vision Rehabilitation and Retinal Degeneration"
-        description="Advancing the field of low vision care through innovative rehabilitation strategies, assistive technologies, and patient-centered research."
+        subtitle="Low Vision Rehabilitation"
+        description="Advancing the field of low vision care."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -63,8 +63,17 @@ export default function BittnerPage() {
             />
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Ava K. Bittner, Ph.D., O.D.</h3>
-              <p className="text-gray-600">Associate Professor</p>
-              <p className="text-blue-800">Jules Stein Eye Institute</p>
+              <p className="text-gray-600">Professor</p>
+              <p className="text-gray-600">Department of Ophthalmology</p>
+              <p className="ext-gray-600">Jules Stein Eye Institute</p>
+              <a 
+                  href="https://profiles.ucla.edu/ava.bittner" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
             </div>
           </div>
 

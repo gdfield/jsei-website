@@ -44,13 +44,12 @@ export default function ZylberbergPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+     <Navbar />
       <Hero 
         title="Joel Zylberberg Laboratory"
         subtitle="Computational Neuroscience and Machine Learning"
         description="Advancing our understanding of brain function and vision with machine learning and computational models"
       />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
         <div className="flex flex-col md:flex-row gap-8 mb-12">
@@ -61,10 +60,11 @@ export default function ZylberbergPage() {
               alt="Dr. Joel Zylberberg"
               className="w-full rounded-lg shadow-lg"
             />
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Joel Zylberberg, Ph.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
-              <p className="text-blue-800">Department of Ophthalmology</p>
+              <p className="text-gray-600">Department of Ophthalmology</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
               <a 
                 href="http://www.jzlab.org" 
                 className="text-blue-600 hover:text-blue-800 inline-block"
@@ -101,7 +101,16 @@ export default function ZylberbergPage() {
               including deep learning frameworks and information theory, to uncover the principles
               of brain function and apply them to real-world problems in AI and medicine.
             </p>
+  {/* Research Graphics */}
+  <div className="my-6">
+    <img
+      src="/images/research/zylberberg.png"
+      alt="Membrane receptor research diagrams showing protein structures, molecular pathways, and experimental results"
+      className="w-full rounded-lg shadow-md"
+    />
           </div>
+  </div>
+
         </div>
 
         {/* Publications Section */}

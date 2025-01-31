@@ -43,9 +43,9 @@ export default function PiriPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Natik Piri Laboratory"
-        subtitle="Molecular Biology of Retinal Ganglion Cells"
-        description="Investigating the mechanisms of retinal ganglion cell death in glaucoma and developing neuroprotective strategies"
+        title="UNDER CONSTRUCTION"
+        subtitle=""
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

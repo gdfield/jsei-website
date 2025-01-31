@@ -43,9 +43,9 @@ export default function TsuiIrenaPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Irena Tsui Laboratory"
-        subtitle="Retinal Diseases and Pediatric Ophthalmology"
-        description="Advancing the diagnosis and treatment of retinal diseases with a focus on pediatric retina and innovative imaging technologies"
+        title="UNDER CONSTRUCTION"
+        subtitle=""
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -58,10 +58,21 @@ export default function TsuiIrenaPage() {
               alt="Dr. Irena Tsui"
               className="w-full rounded-lg shadow-lg"
             />
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Irena Tsui, M.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
-              <p className="text-blue-800">Stein Eye Institute, UCLA</p>
+              <p className="text-gray-600">Department of Ophthalmology</p>
+              <p className="text-gray-600">Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://profiles.ucla.edu/irena.tsui" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+            </div>
             </div>
           </div>
 

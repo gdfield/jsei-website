@@ -43,9 +43,9 @@ export default function AldavePage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="Anthony J. Aldave Laboratory"
-       subtitle="Corneal Genetics and Disease Mechanisms"
-       description="Understanding inherited corneal disorders"
+       title="UNDER CONSTRUCTION"
+       subtitle=""
+       description=""
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -58,8 +58,17 @@ export default function AldavePage() {
            />
            <div className="mt-4 space-y-2">
              <h3 className="text-xl font-bold text-gray-900">Anthony J. Aldave, M.D.</h3>
-             <p className="text-gray-600">Professor</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
+             <p className="text-gray-600">Professor and Vice Chair</p>
+             <p className="text-gray-600">Department of Ophthalmology</p>
+             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <a 
+                  href="https://profiles.ucla.edu/anthony.aldave" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
            </div>
          </div>
 

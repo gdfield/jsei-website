@@ -6,48 +6,59 @@ import Navbar from '@/app/components/Navbar';
 export default function FieldPage() {
   const publications = [
     {
-      title: "Functional organization of direction-selective ganglion cells in the mouse retina",
-      authors: "Field GD, Sanes JR, Masland RH",
+      title: "GABAergic inhibition controls receptive field size, sensitivity and response polarity of direction selective ganglion cells near the threshold of vision",
+      authors: "Roy S, Yao X, Rathinavelu J, Field GD",
       journal: "Journal of Neuroscience",
+      year: "2024",
+      doi: "https://doi.org/10.1523/JNEUROSCI.1979-23.2023"
+    },
+    {
+      title: "Late gene therapy limits the restoration of retinal function in a mouse model of retinitis pigmentosa",
+      authors: "Scalabrino ML, Thapa M, Wang T, Sampath AP, Chen J, Field GD",
+      journal: "Nature Communications",
       year: "2023",
-      citations: "8",
-      doi: "https://doi.org/10.1523/jneurosci.2023.1234"
+      doi: "https://www.nature.com/articles/s41467-023-44063-8"
     },
     {
-      title: "Parallel processing of visual motion in the mammalian retina",
-      authors: "Field GD, Chichilnisky EJ",
-      journal: "Nature Neuroscience",
-      year: "2022",
-      citations: "25",
-      doi: "https://doi.org/10.1038/nn.2022.5678"
+      title: "Large scale interrogation of retinal cell function by 1-photon light sheet microscopy",
+      authors: "Roy S, Wang D, Rudzite AM, Perry B, Scalabrino ML, Gong YY, Sher A, Field GD",
+      journal: "Cell Reports Methods",
+      year: "2023",
+      doi: "https://doi.org/10.1016/j.crmeth.2023.100453"
     },
     {
-      title: "Retinal circuits for vision under daylight and starlight conditions",
-      authors: "Field GD, Gauthier JL, Sher A",
-      journal: "Annual Review of Neuroscience",
+      title: "Inter-mosaic coordination of retinal receptive fields",
+      authors: "Roy S, Jun NY, Davis EL, Pearson J, Field GD",
+      journal: "Nature",
       year: "2021",
-      citations: "42",
-      doi: "https://doi.org/10.1146/annurev-neuro-2021"
+      doi: "https://doi.org/10.1038/s41586-021-03317-5"
     },
     {
-      title: "Mapping nonlinear receptive field structure in primate retina",
-      authors: "Field GD, Gauthier JL, Chichilnisky EJ",
-      journal: "Neuron",
+      title: "Ignoring correlated activity causes a failure of retinal population codes",
+      authors: "Ruda K, Zylberberg J, Field GD",
+      journal: "Nature Communications",
       year: "2020",
-      citations: "89",
-      doi: "https://doi.org/10.1016/j.neuron.2020.9876"
+      doi: "https://doi.org/10.1038/s41467-020-18436-2"
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <Hero 
-        title="Gregory D. Field Laboratory"
-        subtitle="Visual Processing and Retinal Circuits"
-        description="Understanding neural computation in the retina"
-      />
-
+      <div className="w-full h-64 md:h-96 relative overflow-hidden">
+        <img
+          src="/images/laboratory-banners/field.jpg"
+          alt="Sampath Laboratory Banner"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 60%' }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2">Greg D. Field Laboratory</h1>
+          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2">Visual Processing and Retinal Circuits</h2>
+          <p className="text-lg md:text-4xl text-center">Understanding neural computation in the retina</p>
+        </div>
+      </div>
+     
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           <div className="w-full md:w-1/3">
@@ -56,10 +67,40 @@ export default function FieldPage() {
               alt="Dr. Gregory Field"
               className="w-full rounded-lg shadow-lg"
             />
-            <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Gregory D. Field, Ph.D.</h3>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-blue-800">Department of Ophthalmology</p>
+            <div className="mt-4 space-y-1">
+              <h3 className="text-xl font-bold text-gray-900">Greg D. Field, Ph.D.</h3>
+              <p className="text-gray-600">Associate Professor</p>
+              <p className="text-gray-600">Joan and Jerome Snyder Vision Science Chair</p>
+              <p className="text-gray-600">Department of Ophthalmology</p>
+              <p className="text-gray-600">Assistant Director of Research</p>
+              <p className="text-gray-600">Director, Live Imaging and Functional Evaluation Core</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="http://www.retinalcircuits.com" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Laboratory Website
+                </a> 
+                <a 
+                  href="https://www.ncbi.nlm.nih.gov/myncbi/gregory.field.1/bibliography/public/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                </a>
+                <a 
+                  href="https://profiles.ucla.edu/greg.field" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+              </div>
             </div>
           </div>
 
@@ -103,7 +144,7 @@ export default function FieldPage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
                 <p className="text-gray-700 mb-1">{pub.authors}</p>
                 <p className="text-gray-600">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 <a 
                   href={pub.doi}

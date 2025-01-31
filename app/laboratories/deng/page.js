@@ -43,9 +43,9 @@ export default function DengPage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="Sophie X. Deng Laboratory"
-       subtitle="Corneal Stem Cell Biology and Regeneration"
-       description="Advancing stem cell therapies for corneal diseases"
+       title="UNDER CONSTRUCTION"
+       subtitle=""
+       description=""
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -56,12 +56,23 @@ export default function DengPage() {
              alt="Dr. Sophie Deng"
              className="w-full rounded-lg shadow-lg"
            />
-           <div className="mt-4 space-y-2">
-             <h3 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h3>
-             <p className="text-gray-600">Professor</p>
-             <p className="text-blue-800">Department of Ophthalmology</p>
-           </div>
-         </div>
+<div className="mt-4 space-y-2">
+  <h3 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h3>
+  <p className="text-gray-600">Professor</p>
+  <p className="text-gray-600">Department of Ophthalmology</p>
+  <p className="text-gray-600">Jules Stein Eye Institute</p>
+  <div className="flex flex-col space-y-2">
+    <a 
+      href="https://profiles.ucla.edu/sophie.deng" 
+      className="text-blue-600 hover:text-blue-800 inline-block"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Faculty Profile
+    </a>
+  </div>
+</div>
+</div>  
 
          <div className="w-full md:w-2/3 space-y-6">
            <p className="text-gray-800">

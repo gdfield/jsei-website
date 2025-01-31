@@ -62,9 +62,35 @@ export default function HubbellPage() {
               <h3 className="text-xl font-bold text-gray-900">Wayne L. Hubbell, Ph.D.</h3>
               <p className="text-gray-600">Distinguished Professor Emeritus</p>
               <p className="text-gray-600">Jules Stein Chair in Ophthalmology</p>
-              <p className="text-blue-800">Department of Ophthalmology</p>
-              <p className="text-blue-800">Department of Chemistry and Biochemistry</p>
+              <p className="text-gray-600">Department of Ophthalmology and Chemistry and Biochemistry</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://www.biochemistry.ucla.edu/Faculty/Hubbell/members.html" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Laboratory Website
+                </a>
+                <a 
+                  href="https://en.wikipedia.org/wiki/Wayne_L._Hubbell" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Wikipedia
+                </a>
+                <a 
+                  href="https://bri.ucla.edu/people/wayne-hubbell/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
             </div>
+          </div>
           </div>
 
           {/* Research Description */}

@@ -28,7 +28,7 @@
     },
     {
       name: "Ava Bittner",
-      title: "Associate Professor",
+      title: "Professor",
       research: "Low Vision Rehabilitation",
       description: "Dr. Bittner's research focuses on improving quality of life and visual ability for individuals with low vision through innovative rehabilitation strategies with visual aids and devices. She designs and leads the conduct of clinical trials involving assistive technologies and patient-centered approaches to advance low vision care.",
       profileImage: "/images/faculty/bittner.jpg",
@@ -57,7 +57,7 @@
       name: "Joseph Demer",
       title: "Professor",
       research: "Ocular Motility",
-      description: "Dr. Demer investigates the mechanics and neural control of eye movements. His research encompasses both basic science and clinical applications in understanding and treating disorders of ocular motility.",
+      description: "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of eye movements in glaucoma and myopia. His work involves magnetic resonance and optical imaging, tissue biomechanics, and computational simulation.",
       profileImage: "/images/faculty/demer.jpg",
       pageUrl: "/laboratories/demer",
       researchAreas: ["Visual Neuroscience"]
@@ -130,17 +130,17 @@
     {
       name: "Kouros Nouri-Mahdavi",
       title: "Professor",
-      research: "Glaucoma Imaging",
-      description: "Dr. Nouri-Mahdavi focuses on advanced imaging techniques for glaucoma diagnosis and monitoring. His research aims to improve early detection and treatment strategies through innovative imaging approaches.",
-      profileImage: "/images/faculty/kouros.jpg",
+      research: "Glaucoma diagnostics and AI",
+      description: "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma, particularly in understanding disease progression and optimizing diagnostic methodologies including AI approaches. He specializes in detection of disease progression in patients with advanced glaucoma and methods for detecting change over time. His work emphasizes the use of advanced statistical techniques and imaging technologies to enhance glaucoma care.",
+      profileImage: "/images/faculty/kouros2.jpg",
       pageUrl: "/laboratories/nouri-mahdavi",
       researchAreas: ["Eye Disease and Population Health"]
     },
     {
-      name: "Yirong Peng",
+      name: "Yi-Rong Peng",
       title: "Assistant Professor In-Residence",
-      research: "Retinal transcriptomics and bioinformatics",
-      description: "Dr. Peng investigates the cellular and molecular mechanisms underlying retinal circuit function and development. Her research aims to understand how specific cell types in the retina contribute to visual processing and behavior.",
+      research: "Visual System Development and Degeneration ",
+      description: "Dr. Peng investigates the cellular and molecular mechanisms that underly the formation and degeneration of the visual system. Her research uses multi-omics and bioinformatics tools to uncover the genetic basis of neural circuit development and degeneration.",
       profileImage: "/images/faculty/peng.jpg",
       pageUrl: "/laboratories/peng",
       researchAreas: ["Development, Disease, and Aging", "Rescue and Regeneration, Visual Neuroscience"]
@@ -158,7 +158,7 @@
       name: "Roxana Radu",
       title: "Associate Professor In-Residence",
       research: "Retinal Biochemistry and Disease Modeling",
-      description: "Dr. Radu's research bridges fundamental scientific discovery with potential clinical interventions, developing experimental models that provide insights into the molecular switches driving retinal degenerative diseases, and offering promising avenues for future therapeutic development. The research centers on the retinal pigment epithelium (RPE), a critical cell layer that supports photoreceptors and plays a pivotal role in vision preservation. By employing advanced genetic, biochemical, and cell biological systems, including induced pluripotent stem cells and mouse models, the laboratory investigates the cellular mechanisms underlying RPE-photoreceptor dysfunction and cell death.",
+      description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE), a crucial cell layer supporting photoreceptors. Using advanced genetic, biochemical, and cell biological approaches, including induced pluripotent stem cells and mouse models, the laboratory examines molecular mechanisms driving RPE-photoreceptor dysfunction, with the goal of developing potential therapeutic interventions.",
       profileImage: "/images/faculty/radu.jpg",
       pageUrl: "/laboratories/radu",
       researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
@@ -175,8 +175,8 @@
     {
       name: "Hui Sun",
       title: "Professor",
-      research: "Molecular Mechanisms of Vision",
-      description: "Dr. Sun investigates the molecular mechanisms underlying visual processing and retinal disease. Her research combines molecular genetics with functional studies to understand how specific proteins contribute to visual function and how their dysfunction leads to retinal degeneration.",
+      research: "Chemical Biology of Novel Membrane Receptors",
+      description: "Membrane receptors belong to the most successful therapeutic targets in disease treatment.  The Sun lab has developed new techniques to discover novel membrane receptors and to identify their chemical modulators that can be potential drugs in treating major diseases that affect the eye and other organs. ",
       profileImage: "/images/faculty/sun.jpg",
       pageUrl: "/laboratories/sun",
       researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
@@ -192,9 +192,9 @@
     },
     {
       name: "Edmund Tsui",
-      title: "Assistant Professor",
+      title: "Associate Professor",
       research: "Uveitis and Ocular Inflammation",
-      description: "Dr. Tsui specializes in the study and treatment of ocular inflammatory diseases. His research focuses on understanding the mechanisms of ocular inflammation and developing novel therapeutic approaches for uveitis and other inflammatory eye conditions.",
+      description: "Dr. Tsui specializes in the study and treatment of ocular inflammatory diseases. His research focuses on advanced imaging analysis and biomarker discovery in uveitis. He also leads multiple clinical trials aimed at developing innovative therapies for uveitis and other inflammatory eye conditions.",
       profileImage: "/images/faculty/tsui-e.jpg",
       pageUrl: "/laboratories/tsui-e",
       researchAreas: ["Eye Disease and Population Health"]
@@ -211,8 +211,8 @@
     {
       name: "David Williams",
       title: "Professor In-Residence",
-      research: "Photoreceptor-RPE Biology",
-      description: "Dr. Williams investigates the cellular mechanisms of protein transport in photoreceptors and retinal pigment epithelium. His research provides insights into the pathogenesis of inherited retinal degenerations and potential therapeutic approaches.",
+      research: "Retinal Cell Biology",
+      description: "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these highly specialized cells, as well as the underlying processes in retinal degenerations.",
       profileImage: "/images/faculty/williams.jpg",
       pageUrl: "/laboratories/williams",
       researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
@@ -227,10 +227,10 @@
       researchAreas: ["Development, Disease, and Aging", "Rescue and Regeneration"]
     },
     {
-      name: "Jie Zhang",
+      name: "Jie J. Zheng",
       title: "Professor In-Residence",
-      research: "Therepeutic Development",
-      description: "Dr. Zhang's laboratory investigates the neural circuits underlying visual processing and perception. Using advanced imaging and molecular techniques, her work reveals how specific neural pathways contribute to visual function.",
+      research: "Therapeutic Development and AI-Powered Analysis in Vision Research",
+      description: "Dr. Zheng’s research combines chemical biology, cell biology, computational biology, systems pharmacology, and drug discovery to develop innovative therapies for ophthalmic diseases. Leveraging their multidisciplinary expertise, his laboratory focuses on translating research into novel treatments for glaucoma, retinal diseases, and corneal disorders. Additionally, they employ AI-driven protein-protein interaction analysis to investigate the mechanisms underlying different inherited retinal diseases.",
       profileImage: "/images/faculty/zhang.jpg",
       pageUrl: "/laboratories/zhang",
       researchAreas: ["Development, Disease, and Aging", "Retinal Biology", "Rescue and Regeneration"]
