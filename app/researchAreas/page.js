@@ -9,19 +9,8 @@ import Navbar from '../components/Navbar';
 const ResearchPage = () => {
   const researchAreas = [
     {
-      title: "Development, Disease, and Aging",
-      description: "These research teams work to understand the normal mechanisms by which the eye and visual system develops, how it changes with age, and how degenerative conditions alter its function.",
-      projects: [
-        "Gene networks in retinal development",
-        "Photoreceptor and macular degeneration",
-        "Glaucoma and optic neuropathies"
-      ],
-      imageUrl: "/images/areas/aging.jpg",
-      pageUrl: "/researchAreas/development"  // Add this line
-    },
-    {
-      title: "Rescue and Regeneration",
-      description: "Curing blindness and vision loss requires halting the disease and regenerating or repairing the damaged tissues. These lab pursue innovative approaches from gene therapies to pharmacuetical treat vision loss.",
+      title: "Therapeutics and Regeneration",
+      description: "Curing blindness and vision loss requires halting the disease and regenerating or repairing the damaged tissues. These labs pursue innovative approaches from gene therapies to pharmacuetical treatments for vision loss.",
       projects: [
         "Gene therapies",
         "Transplantation",
@@ -29,21 +18,60 @@ const ResearchPage = () => {
       ],
       imageUrl: "/images/areas/regeneration.jpg",
       pageUrl: "/researchAreas/regeneration"  // Add this line
-    },    {
-      title: "Retinal Biology",
-      description: "A long-standing area of excellence at JSEI is understanding the fundamental biology and biochemistry that makes vision possible. These labs reveal the basic processes that make vision possible.",
+    },
+
+    {
+      title: "Retinal Cell and Molecular Biology ",
+      description: "A long-standing area of excellence at JSEI is understanding the fundamental retinal biology that makes vision possible. These labs reveal the highly specialized molecular and cellular interactions that occur in the retina.",
       projects: [
-        "Photoreceptor biology and phototransduction",
+        "Photoreceptor biology",
         "The retinal pigment epithelium",
-        "Metabolism and gene regulation"
+        "Molecular signaling and receptors"
       ],
       imageUrl: "/images/areas/biology.jpg",
       pageUrl: "/researchAreas/retinalbio"  // Add this line
-
     },
+
     {
       title: "Visual Neuroscience",
       description: "Much of the human brain is devoted to vision and the retina is part of the brain. These labs aim to understand how the operation of the neurons that comprise the visual system produce our ability to see.",
+      projects: [
+        "Circuit mapping in the retina and brain",
+        "Visual information processing",
+        "Synaptic transmission"
+      ],
+      imageUrl: "/images/areas/vision.jpg",
+      pageUrl: "/researchAreas/visualneuro"  // Add this line
+
+    },
+
+    {
+      title: "Ocular Imaging",
+      description: "Imaging is central to the diagnosis of many eye diseases as well as understanding biological processes. These labs use diverse imaging techniques to understand eye disease and eye biology with ever greater resolution and precision.",
+      projects: [
+        "Fundus imaging",
+        "Optical coherence tomography",
+        "Adviced microscopy"
+      ],
+      imageUrl: "/images/areas/aging.jpg",
+      pageUrl: "/researchAreas/development"  // Add this line
+    },
+
+    {
+      title: "Eye Surface and Lens",
+      description: "Without a clear and healthy window from the front of the eye to the retina at the back, vision is not possible. These labs aim to understand the maintanence, deterioration and repair of the eye surface and lens.",
+      projects: [
+        "Tear films",
+        "Cornea",
+        "Ocular transparency"
+      ],
+      imageUrl: "/images/areas/cornea.jpg",
+      pageUrl: "/researchAreas/cornea"
+    },
+
+    {
+      title: "Bioinformatics and Artificial Intelligence",
+      description: "Twenty-first century science may ultimately be known as the age of big data. These labs utilize the latest approaches from bioinformatics, biostatistics, and machine learning, to understand and model the processes that underly these data.",
       projects: [
         "Circuit mapping in the retina and brain",
         "Visual infomration processing",
@@ -53,33 +81,10 @@ const ResearchPage = () => {
       pageUrl: "/researchAreas/visualneuro"  // Add this line
 
     },
-    /*
+
     {
-      title: "Computational Vision",
-      description: "Development of mathematical models and computational approaches to understand visual processing. These labs generate knowledge and models crictical for generating artificial vision systema and visual prosthetics.",
-      projects: [
-        "Machine learning in vision science",
-        "Neural coding models",
-        "Visual perception algorithms"
-      ],
-      imageUrl: "/images/areas/compute.jpg",
-      pageUrl: "/researchAreas/compvision"
-    },
-    */
-    {
-      title: "Cornea and Lens",
-      description: "Without a clear and healthy window from the front of the eye to the retina at the back, vision is not possible. These labs aims to understand how to repair this critical and all-to-often damaged part of the eye.",
-      projects: [
-        "Development and aging",
-        "Stem cells",
-        "Transplantation"
-      ],
-      imageUrl: "/images/areas/cornea.jpg",
-      pageUrl: "/researchAreas/cornea"
-    },
-    {
-      title: "Eye Disease and Population Health",
-      description: "JSEI includes critical research on a range of eye diseases, including the develop and analysis of different treatment approaches. This research is spearheaded by to clinician-scientists who unit science and medicine.",
+      title: "Genetics and Population Health",
+      description: "Genetics and environmental factors shape the landscape and prevalence of eye conditions and diseases. These labs seek to understand these genetic and environemental factors to better target diagnostics and treatments to individuals and communities",
       projects: [
         "Disease Genetics",
         "Low Vision",
@@ -88,6 +93,19 @@ const ResearchPage = () => {
       imageUrl: "/images/areas/pophealth.jpg",
       pageUrl: "/researchAreas/health"
     },
+
+    {
+      title: "Rehabilitation and Eye Motility",
+      description: "How we look at the world shapes what we see. From magnifiers to augmented reality to eye movements, these labs aim to understand how the processes controlling what image lands on the retina from moment to moment impacts our long-term ability to see.",
+      projects: [
+        "Ocular muscles and biomechanics",
+        "Amblyopia",
+        "Low vision"
+      ],
+      imageUrl: "/images/areas/pophealth.jpg",
+      pageUrl: "/researchAreas/health"
+    },
+
   ];
 
   return (

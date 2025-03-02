@@ -85,33 +85,31 @@ export default function WilliamsPage() {
 
          <div className="w-full md:w-2/3 space-y-6">
            <p className="text-gray-800">
-             The Williams laboratory investigates the cellular mechanisms that underlie inherited retinal degenerations, focusing particularly on those involving defects in intracellular trafficking. Our studies involve molecular cell biology, with an emphasis on live-cell imaging, to study protein transport in photoreceptors and the retinal pigment epithelium (RPE).
-           </p>
+           The Williams laboratory studies dynamic cellular processes in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these most highly specialized cells. Emphasis is on using advanced microscopy methods, including high-speed live-cell imaging and 3-D electron microscopy. 
+                      </p>
            
            <div className="space-y-3">
              <p className="text-gray-900 font-semibold">Current Research Areas:</p>
              <ul className="list-disc pl-6 space-y-2 text-gray-800">
                <li>
-                 Studying the molecular regulation of protein trafficking in photoreceptors and RPE cells, especially the mechanisms involved in rhodopsin transport and turnover
+               The delivery of opsin to the photoreceptor cilium and membrane shaping to form the disk membranes the photoreceptor outer segment.               </li>
+               <li>
+               RPE cell biology, especially the motility and interactions of organelles, such as mitochondria, melanosomes, phagosomes and endolysosomes.                </li>
+               <li>
+               Cell metabolism in relation to RPE cell differentiation. 
+                              </li>
+               <li>
+               Retinal degeneration in Usher syndrome, involving the differentiation of patient-derived iPSCs into retinal cells, studies of MYO7A, and strategies for treatments via gene therapy.
                </li>
                <li>
-                 Investigating choroideremia, a genetic disease caused by defects in intracellular trafficking in the RPE, and developing therapeutic strategies
-               </li>
-               <li>
-                 Examining the role of molecular motors and their regulation in retinal cell function and survival
-               </li>
-               <li>
-                 Developing and testing gene therapy approaches for treating inherited retinal diseases
-               </li>
-               <li>
-                 Understanding the cellular mechanisms of photoreceptor disc renewal and their implications for retinal health
-               </li>
+               Mechanisms of other retinal degenerations, including choroideremia and macular degeneration.  
+                            </li>
              </ul>
            </div>
 
            <p className="text-gray-800">
-             Our research aims to understand the fundamental cellular processes that are essential for photoreceptor and RPE cell function, and how defects in these processes lead to retinal degeneration. This knowledge is critical for developing treatments for inherited retinal diseases.
-           </p>
+           By studying fundamental cellular processes that are essential for photoreceptor and RPE cell function, the lab’s research is advancing general cell biological principles. It also provides an understanding of how defects in these processes lead to retinal degeneration.  This knowledge is critical for developing treatments for inherited retinal diseases.  
+                    </p>
          </div>
        </div>
 
