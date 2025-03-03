@@ -16,7 +16,7 @@ const ResearchPage = () => {
         "Transplantation",
         "Stem Cells"
       ],
-      imageUrl: "/images/areas/regeneration.jpg",
+      imageUrl: "/images/areas/therapies.jpg",
       pageUrl: "/researchAreas/regeneration"  // Add this line
     },
 
@@ -28,7 +28,7 @@ const ResearchPage = () => {
         "The retinal pigment epithelium",
         "Molecular signaling and receptors"
       ],
-      imageUrl: "/images/areas/biology.jpg",
+      imageUrl: "/images/areas/mobio.jpg",
       pageUrl: "/researchAreas/retinalbio"  // Add this line
     },
 
@@ -40,7 +40,7 @@ const ResearchPage = () => {
         "Visual information processing",
         "Synaptic transmission"
       ],
-      imageUrl: "/images/areas/vision.jpg",
+      imageUrl: "/images/areas/neuro.jpg",
       pageUrl: "/researchAreas/visualneuro"  // Add this line
 
     },
@@ -53,7 +53,7 @@ const ResearchPage = () => {
         "Optical coherence tomography",
         "Adviced microscopy"
       ],
-      imageUrl: "/images/areas/aging.jpg",
+      imageUrl: "/images/areas/imaging.jpg",
       pageUrl: "/researchAreas/development"  // Add this line
     },
 
@@ -65,7 +65,7 @@ const ResearchPage = () => {
         "Cornea",
         "Ocular transparency"
       ],
-      imageUrl: "/images/areas/cornea.jpg",
+      imageUrl: "/images/areas/surface.jpg",
       pageUrl: "/researchAreas/cornea"
     },
 
@@ -77,7 +77,7 @@ const ResearchPage = () => {
         "Visual infomration processing",
         "Synaptic transmission"
       ],
-      imageUrl: "/images/areas/vision.jpg",
+      imageUrl: "/images/areas/bioinformatics.jpg",
       pageUrl: "/researchAreas/visualneuro"  // Add this line
 
     },
@@ -90,7 +90,7 @@ const ResearchPage = () => {
         "Low Vision",
         "Improving Outcomes"
       ],
-      imageUrl: "/images/areas/pophealth.jpg",
+      imageUrl: "/images/areas/health.jpg",
       pageUrl: "/researchAreas/health"
     },
 
@@ -102,7 +102,7 @@ const ResearchPage = () => {
         "Amblyopia",
         "Low vision"
       ],
-      imageUrl: "/images/areas/pophealth.jpg",
+      imageUrl: "/images/areas/motility.jpg",
       pageUrl: "/researchAreas/health"
     },
 
@@ -119,25 +119,25 @@ const ResearchPage = () => {
 
       {/* Research Areas */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {researchAreas.map((area) => (
             <div 
               key={area.title}
-              className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer"
+              className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow cursor-pointer"
               onClick={() => window.location.href = area.pageUrl}
             >
-              <div className="mb-4">
+              <div className="mb-3 flex justify-center items-center h-40 overflow-hidden rounded-lg">
                 <img 
                   src={area.imageUrl} 
                   alt={area.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4">{area.title}</h2>
-              <p className="text-gray-700 mb-4">{area.description}</p>
-              <ul className="space-y-2">
+              <h2 className="text-lg font-bold text-gray-900 mb-2">{area.title}</h2>
+              <p className="text-gray-700 mb-3 text-sm">{area.description}</p>
+              <ul className="space-y-1">
                 {area.projects.map((project, index) => (
-                  <li key={index} className="text-gray-600 flex items-center">
+                  <li key={index} className="text-gray-600 text-sm flex items-center">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                     {project}
                   </li>
@@ -160,4 +160,3 @@ const ResearchPage = () => {
 
 
 export default ResearchPage;
-
