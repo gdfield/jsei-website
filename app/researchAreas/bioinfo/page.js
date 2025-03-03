@@ -7,15 +7,15 @@ import { facultyData } from '../../data/faculty';
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("Genetics and Population Health")
+    faculty.researchAreas.includes("BioInfo and AI")
   );
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Genetics and Population Health"
-        subtitle="Finding the factors that underly eye disease"
+        title="Bioinformatics and Artificial Intelligence"
+        subtitle="Using big data, machine learning, and statistical models to understand eye disease and vision"
         description=""
       />
 
@@ -23,16 +23,16 @@ const DevelopmentPage = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
           <p className="text-gray-700">
-            Genetics and environmental factors shape the landscape and prevalence of eye conditions and diseases. 
-            These labs seek to understand these genetic and environemental factors to better target diagnostics and 
-            treatments to individuals and communities.
+            Twenty-first century science may ultimately be known as the age of big data. 
+            These labs utilize the latest approaches from bioinformatics, biostatistics, and machine learning, 
+            to understand and model the processes that underly these data.
           </p>
           <div className="mt-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Key Research Areas:</h3>
             <ul className="list-disc pl-6 text-gray-700">
-              <li>Disease Genetics</li>
-              <li>Epidemiology</li>
-              <li>Improving Outcomes</li>
+              <li>Neural network models</li>
+              <li>Machine learning</li>
+              <li>'omics'</li>
             </ul>
           </div>
         </div>

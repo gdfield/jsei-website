@@ -7,31 +7,32 @@ import { facultyData } from '../../data/faculty';
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("Computational Vision")
+    faculty.researchAreas.includes("Eye Mobility and Rehabilitation")
   );
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Computational Vision"
-        subtitle="Using Machine Learning and Mathematical Approaches to Understand and Model the Visual System"
-        description="Interdisciplinary research teams applying concepts from computer science, physics, and engineering to vision"
+        title="Eye Mobility and Rehabilitation"
+        subtitle="Improving vision by understanding how patients look at the world"
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
           <p className="text-gray-700">
-          The retina is part of the brain and is a complex neural circuit composed of dozens of distinct cell types.
-          These labs work to understand how neurons within this circuit function and work together make vision possible.
+            How we look at the world shapes what we see. From magnifiers to augmented reality to eye movements, 
+            these labs aim to understand how the processes controlling what image lands on the retina from moment 
+            to moment impacts our long-term ability to see.
           </p>
           <div className="mt-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Key Research Areas:</h3>
             <ul className="list-disc pl-6 text-gray-700">
-              <li>Neural information processing</li>
-              <li>Synaptic transmission</li>
-              <li>Visual Processing</li>
+              <li>Ocular muscles and biomechanics</li>
+              <li>Amblyopia</li>
+              <li>Low vision</li>
             </ul>
           </div>
         </div>

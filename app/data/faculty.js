@@ -6,7 +6,7 @@
       description: "Dr. Aldave's research focuses on the genetic basis of corneal diseases and the development of novel therapeutic approaches. His work combines clinical genetics with advanced molecular techniques to understand inherited corneal disorders.",
       profileImage: "/images/faculty/aldave.jpg",
       pageUrl: "/laboratories/aldave",
-      researchAreas: ["Cornea and Lens", "Eye Disease and Population Health"]
+      researchAreas: ["Eye Surface and Lens", "Genetics and Population Health", "Therapeutics and Regeneration"]
     },
     {
       name: "Aya Barzalay-Wollman",
@@ -15,7 +15,7 @@
       description: "Dr. Barzalay-Wollman specializes in developing innovative robotic microsurgical techniques for ophthalmic surgery. Her research combines robotics engineering with surgical precision to advance the field of ophthalmic microsurgery.",
       profileImage: "/images/faculty/barzalay.jpg",
       pageUrl: "/laboratories/barzalay",
-      researchAreas: ["Rescue and Regeneration","Eye Disease and Population Health"]
+      researchAreas: ["Therapeutics and Regeneration"]
     },
     {
       name: "Suraj Bhat",
@@ -24,7 +24,7 @@
       description: "Dr. Bhat's research focuses on understanding the molecular mechanisms of lens development and cataract formation. His work investigates the role of specific proteins and molecular chaperones in maintaining lens transparency and preventing age-related cataracts.",
       profileImage: "/images/faculty/bhat.jpg",
       pageUrl: "/laboratories/bhat",
-      researchAreas: ["Cornea and Lens"]
+      researchAreas: ["Eye Surface and Lens"]
     },
     {
       name: "Ava Bittner",
@@ -33,7 +33,7 @@
       description: "Dr. Bittner's research focuses on improving quality of life and visual ability for individuals with low vision through innovative rehabilitation strategies with visual aids and devices. She designs and leads the conduct of clinical trials involving assistive technologies and patient-centered approaches to advance low vision care.",
       profileImage: "/images/faculty/bittner.jpg",
       pageUrl: "/laboratories/bittner",
-      researchAreas: ["Eye Diseases and Population Health"]
+      researchAreas: ["Eye Mobility and Rehabilitation"]
     },
      {
       name: "Nicholas Brecha",
@@ -42,7 +42,7 @@
       description: "Dr. Brecha studies the organization and function of neural circuits in the retina. His research focuses on understanding neurotransmitter systems and their role in retinal signal processing, with particular emphasis on inhibitory circuits and neuromodulation.",
       profileImage: "/images/faculty/brecha.jpg",
       pageUrl: "/laboratories/brecha",
-      researchAreas: ["Visual Neuroscience", "Development, Disease, and Aging"]
+      researchAreas: ["Visual Neuroscience", "Retinal Biology"]
     },
     {
       name: "Anne Coleman",
@@ -51,7 +51,7 @@
       description: "Dr. Coleman leads clinical research initiatives focused on population health, health policy, and clinical outcomes in ophthalmology. Her work combines epidemiological approaches with clinical research to improve eye care delivery and outcomes, particularly in underserved populations.",
       profileImage: "/images/faculty/coleman.jpg",
       pageUrl: "/laboratories/coleman",
-      researchAreas: ["Eye Disease and Population Health"]
+      researchAreas: ["Genetics and Population Health"]
     },
     {
       name: "Joseph Demer",
@@ -60,7 +60,7 @@
       description: "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of eye movements in glaucoma and myopia. His work involves magnetic resonance and optical imaging, tissue biomechanics, and computational simulation.",
       profileImage: "/images/faculty/demer.jpg",
       pageUrl: "/laboratories/demer",
-      researchAreas: ["Visual Neuroscience"]
+      researchAreas: ["Visual Neuroscience", "Eye Mobility and Rehabilitation"]
     },
     {
       name: "Sophie Deng",
@@ -69,7 +69,7 @@
       description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine. Her work aims to develop novel therapeutic strategies for corneal diseases and injuries through stem cell-based approaches.",
       profileImage: "/images/faculty/deng.jpg",
       pageUrl: "/laboratories/deng",
-      researchAreas: ["Cornea and Lens","Eye Disease and Population Health"]
+      researchAreas: ["Eye Surface and Lens","Therapeuitics and Regeneration", "Ocular Imaging", "BioInfo and AI"]
     },
     {
       name: "Gordon Fain",
@@ -87,7 +87,7 @@
       description: "Dr. Field's laboratory focuses on understanding how neural circuits in the retina process visual information. His work combines electrophysiology, imaging, and computational approaches to decode the neural basis of vision at the cellular level.",
       profileImage: "/images/faculty/field.jpg",
       pageUrl: "/laboratories/field",
-      researchAreas: ["Visual Neuroscience", "Computational Vision", "Rescue and Regeneration"]
+      researchAreas: ["Visual Neuroscience", "BioInfo and AI", "Therapeutics and Regeneration"]
     },
     {
       name: "Ben Glasgow",
@@ -96,7 +96,7 @@
       description: "Dr. Glasgow’s research focuses on the role of lipid and protein components in the molecular mechanisms of tear film formation. His laboratory combines biochemical and biophysical techniques to study dynamic interactions of these constituents in relation to dry eye diseases.",
       profileImage: "/images/faculty/empty.jpg",
       pageUrl: "/laboratories/glasgow",
-      researchAreas: ["Development, Disease, and Aging"]
+      researchAreas: ["Eye Surface and Lens"]
     },
     {
       name: "Michael Gorin",
@@ -105,7 +105,7 @@
       description: "Dr. Gorin's research centers on identifying and understanding genetic factors in inherited eye diseases, particularly age-related macular degeneration and retinal degenerations. His work combines clinical genetics with molecular biology to develop personalized therapeutic approaches for inherited eye disorders.",
       profileImage: "/images/faculty/gorin.jpg",
       pageUrl: "/laboratories/gorin",
-      researchAreas: ["Eye Disease and Population Health"]
+      researchAreas: ["Genetics and Population Health"]
     },
     /*
     {
@@ -134,7 +134,7 @@
       description: "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma, particularly in understanding disease progression and optimizing diagnostic methodologies including AI approaches. He specializes in detection of disease progression in patients with advanced glaucoma and methods for detecting change over time. His work emphasizes the use of advanced statistical techniques and imaging technologies to enhance glaucoma care.",
       profileImage: "/images/faculty/kouros2.jpg",
       pageUrl: "/laboratories/nouri-mahdavi",
-      researchAreas: ["Eye Disease and Population Health"]
+      researchAreas: ["Ocular Imaging","BioInfo and AI"]
     },
     {
       name: "Yi-Rong Peng",
@@ -143,16 +143,16 @@
       description: "Dr. Peng investigates the cellular and molecular mechanisms that underly the formation and degeneration of the visual system. Her research uses multi-omics and bioinformatics tools to uncover the genetic basis of neural circuit development and degeneration.",
       profileImage: "/images/faculty/peng.jpg",
       pageUrl: "/laboratories/peng",
-      researchAreas: ["Development, Disease, and Aging", "Rescue and Regeneration, Visual Neuroscience"]
+      researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience","BioInfo and AI"]
     },
     {
       name: "Natik Piri",
       title: "Professor",
       research: "Glaucoma and Retinal Neurodegeneration",
-      description: "Dr. Glasgow’s research focuses on the role of lipid and protein components in the molecular mechanisms of tear film formation. His laboratory combines biochemical and biophysical techniques to study dynamic interactions of these constituents in relation to dry eye diseases.",
+      description: "Dr. Piri's research focuses on how glaucoma impacts retinal ganglion cell survival. He is interested in how we can make ganglion cells more robust to glaucoma and what triggers their cell death",
       profileImage: "/images/faculty/piri.jpg",
       pageUrl: "/laboratories/piri",
-      researchAreas: ["Development, Disease, and Aging", "Rescue and Regeneration"]
+      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"]
     },
     {
       name: "Roxana Radu",
@@ -161,7 +161,7 @@
       description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE), a crucial cell layer supporting photoreceptors. Using advanced genetic, biochemical, and cell biological approaches, including induced pluripotent stem cells and mouse models, the laboratory examines molecular mechanisms driving RPE-photoreceptor dysfunction, with the goal of developing potential therapeutic interventions.",
       profileImage: "/images/faculty/radu.jpg",
       pageUrl: "/laboratories/radu",
-      researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Genetics and Population Health"]
     },
     {
       name: "Alapakkam Sampath",
@@ -170,7 +170,7 @@
       description: "Dr. Sampath’s focuses on understanding how rod and cone photoreceptors, and their retinal circuits, encode visual information. His lab uses advanced electrophysiological techniques to study mechanisms of signal detection and light adaptation.  A more recent focus is in how physiological mechanisms compensate for photoreceptor loss during retinal degenerations.",
       profileImage: "/images/faculty/sampath.jpg",
       pageUrl: "/laboratories/sampath",
-      researchAreas: ["Development, Disease, and Aging", "Visual Neuroscience", "Rescue and Regeneration"]
+      researchAreas: ["Retinal Biology", "Visual Neuroscience", "Therapeutics and Regeneration"]
     },
     {
       name: "Hui Sun",
@@ -179,7 +179,7 @@
       description: "Membrane receptors belong to the most successful therapeutic targets in disease treatment.  The Sun lab has developed new techniques to discover novel membrane receptors and to identify their chemical modulators that can be potential drugs in treating major diseases that affect the eye and other organs. ",
       profileImage: "/images/faculty/sun.jpg",
       pageUrl: "/laboratories/sun",
-      researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"]
     },
     {
       name: "Gabriel Travis",
@@ -188,7 +188,16 @@
       description: "Dr. Travis studies the molecular mechanisms of photoreceptor outer segment renewal and the role of specific proteins in retinal degenerative diseases. His work has important implications for understanding and treating inherited retinal disorders.",
       profileImage: "/images/faculty/travis.jpg",
       pageUrl: "/laboratories/travis",
-      researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
+      researchAreas: ["Retinal Biology"]
+    },
+    {
+      name: "Victorial Tseng",
+      title: "Assistant Professor",
+      research: "Epidemiology and Public Health",
+      description: "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective. Areas of interest include individual and structural level factors that influence glaucoma risk, and clinical and surgical quality of glaucoma care.",
+      profileImage: "/images/faculty/tseng.jpg",
+      pageUrl: "/laboratories/tseng",
+      researchAreas: ["Genetics and Population Health"]
     },
     {
       name: "Edmund Tsui",
@@ -197,7 +206,7 @@
       description: "Dr. Tsui specializes in the study and treatment of ocular inflammatory diseases. His research focuses on advanced imaging analysis and biomarker discovery in uveitis. He also leads multiple clinical trials aimed at developing innovative therapies for uveitis and other inflammatory eye conditions.",
       profileImage: "/images/faculty/tsui-e.jpg",
       pageUrl: "/laboratories/tsui-e",
-      researchAreas: ["Eye Disease and Population Health"]
+      researchAreas: ["Ocular Imaging"]
     },
         {
       name: "Irena Tsui",
@@ -206,7 +215,7 @@
       description: "Dr. Tsui specializes in clinical research focused on retinal diseases and their treatments. Her work combines clinical insights with translational research to develop and evaluate new therapeutic approaches for retinal disorders, particularly in premature infants and diabetic patients.",
       profileImage: "/images/faculty/tsui-i.jpg",
       pageUrl: "/laboratories/tsui-i",
-      researchAreas: ["Eye Disease and Population Health"]
+      researchAreas: ["Ocular Imaging", "Therapeutics and Regeneration"]
     },
     {
       name: "David Williams",
@@ -215,7 +224,7 @@
       description: "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these highly specialized cells, as well as the underlying processes in retinal degenerations.",
       profileImage: "/images/faculty/williams.jpg",
       pageUrl: "/laboratories/williams",
-      researchAreas: ["Development, Disease, and Aging", "Retinal Biology"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Ocular Imaging"]
     },
     {
       name: "Xian-Jie Yang",
@@ -224,7 +233,7 @@
       description: "Dr. Yang studies retinal development and repair using molecular genetic approaches. Her research provides insight on cellular signaling mechanism involved in neuroprotection in retinal degenerative diseases. She also uses human stem cell-derived retinal organoids and neurons to model optic neuropathies and develop therapy.",
       profileImage: "/images/faculty/yang.png",
       pageUrl: "/laboratories/yang",
-      researchAreas: ["Development, Disease, and Aging", "Rescue and Regeneration"]
+      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration"]
     },
     {
       name: "Jie J. Zheng",
@@ -233,7 +242,7 @@
       description: "Dr. Zheng’s research combines chemical biology, cell biology, computational biology, systems pharmacology, and drug discovery to develop innovative therapies for ophthalmic diseases. Leveraging their multidisciplinary expertise, his laboratory focuses on translating research into novel treatments for glaucoma, retinal diseases, and corneal disorders. Additionally, they employ AI-driven protein-protein interaction analysis to investigate the mechanisms underlying different inherited retinal diseases.",
       profileImage: "/images/faculty/zhang.jpg",
       pageUrl: "/laboratories/zhang",
-      researchAreas: ["Development, Disease, and Aging", "Retinal Biology", "Rescue and Regeneration"]
+      researchAreas: ["BioInfo and AI", "Retinal Biology", "Therapeutics and Regeneration", "Eye Surface and Lens", "Genetics and Population Health"]
     },
     {
       name: "Joel Zylberberg",
@@ -242,6 +251,6 @@
       description: "Dr. Zylberberg's research combines theoretical and computational approaches to understand how neural circuits process visual information. His work focuses on developing mathematical models of visual processing and applying machine learning to analyze neural data.",
       profileImage: "/images/faculty/zylberberg.jpg",
       pageUrl: "/laboratories/zylberberg",
-      researchAreas: ["Computational Vision", "Visual Neuroscience"]
+      researchAreas: ["BioInfo and AI", "Visual Neuroscience", "Retinal Biology"]
     }
   ];

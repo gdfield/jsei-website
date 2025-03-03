@@ -7,31 +7,32 @@ import { facultyData } from '../../data/faculty';
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("Cornea and Lens")
+    faculty.researchAreas.includes("Ocular Imaging")
   );
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Cornea"
-        subtitle="Protecting, repairing and replacing the eye's window"
-        description="Research teams working to understand and treat corneal damage and disease"
+        title="Ocular Imaging"
+        subtitle="Imaging the eye and retina to understand biological processes and disease progression"
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
           <p className="text-gray-700">
-            Our teams work to understand the normal mechanisms by which the eye and visual system develops, 
-            how it changes with age, and how degenerative conditions alter its function.
+          Imaging is central to the diagnosis of many eye diseases as well as understanding biological processes. 
+          These labs use diverse imaging techniques to understand eye disease and eye biology with ever greater 
+          resolution and precision.
           </p>
           <div className="mt-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Key Research Areas:</h3>
             <ul className="list-disc pl-6 text-gray-700">
-              <li>Gene networks in retinal development</li>
-              <li>Photoreceptor and macular degeneration</li>
-              <li>Glaucoma and optic neuropathies</li>
+              <li>Fundus imaging</li>
+              <li>Optical coherence tomography</li>
+              <li>Advanced microscopy</li>
             </ul>
           </div>
         </div>

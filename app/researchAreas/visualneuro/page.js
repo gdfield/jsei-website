@@ -15,23 +15,24 @@ const DevelopmentPage = () => {
       <Navbar />
       <Hero 
         title="Visual Neuroscience"
-        subtitle="Finding cures for vision loss"
-        description="Research teams working to understand how to halt and rescue vision loss"
+        subtitle="Understanding how neurons respond to and signal visual stimuli and how the brain and muscles control eye movements"
+        description=""
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
           <p className="text-gray-700">
-          The retina is part of the brain and is a complex neural circuit composed of dozens of distinct cell types.
-          These labs work to understand how neurons within this circuit function and work together make vision possible.
+          Much of the human brain is devoted to vision and the retina is part of the brain. 
+          These labs aim to understand how the operation of the neurons that comprise the visual 
+          system produce our ability to see.
           </p>
           <div className="mt-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Key Research Areas:</h3>
             <ul className="list-disc pl-6 text-gray-700">
-              <li>Neural information processing</li>
+              <li>Circuit mapping in the retina and brain</li>
+              <li>SVisual information processing</li>
               <li>Synaptic transmission</li>
-              <li>Visual Processing</li>
             </ul>
           </div>
         </div>

@@ -10,7 +10,7 @@ const ResearchPage = () => {
   const researchAreas = [
     {
       title: "Therapeutics and Regeneration",
-      description: "Curing blindness and vision loss requires halting the disease and regenerating or repairing the damaged tissues. These labs pursue innovative approaches from gene therapies to pharmacuetical treatments for vision loss.",
+      description: "Curing blindness and vision loss requires halting the disease and regenerating or repairing the damaged tissues. These labs pursue innovative approaches from gene therapies to pharmaceutical treatments for vision loss.",
       projects: [
         "Gene therapies",
         "Transplantation",
@@ -51,10 +51,10 @@ const ResearchPage = () => {
       projects: [
         "Fundus imaging",
         "Optical coherence tomography",
-        "Adviced microscopy"
+        "Advanced microscopy"
       ],
       imageUrl: "/images/areas/imaging.jpg",
-      pageUrl: "/researchAreas/development"  // Add this line
+      pageUrl: "/researchAreas/ocular"  // Add this line
     },
 
     {
@@ -66,19 +66,19 @@ const ResearchPage = () => {
         "Ocular transparency"
       ],
       imageUrl: "/images/areas/surface.jpg",
-      pageUrl: "/researchAreas/cornea"
+      pageUrl: "/researchAreas/surface"
     },
 
     {
       title: "Bioinformatics and Artificial Intelligence",
       description: "Twenty-first century science may ultimately be known as the age of big data. These labs utilize the latest approaches from bioinformatics, biostatistics, and machine learning, to understand and model the processes that underly these data.",
       projects: [
-        "Circuit mapping in the retina and brain",
-        "Visual infomration processing",
-        "Synaptic transmission"
+        "Neural network models",
+        "Machine learning",
+        "Biostatistics"
       ],
       imageUrl: "/images/areas/bioinformatics.jpg",
-      pageUrl: "/researchAreas/visualneuro"  // Add this line
+      pageUrl: "/researchAreas/bioinfo"  // Add this line
 
     },
 
@@ -87,7 +87,7 @@ const ResearchPage = () => {
       description: "Genetics and environmental factors shape the landscape and prevalence of eye conditions and diseases. These labs seek to understand these genetic and environemental factors to better target diagnostics and treatments to individuals and communities",
       projects: [
         "Disease Genetics",
-        "Low Vision",
+        "Epidemiology",
         "Improving Outcomes"
       ],
       imageUrl: "/images/areas/health.jpg",
@@ -103,7 +103,7 @@ const ResearchPage = () => {
         "Low vision"
       ],
       imageUrl: "/images/areas/motility.jpg",
-      pageUrl: "/researchAreas/health"
+      pageUrl: "/researchAreas/rehab"
     },
 
   ];
@@ -119,30 +119,35 @@ const ResearchPage = () => {
 
       {/* Research Areas */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {researchAreas.map((area) => (
             <div 
               key={area.title}
               className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow cursor-pointer"
               onClick={() => window.location.href = area.pageUrl}
             >
-              <div className="mb-3 flex justify-center items-center h-40 overflow-hidden rounded-lg">
-                <img 
-                  src={area.imageUrl} 
-                  alt={area.title}
-                  className="w-full h-full object-contain"
-                />
+              <div className="flex flex-row">
+                <div className="w-1/3 flex-shrink-0 overflow-hidden rounded-lg mr-4">
+                  <img 
+                    src={area.imageUrl} 
+                    alt={area.title}
+                    className="w-full object-contain"
+                    style={{ marginTop: '0.25rem' }}
+                  />
+                </div>
+                <div className="w-2/3">
+                  <h2 className="text-lg font-bold text-gray-900 mb-2">{area.title}</h2>
+                  <p className="text-gray-700 mb-3 text-sm">{area.description}</p>
+                  <ul className="space-y-1">
+                    {area.projects.map((project, index) => (
+                      <li key={index} className="text-gray-600 text-sm flex items-center">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                        {project}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <h2 className="text-lg font-bold text-gray-900 mb-2">{area.title}</h2>
-              <p className="text-gray-700 mb-3 text-sm">{area.description}</p>
-              <ul className="space-y-1">
-                {area.projects.map((project, index) => (
-                  <li key={index} className="text-gray-600 text-sm flex items-center">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                    {project}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
