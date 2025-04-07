@@ -37,7 +37,7 @@ const ResearchDivisionPage = () => {
       imageUrl: "/images/mission/outreach.jpg"
     },
     {
-      title: "people",
+      title: "Leadership and Staff",
       description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the people who make the JSEI excel here.",
       linkUrl: "/people",
       imageUrl: "/images/mission/people.jpg"

@@ -52,7 +52,7 @@ const Navbar = () => {
               href="/people"
               className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
             >
-              People
+              Leadership
             </Link>
           </div>
         </div>

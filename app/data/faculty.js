@@ -206,7 +206,7 @@
       description: "Dr. Tsui specializes in the study and treatment of ocular inflammatory diseases. His research focuses on advanced imaging analysis and biomarker discovery in uveitis. He also leads multiple clinical trials aimed at developing innovative therapies for uveitis and other inflammatory eye conditions.",
       profileImage: "/images/faculty/tsui-e.jpg",
       pageUrl: "/laboratories/tsui-e",
-      researchAreas: ["Ocular Imaging"]
+      researchAreas: ["Ocular Imaging", "BioInfo and AI"]
     },
         {
       name: "Irena Tsui",

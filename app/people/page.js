@@ -48,6 +48,22 @@ const PeoplePage = () => {
       ]
     },
     {
+      title: "Core Facilities",
+      people: [
+        {
+          name: "David Williams",
+          title: "Co-Director",
+          imageUrl: "/images/faculty/williams.jpg"
+        },
+        {
+          name: "Greg Field",
+          title: "Co-Director",
+          imageUrl: "/images/faculty/field.jpg"
+        },
+      ]
+    },
+
+    {
       title: "Retina Clinical Research",
       people: [
         {
@@ -63,7 +79,7 @@ const PeoplePage = () => {
         {
           name: "Kouros Nouri-Mahdavi",
           title: "Director",
-          imageUrl: "/images/faculty/kouros.jpg"
+          imageUrl: "/images/faculty/kouros2.jpg"
         }
       ]
     },
@@ -108,7 +124,7 @@ const PeoplePage = () => {
         {
           name: "Victoria Tseng",
           title: "Associate Director",
-          imageUrl: "/images/people/tseng.jpg"
+          imageUrl: "/images/faculty/tseng.jpg"
         },
         {
           name: "Debbie Sato",
@@ -158,7 +174,7 @@ const PeoplePage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="People @ JSEI"
+        title="Leadership @ JSEI"
         subtitle="Leadership and Administration"
         description="Leaders in Vision Research and Clinical Care"
       />
