@@ -119,7 +119,7 @@ const PeoplePage = () => {
         {
           name: "Tony Arnold",
           title: "Director",
-          imageUrl: "/images/people/arnold.jpg"
+          imageUrl: "/images/faculty/arnold.jpg"
         },
         {
           name: "Victoria Tseng",
@@ -139,7 +139,7 @@ const PeoplePage = () => {
         {
           name: "Dan Rootman",
           title: "Director",
-          imageUrl: "/images/people/rootman.jpg"
+          imageUrl: "/images/faculty/rootman.jpg"
         }
       ]
     },
@@ -149,7 +149,7 @@ const PeoplePage = () => {
         {
           name: "Michael Gorin",
           title: "Director",
-          imageUrl: "/images/people/gorin.jpg"
+          imageUrl: "/images/faculty/gorin.jpg"
         }
       ]
     },
@@ -159,12 +159,12 @@ const PeoplePage = () => {
         {
           name: "Kevin Miller",
           title: "Director",
-          imageUrl: "/images/people/miller.jpg"
+          imageUrl: "/images/faculty/miller.jpg"
         },
         {
           name: "Shawn Lin",
           title: "Associate Director",
-          imageUrl: "/images/people/lin.jpg"
+          imageUrl: "/images/faculty/lin.jpg"
         }
       ]
     }

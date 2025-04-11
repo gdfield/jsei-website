@@ -80,6 +80,15 @@ export default function WilliamsPage() {
                 >
                   Faculty Profile
                 </a>
+                <br />
+                <a 
+                  href="https://www.uclahealth.org/eye/photoreceptor-rpe-cell-biology" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                   Laboratory Website 
+                </a>
            </div>
          </div>
 
@@ -108,7 +117,7 @@ export default function WilliamsPage() {
            </div>
 
            <p className="text-gray-800">
-           By studying fundamental cellular processes that are essential for photoreceptor and RPE cell function, the lab’s research is advancing general cell biological principles. It also provides an understanding of how defects in these processes lead to retinal degeneration.  This knowledge is critical for developing treatments for inherited retinal diseases.  
+           By studying fundamental cellular processes that are essential for photoreceptor and RPE cell function, the lab's research is advancing general cell biological principles. It also provides an understanding of how defects in these processes lead to retinal degeneration.  This knowledge is critical for developing treatments for inherited retinal diseases.  
                     </p>
          </div>
        </div>

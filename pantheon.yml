@@ -1,0 +1,4 @@
+api_version: 1
+
+build_step:
+  docker_image: us-docker.pkg.dev/prod-decoupled-shared/build-tools/pantheon-build:v1.1.0-node20
