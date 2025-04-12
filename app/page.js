@@ -8,13 +8,13 @@ const ResearchDivisionPage = () => {
   const sections = [
     {
       title: "Research Areas",
-      description: "JSEI spans numerous areas that including understanding the function of the visual system to treating a wide variety of eye and vision related diseases. Click here to learn more.",
+      description: "JSEI spans numerous research areas that include understanding the function of the visual system to treating a wide variety of eye and vision related diseases. Click here to learn more about the different research areas covered by JSEI scientists and the cuting-edge methods they develop and deploy.",
       linkUrl: "/researchAreas",
       imageUrl: "/images/mission/research.jpg"
     },
     {
       title: "Laboratories",
-      description: "Diverse individual laboratories operate independently and collaboratively make cutting-edge discoveries in eye biology and vision science. Click here to learn more",
+      description: "Diverse laboratories operate independently and collaboratively to make cutting-edge discoveries in eye biology and vision science. Click here for a complete list of JSEI scientists and clinician scientists",
       linkUrl: "/laboratories",
       imageUrl: "/images/mission/laboratories.jpg"
     },
@@ -26,19 +26,19 @@ const ResearchDivisionPage = () => {
     },
     {
       title: "Education",
-      description: "Training the next generation of vision scientists through graduate programs, postdoctoral fellowships, and research opportunities. We provide a collaborative environment for learning and scientific discovery.",
+      description: "We train the next generation of vision scientists through graduate programs, postdoctoral fellowships, residencies and research opportunities. We provide a collaborative environment for learning and scientific discovery. Click here for more information about these programs.",
       linkUrl: "/education",
       imageUrl: "/images/mission/education.jpg"
     },
     {
       title: "Outreach",
-      description: "Engaging with the community through scientific presentations, workshops, and educational programs. We're committed to sharing our knowledge and inspiring future scientists.",
+      description: "Engaging the community through scientific presentations, workshops, and educational programs. We're committed to sharing our knowledge, inspiring future scientists, and improving access to healthcare across the greater Los Angeles area.",
       linkUrl: "/outreach",
       imageUrl: "/images/mission/outreach.jpg"
     },
     {
       title: "Leadership and Staff",
-      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the people who make the JSEI excel here.",
+      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the leadershop here.",
       linkUrl: "/people",
       imageUrl: "/images/mission/people.jpg"
     }
