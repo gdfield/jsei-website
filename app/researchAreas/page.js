@@ -70,8 +70,8 @@ const ResearchPage = () => {
     },
 
     {
-      title: "Bioinformatics and Artificial Intelligence",
-      description: "Twenty-first century science may ultimately be known as the age of big data. These labs utilize the latest approaches from bioinformatics, biostatistics, and machine learning, to understand and model the processes that underly these data.",
+      title: "Artificial Intelligence and Robotics",
+      description: "Machine learning, artificial intelligence and robotics are rapidly changing the world around us, including science and medine. These laboratories utilizes these technologies to better understand biological systems and improve the surgical and other clinical practices.",
       projects: [
         "Neural network models",
         "Machine learning",
@@ -83,8 +83,8 @@ const ResearchPage = () => {
     },
 
     {
-      title: "Genetics and Population Health",
-      description: "Genetics and environmental factors shape the landscape and prevalence of eye conditions and diseases. These labs seek to understand these genetic and environemental factors to better target diagnostics and treatments to individuals and communities",
+      title: "Bioinformatics and Population Health",
+      description: "Twenty-first century science may ultimately be known as the age of big data. Using large genetic, clinical, and health datasets, these labs seek to understand how to better target diagnostics and treatments to individuals and communities",
       projects: [
         "Disease Genetics",
         "Epidemiology",

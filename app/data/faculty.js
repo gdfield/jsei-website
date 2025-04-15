@@ -2,8 +2,8 @@
     {
       name: "Anthony Aldave",
       title: "Professor",
-      research: "Cornea Genetics",
-      description: "Dr. Aldave's research focuses on the genetic basis of corneal diseases and the development of novel therapeutic approaches. His work combines clinical genetics with advanced molecular techniques to understand inherited corneal disorders.",
+      research: "Corneal Dystrophies and Gene Therapy",
+      description: "Dr. Aldave's research focuses on the development of novel gene- and cell-based therapies for corneal dystrophies, a group of inherited disorders of the cornea. His laboratory combines clinical genetics with advanced molecular techniques to elucidate the genetic basis of the corneal dystrophies, and to identify target for therapeutic intervention.",
       profileImage: "/images/faculty/aldave.jpg",
       pageUrl: "/laboratories/aldave",
       researchAreas: ["Eye Surface and Lens", "Genetics and Population Health", "Therapeutics and Regeneration"]
@@ -11,12 +11,13 @@
     {
       name: "Aya Barzalay-Wollman",
       title: "Assistant Professor",
-      research: "Robotic Micro-surgery",
-      description: "Dr. Barzalay-Wollman specializes in developing innovative robotic microsurgical techniques for ophthalmic surgery. Her research combines robotics engineering with surgical precision to advance the field of ophthalmic microsurgery.",
+      research: "Robotic Microsurgery and Retinal Regeneration",
+      description: "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates microsurgical robotics, real-time imaging, and regenerative therapies to enable novel treatments—such as robotic delivery of stem cells, gene therapy, and intraocular drugs—for retinal degeneration and vascular disease.",
       profileImage: "/images/faculty/barzalay.jpg",
       pageUrl: "/laboratories/barzalay",
-      researchAreas: ["Therapeutics and Regeneration"]
+      researchAreas: ["Therapeutics and Regeneration, Artificial Intelligence and Robotics"]
     },
+    /*
     {
       name: "Suraj Bhat",
       title: "Professor",
@@ -26,6 +27,7 @@
       pageUrl: "/laboratories/bhat",
       researchAreas: ["Eye Surface and Lens"]
     },
+    */
     {
       name: "Ava Bittner",
       title: "Professor",
@@ -35,6 +37,7 @@
       pageUrl: "/laboratories/bittner",
       researchAreas: ["Eye Mobility and Rehabilitation"]
     },
+    /*
      {
       name: "Nicholas Brecha",
       title: "Professor",
@@ -44,6 +47,7 @@
       pageUrl: "/laboratories/brecha",
       researchAreas: ["Visual Neuroscience", "Retinal Biology"]
     },
+    */
     {
       name: "Anne Coleman",
       title: "Professor and Director",
@@ -66,7 +70,7 @@
       name: "Sophie Deng",
       title: "Professor",
       research: "Cornea",
-      description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine. Her work aims to develop novel therapeutic strategies for corneal diseases and injuries through stem cell-based approaches.",
+      description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine. Her work aims to develop novel diagnostic and therapeutic strategies for corneal diseases and injuries through stem cell-based approaches.",
       profileImage: "/images/faculty/deng.jpg",
       pageUrl: "/laboratories/deng",
       researchAreas: ["Eye Surface and Lens","Therapeuitics and Regeneration", "Ocular Imaging", "BioInfo and AI"]
@@ -98,6 +102,7 @@
       pageUrl: "/laboratories/glasgow",
       researchAreas: ["Eye Surface and Lens"]
     },
+    /*
     {
       name: "Michael Gorin",
       title: "Professor",
@@ -107,6 +112,7 @@
       pageUrl: "/laboratories/gorin",
       researchAreas: ["Genetics and Population Health"]
     },
+    \*
     /*
     {
       name: "Alex Huk",
@@ -145,6 +151,7 @@
       pageUrl: "/laboratories/peng",
       researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience","BioInfo and AI"]
     },
+    /*
     {
       name: "Natik Piri",
       title: "Professor",
@@ -154,6 +161,7 @@
       pageUrl: "/laboratories/piri",
       researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"]
     },
+    */
     {
       name: "Roxana Radu",
       title: "Associate Professor In-Residence",

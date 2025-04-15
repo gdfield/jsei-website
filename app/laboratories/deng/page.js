@@ -6,36 +6,49 @@ import Navbar from '@/app/components/Navbar';
 export default function DengPage() {
  const publications = [
    {
-     title: "Ex vivo expanded human limbal stem cells maintain phenotype and functionality in an organ-cultured corneal epithelium model",
-     authors: "Deng SX, Zhang Y, Chen R, Zhu Q",
-     journal: "Cell Death & Disease",
+     title: "Wnt activation as a potential therapeutic approach to treat partial limbal stem cell deficiency",
+     authors: "Bonnet C, González S, Deng SX, Zheng JJ",
+     journal: "Sci Rep",
      year: "2023",
-     citations: "7",
-     doi: "https://doi.org/10.1038/s41419-023-05784-2"
+     citations: "",
+     doi: "https://doi.org/10.1038/s41598-023-42794-8",
+     pubmed: "https://pubmed.ncbi.nlm.nih.gov/37735479/"
    },
    {
-     title: "Limbal Stem Cell Deficiency: Current and Future Therapeutic Approaches",
-     authors: "Deng SX, Borderie V, Chan CC, Dana R",
-     journal: "Ophthalmology",
+     title: "Stability and Function of Extracellular Vesicles Derived from Immortalized Human Corneal Stromal Stem Cells: A Proof of Concept Study",
+     authors: "Lyu N, Knight R, Robertson SYT, Dos Santos A, Zhang C, Ma C, Xu J, Zheng J, Deng SX",
+     journal: "AAPS J",
      year: "2022",
-     citations: "24",
-     doi: "https://doi.org/10.1016/j.ophtha.2022.02.012"
+     citations: "",
+     doi: "https://doi.org/10.1208/s12248-022-00767-1",
+     pubmed: "https://pubmed.ncbi.nlm.nih.gov/36471035/"
    },
    {
-     title: "Single-cell RNA sequencing reveals cellular heterogeneity and molecular signatures of human limbal stem cells",
-     authors: "Zhang Y, Chen R, Zhu Q, Deng SX",
-     journal: "Nature Communications",
+     title: "Biomarkers of in vivo limbal stem cell function",
+     authors: "Le Q, Chauhan T, Cordova D, Tseng CH, Deng SX",
+     journal: "Ocul Surf",
+     year: "2022",
+     citations: "",
+     doi: "https://doi.org/10.1016/j.jtos.2021.12.005",
+     pubmed: "https://pubmed.ncbi.nlm.nih.gov/34902592/"
+   },
+   {
+     title: "Wnt6 plays a complex role in maintaining human limbal stem/progenitor cells",
+     authors: "Bonnet C, Oh D, Mei H, Robertson S, Chang D, Bourges JL, Behar-Cohen F, Zheng JJ, Deng SX",
+     journal: "Sci Rep",
      year: "2021",
-     citations: "45",
-     doi: "https://doi.org/10.1038/s41467-021-23793-7"
+     citations: "",
+     doi: "https://doi.org/10.1038/s41598-021-00273-y",
+     pubmed: "https://pubmed.ncbi.nlm.nih.gov/34686698/"
    },
    {
-     title: "Global Consensus on Definition, Classification, Diagnosis, and Staging of Limbal Stem Cell Deficiency",
-     authors: "Deng SX, Borderie V, Chan CC, Dana R, et al.",
-     journal: "Cornea",
-     year: "2019",
-     citations: "187",
-     doi: "https://doi.org/10.1097/ICO.0000000000001820"
+     title: "Role of Jagged1-mediated Notch Signaling Activation in the Differentiation and Stratification of the Human Limbal Epithelium",
+     authors: "González S, Halabi M, Ju D, Tsai M, Deng SX",
+     journal: "Cells",
+     year: "2020",
+     citations: "",
+     doi: "https://doi.org/10.3390/cells9091945",
+     pubmed: "https://pubmed.ncbi.nlm.nih.gov/32842657/"
    }
  ];
 
@@ -43,8 +56,8 @@ export default function DengPage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="UNDER CONSTRUCTION"
-       subtitle=""
+       title="Sophie Deng Laboratory"
+       subtitle="Cornea"
        description=""
      />
 
@@ -59,50 +72,54 @@ export default function DengPage() {
 <div className="mt-4 space-y-2">
   <h3 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h3>
   <p className="text-gray-600">Professor</p>
+  <p className="text-gray-600">Walton Li Chair in Cornea and Uveitis</p>
+  <p className="text-gray-600">Co-Chief, Cornea Division</p>
+  <p className="text-gray-600">Vice Chair for Inspiring Excellence</p>
   <p className="text-gray-600">Department of Ophthalmology</p>
   <p className="text-gray-600">Jules Stein Eye Institute</p>
   <div className="flex flex-col space-y-2">
-    <a 
-      href="https://profiles.ucla.edu/sophie.deng" 
-      className="text-blue-600 hover:text-blue-800 inline-block"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Faculty Profile
-    </a>
-  </div>
+  <a 
+                  href="https://profiles.ucla.edu/sophie.deng" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Faculty Profile
+                </a>
+
+                <a 
+                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-biology" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Website
+                </a>
+                <a 
+                  href="https://www.ncbi.nlm.nih.gov/myncbi/sophie.deng.1/bibliography/public/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                </a>
+</div>
 </div>
 </div>  
 
          <div className="w-full md:w-2/3 space-y-6">
            <p className="text-gray-800">
-             The Deng laboratory focuses on understanding corneal stem cell biology and developing novel therapeutic strategies for corneal diseases. Our research combines stem cell biology, tissue engineering, and translational medicine to restore vision in patients with corneal blindness.
-           </p>
+           The Cornea Biology Laboratory, under Dr. Deng's direction, studies the limbal epithelial stem cells (LSCs) and their microenvironment to elucidate the mechanisms by which these cells and the niche factors aid in the regeneration of the corneal surface in patients suffering from limbal stem cell deficiency (LSCD). The role of signaling pathways such as Wnt and Notch in the regulation of LSCs and modulation of these signaling pathways in vitro and in vivo through small molecules is under investigation. 
+                      </p>
            
-           <div className="space-y-3">
-             <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-             <ul className="list-disc pl-6 space-y-2 text-gray-800">
-               <li>
-                 Limbal stem cell biology and regenerative medicine
-               </li>
-               <li>
-                 Development of cell-based therapies for corneal diseases
-               </li>
-               <li>
-                 Bioengineering approaches for corneal tissue regeneration
-               </li>
-               <li>
-                 Clinical translation of stem cell therapies
-               </li>
-               <li>
-                 Molecular mechanisms of corneal wound healing and regeneration
-               </li>
-             </ul>
-           </div>
+                      <p className="text-gray-800">
+                      Two clinical studies aimed to characterize the cellular changes in the cornea and limbus leading to LSCD and to study the safety and efficacy of LSC transplantation are ongoing. The first study aims to evaluate and validate in vivo parameters using multimodal imaging such as anterior segment optical coherence tomography (AS-OCT) and in vivo confocal microscopy (IVCM) to diagnose and stage LSCD and to assess LSCD treatment outcome. The second clinical study is a Phase I clinical trial to assess the safety, feasibility and efficacy of autologous cultivated LSC therapy in patients suffering from severe or total LSCD (https://classic.clinicaltrials.gov/ct2/show/NCT03957954).
+                                            </p>
+
 
            <p className="text-gray-800">
-             Our laboratory is pioneering new approaches to expand and characterize limbal stem cells for therapeutic applications. This work has led to significant advances in understanding corneal stem cell biology and the development of novel treatments for limbal stem cell deficiency.
-           </p>
+           Another research project focused on the stromal cell layer of the cornea aims to treat corneal stromal scars with extracellular vesicles (EVs) derived from corneal stromal stem cells (CSSCs), which are multipotent mesenchymal stem cells that regenerate normal corneal stroma and significantly reduce corneal scarring by mediating anti-inflammatory and anti-fibrosis processes. The specific content (cargo) of the EVs and mechanism of action is also under investigation. Pre-clinical research is ongoing to develop an EV-based therapy that could be directly applied to the eye to reduce corneal stromal scarring and improve vision.
+                      </p>
          </div>
        </div>
 
@@ -114,16 +131,26 @@ export default function DengPage() {
                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
                <p className="text-gray-700 mb-1">{pub.authors}</p>
                <p className="text-gray-600">
-                 {pub.journal} ({pub.year}) • {pub.citations} citations
+                 {pub.journal} ({pub.year}) {pub.citations && `• ${pub.citations} citations`}
                </p>
-               <a 
-                 href={pub.doi}
-                 className="text-blue-600 hover:text-blue-800 text-sm"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 View Publication
-               </a>
+               <div className="flex space-x-4 mt-2">
+                 <a 
+                   href={pub.doi}
+                   className="text-blue-600 hover:text-blue-800 text-sm"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                 >
+                   View Publication
+                 </a>
+                 <a 
+                   href={pub.pubmed}
+                   className="text-green-600 hover:text-green-800 text-sm"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                 >
+                   PubMed
+                 </a>
+               </div>
              </div>
            ))}
          </div>
