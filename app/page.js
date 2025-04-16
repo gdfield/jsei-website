@@ -38,9 +38,9 @@ const ResearchDivisionPage = () => {
     },
     {
       title: "Leadership and Staff",
-      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the leadershop here.",
+      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the leadership here.",
       linkUrl: "/people",
-      imageUrl: "/images/mission/people.jpg"
+      imageUrl: "/images/mission/pyramid.png"
     }
   ];
 
