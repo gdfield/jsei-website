@@ -69,9 +69,20 @@ export default function WilliamsPage() {
            <div className="mt-4 space-y-1">
              <h3 className="text-xl font-bold text-gray-900">David S. Williams, Ph.D.</h3>
              <p className="text-gray-600">Professor</p>
+             <p className="text-gray-600">Karl Kirchgessner Foundation Chair in Vision Science </p>
              <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
              <p className="text-gray-600">Director, Microscopy and Image Analysis Core</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>
+             
+             <a 
+                  href="mailto:dswilliams@ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  dswilliams@ucla.edu
+                </a>
+                <br />
              <a 
                   href="https://profiles.ucla.edu/david.williams" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

@@ -61,6 +61,15 @@ export default function PengPage() {
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
+                  href="mailto:yirongpeng@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+              yirongpeng@mednet.ucla.edu
+              </a>
+
+              <a 
                   href="https://yirongpeng.com" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
                   target="_blank"

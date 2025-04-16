@@ -70,6 +70,15 @@ export default function BarzalayPage() {
              <p className="text-gray-600">Department of Ophthalmology</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>
              <a 
+                  href="mailto:ABarzelayWollman@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ABarzelayWollman@mednet.ucla.edu
+                </a>
+                <br />
+                             <a 
                   href="https://www.uclahealth.org/providers/aya-barzelay-wollman" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
                   target="_blank"

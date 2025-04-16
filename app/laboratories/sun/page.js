@@ -77,6 +77,14 @@ export default function SunPage() {
               <p className="text-gray-600">Departments of Physiology and Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:hsun@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  hsun@mednet.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/hui.sun" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -84,7 +92,7 @@ export default function SunPage() {
                   rel="noopener noreferrer"
                 >
                   Faculty Profile
-                </a>
+              </a>
             </div>
             </div>
           </div>

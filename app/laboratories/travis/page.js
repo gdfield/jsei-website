@@ -43,8 +43,8 @@ export default function TravisPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="UNDER CONSTRUCTION"
-        subtitle=""
+        title="Gabriel Travis Laboratory"
+        subtitle="Photorecetor Biochemistry"
         description=""
       />
 
@@ -61,9 +61,18 @@ export default function TravisPage() {
             <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Gabriel H. Travis, M.D.</h3>
               <p className="text-gray-600">Professor</p>
+              <p className="text-gray-600">Charles Kenneth Feldman Chair in Ophthalmology</p>
               <p className="text-gray-600">Department of Ophthalmology and Biological Chemistry</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:travis@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  travis@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/gabriel.travis" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -72,6 +81,15 @@ export default function TravisPage() {
                 >
                   Faculty Profile
                 </a>
+                <a 
+                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/photoreceptor-biochemistry" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Laboratory Website
+                </a>
+
                 </div>
                 </div>
           </div>

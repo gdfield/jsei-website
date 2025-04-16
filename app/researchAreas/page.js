@@ -75,10 +75,10 @@ const ResearchPage = () => {
       projects: [
         "Neural network models",
         "Machine learning",
-        "Biostatistics"
+        "Surgical Innovation"
       ],
       imageUrl: "/images/areas/bioinformatics.jpg",
-      pageUrl: "/researchAreas/bioinfo"  // Add this line
+      pageUrl: "/researchAreas/AI"  // Add this line
 
     },
 

@@ -72,9 +72,18 @@ export default function RaduPage() {
             <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Roxana A. Radu, Ph.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
+              <p className="text-gray-600">Vernon O. Underwood Family Chair in Ophthalmology </p>
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:radu@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  radu@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/roxana.radu" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -83,6 +92,17 @@ export default function RaduPage() {
                 >
                   Faculty Profile
                 </a>
+                <a 
+                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Laboratory Website
+                </a>
+
+
+
                 </div>
                 </div>
           </div>

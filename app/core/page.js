@@ -54,7 +54,7 @@ const CoreFacilitiesPage = () => {
       <Navbar />
       <Hero 
         title="Core Facilities @ JSEI"
-        subtitle="Vision Research Core at UCLA"
+        subtitle="P30 Vision Research Core at UCLA"
         description="Supporting innovative vision research through state-of-the-art technology"
       />
 

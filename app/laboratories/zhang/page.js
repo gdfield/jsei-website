@@ -65,6 +65,14 @@ export default function ZhangPage() {
              <p className="text-gray-600">Department of Ophthalmology</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>
              <div className="flex flex-col space-y-2">
+             <a 
+                  href="mailto:jzheng@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  jzheng@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/jie.zheng" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -72,6 +80,14 @@ export default function ZhangPage() {
                   rel="noopener noreferrer"
                 >
                   Faculty Profile
+                </a>
+                <a 
+                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/therapeutic-development-ophthalmology" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Laboratory Website
                 </a>
              </div>
          </div>

@@ -74,6 +74,14 @@ export default function FieldPage() {
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:vtseng@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  vtseng@mednet.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/victoria.tseng" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

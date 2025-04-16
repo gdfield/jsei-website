@@ -74,6 +74,14 @@ export default function SampathPage() {
               <p className="text-gray-600">Associate Director of Research</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:asampath@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  asampath@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/alapakkam.sampath" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

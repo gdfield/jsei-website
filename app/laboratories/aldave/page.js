@@ -67,9 +67,19 @@ export default function AldavePage() {
            <div className="mt-4 space-y-2">
              <h3 className="text-xl font-bold text-gray-900">Anthony J. Aldave, M.D.</h3>
              <p className="text-gray-600">Professor and Vice Chair</p>
+             <p className="text-gray-600">Bartly J. Mondino M.D., Chair in Ophthalmology </p>
              <p className="text-gray-600">Department of Ophthalmology</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>
-<a 
+             <a 
+                  href="mailto:aldave@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  aldave@jsei.ucla.edu
+                </a>
+                <br />
+                <a 
                   href="https://profiles.ucla.edu/anthony.aldave" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
                   target="_blank"
@@ -84,10 +94,8 @@ export default function AldavePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Website
+                  Laboratory Website
                 </a>
-
-
            </div>
          </div>
 

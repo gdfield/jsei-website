@@ -6,36 +6,49 @@ import Navbar from '@/app/components/Navbar';
 export default function TsuiIrenaPage() {
   const publications = [
     {
-      title: "Longitudinal Assessment of Retinopathy of Prematurity (LONGROP) Study: Impacts of Viewing Conditions",
-      authors: "Tsui I, et al.",
-      journal: "Ophthalmology",
+      title: "Neurodevelopmental Outcomes in Infants Screened for Retinopathy of Prematurity",
+      authors: "Karmouta R, Strawbridge JC, Langston S, Altendahl M, Khitri M, Chu A, Tsui I",
+      journal: "JAMA Ophthalmology",
       year: "2023",
-      citations: "New",
-      doi: "https://doi.org/10.1016/j.ophtha.2023.05.001"
+      citations: "Recent key publication",
+      doi: "https://doi.org/10.1001/jamaophthalmol.2023.4787",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/37883103/"
     },
     {
-      title: "Advances in Retinal Imaging for Diabetic Retinopathy",
-      authors: "Tsui I, Kawaguchi R, Sun H",
-      journal: "Progress in Retinal and Eye Research",
-      year: "2022",
-      citations: "85",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977418/"
-    },
-    {
-      title: "Outcomes of Retinal Detachment Surgery in Pediatric Patients",
-      authors: "Tsui I, et al.",
-      journal: "American Journal of Ophthalmology",
-      year: "2021",
-      citations: "120",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977419/"
-    },
-    {
-      title: "Retinopathy of Prematurity and the Role of Anti-VEGF Therapy",
-      authors: "Tsui I, et al.",
-      journal: "Journal of Pediatric Ophthalmology & Strabismus",
+      title: "Optical coherence tomography in pediatric patients: a clinical review",
+      authors: "Gundlach BS, Tsui I",
+      journal: "Therapeutic Advances in Ophthalmology",
       year: "2020",
-      citations: "150",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/36977420/"
+      citations: "Comprehensive review",
+      doi: "https://doi.org/10.1177/2515841420904612",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/32076655/"
+    },
+    {
+      title: "Hot Topics in Retinopathy of Prematurity",
+      authors: "Tsui I, Chu A",
+      journal: "Pediatric Annals",
+      year: "2017",
+      citations: "Expert review",
+      doi: "https://doi.org/10.3928/19382359-20171023-02",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/29131921/"
+    },
+    {
+      title: "A Practical Approach to Retinal Dystrophies",
+      authors: "Tsui I, Song BJ, Lin CS, Tsang SH",
+      journal: "Advances in Experimental Medicine and Biology",
+      year: "2018",
+      citations: "Clinical guidance",
+      doi: "https://doi.org/10.1007/978-3-319-95046-4_51",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/30578524/"
+    },
+    {
+      title: "Screening for Diabetic Retinopathy",
+      authors: "Rosenberg JB, Tsui I",
+      journal: "New England Journal of Medicine",
+      year: "2017",
+      citations: "High-impact publication",
+      doi: "https://doi.org/10.1056/NEJMe1701820",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/28423293/"
     }
   ];
 
@@ -43,8 +56,8 @@ export default function TsuiIrenaPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="UNDER CONSTRUCTION"
-        subtitle=""
+        title="Irena Tsui Laboratory"
+        subtitle="Retinal Imaging and Ocular Health"
         description=""
       />
 
@@ -62,8 +75,16 @@ export default function TsuiIrenaPage() {
               <h3 className="text-xl font-bold text-gray-900">Irena Tsui, M.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
               <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Stein Eye Institute</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:itsui@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  itsui@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/irena.tsui" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -72,7 +93,15 @@ export default function TsuiIrenaPage() {
                 >
                   Faculty Profile
                 </a>
-            </div>
+                <a 
+                  href="https://www.uclahealth.org/providers/irena-tsui" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  UCLA Health Profile
+                </a>
+              </div>
             </div>
           </div>
 
@@ -101,16 +130,16 @@ export default function TsuiIrenaPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Key Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
                 <p className="text-gray-700 mb-1">{pub.authors}</p>
                 <p className="text-gray-600">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year}) • {pub.citations}
                 </p>
-                {pub.doi && (
+                <div className="flex flex-wrap gap-4 mt-2">
                   <a 
                     href={pub.doi}
                     className="text-blue-600 hover:text-blue-800 text-sm"
@@ -119,7 +148,15 @@ export default function TsuiIrenaPage() {
                   >
                     View Publication
                   </a>
-                )}
+                  <a 
+                    href={pub.pubmed}
+                    className="text-green-600 hover:text-green-800 text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    PubMed
+                  </a>
+                </div>
               </div>
             ))}
           </div>

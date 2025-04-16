@@ -93,7 +93,7 @@ export default function DengPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Website
+                  Laboratory Website
                 </a>
                 <a 
                   href="https://www.ncbi.nlm.nih.gov/myncbi/sophie.deng.1/bibliography/public/" 

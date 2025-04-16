@@ -69,6 +69,14 @@ export default function YangPage() {
               <p className="text-gray-600">Director, Molecular Biology and Gene Delivery Core</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:yang@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  yang@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/xianjie.yang" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

@@ -5,16 +5,15 @@ import FacultyCard from '../../components/FacultyCard';
 import { facultyData } from '../../data/faculty';
 
 const DevelopmentPage = () => {
-  // Filter faculty members who work in Development, Disease, and Aging
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("Genetics and Population Health")
+    faculty.researchAreas.includes("Bioinformatics and Population Health")
   );
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <Hero 
-        title="Genetics and Population Health"
+        title="Bioinformatics and Population Health"
         subtitle="Finding the factors that underly eye disease"
         description=""
       />
@@ -32,7 +31,7 @@ const DevelopmentPage = () => {
             <ul className="list-disc pl-6 text-gray-700">
               <li>Disease Genetics</li>
               <li>Epidemiology</li>
-              <li>Improving Outcomes</li>
+              <li>Genomics, transcriptomics, and proteomics</li>
             </ul>
           </div>
         </div>

@@ -65,6 +65,14 @@ export default function HubbellPage() {
               <p className="text-gray-600">Department of Ophthalmology and Chemistry and Biochemistry</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:hubbellw@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  hubbellw@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://www.biochemistry.ucla.edu/Faculty/Hubbell/members.html" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

@@ -75,6 +75,14 @@ export default function NouriMahdaviPage() {
               <p className="text-gray-600">Director, Glaucoma Advaced Imaging and AI Laboratory</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:nouri-mahdavi@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  nouri-mahdavi@jsei.ucla.edu
+                </a>
                 <a 
                   href="https://profiles.ucla.edu/kouros.nouri-mahdavi" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

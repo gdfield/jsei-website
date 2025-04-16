@@ -15,7 +15,7 @@ const DevelopmentPage = () => {
       <Navbar />
       <Hero 
         title="Artificial Intelligence and Robotics"
-        subtitle="Using big data, machine learning, and statistical models to understand eye disease and vision"
+        subtitle="Using machine learning and robotics to advance knowledge and clinical practice"
         description=""
       />
 
@@ -32,7 +32,7 @@ const DevelopmentPage = () => {
             <ul className="list-disc pl-6 text-gray-700">
               <li>Neural network models</li>
               <li>Machine learning</li>
-              <li>'omics'</li>
+              <li>'Digital Twins'</li>
             </ul>
           </div>
         </div>

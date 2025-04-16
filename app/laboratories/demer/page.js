@@ -68,9 +68,19 @@ export default function DemerPage() {
             <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Joseph L. Demer, M.D., Ph.D.</h3>
               <p className="text-gray-600">Professor</p>
+              <p className="text-gray-600">Arthur L. Rosenbaum, MD, Chair in Pediatric Ophthalmology </p>
               <p className="text-gray-600">Departments of Ophthalmology and Neurology</p>
               <p className="text-gray-600">Director, Prototype Construction Core</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <a 
+                  href="mailto:jld@jsei.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  jld@jsei.ucla.edu
+                </a>
+                <br />
               <a 
                 href="https://profiles.ucla.edu/joseph.demer" 
                 className="text-blue-600 hover:text-blue-800 inline-block"

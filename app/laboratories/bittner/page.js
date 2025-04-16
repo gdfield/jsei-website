@@ -64,8 +64,18 @@ export default function BittnerPage() {
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Ava K. Bittner, Ph.D., O.D.</h3>
               <p className="text-gray-600">Professor</p>
+              <p className="text-gray-600">Smotrich Family Optometric Clinician-Scientist Chair </p>
               <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="ext-gray-600">Jules Stein Eye Institute</p>
+              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <a 
+                  href="mailto:ABittner@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ABittner@mednet.ucla.edu
+                </a>
+                <br />
               <a 
                   href="https://profiles.ucla.edu/ava.bittner" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
@@ -73,6 +83,15 @@ export default function BittnerPage() {
                   rel="noopener noreferrer"
                 >
                   Faculty Profile
+                </a>
+                <br />
+                <a 
+                  href="https://www.uclahealth.org/departments/eye/about-us/academic-centers/vision-rehabilitation" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Vision Rehabilitation
                 </a>
             </div>
           </div>

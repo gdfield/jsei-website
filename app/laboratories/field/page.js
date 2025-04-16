@@ -76,6 +76,14 @@ export default function FieldPage() {
               <p className="text-gray-600">Director, Live Imaging and Functional Evaluation Core</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:gregfield@ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  gregfield@ucla.edu
+                </a>
                 <a 
                   href="http://www.retinalcircuits.com" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

@@ -63,11 +63,20 @@ export default function TsuiEdmundPage() {
             />
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Edmund Tsui, M.D., M.S.</h3>
-              <p className="text-gray-600">Associate Professor-in-Residence</p>
+              <p className="text-gray-600">Associate Professor</p>
+              <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
+              <a 
+                  href="mailto:etsui@mednet.ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  etsui@mednet.ucla.edu
+                </a>
                 <a 
-                  href="https://www.uclahealth.org/edmund-tsui" 
+                  href="https://profiles.ucla.edu/edmund.tsui" 
                   className="text-blue-600 hover:text-blue-800 inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
