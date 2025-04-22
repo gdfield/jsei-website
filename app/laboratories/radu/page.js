@@ -53,7 +53,7 @@ export default function RaduPage() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-2">Roxana A. Radu Laboratory</h1>
-          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2">Retinal Biochemistry and Disease Modeling</h2>
+          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2">Retina Biochemistry and Disease Modeling</h2>
           <p className="text-lg md:text-xl text-center">Understanding and treatment of retinal diseases through research on retinoid metabolism and pigment epithelium biology</p>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function RaduPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Roxana A. Radu, Ph.D.</h3>
+              <h3 className="text-xl font-bold text-gray-900">Roxana A. Radu, M.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
               <p className="text-gray-600">Vernon O. Underwood Family Chair in Ophthalmology </p>
               <p className="text-gray-600">Department of Ophthalmology</p>
@@ -99,6 +99,22 @@ export default function RaduPage() {
                   rel="noopener noreferrer"
                 >
                   Laboratory Website
+                </a>
+                <a 
+                  href="https://www.ncbi.nlm.nih.gov/myncbi/roxana.radu.1/bibliography/public/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                </a>
+                <a 
+                  href="https://scholar.google.com/citations?user=msOSAGEAAAAJ&hl=en" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google Scholar
                 </a>
 
 

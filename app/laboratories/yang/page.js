@@ -85,6 +85,15 @@ export default function YangPage() {
                 >
                   Faculty Profile
                 </a>
+                <a 
+                  href="https://www.ncbi.nlm.nih.gov/myncbi/xian-jie.yang.1/bibliography/public/" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                  </a>
+
             </div>
             </div>
           </div>
@@ -97,28 +106,28 @@ export default function YangPage() {
             </p>
             
             <div>
-              <p className="text-gray-900 font-semibold mb-2">I. Mechanisms of Neuroprotection:</p>
+              <p className="text-gray-900 font-semibold mb-2">I. We are using molecular genetic approaches to addresses mechanisms of neuroprotection:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-800">
-                <li>How does neurotrophic cytokines elicit cellular signaling events to enhance neuronal viability?</li>
-                <li>Which cellular metabolic pathway contribute to neuronal survival?</li>
-                <li>How does retinal degeneration change mitochondrial morphology, function, and cellular energetics?</li>
+                <li>Which cellular metabolic pathways contribute to neuronal maintenance?</li>
+                <li>How does retinal degeneration alter mitochondrial morphology and function?</li>
+                <li>What cellular signaling events are triggered by trophic factors to enhance neuronal viability?</li>
                 <li>How to elicit retinal intrinsic neuroprotective potential?</li>
               </ul>
               <p className="mt-2 text-gray-800">
-                Outcomes of the research will provide much needed insight for ongoing clinical trials for retinal degenerative disease.
+                Outcomes of the research will provide much needed insight for ongoing clinical trials aimed at treating retinal degenerative diseases.
               </p>
             </div>
 
             <div>
-              <p className="text-gray-900 font-semibold mb-2">II. Stem Cell Technology and Gene Delivery Research:</p>
+              <p className="text-gray-900 font-semibold mb-2">II. We are using stem cell technology and virus-mediated gene delivery to study human retinal development, elucidate disease mechanism of inherited optic neuropathy, and develop effective therapies:</p>
               <ul className="list-disc pl-6 space-y-2 text-gray-800">
                 <li>How does neurogenic transcription factors regulate early retinal neuronal fates?</li>
-                <li>Does mitochondrial deficiency affect retinogenesis?</li>
+                <li>Does mitochondrial deficiency affect human retinogenesis?</li>
                 <li>What are the disease phenotypes of optic neuropathy in stem cell-based models?</li>
-                <li>Can viral mediated gene therapy or metabolic modulation attenuate phenotypes of mutant neurons?</li>
+                <li>Can viral vector-mediated gene therapy or metabolic modulation attenuate inherited retinal degeneration?</li>
               </ul>
               <p className="mt-2 text-gray-800">
-                These research will provide more efficient methodology to produce human retinal projection neurons and new knowledge regarding human retinal development. Furthermore, the human optic neuropathy disease models will be valuable testing platform to evaluate the efficacy of novel treatment strategy prior to clinical trials.
+                These studies will provide more efficient methodology to produce human retinal neurons and new knowledge regarding human retinal development. Furthermore, stem cell-based human optic neuropathy disease models will be a valuable testing platform to evaluate the efficacy of novel treatment strategy prior to clinical trials.
               </p>
             </div>
           </div>

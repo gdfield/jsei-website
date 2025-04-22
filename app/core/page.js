@@ -9,42 +9,50 @@ const CoreFacilitiesPage = () => {
   const coreFacilities = [
     {
       title: "Microscopy and Image Analysis",
-      description: "The Vision Core provides a wide range of state-of-the-art microscopy services. Features high-resolution confocal microscopy, two-photon microscopy, and advanced image analysis capabilities for researchers studying retinal structure and function.",
+      description: "Provides a wide range of state-of-the-art microscopy services. Features high-resolution confocal microscopy, super-resolution microscopy, electron microscopy, and advanced image analysis capabilities for studies of retinal structure and function, including live cell imaging.",
       equipment: [
-        "Zeiss LSM 880 Confocal Microscope",
-        "Advanced Image Analysis Software",
-        "3D Reconstruction Capabilities"
+        "Wide-field and high resolution microscopy",
+        "Tissue and sample preparation",
+        "Advanced image analysis, including 3D reconstruction"
       ],
+      director: "David Williams, Ph.D.",
+      staff: "Yuekan Jiao, Ph.D. & Jane Coffman, Ph.D.",
       imageUrl: "/images/cores/microscopy.jpg"
     },
     {
+      title: "Molecular Biology and Gene Delivery",
+      description: "Advanced molecular biology facility supporting genetic and genomic research in vision science. Offers services for gene modification, viral vector production, and cellular analysis. The Core Module also contains an array of equipment for molecular biology and biochemstry assays.",
+      equipment: [
+        "Vector Production and Cell Culture",
+        "DNA/RNA Analysis Equipment",
+        "Electroporation"
+      ],
+      director: "Xian-Jie Yang, Ph.D.",
+      staff: "Duc Hoang, Ph.D. & Jane Coffman, Ph.D.",
+      imageUrl: "/images/cores/Gene-delivery.jpg"
+    },
+        {
       title: "Live Imaging and Functional Evaluation (LIFE)",
       description: "Specialized facility for in vivo imaging and functional assessment of the visual system. Provides comprehensive analysis of retinal structure and function in animal models of eye disease.",
       equipment: [
         "Electroretinography (ERG)",
         "Optical Coherence Tomography (OCT)",
-        "Visual Behavior Testing Equipment"
+        "Visual Behavior Testing"
       ],
+      director: "Greg D. Field, Ph.D.",
+      staff: "Eduardo Araujo",
       imageUrl: "/images/cores/life.jpg"
-    },
-    {
-      title: "Molecular Biology and Gene Delivery",
-      description: "Advanced molecular biology facility supporting genetic and genomic research in vision science. Offers services for gene modification, viral vector production, and cellular analysis.",
-      equipment: [
-        "Vector Production Facility",
-        "DNA/RNA Analysis Equipment",
-        "Cell Culture Facilities"
-      ],
-      imageUrl: "/images/cores/Gene-delivery.jpg"
     },
     {
       title: "Prototype Construction",
       description: "Custom design and fabrication facility for specialized research equipment and tools. Supports innovative research by creating unique apparatus and modifications to existing equipment.",
       equipment: [
         "3D Printing Capabilities",
-        "Custom Electronics Fabrication",
-        "Precision Machine Shop"
+        "Precision Machine Shop",
+        "Expert Machinist"
       ],
+      director: "Joseph L. Demer, M.D., Ph.D.",
+      staff: "Jose Gomez Godinez",
       imageUrl: "/images/cores/prototype.jpg"
     }
   ];
@@ -58,8 +66,8 @@ const CoreFacilitiesPage = () => {
         description="Supporting innovative vision research through state-of-the-art technology"
       />
 
-      {/* Core Facilities Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {/* Core Facilities Section */}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {coreFacilities.map((facility) => (
             <div 
@@ -80,6 +88,19 @@ const CoreFacilitiesPage = () => {
                 <p className="text-gray-600 mb-4">
                   {facility.description}
                 </p>
+                
+                {/* Core Leadership Section */}
+                <div className="mb-4">
+                  <div className="flex items-center mb-2">
+                    <span className="text-gray-900 font-semibold mr-2">Core Module Director:</span>
+                    <span className="text-gray-600">{facility.director}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-gray-900 font-semibold mr-2">Staff:</span>
+                    <span className="text-gray-600">{facility.staff}</span>
+                  </div>
+                </div>
+                
                 <div className="border-t border-gray-200 pt-4">
                   <h4 className="font-semibold text-gray-900 mb-2">Key Equipment & Capabilities:</h4>
                   <ul className="list-disc list-inside text-gray-600 space-y-1">
@@ -88,20 +109,13 @@ const CoreFacilitiesPage = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-4 flex justify-end">
-                  <a 
-                    href="#contact"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Contact Core
-                    <ArrowUpRight size={20} className="ml-1" />
-                  </a>
-                </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
+
 
       {/* Footer */}
       <footer className="bg-gray-100 mt-16 py-8">

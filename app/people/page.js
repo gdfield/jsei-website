@@ -68,7 +68,7 @@ const PeoplePage = () => {
       people: [
         {
           name: "Irena Tsui",
-          title: "Director",
+          title: "Chief",
           imageUrl: "/images/faculty/tsui-i.jpg"
         }
       ]
@@ -78,7 +78,7 @@ const PeoplePage = () => {
       people: [
         {
           name: "Kouros Nouri-Mahdavi",
-          title: "Director",
+          title: "Chief",
           imageUrl: "/images/faculty/kouros2.jpg"
         }
       ]
@@ -88,12 +88,12 @@ const PeoplePage = () => {
       people: [
         {
           name: "Anthony Aldave",
-          title: "Director",
+          title: "Co-Chief",
           imageUrl: "/images/faculty/aldave.jpg"
         },
         {
           name: "Sophie Deng",
-          title: "Associate Director",
+          title: "Co-Chief",
           imageUrl: "/images/faculty/deng.jpg"
         }
       ]
@@ -104,12 +104,12 @@ const PeoplePage = () => {
         {
           name: "Margarita Gonzalez",
           title: "Director",
-          imageUrl: "/images/people/gonzalez.jpg"
+          imageUrl: "/images/faculty/empty.jpg"
         },
         {
           name: "Fei Yu",
           title: "Associate Director",
-          imageUrl: "/images/people/yu.jpg"
+          imageUrl: "/images/faculty/empty.jpg"
         }
       ]
     },
@@ -129,7 +129,7 @@ const PeoplePage = () => {
         {
           name: "Debbie Sato",
           title: "Program Coordinator",
-          imageUrl: "/images/people/sato.jpg"
+          imageUrl: "/images/faculty/empty.jpg"
         }
       ]
     },

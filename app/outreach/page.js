@@ -108,6 +108,7 @@ const OutreachPage = () => {
           </div>
         </div>
 
+
         {/* Research & Education Section */}
         <div className="mb-1 bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="p-8 md:p-10">
@@ -174,6 +175,70 @@ const OutreachPage = () => {
         </div>
 
         {/* Placeholder for any additional sections */}
+        {/* Featured Program Section - Vision IN-School */}
+<div className="mb-1 bg-white rounded-lg shadow-sm overflow-hidden">
+  <div className="p-8 md:p-10">
+    <div className="flex flex-col md:flex-row gap-8">
+      <div className="w-full md:w-2/3">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">Vision IN-School Program</h2>
+        <p className="text-gray-700 mb-4">
+          The <strong>Vision IN-School</strong> program is one of JSEI's key educational outreach initiatives 
+          focused on bringing vision education directly to local schools. This program promotes eye health 
+          awareness among children through age-appropriate education about vision care, eye safety, and 
+          the importance of regular eye examinations.
+        </p>
+        <p className="text-gray-700 mb-4">
+          Working alongside educators, our team develops and delivers engaging presentations that teach 
+          students about eye anatomy, common vision problems, and protective measures to maintain healthy 
+          eyesight. The program uses interactive demonstrations, visual aids, and take-home materials to 
+          reinforce important concepts about eye health and safety.
+        </p>
+        <p className="text-gray-700 mb-4">
+          Vision IN-School helps bridge the gap between clinical care and preventive education by 
+          empowering young people with knowledge about their vision health. The program reaches thousands 
+          of students annually throughout Los Angeles County, with a special focus on underserved communities 
+          where access to eye care information may be limited.
+        </p>
+        <blockquote className="border-l-4 border-blue-500 pl-4 py-2 mb-4 italic text-gray-700">
+          "Early vision education is essential for lifelong eye health. By teaching children about their 
+          eyes, we help them become advocates for their own vision care."
+          <footer className="text-gray-600 mt-1">— Vision IN-School Coordinator</footer>
+        </blockquote>
+      </div>
+      <div className="w-full md:w-1/3">
+        <div className="bg-blue-50 rounded-lg p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Program Components</h3>
+          <ul className="space-y-3">
+            <li className="flex items-start">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="ml-2 text-gray-700">Classroom vision education sessions</span>
+            </li>
+            <li className="flex items-start">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="ml-2 text-gray-700">Eye anatomy and function demonstrations</span>
+            </li>
+            <li className="flex items-start">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="ml-2 text-gray-700">Vision safety awareness training</span>
+            </li>
+            <li className="flex items-start">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="ml-2 text-gray-700">Take-home educational materials</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
 
       {/* Footer */}

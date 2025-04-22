@@ -89,13 +89,26 @@ export default function PengPage() {
                 </div>
           </div>
 
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
-            Cells are the building blocks of complex biological systems, exhibiting remarkable diversity in the visual system. Understanding how cell types form, connect, and degenerate is fundamental to uncover the mechanisms behind blinding diseases. The Peng lab leverages multi-omic approaches–genomics, transcriptomics, and proteomics–to decode genetic programs that define cell-type features, unravel the molecular basis of specialized human vision, and identify key signatures driving degeneration in ocular diseases. The ultimate goal is to develop therapeutic strategies to prevent or treat vision loss. 
-            </p>
-            
-          </div>
+{/* Research Description */}
+<div className="w-full md:w-2/3 space-y-6">
+  <p className="text-gray-800">
+    Cells are the building blocks of complex biological systems, exhibiting remarkable diversity in the visual system. Understanding how cell types form, connect, and degenerate is fundamental to uncover the mechanisms behind blinding diseases. The Peng lab leverages multi-omics approaches–genomics, transcriptomics, and proteomics–to decode genetic programs that define cell-type features, unravel the molecular basis of specialized human vision, and identify key signatures driving degeneration in ocular diseases.
+  </p>
+  
+  <div className="mt-4">
+    <h3 className="text-xl font-bold text-gray-900 mb-3">Research Focus Areas:</h3>
+    <ul className="list-decimal pl-5 space-y-2 text-gray-800">
+      <li>Genetic Regulations of Cell Type Generation and Differentiation</li>
+      <li>Molecular Mechanisms of Circuit Formation and Specialization</li>
+      <li>Cellular and Synaptic Adaptations During Retinal Degeneration</li>
+      <li>Cellular and Circuit Principles of the Aging process in the Visual System</li>
+    </ul>
+  </div>
+  
+  <p className="text-gray-800 mt-4">
+    The ultimate goal of our research is to provide a fundamental understanding of circuit formation and degeneration in the visual system and to develop therapeutic strategies to prevent or treat vision loss.
+  </p>
+</div>
         </div>
 
         {/* Publications Section */}

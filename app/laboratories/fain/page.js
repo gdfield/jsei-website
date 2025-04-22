@@ -6,12 +6,12 @@ import Navbar from '@/app/components/Navbar';
 export default function FainPage() {
  const publications = [
    {
-     title: "Physiological properties and adaptations of photoreceptors to light",
-     authors: "Fain GL, Matthews HR, Cornwall MC",
-     journal: "Progress in Retinal and Eye Research",
-     year: "2023",
-     citations: "8",
-     doi: "https://doi.org/10.1016/j.preteyeres.2023.101169"
+     title: "Evolution of rod bipolar cells and rod vision",
+     authors: "Frederiksen R, Peng YR, Sampath AP, Fain GL",
+     journal: "Journal of Physiology",
+     year: "2025",
+     citations: "New",
+     doi: "https://doi.org/10.1113/JP287652"
    },
    {
      title: "Cones and cone pathways remain functional in advanced retinal degeneration",
@@ -22,20 +22,28 @@ export default function FainPage() {
      doi: "https://doi.org/10.1016/j.cub.2023.02.073"
    },
    {
-     title: "Rod photoreceptors avoid saturation in bright light by movement of the G protein transducin",
-     authors: "Frederiksen R, Morshedian A, Tripathy SA, Zhou T, Travis GH, Fain GL, Sampath AP",
-     journal: "Journal of Neuroscience",
-     year: "2021",
-     citations: "12",
-     doi: "https://doi.org/10.1523/JNEUROSCI.2915-20.2021"
+     title: "Membrane conductances of mouse cone photoreceptors",
+     authors: "Ingram NT, Sampath AP, Fain GL",
+     journal: "Journal of General Physiology",
+     year: "2020",
+     citations: "New",
+     doi: "https://doi.org/10.1085/jgp.201912520"
    },
    {
-     title: "Elevated energy requirements of cone photoreceptors",
-     authors: "Ingram NT, Fain GL, Sampath AP",
-     journal: "Proceedings of the National Academy of Sciences",
+     title: "A kinetic analysis of mouse rod and cone photoreceptor responses",
+     authors: "Reingruber J, Ingram NT, Griffis C, Fain GL",
+     journal: "Journal of Physiology",
      year: "2020",
-     citations: "15",
-     doi: "https://doi.org/10.1073/pnas.2007788117"
+     citations: "New",
+     doi: "https://physoc.onlinelibrary.wiley.com/doi/10.1113/JP279524"
+   },
+   {
+     title: "Why are rods more sensitive than cones?",
+     authors: "Ingram NT, Sampath AP, Fain GL",
+     journal: "Journal of Physiology",
+     year: "2016",
+     citations: "New",
+     doi: "https://doi.org/10.1113/JP272556"
    }
  ];
 
@@ -43,8 +51,8 @@ export default function FainPage() {
    <div className="min-h-screen bg-gray-50">
      <Navbar />
      <Hero 
-       title="UNDER CONSTRUCTION"
-       subtitle=""
+       title="Gordon Fain Laboratory"
+       subtitle="Photoreceptor Physiology"
        description=""
      />
 
@@ -62,6 +70,15 @@ export default function FainPage() {
              <p className="text-gray-600">Department of Ophthalmology</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>
              <div className="flex flex-col space-y-2">
+             <a 
+                  href="mailto:gfain@ucla.edu" 
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  gfain@ucla.edu
+                </a>
+
                 <a 
                   href="https://bioscience.ucla.edu/people/gordon-fain/" 
                   className="text-blue-600 hover:text-blue-800 inline-block"

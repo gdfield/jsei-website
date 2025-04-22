@@ -17,17 +17,17 @@
       pageUrl: "/laboratories/barzalay",
       researchAreas: ["Therapeutics and Regeneration", "AI and Robotics"]
     },
-    /*
+    
     {
       name: "Suraj Bhat",
       title: "Professor",
-      research: "Lens Development and Disease",
-      description: "Dr. Bhat's research focuses on understanding the molecular mechanisms of lens development and cataract formation. His work investigates the role of specific proteins and molecular chaperones in maintaining lens transparency and preventing age-related cataracts.",
+      research: "Gene activity, lens development and vision",
+      description: "Description of research: Dr. Bhat’s research focuses on understanding the molecular basis of the biological transparency and refractive ability of the lens that allows a pinpoint focus of the incoming light without spherical aberration and scatter. His work entails characterization of gene activities by single cell transcriptomics in mouse paradigms and human lens epithelial samples from cataract surgeries.",
       profileImage: "/images/faculty/bhat.jpg",
       pageUrl: "/laboratories/bhat",
       researchAreas: ["Eye Surface and Lens"]
     },
-    */
+    
     {
       name: "Ava Bittner",
       title: "Professor",
@@ -73,7 +73,7 @@
       description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine. Her work aims to develop novel diagnostic and therapeutic strategies for corneal diseases and injuries through stem cell-based approaches.",
       profileImage: "/images/faculty/deng.jpg",
       pageUrl: "/laboratories/deng",
-      researchAreas: ["Eye Surface and Lens","Therapeuitics and Regeneration", "Ocular Imaging", "AI and Robotics"]
+      researchAreas: ["Eye Surface and Lens","Therapeutics and Regeneration", "Ocular Imaging", "AI and Robotics"]
     },
     {
       name: "Gordon Fain",
@@ -149,7 +149,7 @@
       description: "Dr. Peng investigates the cellular and molecular mechanisms that underly the formation and degeneration of the visual system. Her research uses multi-omics and bioinformatics tools to uncover the genetic basis of neural circuit development and degeneration.",
       profileImage: "/images/faculty/peng.jpg",
       pageUrl: "/laboratories/peng",
-      researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Bioinformatics and Population Health"]
+      researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Retinal Biology", "Bioinformatics and Population Health"]
     },
     /*
     {
@@ -163,13 +163,13 @@
     },
     */
     {
-      name: "Roxana Radu",
+      name: "Roxana A. Radu",
       title: "Associate Professor In-Residence",
-      research: "Retinal Biochemistry and Disease Modeling",
+      research: "Retina Biochemistry and Disease Modeling",
       description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE), a crucial cell layer supporting photoreceptors. Using advanced genetic, biochemical, and cell biological approaches, including induced pluripotent stem cells and mouse models, the laboratory examines molecular mechanisms driving RPE-photoreceptor dysfunction, with the goal of developing potential therapeutic interventions.",
       profileImage: "/images/faculty/radu.jpg",
       pageUrl: "/laboratories/radu",
-      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health", "Ocular Imaging"]
     },
     {
       name: "Alapakkam Sampath",
@@ -192,14 +192,14 @@
     {
       name: "Gabriel Travis",
       title: "Professor",
-      research: "Photorecetor Biochemistry",
-      description: "Dr. Travis studies the molecular mechanisms of photoreceptor outer segment renewal and the role of specific proteins in retinal degenerative diseases. His work has important implications for understanding and treating inherited retinal disorders.",
+      research: "Photoreceptor Biochemistry",
+      description: "Dr. Gabriel Travis studies the regeneration of opsin visual pigments in rod and cone photoreceptor cells. This enzymatic pathway involves multiple proteins. The genes for several of these proteins are affected in inherited photoreceptor degenerations that cause progressive blindness in humans.",
       profileImage: "/images/faculty/travis.jpg",
       pageUrl: "/laboratories/travis",
       researchAreas: ["Retinal Biology"]
     },
     {
-      name: "Victorial Tseng",
+      name: "Victoria Tseng",
       title: "Assistant Professor",
       research: "Epidemiology and Public Health",
       description: "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective. Areas of interest include individual and structural level factors that influence glaucoma risk, and clinical and surgical quality of glaucoma care.",
@@ -241,7 +241,7 @@
       description: "Dr. Yang studies retinal development and repair using molecular genetic approaches. Her research provides insight on cellular signaling mechanism involved in neuroprotection in retinal degenerative diseases. She also uses human stem cell-derived retinal organoids and neurons to model optic neuropathies and develop therapy.",
       profileImage: "/images/faculty/yang.png",
       pageUrl: "/laboratories/yang",
-      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration"]
+      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"]
     },
     {
       name: "Jie J. Zheng",
