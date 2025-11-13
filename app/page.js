@@ -8,7 +8,7 @@ const ResearchDivisionPage = () => {
   const sections = [
     {
       title: "Research Areas",
-      description: "JSEI spans numerous research areas that include understanding the function of the visual system to treating a wide variety of eye and vision related diseases. Click here to learn more about the different research areas covered by JSEI scientists and the cuting-edge methods they develop and deploy.",
+      description: "JSEI spans numerous research areas that include understanding the function of the visual system to treating a wide variety of eye and vision related diseases. Click here to learn more about the different research areas covered by JSEI scientists and the cutting-edge methods they develop and deploy.",
       linkUrl: "/researchAreas",
       imageUrl: "/images/mission/research.jpg"
     },
@@ -38,7 +38,7 @@ const ResearchDivisionPage = () => {
     },
     {
       title: "Leadership and Staff",
-      description: "Our mission is accomplished by close collaobration between scientists, clinicians, trainees and program administrators. Learn more about the leadership here.",
+      description: "Our mission is accomplished by close collaboration between scientists, clinicians, trainees and program administrators. Learn more about the leadership here.",
       linkUrl: "/people",
       imageUrl: "/images/mission/pyramid.png"
     }
