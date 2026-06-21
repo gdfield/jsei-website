@@ -34,7 +34,8 @@
       description: "Description of research: Dr. Bhat’s research focuses on understanding the molecular basis of the biological transparency and refractive ability of the lens that allows a pinpoint focus of the incoming light without spherical aberration and scatter. His work entails characterization of gene activities by single cell transcriptomics in mouse paradigms and human lens epithelial samples from cataract surgeries.",
       profileImage: "/images/faculty/bhat.jpg",
       pageUrl: "/laboratories/bhat",
-      researchAreas: ["Eye Surface and Lens"]
+      researchAreas: ["Eye Surface and Lens"],
+      emeritus: true
     },
     
     {
@@ -140,7 +141,8 @@
       description: "Dr. Hubbell's research focuses on the development and application of site-directed spin labeling to investigate protein structure and dynamics. His pioneering work has provided crucial insights into the molecular mechanisms of vision and membrane protein function.",
       profileImage: "/images/faculty/hubbell.jpg",
       pageUrl: "/laboratories/hubbell/",
-      researchAreas: ["Retinal Biology"]
+      researchAreas: ["Retinal Biology"],
+      emeritus: true
     },
     {
       name: "Kouros Nouri-Mahdavi",
