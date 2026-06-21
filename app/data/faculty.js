@@ -13,7 +13,7 @@
       title: "Assistant Professor",
       research: "Imaging, AI, and Retinal Genomics",
       description: "Dr. Au’s research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify novel therapeutic targets. His laboratory integrates large-scale imaging and genomic data using AI-driven approaches to advance precision care in retinal disease.",
-      profileImage: "/images/faculty/au.jpg",
+      profileImage: "/images/faculty/au2.jpg",
       pageUrl: "/laboratories/au",
       researchAreas: ["AI and Robostics", "Ocular Imaging", "Bioinformatics and Population Health"]
     },
