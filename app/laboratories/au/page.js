@@ -63,7 +63,7 @@ export default function AuPage() {
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           <div className="w-full md:w-1/3">
             <img 
-              src="/images/faculty/au.jpg"
+              src="/images/faculty/au2.jpg"
               alt="Dr. Adrian Au"
               className="w-full rounded-lg shadow-lg"
             />
