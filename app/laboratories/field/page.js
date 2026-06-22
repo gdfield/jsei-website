@@ -64,7 +64,7 @@ export default function FieldPage() {
           <div className="w-full md:w-1/3">
             <img 
               src="/images/faculty/field.jpg"
-              alt="Dr. Gregory Field"
+              alt="Dr. Greg D. Field"
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">

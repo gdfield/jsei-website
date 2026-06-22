@@ -29,7 +29,7 @@
     
     {
       name: "Suraj Bhat",
-      title: "Professor",
+      title: "Professor Emeritus",
       research: "Gene activity, lens development and vision",
       description: "Description of research: Dr. Bhat’s research focuses on understanding the molecular basis of the biological transparency and refractive ability of the lens that allows a pinpoint focus of the incoming light without spherical aberration and scatter. His work entails characterization of gene activities by single cell transcriptomics in mouse paradigms and human lens epithelial samples from cataract surgeries.",
       profileImage: "/images/faculty/bhat.jpg",
@@ -58,6 +58,16 @@
       researchAreas: ["Visual Neuroscience", "Retinal Biology"]
     },
     */
+    {
+      name: "Dean Bok",
+      title: "Professor Emeritus",
+      research: "Retinal Pigment Epithelium Biology",
+      description: "Dr. Bok's research focused on the structure and function of the retinal pigment epithelium (RPE) and its critical role in supporting photoreceptor cells. His work illuminated fundamental mechanisms of visual cycle biochemistry, RPE phagocytosis, and the pathogenesis of retinal degenerative diseases including age-related macular degeneration.",
+      profileImage: "/images/faculty/bok.webp",
+      pageUrl: "/laboratories/bok",
+      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration"],
+      emeritus: true
+    },
     {
       name: "Anne Coleman",
       title: "Professor and Director",
@@ -95,6 +105,16 @@
       researchAreas: ["Visual Neuroscience", "Retinal Biology"]
     },
     {
+      name: "Deborah Farber",
+      title: "Professor Emeritus",
+      research: "Molecular Biology of Retinal Degenerations",
+      description: "Dr. Farber's research identified the genetic and biochemical basis of inherited retinal degenerations. Her landmark work characterized mutations in the β-subunit of rod cGMP-phosphodiesterase (PDE6B) that cause retinitis pigmentosa and elucidated mechanisms of photoreceptor cell death, laying the foundation for gene therapy approaches to treating inherited blindness.",
+      profileImage: "/images/faculty/Farber.jpg",
+      pageUrl: "/laboratories/farber",
+      researchAreas: ["Retinal Biology"],
+      emeritus: true
+    },
+    {
       name: "Greg D. Field",
       title: "Associate Professor In-Residence",
       research: "Retinal Circuits and Vision",
@@ -102,6 +122,15 @@
       profileImage: "/images/faculty/field.jpg",
       pageUrl: "/laboratories/field",
       researchAreas: ["Visual Neuroscience", "AI and Robotics", "Therapeutics and Regeneration"]
+    },
+    {
+      name: "Michael Gilhooley",
+      title: "Assistant Professor In-Residence",
+      research: "Neuro-ophthalmology and ipRGC Biology",
+      description: "Dr. Gilhooley's laboratory investigates intrinsically photosensitive retinal ganglion cells (ipRGCs) and melanopsin protein function in the context of inherited optic neuropathies such as dominant optic atrophy (OPA1) and Leber hereditary optic neuropathy (LHON). A central focus is understanding why ipRGCs are selectively spared when other retinal ganglion cells degenerate, with the goal of harnessing this resilience to develop neuroprotective therapies.",
+      profileImage: "/images/faculty/Gilhooley.jpeg",
+      pageUrl: "/laboratories/gilhooley",
+      researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"]
     },
     {
       name: "Ben Glasgow",
@@ -136,7 +165,7 @@
     */
     {
       name: "Wayne L. Hubbell",
-      title: "Professor",
+      title: "Professor Emeritus",
       research: "Molecular Biophysics",
       description: "Dr. Hubbell's research focuses on the development and application of site-directed spin labeling to investigate protein structure and dynamics. His pioneering work has provided crucial insights into the molecular mechanisms of vision and membrane protein function.",
       profileImage: "/images/faculty/hubbell.jpg",
@@ -152,6 +181,16 @@
       profileImage: "/images/faculty/kouros2.jpg",
       pageUrl: "/laboratories/nouri-mahdavi",
       researchAreas: ["Ocular Imaging","AI and Robotics"]
+    },
+    {
+      name: "Steven Nusinowitz",
+      title: "Associate Professor Emeritus",
+      research: "Visual Electrophysiology and Retinal Function",
+      description: "Dr. Nusinowitz's research focused on the assessment of retinal and visual pathway function using electrophysiological methods, including electroretinography (ERG). His work applied these techniques to characterize mouse models of retinal disease and evaluate the efficacy of experimental therapeutics aimed at preserving or restoring visual function.",
+      profileImage: "/images/faculty/Nusinowitz.jpg",
+      pageUrl: "/laboratories/nusinowitz",
+      researchAreas: ["Retinal Biology", "Visual Neuroscience"],
+      emeritus: true
     },
     {
       name: "Yi-Rong Peng",

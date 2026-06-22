@@ -60,7 +60,7 @@ export default function HubbellPage() {
             />
             <div className="mt-4 space-y-2">
               <h3 className="text-xl font-bold text-gray-900">Wayne L. Hubbell, Ph.D.</h3>
-              <p className="text-gray-600">Distinguished Professor Emeritus</p>
+              <p className="text-gray-600">Professor Emeritus</p>
               <p className="text-gray-600">Jules Stein Chair in Ophthalmology</p>
               <p className="text-gray-600">Department of Ophthalmology and Chemistry and Biochemistry</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
