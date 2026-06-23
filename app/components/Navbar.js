@@ -42,6 +42,12 @@ const Navbar = () => {
             >
               Publications
             </Link>
+            <Link
+              href="/funding"
+              className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
+            >
+              Funding
+            </Link>
           </div>
         </div>
       </div>

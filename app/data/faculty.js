@@ -124,7 +124,8 @@
       pageUrl: "/laboratories/field",
       researchAreas: ["Visual Neuroscience", "AI and Robotics", "Therapeutics and Regeneration"],
       basicScience: true,
-      orcid: "0000-0001-5942-2679"
+      orcid: "0000-0001-5942-2679",
+      nihName: { lastName: "Field", firstName: "Greg" }
     },
     {
       name: "Michael Gilhooley",
