@@ -24,6 +24,18 @@ const ResearchDivisionPage = () => {
       linkUrl: "/core",
       imageUrl: "/images/mission/cores.jpg"
     },
+    {
+      title: "Publications",
+      description: "View the latest publications for Scientists at JSEI.",
+      linkUrl: "/publications",
+      imageUrl: "/images/mission/research.jpg"
+    },
+    {
+      title: "Funding",
+      description: "View the latest federal grants to JSEI Scientists.",
+      linkUrl: "/funding",
+      imageUrl: "/images/mission/laboratories.jpg"
+    },
   ];
 
   return (
