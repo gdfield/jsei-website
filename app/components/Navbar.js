@@ -36,24 +36,6 @@ const Navbar = () => {
             >
               Core Facilities
             </Link>
-            <Link 
-              href="/education"
-              className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
-            >
-              Education
-            </Link>
-            <Link 
-              href="/outreach"
-              className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
-            >
-              Outreach
-            </Link>
-            <Link 
-              href="/people"
-              className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
-            >
-              Leadership
-            </Link>
           </div>
         </div>
       </div>
