@@ -24,24 +24,6 @@ const ResearchDivisionPage = () => {
       linkUrl: "/core",
       imageUrl: "/images/mission/cores.jpg"
     },
-    {
-      title: "Education",
-      description: "We train the next generation of vision scientists through graduate programs, postdoctoral fellowships, residencies and research opportunities. We provide a collaborative environment for learning and scientific discovery. Click here for more information about these programs.",
-      linkUrl: "/education",
-      imageUrl: "/images/mission/education.jpg"
-    },
-    {
-      title: "Outreach",
-      description: "Engaging the community through scientific presentations, workshops, and educational programs. We're committed to sharing our knowledge, inspiring future scientists, and improving access to healthcare across the greater Los Angeles area.",
-      linkUrl: "/outreach",
-      imageUrl: "/images/mission/outreach.jpg"
-    },
-    {
-      title: "Leadership and Staff",
-      description: "Our mission is accomplished by close collaboration between scientists, clinicians, trainees and program administrators. Learn more about the leadership here.",
-      linkUrl: "/people",
-      imageUrl: "/images/mission/pyramid.png"
-    }
   ];
 
   return (
