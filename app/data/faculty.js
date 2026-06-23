@@ -235,7 +235,8 @@
       profileImage: "/images/faculty/sampath.jpg",
       pageUrl: "/laboratories/sampath",
       researchAreas: ["Retinal Biology", "Visual Neuroscience", "Therapeutics and Regeneration"],
-      basicScience: true
+      basicScience: true,
+      orcid: "0000-0002-0785-9577"
     },
     {
       name: "Hui Sun",
