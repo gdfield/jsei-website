@@ -30,11 +30,17 @@ const Navbar = () => {
             >
               Laboratories
             </Link>
-            <Link 
+            <Link
               href="/core"
               className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
             >
               Core Facilities
+            </Link>
+            <Link
+              href="/publications"
+              className="inline-flex items-center px-1 pt-1 text-gray-500 hover:text-blue-600"
+            >
+              Publications
             </Link>
           </div>
         </div>

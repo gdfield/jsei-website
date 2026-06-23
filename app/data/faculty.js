@@ -123,7 +123,8 @@
       profileImage: "/images/faculty/field.jpg",
       pageUrl: "/laboratories/field",
       researchAreas: ["Visual Neuroscience", "AI and Robotics", "Therapeutics and Regeneration"],
-      basicScience: true
+      basicScience: true,
+      orcid: "0000-0001-5942-2679"
     },
     {
       name: "Michael Gilhooley",
