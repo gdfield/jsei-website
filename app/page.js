@@ -28,7 +28,7 @@ const ResearchDivisionPage = () => {
       title: "Publications",
       description: "View the latest publications for Scientists at JSEI.",
       linkUrl: "/publications",
-      imageUrl: "/images/mission/publications.svg"
+      imageUrl: "/images/mission/publications.jpg"
     },
     {
       title: "Funding",
