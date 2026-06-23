@@ -5,7 +5,8 @@ import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';
 
 const LaboratoriesPage = () => {
-  const activeFaculty = facultyData.filter((f) => !f.emeritus);
+  const basicScience = facultyData.filter((f) => f.basicScience && !f.emeritus);
+  const clinicalScience = facultyData.filter((f) => !f.basicScience && !f.emeritus);
   const emeritusFaculty = facultyData.filter((f) => f.emeritus);
 
   return (
@@ -18,10 +19,20 @@ const LaboratoriesPage = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200">Basic Science Laboratories</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {activeFaculty.map((faculty) => (
+          {basicScience.map((faculty) => (
             <FacultyCard key={faculty.name} faculty={faculty} />
           ))}
+        </div>
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200">Clinical Science Laboratories</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {clinicalScience.map((faculty) => (
+              <FacultyCard key={faculty.name} faculty={faculty} />
+            ))}
+          </div>
         </div>
 
         {emeritusFaculty.length > 0 && (

@@ -102,7 +102,8 @@
       description: "Dr. Fain's research focuses on the biophysical mechanisms of photoreceptor function and adaptation. His work has provided fundamental insights into how photoreceptors respond to light and adapt to different lighting conditions, contributing to our understanding of both normal vision and retinal disease.",
       profileImage: "/images/faculty/fain.jpg",
       pageUrl: "/laboratories/fain",
-      researchAreas: ["Visual Neuroscience", "Retinal Biology"]
+      researchAreas: ["Visual Neuroscience", "Retinal Biology"],
+      basicScience: true
     },
     {
       name: "Deborah Farber",
@@ -121,7 +122,8 @@
       description: "Dr. Field's laboratory focuses on understanding how neural circuits in the retina process visual information. His work combines electrophysiology, imaging, and computational approaches to decode the neural basis of vision at the cellular level.",
       profileImage: "/images/faculty/field.jpg",
       pageUrl: "/laboratories/field",
-      researchAreas: ["Visual Neuroscience", "AI and Robotics", "Therapeutics and Regeneration"]
+      researchAreas: ["Visual Neuroscience", "AI and Robotics", "Therapeutics and Regeneration"],
+      basicScience: true
     },
     {
       name: "Michael Gilhooley",
@@ -139,7 +141,8 @@
       description: "Dr. Glasgow’s research focuses on the role of lipid and protein components in the molecular mechanisms of tear film formation. His laboratory combines biochemical and biophysical techniques to study dynamic interactions of these constituents in relation to dry eye diseases.",
       profileImage: "/images/faculty/empty.jpg",
       pageUrl: "/laboratories/glasgow",
-      researchAreas: ["Eye Surface and Lens"]
+      researchAreas: ["Eye Surface and Lens"],
+      basicScience: true
     },
     /*
     {
@@ -199,7 +202,8 @@
       description: "Dr. Peng investigates the cellular and molecular mechanisms that underly the formation and degeneration of the visual system. Her research uses multi-omics and bioinformatics tools to uncover the genetic basis of neural circuit development and degeneration.",
       profileImage: "/images/faculty/peng.jpg",
       pageUrl: "/laboratories/peng",
-      researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Retinal Biology", "Bioinformatics and Population Health"]
+      researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Retinal Biology", "Bioinformatics and Population Health"],
+      basicScience: true
     },
     /*
     {
@@ -219,7 +223,8 @@
       description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE), a crucial cell layer supporting photoreceptors. Using advanced genetic, biochemical, and cell biological approaches, including induced pluripotent stem cells and mouse models, the laboratory examines molecular mechanisms driving RPE-photoreceptor dysfunction, with the goal of developing potential therapeutic interventions.",
       profileImage: "/images/faculty/radu.jpg",
       pageUrl: "/laboratories/radu",
-      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health", "Ocular Imaging"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health", "Ocular Imaging"],
+      basicScience: true
     },
     {
       name: "Alapakkam Sampath",
@@ -228,7 +233,8 @@
       description: "Dr. Sampath’s focuses on understanding how rod and cone photoreceptors, and their retinal circuits, encode visual information. His lab uses advanced electrophysiological techniques to study mechanisms of signal detection and light adaptation.  A more recent focus is in how physiological mechanisms compensate for photoreceptor loss during retinal degenerations.",
       profileImage: "/images/faculty/sampath.jpg",
       pageUrl: "/laboratories/sampath",
-      researchAreas: ["Retinal Biology", "Visual Neuroscience", "Therapeutics and Regeneration"]
+      researchAreas: ["Retinal Biology", "Visual Neuroscience", "Therapeutics and Regeneration"],
+      basicScience: true
     },
     {
       name: "Hui Sun",
@@ -237,7 +243,8 @@
       description: "Membrane receptors belong to the most successful therapeutic targets in disease treatment.  The Sun lab has developed new techniques to discover novel membrane receptors and to identify their chemical modulators that can be potential drugs in treating major diseases that affect the eye and other organs. ",
       profileImage: "/images/faculty/sun.jpg",
       pageUrl: "/laboratories/sun",
-      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"],
+      basicScience: true
     },
     {
       name: "Gabriel Travis",
@@ -246,7 +253,8 @@
       description: "Dr. Gabriel Travis studies the regeneration of opsin visual pigments in rod and cone photoreceptor cells. This enzymatic pathway involves multiple proteins. The genes for several of these proteins are affected in inherited photoreceptor degenerations that cause progressive blindness in humans.",
       profileImage: "/images/faculty/travis.jpg",
       pageUrl: "/laboratories/travis",
-      researchAreas: ["Retinal Biology"]
+      researchAreas: ["Retinal Biology"],
+      basicScience: true
     },
     {
       name: "Victoria Tseng",
@@ -282,7 +290,8 @@
       description: "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these highly specialized cells, as well as the underlying processes in retinal degenerations.",
       profileImage: "/images/faculty/williams.jpg",
       pageUrl: "/laboratories/williams",
-      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Ocular Imaging"]
+      researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Ocular Imaging"],
+      basicScience: true
     },
     {
       name: "Xian-Jie Yang",
@@ -291,7 +300,8 @@
       description: "Dr. Yang studies retinal development and repair using molecular genetic approaches. Her research provides insight on cellular signaling mechanism involved in neuroprotection in retinal degenerative diseases. She also uses human stem cell-derived retinal organoids and neurons to model optic neuropathies and develop therapy.",
       profileImage: "/images/faculty/yang.png",
       pageUrl: "/laboratories/yang",
-      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"]
+      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"],
+      basicScience: true
     },
     {
       name: "Jie J. Zheng",
@@ -300,7 +310,8 @@
       description: "Dr. Zheng’s research combines chemical biology, cell biology, computational biology, systems pharmacology, and drug discovery to develop innovative therapies for ophthalmic diseases. Leveraging their multidisciplinary expertise, his laboratory focuses on translating research into novel treatments for glaucoma, retinal diseases, and corneal disorders. Additionally, they employ AI-driven protein-protein interaction analysis to investigate the mechanisms underlying different inherited retinal diseases.",
       profileImage: "/images/faculty/zhang.jpg",
       pageUrl: "/laboratories/zhang",
-      researchAreas: ["AI and Robotics", "Retinal Biology", "Therapeutics and Regeneration", "Eye Surface and Lens", "Bioinformatics and Population Health"]
+      researchAreas: ["AI and Robotics", "Retinal Biology", "Therapeutics and Regeneration", "Eye Surface and Lens", "Bioinformatics and Population Health"],
+      basicScience: true
     },
     {
       name: "Joel Zylberberg",
@@ -309,6 +320,7 @@
       description: "Dr. Zylberberg's research combines theoretical and computational approaches to understand how neural circuits process visual information. His work focuses on developing mathematical models of visual processing and applying machine learning to analyze neural data.",
       profileImage: "/images/faculty/zylberberg.jpg",
       pageUrl: "/laboratories/zylberberg",
-      researchAreas: ["AI and Robotics", "Visual Neuroscience", "Retinal Biology"]
+      researchAreas: ["AI and Robotics", "Visual Neuroscience", "Retinal Biology"],
+      basicScience: true
     }
   ];
