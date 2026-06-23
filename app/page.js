@@ -34,7 +34,7 @@ const ResearchDivisionPage = () => {
       title: "Funding",
       description: "View the latest federal grants to JSEI Scientists.",
       linkUrl: "/funding",
-      imageUrl: "/images/mission/laboratories.jpg"
+      imageUrl: "/images/mission/pyramid.png"
     },
   ];
 
