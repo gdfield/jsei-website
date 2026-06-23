@@ -2,31 +2,73 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import { facultyData } from '../data/faculty';
 
+const CUTOFF_YEAR = new Date().getFullYear() - 5;
+
+function chunkArray(arr, size) {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += size) chunks.push(arr.slice(i, i + size));
+  return chunks;
+}
+
 async function fetchPublications(orcid) {
   try {
-    const res = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+    // Step 1: fetch all summaries to filter by year before pulling full records
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
       headers: { Accept: 'application/json' },
       next: { revalidate: 86400 },
     });
-    if (!res.ok) return [];
-    const data = await res.json();
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
 
-    return (data.group || [])
-      .map((group) => {
-        const summary = group['work-summary']?.[0];
-        const doiEntry = (group['external-ids']?.['external-id'] || []).find(
+    const recentGroups = (summaryData.group || []).filter((group) => {
+      const year = parseInt(
+        group['work-summary']?.[0]?.['publication-date']?.year?.value ?? '0'
+      );
+      return year >= CUTOFF_YEAR;
+    });
+    if (recentGroups.length === 0) return [];
+
+    // Step 2: batch fetch full works (max 100 per request) to get contributor data
+    const putCodes = recentGroups.map((g) => g['work-summary'][0]['put-code']);
+    const chunks = chunkArray(putCodes, 100);
+
+    const bulkItems = [];
+    for (const chunk of chunks) {
+      const fullRes = await fetch(
+        `https://pub.orcid.org/v3.0/${orcid}/works/${chunk.join(',')}`,
+        {
+          headers: { Accept: 'application/json' },
+          next: { revalidate: 86400 },
+        }
+      );
+      if (!fullRes.ok) continue;
+      const fullData = await fullRes.json();
+      bulkItems.push(...(fullData.bulk || []));
+    }
+
+    return bulkItems
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+
+        const doiEntry = (work?.['external-ids']?.['external-id'] || []).find(
           (id) => id['external-id-type'] === 'doi'
         );
+
         return {
-          title: summary?.title?.title?.value ?? '',
-          journal: summary?.['journal-title']?.value ?? '',
-          year: summary?.['publication-date']?.year?.value ?? '',
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          month: work?.['publication-date']?.month?.value ?? '00',
           doi: doiEntry?.['external-id-value'] ?? null,
-          type: summary?.type ?? '',
+          type: work?.type ?? '',
+          authors,
         };
       })
-      .filter((p) => p.title)
-      .sort((a, b) => (b.year || '').localeCompare(a.year || ''));
+      .filter((p) => p.title);
   } catch {
     return [];
   }
@@ -35,21 +77,31 @@ async function fetchPublications(orcid) {
 export default async function PublicationsPage() {
   const facultyWithOrcid = facultyData.filter((f) => f.orcid && !f.emeritus);
 
-  const results = await Promise.all(
-    facultyWithOrcid.map(async (faculty) => ({
-      faculty,
-      publications: await fetchPublications(faculty.orcid),
-    }))
-  );
+  const allPublications = (
+    await Promise.all(facultyWithOrcid.map((f) => fetchPublications(f.orcid)))
+  ).flat();
+
+  // Deduplicate by DOI (handles co-authored papers appearing via multiple faculty ORCIDs)
+  const seen = new Set();
+  const unique = allPublications.filter((pub) => {
+    const key = pub.doi ?? pub.title;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  unique.sort((a, b) => {
+    const yearDiff = (b.year || '0').localeCompare(a.year || '0');
+    if (yearDiff !== 0) return yearDiff;
+    return (b.month || '00').localeCompare(a.month || '00');
+  });
 
   const TYPE_LABELS = {
-    'journal-article': 'Journal Article',
     preprint: 'Preprint',
     'conference-paper': 'Conference Paper',
     'book-chapter': 'Book Chapter',
     book: 'Book',
     'data-set': 'Dataset',
-    other: 'Other',
   };
 
   return (
@@ -58,83 +110,59 @@ export default async function PublicationsPage() {
       <Hero
         title="Publications"
         subtitle="JSEI Research Output"
-        description="Recent publications from Jules Stein Eye Institute faculty"
+        description={`Publications from Jules Stein Eye Institute faculty, ${CUTOFF_YEAR}–present`}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {results.map(({ faculty, publications }) => (
-          <div key={faculty.name}>
-            <div className="flex items-center gap-4 mb-6 pb-3 border-b border-gray-200">
-              <img
-                src={faculty.profileImage}
-                alt={faculty.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900">{faculty.name}</h2>
-                <p className="text-gray-500 text-sm">{faculty.research}</p>
-              </div>
-              <a
-                href={`https://orcid.org/${faculty.orcid}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-auto text-sm text-green-700 hover:text-green-900 font-medium flex items-center gap-1"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.947.947 0 0 1 0-1.894zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.435h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.713-4.097-3.713h-2.222z"/>
-                </svg>
-                ORCID
-              </a>
-            </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <p className="text-gray-400 text-sm mb-8">
+          {unique.length} publication{unique.length !== 1 ? 's' : ''} · sourced from ORCID · refreshed daily
+        </p>
 
-            {publications.length === 0 ? (
-              <p className="text-gray-500 italic">No publications found.</p>
-            ) : (
-              <div className="space-y-3">
-                {publications.map((pub, i) => (
-                  <div
-                    key={i}
-                    className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
+        <div className="space-y-4">
+          {unique.map((pub, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
+            >
+              <div className="flex justify-between items-start gap-4">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                    {pub.title}
+                  </h3>
+                  {pub.authors.length > 0 && (
+                    <p className="text-gray-700 text-sm mb-1">{pub.authors.join(', ')}</p>
+                  )}
+                  <p className="text-gray-500 text-sm">
+                    {pub.journal && <span className="italic">{pub.journal}</span>}
+                    {pub.journal && pub.year && ' · '}
+                    {pub.year}
+                    {TYPE_LABELS[pub.type] && (
+                      <span className="ml-2 inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">
+                        {TYPE_LABELS[pub.type]}
+                      </span>
+                    )}
+                  </p>
+                </div>
+                {pub.doi && (
+                  <a
+                    href={`https://doi.org/${pub.doi}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
                   >
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
-                          {pub.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm">
-                          {pub.journal && (
-                            <span className="italic">{pub.journal}</span>
-                          )}
-                          {pub.journal && pub.year && ' · '}
-                          {pub.year && <span>{pub.year}</span>}
-                          {pub.type && pub.type !== 'journal-article' && (
-                            <span className="ml-2 inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">
-                              {TYPE_LABELS[pub.type] ?? pub.type}
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                      {pub.doi && (
-                        <a
-                          href={`https://doi.org/${pub.doi}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
-                        >
-                          View →
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                    View →
+                  </a>
+                )}
               </div>
-            )}
+            </div>
+          ))}
+        </div>
 
-            <p className="mt-3 text-xs text-gray-400 text-right">
-              {publications.length} publication{publications.length !== 1 ? 's' : ''} · sourced from ORCID
-            </p>
-          </div>
-        ))}
+        {unique.length === 0 && (
+          <p className="text-gray-500 italic text-center py-16">
+            No publications found for the selected period.
+          </p>
+        )}
       </div>
 
       <footer className="bg-gray-100 mt-16 py-8">
