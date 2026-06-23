@@ -118,8 +118,22 @@ export default async function PublicationsPage() {
           {unique.length} publication{unique.length !== 1 ? 's' : ''} · sourced from ORCID · refreshed daily
         </p>
 
-        <div className="space-y-4">
-          {unique.map((pub, i) => (
+        {Object.entries(
+          unique.reduce((acc, pub) => {
+            const y = pub.year || 'Unknown';
+            if (!acc[y]) acc[y] = [];
+            acc[y].push(pub);
+            return acc;
+          }, {})
+        )
+          .sort(([a], [b]) => b.localeCompare(a))
+          .map(([year, pubs]) => (
+            <div key={year} className="mb-12">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
+                {year}
+              </h2>
+              <div className="space-y-4">
+                {pubs.map((pub, i) => (
             <div
               key={i}
               className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
@@ -155,8 +169,10 @@ export default async function PublicationsPage() {
                 )}
               </div>
             </div>
+                ))}
+              </div>
+            </div>
           ))}
-        </div>
 
         {unique.length === 0 && (
           <p className="text-gray-500 italic text-center py-16">
