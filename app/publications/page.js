@@ -168,11 +168,13 @@ export default async function PublicationsPage() {
                     <div className="flex items-start gap-6">
                       {/* Left: JSEI lab(s) */}
                       <div className="w-44 shrink-0 border-r border-gray-100 pr-6">
-                        {pub._jseiAuthors.map((name, j) => (
-                          <p key={j} className="font-bold text-blue-700 leading-tight">
-                            {name.split(' ').at(-1)} Lab
-                          </p>
-                        ))}
+                        {(() => {
+                          const lastNames = pub._jseiAuthors.map((n) => n.split(' ').at(-1));
+                          const label = lastNames.length === 1
+                            ? `${lastNames[0]} Lab`
+                            : `${lastNames.slice(0, -1).join(', ')} and ${lastNames.at(-1)} Labs`;
+                          return <p className="font-bold text-blue-700 leading-tight">{label}</p>;
+                        })()}
                       </div>
 
                       {/* Middle: title, authors, journal */}
