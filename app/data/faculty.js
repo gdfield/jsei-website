@@ -241,6 +241,7 @@
       pageUrl: "/laboratories/radu",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health", "Ocular Imaging"],
       basicScience: true,
+      orcid: "0000-0002-5064-6403",
       nihName: { lastName: "Radu", firstName: "Roxana" }
     },
     {
