@@ -130,7 +130,6 @@ export default async function FundingPage() {
                 <div className="flex items-start gap-6">
                   {/* Left: JSEI faculty PI(s) */}
                   <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
-                    <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">JSEI PI</p>
                     {displayJseiNames.map((name, j) => (
                       <p key={j} className="font-bold text-blue-700 leading-tight">{name}</p>
                     ))}
