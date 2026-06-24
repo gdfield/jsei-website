@@ -50,7 +50,7 @@ const ResearchDivisionPage = () => {
       {/* Replace the old hero section with the Hero component */}
       <Hero 
         title="Jules Stein Eye Institute"
-        subtitle="An Organized Research Unit of UCLA"
+        subtitle="An Organized Research Unit of the University of California"
         description="Advancing Vision Science Through Innovative Research"
       />
 
