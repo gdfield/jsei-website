@@ -160,7 +160,6 @@
       profileImage: "/images/faculty/empty.jpg",
       pageUrl: "/laboratories/glasgow",
       researchAreas: ["Eye Surface and Lens"],
-      basicScience: true,
       nihName: { lastName: "Glasgow", firstName: "Benjamin" }
     },
     /*
