@@ -10,7 +10,8 @@ function chunkArray(arr, size) {
   return chunks;
 }
 
-async function fetchPublications(orcid) {
+async function fetchPublications(faculty) {
+  const orcid = faculty.orcid;
   try {
     // Step 1: fetch all summaries to filter by year before pulling full records
     const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
@@ -66,6 +67,7 @@ async function fetchPublications(orcid) {
           doi: doiEntry?.['external-id-value'] ?? null,
           type: work?.type ?? '',
           authors,
+          _facultyName: faculty.name,
         };
       })
       .filter((p) => p.title);
@@ -78,17 +80,24 @@ export default async function PublicationsPage() {
   const facultyWithOrcid = facultyData.filter((f) => f.orcid && !f.emeritus);
 
   const allPublications = (
-    await Promise.all(facultyWithOrcid.map((f) => fetchPublications(f.orcid)))
+    await Promise.all(facultyWithOrcid.map((f) => fetchPublications(f)))
   ).flat();
 
-  // Deduplicate by DOI (handles co-authored papers appearing via multiple faculty ORCIDs)
-  const seen = new Set();
-  const unique = allPublications.filter((pub) => {
+  // Deduplicate by DOI, merging JSEI author names when the same paper
+  // appears in multiple faculty ORCIDs
+  const pubMap = new Map();
+  allPublications.forEach((pub) => {
     const key = pub.doi ?? pub.title;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
+    if (pubMap.has(key)) {
+      const existing = pubMap.get(key);
+      if (!existing._jseiAuthors.includes(pub._facultyName)) {
+        existing._jseiAuthors.push(pub._facultyName);
+      }
+    } else {
+      pubMap.set(key, { ...pub, _jseiAuthors: [pub._facultyName] });
+    }
   });
+  const unique = Array.from(pubMap.values());
 
   unique.sort((a, b) => {
     const yearDiff = (b.year || '0').localeCompare(a.year || '0');
@@ -134,41 +143,52 @@ export default async function PublicationsPage() {
               </h2>
               <div className="space-y-4">
                 {pubs.map((pub, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
-            >
-              <div className="flex justify-between items-start gap-4">
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
-                    {pub.title}
-                  </h3>
-                  {pub.authors.length > 0 && (
-                    <p className="text-gray-700 text-sm mb-1">{pub.authors.join(', ')}</p>
-                  )}
-                  <p className="text-gray-500 text-sm">
-                    {pub.journal && <span className="italic">{pub.journal}</span>}
-                    {pub.journal && pub.year && ' · '}
-                    {pub.year}
-                    {TYPE_LABELS[pub.type] && (
-                      <span className="ml-2 inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">
-                        {TYPE_LABELS[pub.type]}
-                      </span>
-                    )}
-                  </p>
-                </div>
-                {pub.doi && (
-                  <a
-                    href={`https://doi.org/${pub.doi}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                  <div
+                    key={i}
+                    className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
                   >
-                    View →
-                  </a>
-                )}
-              </div>
-            </div>
+                    <div className="flex items-start gap-6">
+                      {/* Left: JSEI lab(s) */}
+                      <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
+                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">JSEI Lab</p>
+                        {pub._jseiAuthors.map((name, j) => (
+                          <p key={j} className="font-bold text-blue-700 leading-tight">{name}</p>
+                        ))}
+                      </div>
+
+                      {/* Middle: title, authors, journal */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                          {pub.title}
+                        </h3>
+                        {pub.authors.length > 0 && (
+                          <p className="text-gray-700 text-sm mb-1">{pub.authors.join(', ')}</p>
+                        )}
+                        <p className="text-gray-500 text-sm">
+                          {pub.journal && <span className="italic">{pub.journal}</span>}
+                          {pub.journal && pub.year && ' · '}
+                          {pub.year}
+                          {TYPE_LABELS[pub.type] && (
+                            <span className="ml-2 inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">
+                              {TYPE_LABELS[pub.type]}
+                            </span>
+                          )}
+                        </p>
+                      </div>
+
+                      {/* Right: DOI link */}
+                      {pub.doi && (
+                        <a
+                          href={`https://doi.org/${pub.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                        >
+                          View →
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
