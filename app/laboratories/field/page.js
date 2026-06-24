@@ -1,5 +1,4 @@
 import React from 'react';
-import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
 const FIELD_ORCID = '0000-0001-5942-2679';
@@ -117,7 +116,7 @@ export default async function FieldPage() {
             <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Greg D. Field, Ph.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
-              <p className="text-gray-600">Joan and Jerome Snyder Vision Science Chair</p>
+              <p className="text-gray-600">Fran and Ray Stark Foundation Chair in Ophthalmology</p>
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Assistant Director of Research</p>
               <p className="text-gray-600">Director, Live Imaging and Functional Evaluation Core</p>
