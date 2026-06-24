@@ -116,7 +116,7 @@ export default async function FieldPage() {
             <div className="mt-4 space-y-1">
               <h3 className="text-xl font-bold text-gray-900">Greg D. Field, Ph.D.</h3>
               <p className="text-gray-600">Associate Professor</p>
-              <p className="text-gray-600">Fran and Ray Stark Foundation Chair in Ophthalmology</p>
+              <p className="text-gray-600">Fran and Ray Stark Chair of Ophthalmology</p>
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Assistant Director of Research</p>
               <p className="text-gray-600">Director, Live Imaging and Functional Evaluation Core</p>
