@@ -327,6 +327,7 @@
       pageUrl: "/laboratories/yang",
       researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"],
       basicScience: true,
+      orcid: "0000-0003-2866-7440",
       nihName: { lastName: "Yang", firstName: "Xian-Jie" }
     },
     {
