@@ -218,6 +218,7 @@
       pageUrl: "/laboratories/peng",
       researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Retinal Biology", "Bioinformatics and Population Health"],
       basicScience: true,
+      orcid: "0000-0002-5689-2779",
       nihName: { lastName: "Peng", firstName: "Yi-Rong" }
     },
     /*
@@ -274,6 +275,7 @@
       pageUrl: "/laboratories/travis",
       researchAreas: ["Retinal Biology"],
       basicScience: true,
+      orcid: "0000-0003-2773-8198",
       nihName: { lastName: "Travis", firstName: "Gabriel" }
     },
     {
