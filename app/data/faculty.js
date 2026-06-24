@@ -111,6 +111,7 @@
       pageUrl: "/laboratories/fain",
       researchAreas: ["Visual Neuroscience", "Retinal Biology"],
       basicScience: true,
+      orcid: "0000-0002-9813-0342",
       nihName: { lastName: "Fain", firstName: "Gordon" }
     },
     {
@@ -314,6 +315,7 @@
       pageUrl: "/laboratories/williams",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Ocular Imaging"],
       basicScience: true,
+      orcid: "0000-0002-7758-3932",
       nihName: { lastName: "Williams", firstName: "David" }
     },
     {
@@ -347,6 +349,7 @@
       pageUrl: "/laboratories/zylberberg",
       researchAreas: ["AI and Robotics", "Visual Neuroscience", "Retinal Biology"],
       basicScience: true,
+      orcid: "0000-0002-8208-5698",
       nihName: { lastName: "Zylberberg", firstName: "Joel" }
     }
   ];
