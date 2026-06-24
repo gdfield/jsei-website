@@ -272,7 +272,7 @@
       pageUrl: "/laboratories/sun",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"],
       basicScience: true,
-      orcid: "0000-0002-9615-1481",
+      orcid: "0009-0006-9866-9846",
       nihName: { lastName: "Sun", firstName: "Hui" }
     },
     {
