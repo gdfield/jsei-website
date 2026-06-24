@@ -6,7 +6,8 @@
       description: "Dr. Aldave's research focuses on the development of novel gene- and cell-based therapies for corneal dystrophies, a group of inherited disorders of the cornea. His laboratory combines clinical genetics with advanced molecular techniques to elucidate the genetic basis of the corneal dystrophies, and to identify target for therapeutic intervention.",
       profileImage: "/images/faculty/aldave.jpg",
       pageUrl: "/laboratories/aldave",
-      researchAreas: ["Eye Surface and Lens", "Bioinformatics and Population Health", "Therapeutics and Regeneration"]
+      researchAreas: ["Eye Surface and Lens", "Bioinformatics and Population Health", "Therapeutics and Regeneration"],
+      nihName: { lastName: "Aldave", firstName: "Anthony" }
     },
         {
       name: "Adrian Au",
@@ -15,7 +16,8 @@
       description: "Dr. Au’s research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify novel therapeutic targets. His laboratory integrates large-scale imaging and genomic data using AI-driven approaches to advance precision care in retinal disease.",
       profileImage: "/images/faculty/au2.jpg",
       pageUrl: "/laboratories/au",
-      researchAreas: ["AI and Robostics", "Ocular Imaging", "Bioinformatics and Population Health"]
+      researchAreas: ["AI and Robostics", "Ocular Imaging", "Bioinformatics and Population Health"],
+      nihName: { lastName: "Au", firstName: "Adrian" }
     },
     {
       name: "Aya Barzalay-Wollman",
@@ -24,7 +26,8 @@
       description: "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates microsurgical robotics, real-time imaging, and regenerative therapies to enable novel treatments—such as robotic delivery of stem cells, gene therapy, and intraocular drugs—for retinal degeneration and vascular disease.",
       profileImage: "/images/faculty/barzalay.jpg",
       pageUrl: "/laboratories/barzalay",
-      researchAreas: ["Therapeutics and Regeneration", "AI and Robotics"]
+      researchAreas: ["Therapeutics and Regeneration", "AI and Robotics"],
+      nihName: { lastName: "Barzelay-Wollman", firstName: "Aya" }
     },
     
     {
@@ -45,7 +48,8 @@
       description: "Dr. Bittner's research focuses on improving quality of life and visual ability for individuals with low vision through innovative rehabilitation strategies with visual aids and devices. She designs and leads the conduct of clinical trials involving assistive technologies and patient-centered approaches to advance low vision care.",
       profileImage: "/images/faculty/bittner.jpg",
       pageUrl: "/laboratories/bittner",
-      researchAreas: ["Eye Mobility and Rehabilitation"]
+      researchAreas: ["Eye Mobility and Rehabilitation"],
+      nihName: { lastName: "Bittner", firstName: "Ava" }
     },
     /*
      {
@@ -75,7 +79,8 @@
       description: "Dr. Coleman leads clinical research initiatives focused on population health, health policy, and clinical outcomes in ophthalmology. Her work combines epidemiological approaches with clinical research to improve eye care delivery and outcomes, particularly in underserved populations.",
       profileImage: "/images/faculty/coleman.jpg",
       pageUrl: "/laboratories/coleman",
-      researchAreas: ["Bioinformatics and Population Health"]
+      researchAreas: ["Bioinformatics and Population Health"],
+      nihName: { lastName: "Coleman", firstName: "Anne" }
     },
     {
       name: "Joseph Demer",
@@ -84,7 +89,8 @@
       description: "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of eye movements in glaucoma and myopia. His work involves magnetic resonance and optical imaging, tissue biomechanics, and computational simulation.",
       profileImage: "/images/faculty/demer.jpg",
       pageUrl: "/laboratories/demer",
-      researchAreas: ["Visual Neuroscience", "Eye Mobility and Rehabilitation"]
+      researchAreas: ["Visual Neuroscience", "Eye Mobility and Rehabilitation"],
+      nihName: { lastName: "Demer", firstName: "Joseph" }
     },
     {
       name: "Sophie Deng",
@@ -93,7 +99,8 @@
       description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine. Her work aims to develop novel diagnostic and therapeutic strategies for corneal diseases and injuries through stem cell-based approaches.",
       profileImage: "/images/faculty/deng.jpg",
       pageUrl: "/laboratories/deng",
-      researchAreas: ["Eye Surface and Lens","Therapeutics and Regeneration", "Ocular Imaging", "AI and Robotics"]
+      researchAreas: ["Eye Surface and Lens","Therapeutics and Regeneration", "Ocular Imaging", "AI and Robotics"],
+      nihName: { lastName: "Deng", firstName: "Sophie" }
     },
     {
       name: "Gordon Fain",
@@ -103,7 +110,8 @@
       profileImage: "/images/faculty/fain.jpg",
       pageUrl: "/laboratories/fain",
       researchAreas: ["Visual Neuroscience", "Retinal Biology"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Fain", firstName: "Gordon" }
     },
     {
       name: "Deborah Farber",
@@ -134,7 +142,8 @@
       description: "Dr. Gilhooley's laboratory investigates intrinsically photosensitive retinal ganglion cells (ipRGCs) and melanopsin protein function in the context of inherited optic neuropathies such as dominant optic atrophy (OPA1) and Leber hereditary optic neuropathy (LHON). A central focus is understanding why ipRGCs are selectively spared when other retinal ganglion cells degenerate, with the goal of harnessing this resilience to develop neuroprotective therapies.",
       profileImage: "/images/faculty/Gilhooley.jpeg",
       pageUrl: "/laboratories/gilhooley",
-      researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"]
+      researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"],
+      nihName: { lastName: "Gilhooley", firstName: "Michael" }
     },
     {
       name: "Ben Glasgow",
@@ -144,7 +153,8 @@
       profileImage: "/images/faculty/empty.jpg",
       pageUrl: "/laboratories/glasgow",
       researchAreas: ["Eye Surface and Lens"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Glasgow", firstName: "Benjamin" }
     },
     /*
     {
@@ -185,7 +195,8 @@
       description: "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma, particularly in understanding disease progression and optimizing diagnostic methodologies including AI approaches. He specializes in detection of disease progression in patients with advanced glaucoma and methods for detecting change over time. His work emphasizes the use of advanced statistical techniques and imaging technologies to enhance glaucoma care.",
       profileImage: "/images/faculty/kouros2.jpg",
       pageUrl: "/laboratories/nouri-mahdavi",
-      researchAreas: ["Ocular Imaging","AI and Robotics"]
+      researchAreas: ["Ocular Imaging","AI and Robotics"],
+      nihName: { lastName: "Nouri-Mahdavi", firstName: "Kouros" }
     },
     {
       name: "Steven Nusinowitz",
@@ -205,7 +216,8 @@
       profileImage: "/images/faculty/peng.jpg",
       pageUrl: "/laboratories/peng",
       researchAreas: ["Therapeutics and Regeneration", "Visual Neuroscience", "Retinal Biology", "Bioinformatics and Population Health"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Peng", firstName: "Yi-Rong" }
     },
     /*
     {
@@ -226,7 +238,8 @@
       profileImage: "/images/faculty/radu.jpg",
       pageUrl: "/laboratories/radu",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Visual Neuroscience", "Bioinformatics and Population Health", "Ocular Imaging"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Radu", firstName: "Roxana" }
     },
     {
       name: "Alapakkam Sampath",
@@ -237,7 +250,8 @@
       pageUrl: "/laboratories/sampath",
       researchAreas: ["Retinal Biology", "Visual Neuroscience", "Therapeutics and Regeneration"],
       basicScience: true,
-      orcid: "0000-0002-0785-9577"
+      orcid: "0000-0002-0785-9577",
+      nihName: { lastName: "Sampath", firstName: "Alapakkam" }
     },
     {
       name: "Hui Sun",
@@ -247,7 +261,8 @@
       profileImage: "/images/faculty/sun.jpg",
       pageUrl: "/laboratories/sun",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Sun", firstName: "Hui" }
     },
     {
       name: "Gabriel Travis",
@@ -257,7 +272,8 @@
       profileImage: "/images/faculty/travis.jpg",
       pageUrl: "/laboratories/travis",
       researchAreas: ["Retinal Biology"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Travis", firstName: "Gabriel" }
     },
     {
       name: "Victoria Tseng",
@@ -266,7 +282,8 @@
       description: "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective. Areas of interest include individual and structural level factors that influence glaucoma risk, and clinical and surgical quality of glaucoma care.",
       profileImage: "/images/faculty/tseng.jpg",
       pageUrl: "/laboratories/tseng",
-      researchAreas: ["Bioinformatics and Population Health"]
+      researchAreas: ["Bioinformatics and Population Health"],
+      nihName: { lastName: "Tseng", firstName: "Victoria" }
     },
     {
       name: "Edmund Tsui",
@@ -275,7 +292,8 @@
       description: "Dr. Tsui specializes in the study and treatment of ocular inflammatory diseases. His research focuses on advanced imaging analysis and biomarker discovery in uveitis. He also leads multiple clinical trials aimed at developing innovative therapies for uveitis and other inflammatory eye conditions.",
       profileImage: "/images/faculty/tsui-e.jpg",
       pageUrl: "/laboratories/tsui-e",
-      researchAreas: ["Ocular Imaging", "AI and Robotics"]
+      researchAreas: ["Ocular Imaging", "AI and Robotics"],
+      nihName: { lastName: "Tsui", firstName: "Edmund" }
     },
         {
       name: "Irena Tsui",
@@ -284,7 +302,8 @@
       description: "Dr. Tsui specializes in clinical research focused on retinal disease and oculomics.  Her work combines clinical insights with optical coherence tomography angiography to evaluate systemic conditions, particularly in premature infants and pregnant women.",
       profileImage: "/images/faculty/tsui-i.jpg",
       pageUrl: "/laboratories/tsui-i",
-      researchAreas: ["Ocular Imaging", "Therapeutics and Regeneration"]
+      researchAreas: ["Ocular Imaging", "Therapeutics and Regeneration"],
+      nihName: { lastName: "Tsui", firstName: "Irena" }
     },
     {
       name: "David Williams",
@@ -294,7 +313,8 @@
       profileImage: "/images/faculty/williams.jpg",
       pageUrl: "/laboratories/williams",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology", "Ocular Imaging"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Williams", firstName: "David" }
     },
     {
       name: "Xian-Jie Yang",
@@ -304,7 +324,8 @@
       profileImage: "/images/faculty/yang.png",
       pageUrl: "/laboratories/yang",
       researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Yang", firstName: "Xian-Jie" }
     },
     {
       name: "Jie J. Zheng",
@@ -314,7 +335,8 @@
       profileImage: "/images/faculty/zhang.jpg",
       pageUrl: "/laboratories/zhang",
       researchAreas: ["AI and Robotics", "Retinal Biology", "Therapeutics and Regeneration", "Eye Surface and Lens", "Bioinformatics and Population Health"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Zheng", firstName: "Jie" }
     },
     {
       name: "Joel Zylberberg",
@@ -324,6 +346,7 @@
       profileImage: "/images/faculty/zylberberg.jpg",
       pageUrl: "/laboratories/zylberberg",
       researchAreas: ["AI and Robotics", "Visual Neuroscience", "Retinal Biology"],
-      basicScience: true
+      basicScience: true,
+      nihName: { lastName: "Zylberberg", firstName: "Joel" }
     }
   ];
