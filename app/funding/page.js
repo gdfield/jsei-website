@@ -2,6 +2,12 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import { facultyData } from '../data/faculty';
 
+export const metadata = {
+  title: 'Research Funding',
+  description:
+    'Active NIH grants awarded to Jules Stein Eye Institute faculty at UCLA, supporting research in vision science, retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
+};
+
 const CURRENT_YEAR = new Date().getFullYear();
 const FISCAL_YEARS = Array.from({ length: 4 }, (_, i) => CURRENT_YEAR - i);
 

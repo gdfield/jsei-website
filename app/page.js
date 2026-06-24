@@ -1,5 +1,11 @@
 // app/page.js
 import React from 'react';
+
+export const metadata = {
+  title: { absolute: 'Jules Stein Eye Institute | UCLA Vision Research' },
+  description:
+    'The Jules Stein Eye Institute (JSEI) at UCLA advances vision science through innovative basic and clinical research in retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
+};
 import { ArrowUpRight } from 'lucide-react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';

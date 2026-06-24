@@ -3,6 +3,12 @@ import React from 'react';
 import Image from 'next/image';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
+
+export const metadata = {
+  title: 'Core Facilities',
+  description:
+    'Shared core facilities at the Jules Stein Eye Institute at UCLA, providing advanced tools and resources to accelerate vision science research.',
+};
 import { ArrowUpRight } from 'lucide-react';
 
 const CoreFacilitiesPage = () => {

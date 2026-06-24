@@ -1,5 +1,11 @@
 import React from 'react';
 import Hero from '../components/Hero';
+
+export const metadata = {
+  title: 'Research Laboratories',
+  description:
+    'Explore the basic science and clinical research laboratories of the Jules Stein Eye Institute at UCLA, led by faculty spanning retinal biology, visual neuroscience, cornea, glaucoma, and more.',
+};
 import Navbar from '../components/Navbar';
 import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';

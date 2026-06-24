@@ -2,6 +2,12 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import { facultyData } from '../data/faculty';
 
+export const metadata = {
+  title: 'Publications',
+  description:
+    'Recent publications from Jules Stein Eye Institute faculty at UCLA, covering vision science, retinal research, corneal biology, glaucoma, and ophthalmology.',
+};
+
 const CUTOFF_YEAR = new Date().getFullYear() - 5;
 
 function chunkArray(arr, size) {
