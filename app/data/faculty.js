@@ -7,6 +7,7 @@
       profileImage: "/images/faculty/aldave.jpg",
       pageUrl: "/laboratories/aldave",
       researchAreas: ["Eye Surface and Lens", "Bioinformatics and Population Health", "Therapeutics and Regeneration"],
+      orcid: "0000-0002-9082-4796",
       nihName: { lastName: "Aldave", firstName: "Anthony" }
     },
         {
@@ -49,6 +50,7 @@
       profileImage: "/images/faculty/bittner.jpg",
       pageUrl: "/laboratories/bittner",
       researchAreas: ["Eye Mobility and Rehabilitation"],
+      orcid: "0000-0002-9498-2230",
       nihName: { lastName: "Bittner", firstName: "Ava" }
     },
     /*
@@ -80,6 +82,7 @@
       profileImage: "/images/faculty/coleman.jpg",
       pageUrl: "/laboratories/coleman",
       researchAreas: ["Bioinformatics and Population Health"],
+      orcid: "0000-0002-0807-5176",
       nihName: { lastName: "Coleman", firstName: "Anne" }
     },
     {
@@ -90,6 +93,7 @@
       profileImage: "/images/faculty/demer.jpg",
       pageUrl: "/laboratories/demer",
       researchAreas: ["Visual Neuroscience", "Eye Mobility and Rehabilitation"],
+      orcid: "0000-0001-9662-5352",
       nihName: { lastName: "Demer", firstName: "Joseph" }
     },
     {
@@ -100,6 +104,7 @@
       profileImage: "/images/faculty/deng.jpg",
       pageUrl: "/laboratories/deng",
       researchAreas: ["Eye Surface and Lens","Therapeutics and Regeneration", "Ocular Imaging", "AI and Robotics"],
+      orcid: "0000-0002-0499-3877",
       nihName: { lastName: "Deng", firstName: "Sophie" }
     },
     {
@@ -144,6 +149,7 @@
       profileImage: "/images/faculty/Gilhooley.jpeg",
       pageUrl: "/laboratories/gilhooley",
       researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"],
+      orcid: "0000-0003-4109-5336",
       nihName: { lastName: "Gilhooley", firstName: "Michael" }
     },
     {
@@ -197,6 +203,7 @@
       profileImage: "/images/faculty/kouros2.jpg",
       pageUrl: "/laboratories/nouri-mahdavi",
       researchAreas: ["Ocular Imaging","AI and Robotics"],
+      orcid: "0000-0001-9403-8904",
       nihName: { lastName: "Nouri-Mahdavi", firstName: "Kouros" }
     },
     {
@@ -265,6 +272,7 @@
       pageUrl: "/laboratories/sun",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"],
       basicScience: true,
+      orcid: "0000-0002-9615-1481",
       nihName: { lastName: "Sun", firstName: "Hui" }
     },
     {
@@ -297,6 +305,7 @@
       profileImage: "/images/faculty/tsui-e.jpg",
       pageUrl: "/laboratories/tsui-e",
       researchAreas: ["Ocular Imaging", "AI and Robotics"],
+      orcid: "0000-0001-7532-9191",
       nihName: { lastName: "Tsui", firstName: "Edmund" }
     },
         {
@@ -307,6 +316,7 @@
       profileImage: "/images/faculty/tsui-i.jpg",
       pageUrl: "/laboratories/tsui-i",
       researchAreas: ["Ocular Imaging", "Therapeutics and Regeneration"],
+      orcid: "0000-0001-7989-5174",
       nihName: { lastName: "Tsui", firstName: "Irena" }
     },
     {
@@ -342,6 +352,7 @@
       pageUrl: "/laboratories/zhang",
       researchAreas: ["AI and Robotics", "Retinal Biology", "Therapeutics and Regeneration", "Eye Surface and Lens", "Bioinformatics and Population Health"],
       basicScience: true,
+      orcid: "0000-0001-6524-6800",
       nihName: { lastName: "Zheng", firstName: "Jie" }
     },
     {
