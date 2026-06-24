@@ -1,52 +1,92 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function AldavePage() {
-  const publications = [
-    {
-      title: "Investigation of the functional impact of CHED- and FECD4-associated *SLC4A11* mutations in human corneal endothelial cells",
-      authors: "Chung DD, Chen AC, Choo CH, Zhang W, Williams D, Griffis CG, Bonezzi P, Jatavallabhula K, Kurtz I, Sampath AP, Aldave AJ",
-      journal: "PLOS ONE",
-      year: "2024",
-      citations: "",
-      doi: "https://doi.org/10.1371/journal.pone.0296928"
-    },
-    {
-      title: "Energy shortage in human and mouse models of SLC4A11-associated corneal endothelial dystrophies",
-      authors: "Zhang W, Frausto R, Chung D, Griffis CG, Kao L, Chen A, Azimov R, Sampath AP, Kurtz I, Aldave A",
-      journal: "Invest Ophthalmol Vis Sci",
-      year: "2020",
-      citations: "",
-      doi: "https://doi.org/10.1167/iovs.61.8.39"
-    },
-    {
-      title: "Phenotypic and functional characterization of corneal endothelial cells during in vitro expansion",
-      authors: "Frausto RF, Swamy VS, Peh GSL, Boere PM, Hanser EM, Chung DD, George BL, Morselli M, Kao L, Azimov R, Pellegrini M, Kurtz I, Mehta JS, Aldave AJ",
-      journal: "Sci Rep",
-      year: "2020",
-      citations: "",
-      doi: "https://doi.org/10.1038/s41598-020-64311-x"
-    },
-    {
-      title: "ZEB1 insufficiency causes corneal endothelial cell state transition and altered cellular processing",
-      authors: "Frausto RF, Chung DD, Boere PM, Swamy VS, Duong HNV, Kao L, Azimov R, Zhang W, Carrigan L, Wong D, Morselli M, Zakharevich M, Hanser EM, Kassels A, Kurtz I, Pellegrini M, Aldave AJ",
-      journal: "PLOS ONE",
-      year: "2019",
-      citations: "",
-      doi: "https://doi.org/10.1371/journal.pone.0218279"
-    },
-    {
-      title: "Posterior amorphous corneal dystrophy is associated with a deletion of small leucine-rich proteoglycans on chromosome 12",
-      authors: "Kim M, Frausto RF, Rosenwasser GOD, Bui T, Le D, Stone EM, Aldave AJ",
-      journal: "PLOS ONE",
-      year: "2014",
-      citations: "",
-      doi: "https://doi.org/10.1371/journal.pone.0095037"
-    }
-  ];
 
+const FACULTY_ORCID = '0000-0002-9082-4796';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function AldavePage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+  
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
@@ -126,29 +166,34 @@ export default function AldavePage() {
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
          <div className="space-y-3">
-           {publications.map((pub, index) => (
-             <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-               <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-               <p className="text-gray-700 mb-1">{pub.authors}</p>
-               <p className="text-gray-600">
-                 {pub.journal} ({pub.year}) • {pub.citations} citations
-               </p>
-               <a 
-                 href={pub.doi}
-                 className="text-blue-600 hover:text-blue-800 text-sm"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 View Publication
-               </a>
-             </div>
-           ))}
+               {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
          </div>
        </div>
      </div>
 
+      </main>
      <footer className="bg-gray-100 mt-16 py-8">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
          <p>Jules Stein Eye Institute - Research Division</p>

@@ -1,52 +1,92 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function NouriMahdaviPage() {
-  const publications = [
-    {
-      title: "Comparison of Retinal Nerve Fiber Layer and Ganglion Cell Complex Rates of Change in Patients With Moderate to Advanced Glaucoma",
-      authors: "Mohammadi M, Su E, Mohammadzadeh V, Besharati S, Martinyan A, Coleman AL, Law SK, Caprioli J, Weiss RE, Nouri-Mahdavi K",
-      journal: "American Journal of Ophthalmology",
-      year: "2024",
-      citations: "",
-      doi: "https://doi.org/10.1016/j.ajo.2024.07.025"
-    },
-    {
-      title: "Prediction of Visual Field Progression with Baseline and Longitudinal Structural Measurements Using Deep Learning",
-      authors: "Mohammadzadeh V, Wu S, Besharati S, Davis T, Vepa A, Morales E, Edalati K, Rafiee M, Martinyan A, Zhang D, Scalzo F, Caprioli J, Nouri-Mahdavi K",
-      journal: "American Journal of Ophthalmology",
-      year: "2024",
-      citations: "",
-      doi: "https://doi.org/10.1016/j.ajo.2024.02.007"
-    },
-    {
-      title: "Detecting Fast Progressors: Comparing a Bayesian Longitudinal Model to Linear Regression for Detecting Structural Changes in Glaucoma",
-      authors: "Besharati S, Su E, Mohammadzadeh V, Mohammadi M, Caprioli J, Weiss RE, Nouri-Mahdavi K",
-      journal: "American Journal of Ophthalmology",
-      year: "2024",
-      citations: "",
-      doi: "https://doi.org/10.1016/j.ajo.2024.01.024"
-    },
-    {
-      title: "Prediction of Central Visual Field Measures From Macular OCT Volume Scans With Deep Learning",
-      authors: "Mohammadzadeh V, Vepa A, Li C, Wu S, Chew L, Mahmoudinezhad G, Maltz E, Sahin S, Mylavarapu A, Edalati K, Martinyan J, Yalzadeh D, Scalzo F, Caprioli J, Nouri-Mahdavi K",
-      journal: "Translational Vision Science & Technology",
-      year: "2023",
-      citations: "",
-      doi: "https://doi.org/10.1167/tvst.12.11.5"
-    },
-    {
-      title: "Association of Blood Pressure With Rates of Macular Ganglion Cell Complex Thinning in Patients With Glaucoma",
-      authors: "Mohammadzadeh V, Su E, Mohammadi M, Law SK, Coleman AL, Caprioli J, Weiss RE, Nouri-Mahdavi K",
-      journal: "JAMA Ophthalmology",
-      year: "2023",
-      citations: "",
-      doi: "https://doi.org/10.1001/jamaophthalmol.2022.6092"
-    }
-  ];
 
+const FACULTY_ORCID = '0000-0001-9403-8904';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function NouriMahdaviPage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -112,25 +152,27 @@ export default function NouriMahdaviPage() {
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
           <div className="space-y-3">
-            {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
-                  {pub.journal} ({pub.year})
-                </p>
-                {pub.doi && (
-                  <a 
-                    href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication
-                  </a>
-                )}
-              </div>
-            ))}
+                {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
           </div>
         </div>
       </div>

@@ -1,62 +1,92 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function ColemanPage() {
- const publications = [
-   {
-     title: "Vision Impairment and Combined Vision and Hearing Impairment Predict Cognitive and Functional Decline in Older Women",
-     authors: "Lin MY, Gutierrez PR, Stone KL, Yaffe K, Ensrud KE, Fink HA, Sarkisian CA, Coleman AL, Mangione CM",
-     journal: "Journal of the American Geriatrics Society",
-     year: "2004",
-     volume: "52",
-     issue: "12",
-     pages: "1996-2002",
-     doi: "https://doi.org/10.1111/j.1532-5415.2004.52554.x"
-   },
-   {
-     title: "Disparities in Vision Health and Eye Care",
-     authors: "Elam AR, Tseng VL, Rodriguez TM, Mike EV, Warren AK, Coleman AL",
-     journal: "Ophthalmology",
-     year: "2022",
-     volume: "129",
-     issue: "10",
-     pages: "e89-e113",
-     doi: "https://doi.org/10.1016/j.ophtha.2022.07.010"
-   },
-   {
-     title: "Predictive factors for glaucomatous visual field progression in the Advanced Glaucoma Intervention Study",
-     authors: "Nouri-Mahdavi K, Hoffman D, Coleman AL, Liu G, Li G, Gaasterland D, Caprioli J",
-     journal: "Ophthalmology",
-     year: "2004",
-     volume: "111",
-     issue: "9",
-     pages: "1627-1635",
-     doi: "https://doi.org/10.1016/j.ophtha.2004.02.017"
-   },
-   {
-     title: "Intraocular Pressure Fluctuation: A Risk Factor for Visual Field Progression at Low Intraocular Pressures in the Advanced Glaucoma Intervention Study",
-     authors: "Caprioli J, Coleman AL",
-     journal: "Ophthalmology",
-     year: "2008",
-     volume: "115",
-     issue: "7",
-     pages: "1123-1129.e3",
-     doi: "https://doi.org/10.1016/j.ophtha.2007.10.031"
-   },
-   {
-     title: "Initial Clinical Experience With the Ahmed Glaucoma Valve Implant",
-     authors: "Coleman AL, Hill R, Wilson MR, Choplin N, Kotas-Neumann R, Tam M, Bacharach J, Panek WC",
-     journal: "American Journal of Ophthalmology",
-     year: "1995",
-     volume: "120",
-     issue: "1",
-     pages: "23-31",
-     doi: "https://doi.org/10.1016/S0002-9394(14)73755-9"
-   }
- ];
 
+const FACULTY_ORCID = '0000-0002-0807-5176';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function ColemanPage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+ 
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
@@ -115,29 +145,34 @@ export default function ColemanPage() {
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
          <div className="space-y-3">
-           {publications.map((pub, index) => (
-             <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-               <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-               <p className="text-gray-700 mb-1">{pub.authors}</p>
-               <p className="text-gray-600">
-                 {pub.journal} {pub.year}; {pub.volume}({pub.issue}): {pub.pages}
-               </p>
-               <a 
-                 href={pub.doi}
-                 className="text-blue-600 hover:text-blue-800 text-sm"
-                 target="_blank"
-                 rel="noopener noreferrer"
-               >
-                 View Publication
-               </a>
-             </div>
-           ))}
+               {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
          </div>
        </div>
      </div>
 
+      </main>
      <footer className="bg-gray-100 mt-16 py-8">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
          <p>Jules Stein Eye Institute - Research Division</p>

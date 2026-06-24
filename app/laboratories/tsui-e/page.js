@@ -1,47 +1,92 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function TsuiEdmundPage() {
-  const publications = [
-    {
-      title: "Automated quantification of anterior chamber cells using swept-source anterior segment optical coherence tomography",
-      authors: "Pillar S, Kadomoto S, Chen K, Gonzalez SS, Cherian N, Privratsky JK, Zargari N, Jackson NJ, Corradetti G, Chen JL, Sadda SR, Holland GN, Tsui E",
-      journal: "Journal of Ophthalmic Inflammation and Infection",
-      year: "2025",
-      doi: "https://joii-journal.springeropen.com/articles/10.1186/s12348-025-00456-y"
-    },
-    {
-      title: "Establishment of a Standard Technique for Determining Laser Flare Photometry Values during Assessment of Intraocular Inflammation",
-      authors: "Tsui E, Jackson NJ, Chen JL, Holland GN",
-      journal: "Ophthalmology Science",
-      year: "2024",
-      doi: "https://www.ophthalmologyscience.org/article/S2666-9145(24)00226-4/fulltext"
-    },
-    {
-      title: "The Use of Large Language Models to Generate Education Materials about Uveitis",
-      authors: "Kianian R, Sun D, Crowell EL, Tsui E",
-      journal: "Ophthalmology Retina",
-      year: "2024",
-      doi: "https://www.sciencedirect.com/science/article/pii/S2468653023004499?via%3Dihub"
-    },
-    {
-      title: "Pathogen Surveillance for Acute Infectious Conjunctivitis",
-      authors: "Tsui E, Sella R, Tham V, Kong AW, McClean E, Goren L, Bahar I, Cherian N, Ramirez J, Hughes RE Jr, Privratsky JK, Onclinx T, Feit-Leichman R, Cheng A, Molina I, Kim P, Yu C, Ruder K, Tan A, Chen C, Liu Y, Abraham T, Hinterwirth A, Zhong L, Porco TC, Lietman TM, Seitzman GD, Doan T; SCORPIO Study Group",
-      journal: "JAMA Ophthalmology",
-      year: "2023",
-      doi: "https://jamanetwork.com/journals/jamaophthalmology/fullarticle/2811380"
-    },
-    {
-      title: "Quantification of Anterior Chamber Cells in Children With Uveitis Using Anterior Segment Optical Coherence Tomography",
-      authors: "Tsui E, Chen JL, Jackson NJ, Leyva O, Rasheed H, Baghdasaryan E, Fung SSM, McCurdy DK, Sadda SR, Holland GN",
-      journal: "American Journal of Ophthalmology",
-      year: "2022",
-      doi: "https://www.ajo.com/article/S0002-9394(22)00209-4/fulltext"
-    }
-  ];
 
+const FACULTY_ORCID = '0000-0001-7532-9191';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function TsuiEdmundPage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -135,27 +180,29 @@ export default function TsuiEdmundPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
           <div className="space-y-3">
-            {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
-                </p>
-                {pub.doi && (
-                  <a 
-                    href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication
-                  </a>
-                )}
-              </div>
-            ))}
+                {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
           </div>
         </div>
       </div>

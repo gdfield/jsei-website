@@ -1,47 +1,91 @@
-'use client'
 import React from 'react';
-import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function RaduPage() {
-  const publications = [
-    {
-      title: "Impaired Cathepsin D in Retinal Pigment Epithelium Cells Mediates Stargardt Disease Pathogenesis",
-      authors: "Ng ESY, Hu J, Jiang Z, Radu RA",
-      journal: "FASEB Journal",
-      year: "2024",
-      doi: "https://doi.org/10.1096/fj.202400210RR"
-    },
-    {
-      title: "Membrane Attack Complex Mediates Retinal Pigment Epithelium Cell Death in Stargardt Macular Degeneration",
-      authors: "Ng ESY, Kady N, Hu J, Dave A, Jiang Z, Pei J, Gorin MB, Matynia A, Radu RA",
-      journal: "Cells",
-      year: "2022",
-      doi: "https://doi.org/10.3390/cells11213462"
-    },
-    {
-      title: "Expression of ABCA4 in Retinal Pigment Epithelium and its implications for Stargardt disease",
-      authors: "Lenis TL, Hu J, Ng SY, Jiang Z, Sarfare S, Lloyd MB, Esposito N, Samuel W, Jaworski C, Bok D, Finnemann S, Radeke M, Redmond TM, Travis GH, Radu RA",
-      journal: "Proceedings of the National Academy of Sciences USA",
-      year: "2018",
-      doi: "https://doi.org/10.1073/pnas.1802519115"
-    },
-    {
-      title: "Complement Modulation in the Retinal Pigment Epithelium Rescues Photoreceptor Degeneration in a Mouse Model of Stargardt Disease",
-      authors: "Lenis TL, Sarfare S, Jiang Z, Lloyd MB, Bok D, Radu RA",
-      journal: "Proceedings of the National Academy of Sciences USA",
-      year: "2017",
-      doi: "https://doi.org/10.1073/pnas.1620299114"
-    },
-    {
-      title: "Bisretinoid-mediated Complement Activation on Retinal Pigment Epithelial Cells is Dependent on Complement Factor H Haplotype",
-      authors: "Radu RA, Hu J, Jiang Z, Bok D",
-      journal: "Journal of Biological Chemistry",
-      year: "2014",
-      doi: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3979386/"
-    }
-  ];
-  return (
+
+const FACULTY_ORCID = '0000-0002-5064-6403';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function RaduPage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+    return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <main id="main-content">
@@ -134,27 +178,29 @@ export default function RaduPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
           <div className="space-y-3">
-            {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
-                </p>
-                {pub.doi && (
-                  <a 
-                    href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication
-                  </a>
-                )}
-              </div>
-            ))}
+                {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
           </div>
         </div>
       </div>

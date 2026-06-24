@@ -1,47 +1,92 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
-export default function ZylberbergPage() {
-  const publications = [
-      {
-        title: "Biophysical neural adaptation mechanisms enable artificial neural networks to capture dynamic retinal computation",
-        authors: "Idrees S, Manookin M, Rieke F, Field GD, Zylberberg J",
-        journal: "Nature Communications",
-        year: "2024",
-        doi: "https://www.nature.com/articles/s41467-024-50114-5"
-      },
-      {
-        title: "Stimulus type shapes the topology of cellular functional networks in mouse visual cortex",
-        authors: "Tang D, Zylberberg J*, Jia X*, Choi H* (*co-senior authors)",
-        journal: "Nature Communications",
-        year: "2024",
-        doi: "https://www.nature.com/articles/s41467-024-49704-0"
-      },
-      {
-        title: "Responses to pattern-violating visual stimuli evolve differently over days in somata and distal apical dendrites",
-        authors: "Gillon C*, Pina J*, et al., Bengio Y, Lillicrap T, Richards B^, Zylberberg J^ (*co-first, ^co-senior authors)",
-        journal: "Journal of Neuroscience",
-        year: "2024",
-        doi: "https://www.jneurosci.org/content/44/5/e1009232023"
-      },
-      {
-        title: "Improved object recognition using neural networks trained to mimic the brain's statistical properties",
-        authors: "Federer C, Xu H, Fyshe A, Zylberberg J",
-        journal: "Neural Networks",
-        year: "2020",
-        doi: "http://www.jzlab.org/Federer_BrainTrainNN_2020.pdf"
-      },
-      {
-        title: "A deep learning framework for neuroscience",
-        authors: "Richards BA, Lillicrap T, et al., Zylberberg J, Therien D, Kording K",
-        journal: "Nature Neuroscience",
-        year: "2019",
-        doi: "http://www.jzlab.org/RichardsEtAl_NN_DeepNeuro_2019.pdf"
-      }
-  ];
 
+const FACULTY_ORCID = '0000-0002-8208-5698';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => !p.journal && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const containerTitle = data?.message?.['container-title']?.[0];
+            if (containerTitle) p.journal = containerTitle;
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+export default async function ZylberbergPage() {
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+  
   return (
     <div className="min-h-screen bg-gray-50">
      <Navbar />
@@ -134,27 +179,29 @@ export default function ZylberbergPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
           <div className="space-y-3">
-            {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
-                </p>
-                {pub.doi && (
-                  <a 
-                    href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication
-                  </a>
-                )}
-              </div>
-            ))}
+                {publications.map((pub, index) => (
+      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+        {pub.authors.length > 0 && (
+          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+        )}
+        <p className="text-gray-600">
+          {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
+        </p>
+        {pub.doi && (
+          <a
+            href={`https://doi.org/${pub.doi}`}
+            className="text-blue-600 hover:text-blue-800 text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Publication
+          </a>
+        )}
+      </div>
+    ))}
           </div>
         </div>
       </div>
