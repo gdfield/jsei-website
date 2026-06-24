@@ -105,6 +105,24 @@ export default async function PublicationsPage() {
     return (b.month || '00').localeCompare(a.month || '00');
   });
 
+  // Build last-name lookup across ALL active faculty (not just those with ORCID)
+  // so we can detect JSEI co-authors by scanning each paper's author list
+  const facultyByLastName = {};
+  facultyData.filter((f) => !f.emeritus).forEach((f) => {
+    const lastName = f.name.split(' ').at(-1).toLowerCase();
+    facultyByLastName[lastName] = f.name;
+  });
+
+  // Augment each publication's _jseiAuthors by scanning the author strings
+  // for words that match a JSEI faculty last name
+  unique.forEach((pub) => {
+    const fromAuthors = pub.authors.flatMap((authorStr) =>
+      authorStr.split(/[\s,.\-]+/).map((w) => facultyByLastName[w.toLowerCase()]).filter(Boolean)
+    );
+    const merged = [...new Set([...pub._jseiAuthors, ...fromAuthors])];
+    pub._jseiAuthors = merged;
+  });
+
   const TYPE_LABELS = {
     preprint: 'Preprint',
     'conference-paper': 'Conference Paper',
@@ -149,8 +167,7 @@ export default async function PublicationsPage() {
                   >
                     <div className="flex items-start gap-6">
                       {/* Left: JSEI lab(s) */}
-                      <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
-                        <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">JSEI Lab</p>
+                      <div className="w-44 shrink-0 border-r border-gray-100 pr-6">
                         {pub._jseiAuthors.map((name, j) => (
                           <p key={j} className="font-bold text-blue-700 leading-tight">
                             {name.split(' ').at(-1)} Lab
