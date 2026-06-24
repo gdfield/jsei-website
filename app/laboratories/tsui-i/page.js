@@ -37,7 +37,7 @@ async function fetchRecentPublications(orcid, limit = 10) {
       .map((item) => {
         const work = item.work;
         const authors = (work?.contributors?.contributor || [])
-          .filter((c) => c['contributor-attributes']?.['contributor-role'] === 'author')
+          .filter((c) => { const role = c['contributor-attributes']?.['contributor-role']; return !role || role === 'author'; })
           .map((c) => c['credit-name']?.value)
           .filter(Boolean);
         const doiEntry = (work?.['external-ids']?.['external-id'] || [])
@@ -62,7 +62,7 @@ async function fetchRecentPublications(orcid, limit = 10) {
 
     await Promise.all(
       pubs
-        .filter((p) => !p.journal && p.doi)
+        .filter((p) => (!p.journal || p.authors.length === 0) && p.doi)
         .map(async (p) => {
           try {
             const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
@@ -71,8 +71,16 @@ async function fetchRecentPublications(orcid, limit = 10) {
             });
             if (!r.ok) return;
             const data = await r.json();
-            const containerTitle = data?.message?.['container-title']?.[0];
-            if (containerTitle) p.journal = containerTitle;
+            const msg = data?.message;
+            if (!p.journal) {
+              const containerTitle = msg?.['container-title']?.[0];
+              if (containerTitle) p.journal = containerTitle;
+            }
+            if (p.authors.length === 0 && msg?.author) {
+              p.authors = msg.author
+                .map((a) => [a.given, a.family].filter(Boolean).join(' '))
+                .filter(Boolean);
+            }
           } catch {}
         })
     );
