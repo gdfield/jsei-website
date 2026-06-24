@@ -86,6 +86,7 @@ export default async function FundingPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
+      <main id="main-content">
       <Hero
         title="Research Funding"
         subtitle="Active NIH Grants"
@@ -173,6 +174,7 @@ export default async function FundingPage() {
                       href={grant.project_detail_url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${grant.project_title} on NIH Reporter`}
                       className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
                     >
                       NIH Reporter →
@@ -193,6 +195,7 @@ export default async function FundingPage() {
           </p>
         )}
       </div>
+      </main>
 
       <footer className="bg-gray-100 mt-16 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">

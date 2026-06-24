@@ -45,6 +45,7 @@ export default function BittnerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Ava Bittner Laboratory"
         subtitle="Low Vision Rehabilitation"
@@ -137,6 +138,7 @@ export default function BittnerPage() {
       </div>
 
       {/* Footer */}
+      </main>
       <footer className="bg-gray-100 mt-16 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
           <p>Jules Stein Eye Institute - Research Division</p>

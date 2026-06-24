@@ -48,7 +48,8 @@ const ResearchDivisionPage = () => {
     <div className="min-h-screen bg-gray-50">
             <Navbar /> {/* Add the Navbar here */}
       {/* Replace the old hero section with the Hero component */}
-      <Hero 
+      <main id="main-content">
+      <Hero
         title="Jules Stein Eye Institute"
         subtitle="An Organized Research Unit of the University of California"
         description="Advancing Vision Science Through Innovative Research"
@@ -58,14 +59,14 @@ const ResearchDivisionPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sections.map((section) => (
-            <div 
-              key={section.title} 
+            <div
+              key={section.title}
               className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 p-6"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center gap-4 mb-4">
-                  <img 
-                    src={section.imageUrl} 
+                  <img
+                    src={section.imageUrl}
                     alt={section.title}
                     className="w-24 h-24 rounded-lg object-cover object-center"
                   />
@@ -75,12 +76,13 @@ const ResearchDivisionPage = () => {
                   {section.description}
                 </p>
                 <div className="flex justify-end">
-                  <a 
+                  <a
                     href={section.linkUrl}
+                    aria-label={`Learn more about ${section.title}`}
                     className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
                   >
                     Learn More
-                    <ArrowUpRight size={20} className="ml-1" />
+                    <ArrowUpRight size={20} className="ml-1" aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -88,6 +90,7 @@ const ResearchDivisionPage = () => {
           ))}
         </div>
       </div>
+      </main>
 
       {/* Footer */}
       <footer className="bg-gray-100 mt-16 py-8">

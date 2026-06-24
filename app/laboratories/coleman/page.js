@@ -60,6 +60,7 @@ export default function ColemanPage() {
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
+      <main id="main-content">
      <Hero 
        title="Anne L. Coleman Laboratory"
        subtitle="Vision Health Disparities and Clinical Epidemiology"

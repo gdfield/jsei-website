@@ -50,6 +50,7 @@ export default function AldavePage() {
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
+      <main id="main-content">
      <Hero 
        title="Anthony J. Aldave Laboratory"
        subtitle="Corneal Dystrophies and Gene Therapy"

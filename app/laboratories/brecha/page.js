@@ -42,6 +42,7 @@ export default function BrechaPage() {
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
+      <main id="main-content">
      <Hero 
        title="UNDER CONSTRUCTION"
        subtitle=""

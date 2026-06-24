@@ -50,6 +50,7 @@ export default function BarzalayPage() {
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
+      <main id="main-content">
      <Hero 
        title="Aya Barzalay-Wollman Laboratory"
        subtitle="Robotic Microsurgery and Retinal Regeneration"

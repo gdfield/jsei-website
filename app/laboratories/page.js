@@ -18,6 +18,7 @@ const LaboratoriesPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
+      <main id="main-content">
       <Hero
         title="Research Laboratories"
         subtitle="Vision Science Research at JSEI"
@@ -52,6 +53,7 @@ const LaboratoriesPage = () => {
           </div>
         )}
       </div>
+      </main>
 
       <footer className="bg-gray-100 mt-16 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">

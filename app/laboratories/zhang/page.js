@@ -45,6 +45,7 @@ export default function ZhangPage() {
  return (
    <div className="min-h-screen bg-gray-50">
      <Navbar />
+      <main id="main-content">
      <Hero 
        title="Jie J. Zhang Laboratory"
        subtitle="Therapeutic Development and AI-Powered Analysis in Vision Research"

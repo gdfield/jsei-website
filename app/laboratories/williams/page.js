@@ -45,6 +45,7 @@ export default function WilliamsPage() {
  return (
    <div className="min-h-screen bg-gray-50">
  <Navbar />
+      <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">
         <img
           src="/images/laboratory-banners/williams.jpg"
