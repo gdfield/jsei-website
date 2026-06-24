@@ -6,7 +6,7 @@ import { facultyData } from '../../data/faculty';
 
 const DevelopmentPage = () => {
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("Bioinformatics and Population Health")
+    faculty.researchAreas.includes("Bioinformatics and Population Health") && !faculty.emeritus
   );
 
   return (

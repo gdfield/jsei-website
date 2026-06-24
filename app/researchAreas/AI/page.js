@@ -7,7 +7,7 @@ import { facultyData } from '../../data/faculty';
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging
   const areaFaculty = facultyData.filter(faculty => 
-    faculty.researchAreas.includes("AI and Robotics")
+    faculty.researchAreas.includes("AI and Robotics") && !faculty.emeritus
   );
 
   return (
