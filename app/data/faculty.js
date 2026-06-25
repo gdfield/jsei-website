@@ -144,11 +144,11 @@
     {
       name: "Michael J Gilhooley",
       title: "Assistant Professor in Residence",
-      research: "Mitochondrial Optic Neuropathies & ipRGC Biology",
+      research: "Optic Neuropathies and Circadian Biology",
       description: "Dr. Gilhooley's laboratory focuses on intrinsically photosensitive retinal ganglion cells (ipRGCs) in the context of mitochondrial optic neuropathies such as Leber Hereditary Optic Neuropathy (LHON) and Dominant Optic Atrophy (DOA / OPA1). He aims to uncover why ipRGCs are selectively spared in these diseases with the goal of harnessing this resilience to develop neuroprotective therapies.",
       profileImage: "/images/faculty/gilhooley.jpg",
       pageUrl: "/laboratories/gilhooley",
-      researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"],
+      researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration", "Retinal Biology"],
       orcid: "0000-0003-4109-5336",
       basicScience: true,
       clinicalScience: true,
