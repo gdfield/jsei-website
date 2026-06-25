@@ -142,10 +142,10 @@
       nihName: { lastName: "Field", firstName: "Greg" }
     },
     {
-      name: "Michael Gilhooley",
-      title: "Assistant Professor In-Residence",
-      research: "Neuro-ophthalmology and ipRGC Biology",
-      description: "Dr. Gilhooley's laboratory investigates intrinsically photosensitive retinal ganglion cells (ipRGCs) and melanopsin protein function in the context of inherited optic neuropathies such as dominant optic atrophy (OPA1) and Leber hereditary optic neuropathy (LHON). A central focus is understanding why ipRGCs are selectively spared when other retinal ganglion cells degenerate, with the goal of harnessing this resilience to develop neuroprotective therapies.",
+      name: "Michael J Gilhooley",
+      title: "Assistant Professor in Residence",
+      research: "Mitochondrial Optic Neuropathies & ipRGC Biology",
+      description: "Dr. Gilhooley's laboratory focuses on intrinsically photosensitive retinal ganglion cells (ipRGCs) in the context of mitochondrial optic neuropathies such as Leber Hereditary Optic Neuropathy (LHON) and Dominant Optic Atrophy (DOA / OPA1). He aims to uncover why ipRGCs are selectively spared in these diseases with the goal of harnessing this resilience to develop neuroprotective therapies.",
       profileImage: "/images/faculty/Gilhooley.jpeg",
       pageUrl: "/laboratories/gilhooley",
       researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"],
