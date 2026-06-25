@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Kouros Nouri-Mahdavi Laboratory',
+  description: "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma using advanced statistical techniques, imaging technologies,...",
+};
+
 export default async function NouriMahdaviPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kouros Nouri-Mahdavi",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/nouri-mahdavi",
+  "description": "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma using advanced statistical techniques, imaging technologies, and AI approaches to enhance glaucoma diagnostics and detect disease progression.",
+  "knowsAbout": [
+    "Glaucoma",
+    "Ocular Imaging",
+    "AI",
+    "Disease Progression"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

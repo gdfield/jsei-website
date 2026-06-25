@@ -91,12 +91,42 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Gordon Fain Laboratory',
+  description: "Dr. Fain's research focuses on the biophysical mechanisms of photoreceptor function and adaptation, providing fundamental insights into how photorecepto...",
+};
+
 export default async function FainPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
  
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gordon Fain",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/fain",
+  "description": "Dr. Fain's research focuses on the biophysical mechanisms of photoreceptor function and adaptation, providing fundamental insights into how photoreceptors respond to light and adapt to different lighting conditions.",
+  "knowsAbout": [
+    "Photoreceptor Physiology",
+    "Retinal Biology",
+    "Visual Neuroscience"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

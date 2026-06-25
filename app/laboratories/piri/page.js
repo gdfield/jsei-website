@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Natik Piri Laboratory',
+  description: "Dr. Piri's research focuses on how glaucoma impacts retinal ganglion cell survival and the mechanisms of cell death, investigating ways to make ganglion...",
+};
 
 export default function PiriPage() {
   const publications = [
@@ -39,8 +43,34 @@ export default function PiriPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Natik Piri",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/piri",
+  "description": "Dr. Piri's research focuses on how glaucoma impacts retinal ganglion cell survival and the mechanisms of cell death, investigating ways to make ganglion cells more robust to glaucomatous damage.",
+  "knowsAbout": [
+    "Glaucoma",
+    "Retinal Ganglion Cells",
+    "Neurodegeneration",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

@@ -90,12 +90,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Xian-Jie Yang Laboratory',
+  description: "Dr. Yang studies retinal development and repair using molecular genetic approaches, including cellular signaling in neuroprotection and human stem cell-...",
+};
+
 export default async function YangPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Xian-Jie Yang",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/yang",
+  "description": "Dr. Yang studies retinal development and repair using molecular genetic approaches, including cellular signaling in neuroprotection and human stem cell-derived retinal organoids to model optic neuropathies and develop therapies.",
+  "knowsAbout": [
+    "Retinal Development",
+    "Gene Therapy",
+    "Stem Cells",
+    "Neuroprotection"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
  <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

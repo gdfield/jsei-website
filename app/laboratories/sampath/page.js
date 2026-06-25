@@ -90,12 +90,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Alapakkam Sampath Laboratory',
+  description: "Dr. Sampath's laboratory focuses on understanding how rod and cone photoreceptors and their retinal circuits encode visual information, studying mechani...",
+};
+
 export default async function SampathPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alapakkam Sampath",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/sampath",
+  "description": "Dr. Sampath's laboratory focuses on understanding how rod and cone photoreceptors and their retinal circuits encode visual information, studying mechanisms of signal detection and light adaptation using advanced electrophysiology.",
+  "knowsAbout": [
+    "Phototransduction",
+    "Synaptic Transmission",
+    "Retinal Biology",
+    "Visual Neuroscience"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
  <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

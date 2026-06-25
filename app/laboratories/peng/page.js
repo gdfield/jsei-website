@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Yi-Rong Peng Laboratory',
+  description: "Dr. Peng investigates the cellular and molecular mechanisms that underlie the formation and degeneration of the visual system, using multi-omics and bio...",
+};
+
 export default async function PengPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yi-Rong Peng",
+  "jobTitle": "Assistant Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/peng",
+  "description": "Dr. Peng investigates the cellular and molecular mechanisms that underlie the formation and degeneration of the visual system, using multi-omics and bioinformatics tools to uncover the genetic basis of neural circuit development.",
+  "knowsAbout": [
+    "Visual System Development",
+    "Retinal Degeneration",
+    "Multi-omics",
+    "Bioinformatics"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

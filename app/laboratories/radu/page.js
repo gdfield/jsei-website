@@ -90,11 +90,42 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Roxana A. Radu Laboratory',
+  description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE) using genetic, biochemical, and cell bi...",
+};
+
 export default async function RaduPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Roxana A. Radu",
+  "jobTitle": "Associate Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/radu",
+  "description": "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE) using genetic, biochemical, and cell biological approaches.",
+  "knowsAbout": [
+    "Retinal Degeneration",
+    "Retinal Pigment Epithelium",
+    "Biochemistry",
+    "Disease Modeling"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
     return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

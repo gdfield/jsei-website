@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Joseph Demer Laboratory',
+  description: "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of e...",
+};
+
 export default async function DemerPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joseph Demer",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/demer",
+  "description": "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of eye movements in glaucoma and myopia.",
+  "knowsAbout": [
+    "Ocular Motility",
+    "Strabismus",
+    "Visual Neuroscience",
+    "Eye Mobility and Rehabilitation"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

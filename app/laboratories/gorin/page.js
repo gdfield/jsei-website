@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Michael Gorin Laboratory',
+  description: "Dr. Gorin's research centers on identifying and understanding genetic factors in inherited eye diseases, particularly age-related macular degeneration a...",
+};
 
 export default function GorinPage() {
   const publications = [
@@ -39,8 +43,34 @@ export default function GorinPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Michael Gorin",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/gorin",
+  "description": "Dr. Gorin's research centers on identifying and understanding genetic factors in inherited eye diseases, particularly age-related macular degeneration and retinal degenerations, combining clinical genetics with molecular biology.",
+  "knowsAbout": [
+    "Genetics",
+    "Age-Related Macular Degeneration",
+    "Retinal Degeneration",
+    "Bioinformatics"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

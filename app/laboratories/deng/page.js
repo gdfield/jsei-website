@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Sophie Deng Laboratory',
+  description: "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine, developing novel diagnostic and therapeutic strategies for corneal d...",
+};
+
 export default async function DengPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
  
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sophie Deng",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/deng",
+  "description": "Dr. Deng's research focuses on corneal stem cell biology and regenerative medicine, developing novel diagnostic and therapeutic strategies for corneal diseases.",
+  "knowsAbout": [
+    "Cornea",
+    "Stem Cell Biology",
+    "Regenerative Medicine",
+    "Eye Surface and Lens"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

@@ -91,12 +91,44 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Jie J. Zheng Laboratory',
+  description: "Dr. Zheng's laboratory combines chemical biology, computational biology, and drug discovery to develop innovative therapies for ophthalmic diseases incl...",
+};
+
 export default async function ZhangPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
  
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jie J. Zheng",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/zhang",
+  "description": "Dr. Zheng's laboratory combines chemical biology, computational biology, and drug discovery to develop innovative therapies for ophthalmic diseases including glaucoma, retinal diseases, and corneal disorders.",
+  "knowsAbout": [
+    "Drug Discovery",
+    "Chemical Biology",
+    "AI",
+    "Glaucoma",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

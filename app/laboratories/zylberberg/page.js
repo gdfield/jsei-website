@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Joel Zylberberg Laboratory',
+  description: "Dr. Zylberberg's research combines theoretical and computational approaches to understand how neural circuits process visual information, developing mat...",
+};
+
 export default async function ZylberbergPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joel Zylberberg",
+  "jobTitle": "Associate Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/zylberberg",
+  "description": "Dr. Zylberberg's research combines theoretical and computational approaches to understand how neural circuits process visual information, developing mathematical models of visual processing and applying machine learning to neural data.",
+  "knowsAbout": [
+    "Computational Neuroscience",
+    "Visual Neuroscience",
+    "Machine Learning",
+    "Neural Circuits"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
       <Hero 

@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Alex Huk Laboratory',
+  description: "Dr. Huk investigates how the brain processes visual motion and makes decisions based on visual information, combining neurophysiology and computational ...",
+};
 
 export default function HukPage() {
   const publications = [
@@ -39,8 +43,33 @@ export default function HukPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alex Huk",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/huk",
+  "description": "Dr. Huk investigates how the brain processes visual motion and makes decisions based on visual information, combining neurophysiology and computational approaches to understand visual perception and decision-making.",
+  "knowsAbout": [
+    "Visual Neuroscience",
+    "Neural Computation",
+    "Visual Motion Processing"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

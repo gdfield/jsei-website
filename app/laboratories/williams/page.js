@@ -90,12 +90,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'David Williams Laboratory',
+  description: "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, aiming to understand basic cellular functions within these highl...",
+};
+
 export default async function WilliamsPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
  
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Williams",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/williams",
+  "description": "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, aiming to understand basic cellular functions within these highly specialized cells and processes in retinal degeneration.",
+  "knowsAbout": [
+    "Retinal Cell Biology",
+    "Photoreceptors",
+    "RPE",
+    "Retinal Degeneration"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
  <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

@@ -1,13 +1,42 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
+export const metadata = {
+  title: 'Dean Bok Laboratory',
+  description: "Dr. Bok's research focused on the structure and function of the retinal pigment epithelium (RPE) and its critical role in supporting photoreceptor cells...",
+};
+
 export default function BokPage() {
   const publications = [];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dean Bok",
+  "jobTitle": "Professor Emeritus",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/bok",
+  "description": "Dr. Bok's research focused on the structure and function of the retinal pigment epithelium (RPE) and its critical role in supporting photoreceptor cells, including RPE phagocytosis and age-related macular degeneration.",
+  "knowsAbout": [
+    "Retinal Pigment Epithelium",
+    "Photoreceptors",
+    "Retinal Degeneration"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero

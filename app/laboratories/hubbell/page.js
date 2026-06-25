@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Wayne L. Hubbell Laboratory',
+  description: "Dr. Hubbell's research focuses on the development and application of site-directed spin labeling to investigate protein structure and dynamics, providin...",
+};
 
 export default function HubbellPage() {
   const publications = [
@@ -39,8 +43,33 @@ export default function HubbellPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Wayne L. Hubbell",
+  "jobTitle": "Professor Emeritus",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/hubbell",
+  "description": "Dr. Hubbell's research focuses on the development and application of site-directed spin labeling to investigate protein structure and dynamics, providing crucial insights into the molecular mechanisms of vision.",
+  "knowsAbout": [
+    "Molecular Biophysics",
+    "Rhodopsin",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

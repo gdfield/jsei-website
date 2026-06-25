@@ -91,11 +91,41 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Ava Bittner Laboratory',
+  description: "Dr. Bittner's research focuses on improving quality of life and visual ability for individuals with low vision through innovative rehabilitation strateg...",
+};
+
 export default async function BittnerPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ava Bittner",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/bittner",
+  "description": "Dr. Bittner's research focuses on improving quality of life and visual ability for individuals with low vision through innovative rehabilitation strategies with visual aids and devices.",
+  "knowsAbout": [
+    "Low Vision Rehabilitation",
+    "Clinical Trials",
+    "Eye Mobility and Rehabilitation"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
     return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

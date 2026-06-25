@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Irena Tsui Laboratory',
+  description: "Dr. Irena Tsui specializes in clinical research focused on retinal disease and oculomics, combining clinical insights with optical coherence tomography ...",
+};
+
 export default async function TsuiIrenaPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Irena Tsui",
+  "jobTitle": "Associate Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/tsui-i",
+  "description": "Dr. Irena Tsui specializes in clinical research focused on retinal disease and oculomics, combining clinical insights with optical coherence tomography angiography to evaluate systemic conditions in premature infants and pregnant women.",
+  "knowsAbout": [
+    "Retinal Disease",
+    "Oculomics",
+    "OCT Angiography",
+    "Clinical Research"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

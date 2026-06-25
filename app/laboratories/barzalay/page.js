@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Aya Barzelay-Wollman Laboratory',
+  description: "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates m...",
+};
 
 export default function BarzalayPage() {
  const publications = [
@@ -47,8 +51,34 @@ export default function BarzalayPage() {
    }
  ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aya Barzelay-Wollman",
+  "jobTitle": "Assistant Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/barzalay",
+  "description": "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates microsurgical robotics, real-time imaging, and regenerative therapies.",
+  "knowsAbout": [
+    "Robotic Microsurgery",
+    "Retinal Disease",
+    "Therapeutics and Regeneration",
+    "AI"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

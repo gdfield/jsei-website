@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Anne Coleman Laboratory',
+  description: "Dr. Coleman leads clinical research initiatives focused on population health, health policy, and clinical outcomes in ophthalmology, combining epidemiol...",
+};
+
 export default async function ColemanPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
  
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anne Coleman",
+  "jobTitle": "Professor and Director",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/coleman",
+  "description": "Dr. Coleman leads clinical research initiatives focused on population health, health policy, and clinical outcomes in ophthalmology.",
+  "knowsAbout": [
+    "Population Health",
+    "Glaucoma",
+    "Epidemiology",
+    "Bioinformatics and Population Health"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

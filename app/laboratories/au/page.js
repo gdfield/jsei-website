@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Adrian Au Laboratory',
+  description: "Dr. Au's research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify n...",
+};
 
 export default function AuPage() {
   const publications = [
@@ -42,8 +46,34 @@ export default function AuPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adrian Au",
+  "jobTitle": "Assistant Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/au",
+  "description": "Dr. Au's research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify novel therapeutic targets in retinal disease.",
+  "knowsAbout": [
+    "AI",
+    "Ocular Imaging",
+    "Retinal Genomics",
+    "Bioinformatics"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

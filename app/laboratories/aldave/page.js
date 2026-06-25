@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Anthony Aldave Laboratory',
+  description: "Dr. Aldave's research focuses on the development of novel gene- and cell-based therapies for corneal dystrophies, a group of inherited disorders of the ...",
+};
+
 export default async function AldavePage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anthony Aldave",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/aldave",
+  "description": "Dr. Aldave's research focuses on the development of novel gene- and cell-based therapies for corneal dystrophies, a group of inherited disorders of the cornea.",
+  "knowsAbout": [
+    "Eye Surface and Lens",
+    "Corneal Dystrophies",
+    "Gene Therapy",
+    "Therapeutics and Regeneration"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 

@@ -1,13 +1,42 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
+export const metadata = {
+  title: 'Deborah Farber Laboratory',
+  description: "Dr. Farber's landmark research characterized mutations in the \u03b2-subunit of rod cGMP-phosphodiesterase (PDE6B) causing retinitis pigmentosa and elucidate...",
+};
+
 export default function FarberPage() {
   const publications = [];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Deborah Farber",
+  "jobTitle": "Professor Emeritus",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/farber",
+  "description": "Dr. Farber's landmark research characterized mutations in the \u03b2-subunit of rod cGMP-phosphodiesterase (PDE6B) causing retinitis pigmentosa and elucidated mechanisms of photoreceptor cell death.",
+  "knowsAbout": [
+    "Retinal Degeneration",
+    "Retinitis Pigmentosa",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero

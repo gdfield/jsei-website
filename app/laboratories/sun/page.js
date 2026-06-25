@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Hui Sun Laboratory',
+  description: "The Sun lab develops new techniques to discover novel membrane receptors and identify their chemical modulators as potential drugs for treating major di...",
+};
+
 export default async function SunPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hui Sun",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/sun",
+  "description": "The Sun lab develops new techniques to discover novel membrane receptors and identify their chemical modulators as potential drugs for treating major diseases affecting the eye and other organs.",
+  "knowsAbout": [
+    "Chemical Biology",
+    "Membrane Receptors",
+    "Drug Discovery",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Victoria Tseng Laboratory',
+  description: "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective, focusing on glaucoma risk factors and clin...",
+};
 
 export default function FieldPage() {
   const publications = [
@@ -42,8 +46,34 @@ export default function FieldPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Victoria Tseng",
+  "jobTitle": "Assistant Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/tseng",
+  "description": "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective, focusing on glaucoma risk factors and clinical and surgical quality of glaucoma care.",
+  "knowsAbout": [
+    "Epidemiology",
+    "Glaucoma",
+    "Population Health",
+    "Bioinformatics"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

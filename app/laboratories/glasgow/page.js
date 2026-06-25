@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Ben Glasgow Laboratory',
+  description: "Dr. Glasgow's research focuses on the role of lipid and protein components in the molecular mechanisms of tear film formation, combining biochemical and...",
+};
 
 export default function GlasgowPage() {
   const publications = [
@@ -39,8 +43,34 @@ export default function GlasgowPage() {
     }
   ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ben Glasgow",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/glasgow",
+  "description": "Dr. Glasgow's research focuses on the role of lipid and protein components in the molecular mechanisms of tear film formation, combining biochemical and biophysical techniques to study dry eye diseases.",
+  "knowsAbout": [
+    "Ophthalmic Pathology",
+    "Tear Film",
+    "Dry Eye Disease",
+    "Eye Surface and Lens"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

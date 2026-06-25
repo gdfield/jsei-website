@@ -91,11 +91,42 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Greg D. Field Laboratory',
+  description: "Dr. Field's laboratory investigates neural circuits in the retina that process visual information, combining electrophysiology, imaging, and computation...",
+};
+
 export default async function FieldPage() {
   const publications = await fetchRecentPublications(FIELD_ORCID, 10);
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Greg D. Field",
+  "jobTitle": "Associate Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/field",
+  "description": "Dr. Field's laboratory investigates neural circuits in the retina that process visual information, combining electrophysiology, imaging, and computational approaches to decode the neural basis of vision at the cellular level.",
+  "knowsAbout": [
+    "Retinal Circuits",
+    "Visual Neuroscience",
+    "Electrophysiology",
+    "Computational Neuroscience"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <div className="w-full h-64 md:h-96 relative overflow-hidden">

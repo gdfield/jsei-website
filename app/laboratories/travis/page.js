@@ -91,12 +91,43 @@ async function fetchRecentPublications(orcid, limit = 10) {
   }
 }
 
+export const metadata = {
+  title: 'Gabriel Travis Laboratory',
+  description: "Dr. Travis studies the regeneration of opsin visual pigments in rod and cone photoreceptor cells. The genes for several proteins in this enzymatic pathw...",
+};
+
 export default async function TravisPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
 
   
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gabriel Travis",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/travis",
+  "description": "Dr. Travis studies the regeneration of opsin visual pigments in rod and cone photoreceptor cells. The genes for several proteins in this enzymatic pathway are affected in inherited photoreceptor degenerations causing progressive blindness.",
+  "knowsAbout": [
+    "Photoreceptor Biochemistry",
+    "Visual Pigment",
+    "Retinal Degeneration",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero 

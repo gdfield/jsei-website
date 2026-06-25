@@ -1,13 +1,42 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 
+export const metadata = {
+  title: 'Steven Nusinowitz Laboratory',
+  description: "Dr. Nusinowitz's research focused on the assessment of retinal and visual pathway function using electrophysiological methods including electroretinogra...",
+};
+
 export default function NusinowitzPage() {
   const publications = [];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Steven Nusinowitz",
+  "jobTitle": "Associate Professor Emeritus",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/nusinowitz",
+  "description": "Dr. Nusinowitz's research focused on the assessment of retinal and visual pathway function using electrophysiological methods including electroretinography (ERG) to characterize mouse models of retinal disease.",
+  "knowsAbout": [
+    "Visual Electrophysiology",
+    "ERG",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
       <Hero

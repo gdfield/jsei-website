@@ -1,7 +1,11 @@
-'use client'
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+
+export const metadata = {
+  title: 'Nicholas Brecha Laboratory',
+  description: "Dr. Brecha studies the organization and function of neural circuits in the retina, focusing on neurotransmitter systems and their role in retinal signal...",
+};
 
 export default function BrechaPage() {
  const publications = [
@@ -39,8 +43,33 @@ export default function BrechaPage() {
    }
  ];
 
+  const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nicholas Brecha",
+  "jobTitle": "Professor",
+  "affiliation": {
+    "@type": "ResearchOrganization",
+    "name": "Jules Stein Eye Institute",
+    "url": "https://julessteinlabs.org"
+  },
+  "url": "https://julessteinlabs.org/laboratories/brecha",
+  "description": "Dr. Brecha studies the organization and function of neural circuits in the retina, focusing on neurotransmitter systems and their role in retinal signal processing.",
+  "knowsAbout": [
+    "Visual Neuroscience",
+    "Retinal Neurobiology",
+    "Retinal Biology"
+  ],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of California, Los Angeles",
+    "alternateName": "UCLA"
+  }
+};
+
  return (
    <div className="min-h-screen bg-gray-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
      <Hero 
