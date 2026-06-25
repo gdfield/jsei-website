@@ -150,6 +150,8 @@
       pageUrl: "/laboratories/gilhooley",
       researchAreas: ["Visual Neuroscience", "Therapeutics and Regeneration"],
       orcid: "0000-0003-4109-5336",
+      basicScience: true,
+      clinicalScience: true,
       nihName: { lastName: "Gilhooley", firstName: "Michael" }
     },
     {

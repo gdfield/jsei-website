@@ -12,7 +12,7 @@ import { facultyData } from '../data/faculty';
 
 const LaboratoriesPage = () => {
   const basicScience = facultyData.filter((f) => f.basicScience && !f.emeritus);
-  const clinicalScience = facultyData.filter((f) => !f.basicScience && !f.emeritus);
+  const clinicalScience = facultyData.filter((f) => (f.clinicalScience || !f.basicScience) && !f.emeritus);
   const emeritusFaculty = facultyData.filter((f) => f.emeritus);
 
   return (
