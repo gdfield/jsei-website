@@ -21,7 +21,7 @@
       nihName: { lastName: "Au", firstName: "Adrian" }
     },
     {
-      name: "Aya Barzalay-Wollman",
+      name: "Aya Barzelay-Wollman",
       title: "Assistant Professor",
       research: "Robotic Microsurgery and Retinal Regeneration",
       description: "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates microsurgical robotics, real-time imaging, and regenerative therapies to enable novel treatments—such as robotic delivery of stem cells, gene therapy, and intraocular drugs—for retinal degeneration and vascular disease.",

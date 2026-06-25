@@ -101,22 +101,21 @@ export default async function GilhooleyPage() {
       <main id="main-content">
       <Hero
         title="Gilhooley Laboratory"
-        subtitle="Neuro-ophthalmology and ipRGC Biology"
-        description="Understanding why intrinsically photosensitive retinal ganglion cells survive optic nerve disease"
+        subtitle="Mitochondrial Optic Neuropathies & ipRGC Biology"
+        description="Understanding intrinsically photosensitive retinal ganglion cells' (ipRGCs) resistance to disease"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row gap-8 mb-12">
           <div className="w-full md:w-1/3">
             <img
-              src="/images/faculty/Gilhooley.jpeg"
+              src="/images/faculty/Gilhooley.jpg"
               alt="Dr. Michael Gilhooley"
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Michael Gilhooley, MBBChir, PhD</h3>
-              <p className="text-gray-600">Assistant Professor In-Residence</p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
+              <h3 className="text-xl font-bold text-gray-900">Michael J Gilhooley MD PhD</h3>
+              <p className="text-gray-600">Assistant Professor in Residence</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <p className="text-gray-600">University of California, Los Angeles</p>
               <div className="flex flex-col space-y-2 pt-2">
@@ -128,18 +127,42 @@ export default async function GilhooleyPage() {
                 >
                   Faculty Profile
                 </a>
+                <a
+                  href="https://www.uclahealth.org/providers/michael-gilhooley"
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Clinic Profile
+                </a>
+                <a
+                  href="https://www.ncbi.nlm.nih.gov/myncbi/michael.gilhooley.1/bibliography/public/"
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Publications
+                </a>
               </div>
             </div>
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
             <p className="text-gray-800">
-              The Gilhooley laboratory investigates intrinsically photosensitive retinal ganglion
-              cells (ipRGCs) — a specialized subset of retinal ganglion cells that express the
-              photopigment melanopsin — and their remarkable resilience in inherited optic
-              neuropathies. In diseases such as dominant optic atrophy (OPA1) and Leber
-              hereditary optic neuropathy (LHON), conventional retinal ganglion cells are lost
-              in large numbers, yet ipRGCs are selectively spared.
+              Research in our lab centers on the intrinsically photosensitive retinal ganglion
+              cells of the optic nerve (ipRGCs) and the fascinating protein that renders them
+              sensitive to light (melanopsin). We are particularly interested in defining the
+              mechanisms by which ipRGCs survive in optic nerve disease, in some cases long after
+              vision is lost as more conventional types of retinal ganglion cell die.
+            </p>
+            <p className="text-gray-800">
+              This survival is particularly notable in the inherited optic neuropathies —{' '}
+              <em>Leber Hereditary Optic Neuropathy</em> (LHON) and{' '}
+              <em>Dominant Optic Atrophy (DOA)</em>, caused by mutations in genes central to
+              mitochondrial function (such as <em>OPA1</em> in DOA). Uncovering why ipRGCs are
+              so resilient to mitochondrial dysfunction in these eye diseases is essential not only
+              to develop novel treatments to protect sight, but potentially in more common forms
+              of neurodegeneration where mitochondrial dysfunction is implicated.
             </p>
             <div className="space-y-3">
               <p className="text-gray-900 font-semibold">Key research questions include:</p>
@@ -151,9 +174,9 @@ export default async function GilhooleyPage() {
               </ul>
             </div>
             <p className="text-gray-800">
-              Dr. Gilhooley combines his expertise in neuro-ophthalmology and adult strabismus
-              with basic science investigation to translate findings from ipRGC biology toward
-              neuroprotective therapies for patients with optic nerve disease.
+              Dr. Gilhooley combines his clinical expertise in inherited optic neuropathies with
+              basic science investigation to translate findings from ipRGC biology toward
+              neuroprotective therapies for patients.
             </p>
           </div>
         </div>

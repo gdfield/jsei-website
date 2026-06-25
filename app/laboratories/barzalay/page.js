@@ -52,7 +52,7 @@ export default function BarzalayPage() {
      <Navbar />
       <main id="main-content">
      <Hero 
-       title="Aya Barzalay-Wollman Laboratory"
+       title="Aya Barzelay-Wollman Laboratory"
        subtitle="Robotic Microsurgery and Retinal Regeneration"
        description=""
      />
@@ -62,7 +62,7 @@ export default function BarzalayPage() {
          <div className="w-full md:w-1/3">
            <img 
              src="/images/faculty/barzalay.jpg"
-             alt="Dr. Aya Barzalay-Wollman"
+             alt="Dr. Aya Barzelay-Wollman"
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
