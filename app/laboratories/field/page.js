@@ -192,6 +192,14 @@ export default async function FieldPage() {
                 >
                   Faculty Profile
                 </a>
+                <a
+                  href={`https://orcid.org/${FIELD_ORCID}`}
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ORCID Profile
+                </a>
               </div>
             </div>
           </div>

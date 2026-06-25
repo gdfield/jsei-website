@@ -168,6 +168,14 @@ export default async function SunPage() {
                 >
                   Faculty Profile
               </a>
+                <a
+                  href={`https://orcid.org/${FACULTY_ORCID}`}
+                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ORCID Profile
+                </a>
             </div>
             </div>
           </div>
