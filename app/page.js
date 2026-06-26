@@ -32,7 +32,7 @@ const ResearchDivisionPage = () => {
     },
     {
       title: "Publications",
-      description: "View the latest publications for Scientists at JSEI.",
+      description: "View the latest publications from Scientists at JSEI.",
       linkUrl: "/publications",
       imageUrl: "/images/mission/publications.jpg"
     },
