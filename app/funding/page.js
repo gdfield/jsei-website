@@ -51,7 +51,6 @@ async function fetchGrants(faculty) {
       body: JSON.stringify({
         criteria: {
           pi_names: [{ last_name: faculty.nihName.lastName, first_name: faculty.nihName.firstName }],
-          org_names: ['UNIVERSITY OF CALIFORNIA LOS ANGELES'],
           fiscal_years: FISCAL_YEARS,
         },
         fields: [
@@ -88,22 +87,25 @@ export default async function FundingPage() {
     Promise.all(facultyWithOrcid.map((f) => fetchOrcidFunding(f))).then((r) => r.flat()),
   ]);
 
-  // Deduplicate NIH grants by core project number — NIH Reporter has one row per fiscal year
-  const nihSeen = new Set();
-  const unique = allGrants.filter((g) => {
+  // Deduplicate NIH grants by core project number, keeping the highest fiscal year per grant
+  // and collecting all JSEI faculty names that appeared in any query for the same grant
+  const nihByCore = {};
+  allGrants.forEach((g) => {
     const key = g.core_project_num ?? g.project_num;
-    if (nihSeen.has(key)) return false;
-    nihSeen.add(key);
-    return true;
+    if (!nihByCore[key]) {
+      nihByCore[key] = { ...g, _facultyNames: new Set([g._facultyName]) };
+    } else {
+      nihByCore[key]._facultyNames.add(g._facultyName);
+      if (g.fiscal_year > nihByCore[key].fiscal_year) {
+        nihByCore[key] = { ...nihByCore[key], ...g, _facultyNames: nihByCore[key]._facultyNames };
+      }
+    }
   });
+  const unique = Object.values(nihByCore);
+  const nihSeen = new Set(Object.keys(nihByCore));
 
   // Build uppercase set of NIH grant numbers for deduplication against ORCID
   const nihGrantNums = new Set([...nihSeen].map((n) => n.toUpperCase()));
-
-  // Filter NIH grants to those started in 2022 or later
-  const nihFiltered = unique.filter(
-    (g) => g.project_start_date && parseInt(g.project_start_date.slice(0, 4)) >= 2022
-  );
 
   // Filter ORCID entries: exclude NIH Reporter duplicates, require start year >= 2022, then deduplicate
   const orcidSeen = new Set();
@@ -119,12 +121,14 @@ export default async function FundingPage() {
   const orcidGrants = orcidUnique.filter((g) => g.type === 'grant');
   const orcidAwards = orcidUnique.filter((g) => g.type !== 'grant');
 
-  // Merge NIH and non-NIH grants into year buckets keyed by start year, latest year first
+  // Merge NIH and non-NIH grants into year buckets: NIH keyed by fiscal year, ORCID by start year
   const grantsByYear = {};
-  nihFiltered.forEach((g) => {
-    const year = g.project_start_date.slice(0, 4);
-    (grantsByYear[year] ??= []).push({ _source: 'nih', data: g });
-  });
+  unique
+    .filter((g) => g.fiscal_year >= 2022)
+    .forEach((g) => {
+      const year = String(g.fiscal_year);
+      (grantsByYear[year] ??= []).push({ _source: 'nih', data: g });
+    });
   orcidGrants.forEach((g) => {
     (grantsByYear[g.startYear] ??= []).push({ _source: 'orcid', data: g });
   });
@@ -157,7 +161,7 @@ export default async function FundingPage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <p className="text-gray-400 text-sm mb-8">
-          {nihFiltered.length} NIH grant{nihFiltered.length !== 1 ? 's' : ''} · {orcidGrants.length} non-NIH grant{orcidGrants.length !== 1 ? 's' : ''} · {orcidAwards.length} award{orcidAwards.length !== 1 ? 's' : ''} · sourced from NIH Reporter and ORCID · refreshed daily
+          {unique.length} NIH grant{unique.length !== 1 ? 's' : ''} · {orcidGrants.length} non-NIH grant{orcidGrants.length !== 1 ? 's' : ''} · {orcidAwards.length} award{orcidAwards.length !== 1 ? 's' : ''} · sourced from NIH Reporter and ORCID · refreshed daily
         </p>
 
         {sortedYears.map((year) => (
@@ -177,7 +181,11 @@ export default async function FundingPage() {
                       return facultyByName[key];
                     })
                     .filter(Boolean);
-                  const displayJseiNames = jseiPiNames.length > 0 ? jseiPiNames : [grant._facultyName ?? '—'];
+                  // Merge PI-lookup names with all faculty who appeared in search queries for this grant
+                  const displayJseiNames = [
+                    ...new Set([...jseiPiNames, ...(grant._facultyNames ?? [grant._facultyName])]),
+                  ].filter(Boolean);
+                  if (displayJseiNames.length === 0) displayJseiNames.push('—');
                   const allPiNames = pis
                     .sort((a, b) => (b.is_contact_pi ? 1 : 0) - (a.is_contact_pi ? 1 : 0))
                     .map((pi) => titleCase(pi.full_name));
