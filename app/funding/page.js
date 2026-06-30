@@ -78,11 +78,48 @@ async function fetchGrants(faculty) {
     const data = await res.json();
     return (data.results || [])
       .filter((g) => g.award_type !== '5')
-      .filter((g) => (g.principal_investigators || []).some((pi) => piMatchesFaculty(pi, faculty)))
-      .map((g) => ({ ...g, _facultyName: faculty.name }));
+      .map((g) => {
+        const matchedPi = (g.principal_investigators || []).find((pi) => piMatchesFaculty(pi, faculty));
+        return matchedPi ? { ...g, _facultyName: faculty.name, _matchedProfileId: matchedPi.profile_id } : null;
+      })
+      .filter(Boolean);
   } catch {
     return [];
   }
+}
+
+const UCLA_ORG_NAME = 'UNIVERSITY OF CALIFORNIA LOS ANGELES';
+
+// Confirm each matched PI is actually UCLA-affiliated by asking NIH Reporter whether
+// they have any UCLA-administered project — name matching alone can't distinguish two
+// different people who share a name. NIH Reporter ignores the `fields` allowlist and
+// always returns full records (abstract text included), so one query per profile_id
+// capped at limit:1 keeps each response small; a single combined query for ~25 PIs at
+// limit:500 returns megabytes of data and can't be cached.
+async function isUclaAffiliated(profileId) {
+  try {
+    const res = await fetch('https://api.reporter.nih.gov/v2/projects/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        criteria: { pi_profile_ids: [profileId], org_names: [UCLA_ORG_NAME] },
+        limit: 1,
+      }),
+      next: { revalidate: 86400 },
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    return (data.meta?.total ?? 0) > 0;
+  } catch {
+    return false;
+  }
+}
+
+async function verifyUclaProfileIds(profileIds) {
+  const idSet = [...new Set(profileIds)];
+  if (idSet.length === 0) return new Set();
+  const results = await Promise.all(idSet.map(async (id) => [id, await isUclaAffiliated(id)]));
+  return new Set(results.filter(([, ok]) => ok).map(([id]) => id));
 }
 
 function formatCurrency(amount) {
@@ -95,10 +132,16 @@ export default async function FundingPage() {
   const facultyWithNih = facultyData.filter((f) => f.nihName && !f.emeritus);
   const facultyWithOrcid = facultyData.filter((f) => f.orcid && !f.emeritus);
 
-  const [allGrants, allOrcidFunding] = await Promise.all([
+  const [allGrantsRaw, allOrcidFunding] = await Promise.all([
     Promise.all(facultyWithNih.map((f) => fetchGrants(f))).then((r) => r.flat()),
     Promise.all(facultyWithOrcid.map((f) => fetchOrcidFunding(f))).then((r) => r.flat()),
   ]);
+
+  // Confirm each matched PI is genuinely UCLA-affiliated, not a same-named PI elsewhere
+  const verifiedProfileIds = await verifyUclaProfileIds(
+    allGrantsRaw.map((g) => g._matchedProfileId)
+  );
+  const allGrants = allGrantsRaw.filter((g) => verifiedProfileIds.has(g._matchedProfileId));
 
   // Deduplicate NIH grants by core project number, keeping the highest fiscal year per grant
   // and collecting all JSEI faculty names that appeared in any query for the same grant
