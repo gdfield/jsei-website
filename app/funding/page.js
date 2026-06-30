@@ -43,6 +43,18 @@ async function fetchOrcidFunding(faculty) {
   }
 }
 
+// NIH Reporter's pi_names search matches on partial first-name substrings
+// (e.g. querying "Hui Sun" also returns "Xinghui Sun"), so results must be
+// re-validated: same last name, and the NIH first name must start with ours
+// to allow full-name vs. nickname mismatches (e.g. "Gregory Darin" vs "Greg").
+function piMatchesFaculty(pi, faculty) {
+  const piLast = pi.last_name?.toLowerCase() ?? '';
+  const piFirst = pi.first_name?.toLowerCase() ?? '';
+  const facLast = faculty.nihName.lastName.toLowerCase();
+  const facFirst = faculty.nihName.firstName.toLowerCase();
+  return piLast === facLast && piFirst.startsWith(facFirst);
+}
+
 async function fetchGrants(faculty) {
   try {
     const res = await fetch('https://api.reporter.nih.gov/v2/projects/search', {
@@ -66,6 +78,7 @@ async function fetchGrants(faculty) {
     const data = await res.json();
     return (data.results || [])
       .filter((g) => g.award_type !== '5')
+      .filter((g) => (g.principal_investigators || []).some((pi) => piMatchesFaculty(pi, faculty)))
       .map((g) => ({ ...g, _facultyName: faculty.name }));
   } catch {
     return [];
