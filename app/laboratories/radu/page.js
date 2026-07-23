@@ -176,8 +176,8 @@ export default async function RaduPage() {
                 >
                   Faculty Profile
                 </a>
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory" 
+                <a
+                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory"
                   className="text-blue-600 hover:text-blue-800 inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -218,8 +218,17 @@ export default async function RaduPage() {
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
             <p className="text-gray-800">
-            Dr. Radu leads a cutting-edge research program focused on understanding and treating degenerative macular diseases, specifically Stargardt disease (STGD1) and age-dependent macular degeneration (AMD). Dr. Radu’s group has made significant breakthroughs in understanding complex eye diseases. Key discoveries include identifying the ABCA4 gene's expression in RPE cells, developing innovative "disease-in-a-dish" models using induced pluripotent stem cells, and revealing complement system dysregulation as a common pathological pathway in both STGD1 and AMD. The laboratory is pioneering new approaches by examining retinoid-lipid processing, mitochondrial function, and cellular interactions to identify molecular targets for potential therapeutic interventions.             </p>
-            
+            Dr. Radu leads a cutting-edge research program focused on understanding and treating degenerative macular diseases, specifically Stargardt disease (STGD1) and age-dependent macular degeneration (AMD). Dr. Radu’s group has made significant breakthroughs in understanding complex eye diseases. Key discoveries include identifying the ABCA4 gene’s expression in RPE cells, developing innovative "disease-in-a-dish" models using induced pluripotent stem cells, and revealing complement system dysregulation as a common pathological pathway in both STGD1 and AMD. The laboratory is pioneering new approaches by examining retinoid-lipid processing, mitochondrial function, and cellular interactions to identify molecular targets for potential therapeutic interventions.             </p>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Key Scientific Questions</h3>
+              <ul className="space-y-2 text-gray-800 list-disc list-outside ml-4">
+                <li>What are the distinct, cell-type-specific roles of ABCA4 in photoreceptors versus RPE, and how does their loss synergize to drive STGD1 pathology?</li>
+                <li>How does dysregulated vitamin A-lipid metabolism contribute to retinoid-lipid buildup and metabolic impairment in STGD1 RPE cells?</li>
+                <li>How does loss of ABCA4 impair phosphatidylethanolamine-dependent LC3-associated phagocytosis (LAP) and endolysosomal function, leading to toxic bisretinoid and lipid accumulation in RPE?</li>
+                <li>Which lipid-sensitive signaling cascades link lipid droplet accumulation to complement and inflammatory activation, and how can these pathways be targeted therapeutically?</li>
+                <li>Can human iPSC-derived RPE–retinal organoid co-culture systems recapitulate ABCA4 genotype-specific disease phenotypes and serve as platforms to identify and validate therapeutic targets?</li>
+              </ul>
+            </div>
                </div>
         </div>
 
