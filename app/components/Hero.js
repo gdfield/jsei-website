@@ -67,7 +67,7 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(120% 90% at 50% 38%, rgba(6,38,63,0.28) 0%, rgba(6,38,63,0.55) 55%, rgba(6,38,63,0.92) 100%)',
+            'radial-gradient(120% 90% at 50% 38%, rgba(6,38,63,0.40) 0%, rgba(6,38,63,0.60) 55%, rgba(6,38,63,0.92) 100%)',
         }}
         aria-hidden="true"
       />
@@ -76,6 +76,16 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
         style={{
           background:
             'linear-gradient(180deg, rgba(6,38,63,0.35) 0%, rgba(6,38,63,0) 30%, rgba(6,38,63,0) 62%, rgba(6,38,63,0.9) 100%)',
+        }}
+        aria-hidden="true"
+      />
+      {/* Left scrim: guarantees contrast for the (left-aligned) headline and
+          copy even when a bright image frame is showing (WCAG 1.4.3). */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(6,38,63,0.86) 0%, rgba(6,38,63,0.66) 45%, rgba(6,38,63,0.25) 75%, rgba(6,38,63,0) 100%)',
         }}
         aria-hidden="true"
       />
@@ -88,7 +98,7 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
       {/* Content */}
       <div className="relative flex min-h-[inherit] items-center">
         <div className="mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12 py-20">
-          <div className="hero-rise max-w-4xl">
+          <div className="hero-rise hero-content max-w-4xl">
             {eyebrow && (
               <p className="eyebrow !text-gold">{eyebrow}</p>
             )}
@@ -140,10 +150,14 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
                 onClick={() => setCurrentImageIndex(index)}
                 aria-label={`Show image ${index + 1}`}
                 aria-current={index === currentImageIndex ? 'true' : undefined}
-                className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${
-                  index === currentImageIndex ? 'w-6 bg-gold' : 'w-2 bg-white/45 hover:bg-white/70'
-                }`}
-              />
+                className="group/dot grid h-6 w-6 place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex ? 'w-6 bg-gold' : 'w-2 bg-white/45 group-hover/dot:bg-white/70'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

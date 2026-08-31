@@ -68,6 +68,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={active ? 'page' : undefined}
                   className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                     active ? 'text-ink' : 'text-muted hover:text-ink'
                   }`}
@@ -113,6 +114,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? 'page' : undefined}
                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-base font-medium transition-colors ${
                   active ? 'bg-sea/8 text-ink' : 'text-ink-soft hover:bg-ink/5'
                 }`}
