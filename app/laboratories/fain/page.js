@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
+import Footer from '@/app/components/Footer';
 
 
 const FACULTY_ORCID = '0000-0002-9813-0342';
@@ -239,12 +240,7 @@ export default async function FainPage() {
      </div>
 
       </main>
-     <footer className="bg-gray-100 mt-16 py-8">
-       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-         <p>Jules Stein Eye Institute - Research Division</p>
-         <p className="mt-2">University of California, Los Angeles</p>
-       </div>
-     </footer>
+     <Footer />
    </div>
  );
 }

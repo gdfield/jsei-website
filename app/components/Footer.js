@@ -48,9 +48,12 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-start sm:justify-between">
           <p>© {new Date().getFullYear()} Jules Stein Eye Institute — Research Division</p>
-          <p>University of California, Los Angeles</p>
+          <p className="sm:max-w-md sm:text-right">
+            Presented by the Faculty of the Jules Stein Eye Institute at the
+            University of California, Los Angeles.
+          </p>
         </div>
       </div>
     </footer>

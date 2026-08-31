@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
+import Footer from '@/app/components/Footer';
 import { ArrowUpRight } from 'lucide-react';
 
 const PeoplePage = () => {
@@ -215,12 +216,7 @@ const PeoplePage = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-100 mt-16 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>Jules Stein Eye Institute - Research Division</p>
-          <p className="mt-2">University of California, Los Angeles</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
