@@ -1,5 +1,7 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import Reveal from '../components/Reveal';
 import { facultyData } from '../data/faculty';
 
 export const metadata = {
@@ -138,17 +140,19 @@ export default async function PublicationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <main id="main-content">
       <Hero
-        title="Publications"
-        subtitle="JSEI Research Output"
-        description={`Publications from Jules Stein Eye Institute faculty, ${CUTOFF_YEAR}–present`}
+        eyebrow="Publications"
+        title="The latest from the bench"
+        subtitle="JSEI research output"
+        description={`Peer-reviewed work from institute faculty, ${CUTOFF_YEAR}–present.`}
+        compact
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-gray-400 text-sm mb-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <p className="mb-10 font-mono text-xs uppercase tracking-[0.14em] text-muted">
           {unique.length} publication{unique.length !== 1 ? 's' : ''} · sourced from ORCID · refreshed daily
         </p>
 
@@ -162,42 +166,44 @@ export default async function PublicationsPage() {
         )
           .sort(([a], [b]) => b.localeCompare(a))
           .map(([year, pubs]) => (
-            <div key={year} className="mb-12">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                {year}
-              </h2>
+            <Reveal key={year} className="mb-14">
+              <div className="mb-5 flex items-center gap-4">
+                <h2 className="font-display text-2xl font-semibold text-ink">{year}</h2>
+                <span className="h-px flex-1 bg-mist" aria-hidden="true" />
+                <span className="font-mono text-xs text-muted">{pubs.length}</span>
+              </div>
               <div className="space-y-4">
                 {pubs.map((pub, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
+                    className="rounded-xl border border-mist bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-sea/30 hover:shadow-lift"
                   >
-                    <div className="flex items-start gap-6">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
                       {/* Left: JSEI lab(s) */}
-                      <div className="w-44 shrink-0 border-r border-gray-100 pr-6">
+                      <div className="shrink-0 sm:w-44 sm:border-r sm:border-mist sm:pr-6">
                         {(() => {
                           const lastNames = pub._jseiAuthors.map((n) => n.split(' ').at(-1));
                           const label = lastNames.length === 1
                             ? `${lastNames[0]} Lab`
                             : `${lastNames.slice(0, -1).join(', ')} and ${lastNames.at(-1)} Labs`;
-                          return <p className="font-bold text-blue-700 leading-tight">{label}</p>;
+                          return <p className="font-display font-semibold text-sea-600 leading-tight">{label}</p>;
                         })()}
                       </div>
 
                       {/* Middle: title, authors, journal */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                        <h3 className="mb-1 font-semibold leading-snug text-ink">
                           {pub.title}
                         </h3>
                         {pub.authors.length > 0 && (
-                          <p className="text-gray-700 text-sm mb-1">{pub.authors.join(', ')}</p>
+                          <p className="mb-1 text-sm text-ink-soft">{pub.authors.join(', ')}</p>
                         )}
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-sm text-muted">
                           {pub.journal && <span className="italic">{pub.journal}</span>}
                           {pub.journal && pub.year && ' · '}
                           {pub.year}
                           {TYPE_LABELS[pub.type] && (
-                            <span className="ml-2 inline-block bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">
+                            <span className="ml-2 inline-block rounded bg-sea/8 px-2 py-0.5 font-mono text-xs text-sea-600">
                               {TYPE_LABELS[pub.type]}
                             </span>
                           )}
@@ -211,32 +217,28 @@ export default async function PublicationsPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`View publication: ${pub.title}`}
-                          className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                          className="group/link inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm font-medium text-sea transition-colors hover:text-gold-deep"
                         >
-                          View →
+                          View
+                          <span aria-hidden="true" className="transition-transform group-hover/link:translate-x-0.5">→</span>
                         </a>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
 
         {unique.length === 0 && (
-          <p className="text-gray-500 italic text-center py-16">
+          <p className="py-16 text-center italic text-muted">
             No publications found for the selected period.
           </p>
         )}
       </div>
       </main>
 
-      <footer className="bg-gray-100 mt-16 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>Jules Stein Eye Institute - Research Division</p>
-          <p className="mt-2">University of California, Los Angeles</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

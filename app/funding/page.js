@@ -1,5 +1,7 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import Reveal from '../components/Reveal';
 import { facultyData } from '../data/faculty';
 
 export const metadata = {
@@ -206,25 +208,29 @@ export default async function FundingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <main id="main-content">
       <Hero
-        title="Research Funding"
-        subtitle="Research Grants &amp; Awards"
-        description={`Research funding for Jules Stein Eye Institute faculty, ${CURRENT_YEAR - 4}–${CURRENT_YEAR}`}
+        eyebrow="Research Funding"
+        title="What powers the research"
+        subtitle="Grants & awards"
+        description={`Active support for institute faculty, ${CURRENT_YEAR - 4}–${CURRENT_YEAR}.`}
+        compact
       />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-gray-400 text-sm mb-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <p className="mb-10 font-mono text-xs uppercase tracking-[0.14em] text-muted">
           {unique.length} NIH grant{unique.length !== 1 ? 's' : ''} · {orcidGrants.length} non-NIH grant{orcidGrants.length !== 1 ? 's' : ''} · {orcidAwards.length} award{orcidAwards.length !== 1 ? 's' : ''} · sourced from NIH Reporter and ORCID · refreshed daily
         </p>
 
         {sortedYears.map((year) => (
-          <div key={year} className="mb-12">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-              {year}
-            </h2>
+          <Reveal key={year} className="mb-14">
+            <div className="mb-5 flex items-center gap-4">
+              <h2 className="font-display text-2xl font-semibold text-ink">{year}</h2>
+              <span className="h-px flex-1 bg-mist" aria-hidden="true" />
+              <span className="font-mono text-xs text-muted">{grantsByYear[year].length}</span>
+            </div>
             <div className="space-y-4">
               {grantsByYear[year].map((entry, i) => {
                 if (entry._source === 'nih') {
@@ -249,34 +255,34 @@ export default async function FundingPage() {
                   const endYear = grant.project_end_date?.slice(0, 4);
                   const amount = formatCurrency(grant.award_amount);
                   return (
-                    <div key={i} className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow">
+                    <div key={i} className="rounded-xl border border-mist bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-sea/30 hover:shadow-lift">
                       <div className="flex items-start gap-6">
-                        <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
+                        <div className="w-36 shrink-0 border-r border-mist pr-6">
                           {displayJseiNames.map((name, j) => (
-                            <p key={j} className="font-bold text-blue-700 leading-tight">{name}</p>
+                            <p key={j} className="font-display font-semibold text-sea-600 leading-tight">{name}</p>
                           ))}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                          <h3 className="font-semibold text-ink mb-1 leading-snug">
                             {grant.project_title}
                           </h3>
                           {allPiNames.length > 0 && (
-                            <p className="text-gray-600 text-sm mb-1">{allPiNames.join(', ')}</p>
+                            <p className="mb-1 text-sm text-ink-soft">{allPiNames.join(', ')}</p>
                           )}
                           {amount && (
-                            <p className="text-gray-800 font-medium text-sm mb-2">{amount}</p>
+                            <p className="mb-2 font-mono text-sm font-semibold text-ink">{amount}</p>
                           )}
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-mono font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded">
+                            <span className="rounded bg-sea/10 px-2 py-0.5 font-mono text-xs font-semibold text-sea-600">
                               {grant.activity_code}
                             </span>
                             {grant.agency_ic_admin?.abbreviation && (
-                              <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
+                              <span className="rounded bg-ink/5 px-2 py-0.5 text-xs text-muted">
                                 {grant.agency_ic_admin.abbreviation}
                               </span>
                             )}
                             {startYear && endYear && (
-                              <span className="text-xs text-gray-400">{startYear}–{endYear}</span>
+                              <span className="text-xs text-muted">{startYear}–{endYear}</span>
                             )}
                           </div>
                         </div>
@@ -286,7 +292,7 @@ export default async function FundingPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`View ${grant.project_title} on NIH Reporter`}
-                            className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                            className="shrink-0 whitespace-nowrap text-sm font-medium text-sea transition-colors hover:text-gold-deep"
                           >
                             NIH Reporter →
                           </a>
@@ -297,13 +303,13 @@ export default async function FundingPage() {
                 }
                 const grant = entry.data;
                 return (
-                  <div key={i} className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow">
+                  <div key={i} className="rounded-xl border border-mist bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-sea/30 hover:shadow-lift">
                     <div className="flex items-start gap-6">
-                      <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
-                        <p className="font-bold text-blue-700 leading-tight">{grant._facultyName}</p>
+                      <div className="w-36 shrink-0 border-r border-mist pr-6">
+                        <p className="font-display font-semibold text-sea-600 leading-tight">{grant._facultyName}</p>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                        <h3 className="font-semibold text-ink mb-1 leading-snug">
                           {grant.title ?? '—'}
                         </h3>
                         <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -313,7 +319,7 @@ export default async function FundingPage() {
                             </span>
                           )}
                           {grant.grantNumbers.length > 0 && (
-                            <span className="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
+                            <span className="rounded bg-ink/5 px-2 py-0.5 font-mono text-xs text-muted">
                               {grant.grantNumbers[0]}
                             </span>
                           )}
@@ -324,7 +330,7 @@ export default async function FundingPage() {
                           href={grant.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 text-sm text-blue-600 hover:text-blue-800 font-medium whitespace-nowrap"
+                          className="shrink-0 whitespace-nowrap text-sm font-medium text-sea transition-colors hover:text-gold-deep"
                         >
                           View grant →
                         </a>
@@ -334,35 +340,37 @@ export default async function FundingPage() {
                 );
               })}
             </div>
-          </div>
+          </Reveal>
         ))}
 
         {sortedYears.length === 0 && (
-          <p className="text-gray-500 italic text-center py-16">
+          <p className="py-16 text-center italic text-muted">
             No active grants found.
           </p>
         )}
 
         {orcidAwards.length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-xl font-bold text-gray-900 mb-1 pb-2 border-b border-gray-200">
-              Awards &amp; Fellowships
-            </h2>
-            <p className="text-gray-400 text-sm mb-6">
+          <Reveal className="mt-16">
+            <div className="mb-1 flex items-center gap-4 border-b border-mist pb-3">
+              <h2 className="font-display text-2xl font-semibold text-ink">
+                Awards &amp; Fellowships
+              </h2>
+            </div>
+            <p className="mb-6 mt-3 font-mono text-xs uppercase tracking-[0.14em] text-muted">
               Prizes, fellowships, and named awards · sourced from ORCID
             </p>
             <div className="space-y-4">
               {orcidAwards.map((award, i) => (
                 <div
                   key={i}
-                  className="bg-white rounded-lg shadow-sm p-5 hover:shadow-md transition-shadow"
+                  className="rounded-xl border border-mist bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-sea/30 hover:shadow-lift"
                 >
                   <div className="flex items-start gap-6">
                     <div className="w-36 shrink-0 border-r border-gray-100 pr-6">
-                      <p className="font-bold text-blue-700 leading-tight">{award._facultyName}</p>
+                      <p className="font-display font-semibold text-sea-600 leading-tight">{award._facultyName}</p>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 mb-1 leading-snug">
+                      <h3 className="font-semibold text-ink mb-1 leading-snug">
                         {award.title ?? '—'}
                       </h3>
                       <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -372,7 +380,7 @@ export default async function FundingPage() {
                           </span>
                         )}
                         {award.startYear && (
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-muted">
                             {award.startYear}
                           </span>
                         )}
@@ -382,17 +390,12 @@ export default async function FundingPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         )}
       </div>
       </main>
 
-      <footer className="bg-gray-100 mt-16 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>Jules Stein Eye Institute - Research Division</p>
-          <p className="mt-2">University of California, Los Angeles</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

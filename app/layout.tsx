@@ -1,10 +1,29 @@
 import type { Metadata } from "next";
-import { Open_Sans } from 'next/font/google';
+import { Spectral, Inter, IBM_Plex_Mono } from 'next/font/google';
 import "./globals.css";
 
-const openSans = Open_Sans({
+// Display: Spectral — a modern, screen-optimized editorial serif with
+// scientific gravitas and a clean baseline capital J (fitting for a vision
+// institute, it's named for the light spectrum). Body: Inter. Data/mono:
+// IBM Plex Mono for grant numbers, DOIs, and stats across the science pages.
+const display = Spectral({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const sans = Inter({
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-sans',
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -65,15 +84,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={openSans.className}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>
+        {/* Without JS, scroll-reveal elements can't be un-hidden by the
+            observer — force them visible so content is never lost. */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-blue-700 focus:font-semibold focus:rounded focus:shadow"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-gold focus:text-ink focus:font-semibold focus:rounded-full focus:shadow-lg"
         >
           Skip to main content
         </a>

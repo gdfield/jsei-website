@@ -7,6 +7,9 @@ export const metadata = {
     'Explore the basic science and clinical research laboratories of the Jules Stein Eye Institute at UCLA, led by faculty spanning retinal biology, visual neuroscience, cornea, glaucoma, and more.',
 };
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Reveal from '../components/Reveal';
+import SectionHeading from '../components/SectionHeading';
 import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';
 
@@ -15,52 +18,60 @@ const LaboratoriesPage = () => {
   const clinicalScience = facultyData.filter((f) => (f.clinicalScience || !f.basicScience) && !f.emeritus);
   const emeritusFaculty = facultyData.filter((f) => f.emeritus);
 
+  const groups = [
+    {
+      eyebrow: 'Basic Science',
+      title: 'Basic Science Laboratories',
+      intro: 'Laboratories working at the molecular, cellular, and circuit level to understand how vision works.',
+      faculty: basicScience,
+    },
+    {
+      eyebrow: 'Clinical Science',
+      title: 'Clinical Science Laboratories',
+      intro: 'Clinician-scientists translating discovery into diagnosis and treatment for patients.',
+      faculty: clinicalScience,
+    },
+    ...(emeritusFaculty.length > 0
+      ? [{
+          eyebrow: 'Emeritus',
+          title: 'Emeritus Faculty',
+          intro: 'Faculty whose foundational work continues to shape vision science at JSEI.',
+          faculty: emeritusFaculty,
+        }]
+      : []),
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <main id="main-content">
-      <Hero
-        title="Research Laboratories"
-        subtitle="Vision Science Research at JSEI"
-        description="Advancing our understanding of vision through innovative research"
-      />
+        <Hero
+          eyebrow="The Laboratories"
+          title="Research Laboratories"
+          subtitle="Independent labs, shared purpose"
+          description="Advancing our understanding of vision through innovative research."
+          compact
+        />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200">Basic Science Laboratories</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {basicScience.map((faculty) => (
-            <FacultyCard key={faculty.name} faculty={faculty} />
+        <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+          {groups.map((group, gi) => (
+            <section key={group.title} className={gi > 0 ? 'mt-20' : ''}>
+              <Reveal>
+                <SectionHeading eyebrow={group.eyebrow} title={group.title} intro={group.intro} />
+              </Reveal>
+              <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                {group.faculty.map((faculty, i) => (
+                  <Reveal key={faculty.name} delay={(i % 2) * 100}>
+                    <FacultyCard faculty={faculty} />
+                  </Reveal>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
-
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200">Clinical Science Laboratories</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {clinicalScience.map((faculty) => (
-              <FacultyCard key={faculty.name} faculty={faculty} />
-            ))}
-          </div>
-        </div>
-
-        {emeritusFaculty.length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200">Emeritus Faculty</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {emeritusFaculty.map((faculty) => (
-                <FacultyCard key={faculty.name} faculty={faculty} />
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
       </main>
 
-      <footer className="bg-gray-100 mt-16 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p>Jules Stein Eye Institute - Research Division</p>
-          <p className="mt-2">University of California, Los Angeles</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

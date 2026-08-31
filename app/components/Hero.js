@@ -1,7 +1,15 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 
-const Hero = ({ title, subtitle, description }) => {
+/**
+ * Hero — the signature "aperture" treatment. Rotating research imagery
+ * sits behind a deep ocular-navy gradient and a radial vignette that
+ * draws the eye to a focal center, framed by a thin gold focus-ring.
+ * Fully accessible: pause/play, dot nav, live region, reduced motion.
+ *
+ * Props: title, subtitle, description, eyebrow, compact (shorter interior hero).
+ */
+const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
   const backgroundImages = [
     '/images/hero-background-1.jpg',
     '/images/laboratory-banners/radu.jpg',
@@ -11,7 +19,6 @@ const Hero = ({ title, subtitle, description }) => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // Start paused if the user prefers reduced motion
   const [paused, setPaused] = useState(() =>
     typeof window !== 'undefined'
       ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -24,98 +31,124 @@ const Hero = ({ title, subtitle, description }) => {
       setCurrentImageIndex((prev) =>
         prev === backgroundImages.length - 1 ? 0 : prev + 1
       );
-    }, 3000);
+    }, 5000);
     return () => clearInterval(intervalId);
   }, [paused]);
 
   return (
-    <div
-      className="relative h-[500px] overflow-hidden"
+    <section
+      className={`relative overflow-hidden bg-ink ${compact ? 'min-h-[380px]' : 'min-h-[560px] lg:min-h-[640px]'}`}
       role="region"
-      aria-label="Image carousel"
+      aria-label="Featured research imagery"
     >
-      {/* Hidden live region announces slide changes to screen readers */}
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         Image {currentImageIndex + 1} of {backgroundImages.length}
       </div>
 
+      {/* Crossfading imagery */}
       {backgroundImages.map((img, index) => (
         <div
           key={img}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-[1400ms] ease-out ${
             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <img
             src={img}
-            alt={`Hero Background ${index + 1}`}
-            className="w-full h-full object-cover object-center"
-            style={{ objectPosition: '50% 50%' }}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover object-center"
           />
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="absolute inset-0 flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1
-            className="text-8xl font-bold text-center mb-4 text-white"
-            style={{ fontFamily: 'Open Sans, sans-serif' }}
-          >
-            {title}
-          </h1>
-          <h2
-            className="text-4xl text-center mb-2 text-white"
-            style={{ fontFamily: 'Open Sans, sans-serif' }}
-          >
-            {subtitle}
-          </h2>
-          <p
-            className="text-3xl text-center text-blue-200"
-            style={{ fontFamily: 'Open Sans, sans-serif', fontStyle: 'italic' }}
-          >
-            {description}
-          </p>
+      {/* Aperture vignette + navy gradient: focus the center, sink the edges */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(120% 90% at 50% 38%, rgba(6,38,63,0.28) 0%, rgba(6,38,63,0.55) 55%, rgba(6,38,63,0.92) 100%)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(6,38,63,0.35) 0%, rgba(6,38,63,0) 30%, rgba(6,38,63,0) 62%, rgba(6,38,63,0.9) 100%)',
+        }}
+        aria-hidden="true"
+      />
+      {/* Thin gold focus-ring framing the aperture */}
+      <div
+        className="pointer-events-none absolute inset-4 rounded-[2rem] border border-gold/25 sm:inset-6"
+        aria-hidden="true"
+      />
+
+      {/* Content */}
+      <div className="relative flex min-h-[inherit] items-center">
+        <div className="mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12 py-20">
+          <div className="hero-rise max-w-4xl">
+            {eyebrow && (
+              <p className="eyebrow !text-gold">{eyebrow}</p>
+            )}
+            <h1
+              className={`mt-5 font-display font-semibold leading-[1.02] tracking-tight text-white ${
+                compact
+                  ? 'text-4xl sm:text-5xl'
+                  : 'text-5xl sm:text-6xl lg:text-7xl'
+              }`}
+            >
+              {title}
+            </h1>
+            {subtitle && (
+              <p className="mt-5 max-w-2xl text-lg sm:text-xl font-medium text-sky">
+                {subtitle}
+              </p>
+            )}
+            {description && (
+              <p className="mt-3 max-w-2xl font-display text-xl sm:text-2xl italic text-white/80">
+                {description}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Carousel controls */}
-      <div className="absolute bottom-8 left-0 right-0">
-        <div className="flex justify-center items-center gap-3">
-          {/* Pause / Play button */}
+      <div className="absolute bottom-7 right-7 z-10">
+        <div className="flex items-center gap-3 rounded-full bg-ink/40 px-3 py-2 backdrop-blur-md ring-1 ring-white/10">
           <button
             onClick={() => setPaused((p) => !p)}
-            aria-label={paused ? 'Play carousel' : 'Pause carousel'}
-            className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            aria-label={paused ? 'Play image rotation' : 'Pause image rotation'}
+            className="grid h-7 w-7 place-items-center rounded-full text-white/90 transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             {paused ? (
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
                 <path d="M8 5v14l11-7z" />
               </svg>
             ) : (
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
               </svg>
             )}
           </button>
-
-          {/* Slide dot navigation */}
-          {backgroundImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={index === currentImageIndex ? 'true' : undefined}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                index === currentImageIndex
-                  ? 'bg-white scale-110'
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
-            />
-          ))}
+          <div className="flex items-center gap-2">
+            {backgroundImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                aria-label={`Show image ${index + 1}`}
+                aria-current={index === currentImageIndex ? 'true' : undefined}
+                className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${
+                  index === currentImageIndex ? 'w-6 bg-gold' : 'w-2 bg-white/45 hover:bg-white/70'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
