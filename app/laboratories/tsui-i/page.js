@@ -147,7 +147,7 @@ export default async function TsuiIrenaPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Irena Tsui, M.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Irena Tsui, M.D.</h2>
               <p className="text-gray-600">Associate Professor</p>
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>

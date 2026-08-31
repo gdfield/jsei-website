@@ -146,7 +146,7 @@ export default async function ZhangPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h3 className="text-xl font-bold text-gray-900">Jie J. Zhang, Ph.D.</h3>
+             <h2 className="text-xl font-bold text-gray-900">Jie J. Zhang, Ph.D.</h2>
              <p className="text-gray-600">Professor</p>
              <p className="text-gray-600">Department of Ophthalmology</p>
              <p className="text-gray-600">Jules Stein Eye Institute</p>

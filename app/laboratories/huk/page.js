@@ -89,7 +89,7 @@ export default function HukPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Alexander C. Huk, Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Alexander C. Huk, Ph.D.</h2>
               <p className="text-gray-600">Professor</p>
               <p className="text-blue-800">Department of Neuroscience</p>
             </div>

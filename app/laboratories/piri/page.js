@@ -90,7 +90,7 @@ export default function PiriPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Natik Piri, Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Natik Piri, Ph.D.</h2>
               <p className="text-gray-600">Professor</p>
               <p className="text-blue-800">Stein Eye Institute</p>
             </div>

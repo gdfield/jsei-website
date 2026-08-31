@@ -147,7 +147,7 @@ export default async function NouriMahdaviPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Kouros Nouri-Mahdavi, M.D., M.Sc.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Kouros Nouri-Mahdavi, M.D., M.Sc.</h2>
               <p className="text-gray-600">Professor</p>
               <p className="text-gray-600">Kay K. Pick Endowed Chair in Glaucoma Research</p>
               <p className="text-gray-600">Department of Ophthalmology</p>

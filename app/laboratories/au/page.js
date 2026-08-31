@@ -79,7 +79,7 @@ export default function AuPage() {
       <div className="w-full h-64 md:h-96 relative overflow-hidden">
         <img
           src="/images/laboratory-banners/sampath.jpg"
-          alt="Sampath Laboratory Banner"
+          alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 50%' }}
         />
@@ -99,7 +99,7 @@ export default function AuPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Adrian Au, M.D., Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Adrian Au, M.D., Ph.D.</h2>
               <p className="text-gray-600">Assistant Professor</p>
               <p className="text-gray-600">Department of Ophthalmology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>

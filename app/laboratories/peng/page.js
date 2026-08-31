@@ -147,7 +147,7 @@ export default async function PengPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Yi-Rong Peng, Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Yi-Rong Peng, Ph.D.</h2>
               <p className="text-gray-600">Assistant Professor</p>
               <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>

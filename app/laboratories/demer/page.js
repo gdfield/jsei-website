@@ -145,7 +145,7 @@ export default async function DemerPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Joseph L. Demer, M.D., Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Joseph L. Demer, M.D., Ph.D.</h2>
               <p className="text-gray-600">Professor</p>
               <p className="text-gray-600">Arthur L. Rosenbaum, MD, Chair in Pediatric Ophthalmology </p>
               <p className="text-gray-600">Departments of Ophthalmology and Neurology</p>

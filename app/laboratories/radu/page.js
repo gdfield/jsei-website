@@ -131,7 +131,7 @@ export default async function RaduPage() {
       <div className="w-full h-64 md:h-96 relative overflow-hidden">
         <img
           src="/images/laboratory-banners/radu.jpg"
-          alt="Sampath Laboratory Banner"
+          alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 10%' }}
         />
@@ -154,7 +154,7 @@ export default async function RaduPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Roxana A. Radu, M.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Roxana A. Radu, M.D.</h2>
               <p className="text-gray-600">Associate Professor</p>
               <p className="text-gray-600">Vernon O. Underwood Family Chair in Ophthalmology </p>
               <p className="text-gray-600">Department of Ophthalmology</p>

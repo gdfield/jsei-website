@@ -132,7 +132,7 @@ export default async function SampathPage() {
       <div className="w-full h-64 md:h-96 relative overflow-hidden">
         <img
           src="/images/laboratory-banners/sampath.jpg"
-          alt="Sampath Laboratory Banner"
+          alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 20%' }}
         />
@@ -154,7 +154,7 @@ export default async function SampathPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h3 className="text-xl font-bold text-gray-900">Alapakkam Sampath, Ph.D.</h3>
+              <h2 className="text-xl font-bold text-gray-900">Alapakkam Sampath, Ph.D.</h2>
               <p className="text-gray-600">Professor</p>
               <p className="text-gray-600">Grace and Walter Lantz Endowed Chair in Ophthalmology</p>
               <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>

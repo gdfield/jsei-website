@@ -145,7 +145,7 @@ export default async function DengPage() {
              className="w-full rounded-lg shadow-lg"
            />
 <div className="mt-4 space-y-2">
-  <h3 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h3>
+  <h2 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h2>
   <p className="text-gray-600">Professor</p>
   <p className="text-gray-600">Walton Li Chair in Cornea and Uveitis</p>
   <p className="text-gray-600">Co-Chief, Cornea Division</p>

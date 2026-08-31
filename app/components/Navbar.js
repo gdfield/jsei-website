@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -16,6 +16,8 @@ const Navbar = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const btnRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -28,6 +30,26 @@ const Navbar = () => {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  // Keep the collapsed mobile menu out of the tab order and the accessibility
+  // tree (it's only visually hidden via max-height), and let Escape close it,
+  // returning focus to the toggle.
+  useEffect(() => {
+    const menu = menuRef.current;
+    if (menu) {
+      if (open) menu.removeAttribute('inert');
+      else menu.setAttribute('inert', '');
+    }
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        btnRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
 
   const isActive = (href) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
@@ -88,6 +110,7 @@ const Navbar = () => {
 
           {/* Mobile toggle */}
           <button
+            ref={btnRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-ink/5 transition-colors"
@@ -102,6 +125,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
+        ref={menuRef}
         id="mobile-menu"
         className={`md:hidden overflow-hidden border-t border-mist bg-paper/95 backdrop-blur-md transition-[max-height,opacity] duration-300 ${
           open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'

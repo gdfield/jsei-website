@@ -145,7 +145,7 @@ export default async function AldavePage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h3 className="text-xl font-bold text-gray-900">Anthony J. Aldave, M.D.</h3>
+             <h2 className="text-xl font-bold text-gray-900">Anthony J. Aldave, M.D.</h2>
              <p className="text-gray-600">Professor and Vice Chair</p>
              <p className="text-gray-600">Bartly J. Mondino M.D., Chair in Ophthalmology </p>
              <p className="text-gray-600">Department of Ophthalmology</p>

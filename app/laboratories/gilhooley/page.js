@@ -145,7 +145,7 @@ export default async function GilhooleyPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h3 className="text-xl font-bold text-gray-900">Michael J Gilhooley MD PhD</h3>
+              <h2 className="text-xl font-bold text-gray-900">Michael J Gilhooley MD PhD</h2>
               <p className="text-gray-600">Assistant Professor in Residence</p>
               <p className="text-gray-600">Jules Stein Eye Institute</p>
               <p className="text-gray-600">University of California, Los Angeles</p>

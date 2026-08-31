@@ -145,7 +145,7 @@ export default async function ColemanPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h3 className="text-xl font-bold text-gray-900">Anne L. Coleman, M.D., Ph.D.</h3>
+             <h2 className="text-xl font-bold text-gray-900">Anne L. Coleman, M.D., Ph.D.</h2>
              <p className="text-gray-600">Professor</p>
              <p className="text-gray-600">Bradley R. Straatsma, MD, Endowed Chair in Ophthalmology </p>
              <p className="text-gray-600">Chair: Department of Ophthalmology</p>
