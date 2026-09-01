@@ -13,6 +13,7 @@ const EducationPage = () => {
     <div className="min-h-screen bg-paper">
       <Navbar />
 
+      <main id="main-content">
       {/* Hero section */}
       <Hero 
         title="Education @ JSEI"
@@ -70,25 +71,25 @@ const EducationPage = () => {
                   <h3 className="text-xl font-bold text-ink mb-4">Program Highlights</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">7-year integrated curriculum</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">PhD or postdoctoral research</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Full salary and benefits support</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Model program recognized by NEI</span>
@@ -135,37 +136,37 @@ const EducationPage = () => {
                   <h3 className="text-xl font-bold text-ink mb-4">Program Offerings</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Fundamentals of Vision Research course</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Weekly Vision Science Seminar Series</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Vision Science Journal Club</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Annual Vision Science Retreat</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Grant writing workshops (F31, F32, K99/R00)</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Translational Grand Rounds</span>
@@ -259,6 +260,7 @@ const EducationPage = () => {
       </div>
 
       {/* Footer */}
+      </main>
       <Footer />
     </div>
   );

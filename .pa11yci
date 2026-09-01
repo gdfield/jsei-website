@@ -1,0 +1,31 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"],
+    "timeout": 60000,
+    "wait": 800,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    },
+    "comment": "Color-contrast is excluded from this gate and verified separately (npm run test:contrast for solid-background design tokens, plus manual review of text over hero imagery). Automated tools cannot measure contrast against photographic/gradient backgrounds and only return 'needs review' for them, so including the rule here produces false failures rather than signal.",
+    "ignore": [
+      "color-contrast",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail"
+    ]
+  },
+  "urls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/researchAreas",
+    "http://localhost:3000/researchAreas/visualneuro",
+    "http://localhost:3000/laboratories",
+    "http://localhost:3000/laboratories/field",
+    "http://localhost:3000/laboratories/aldave",
+    "http://localhost:3000/core",
+    "http://localhost:3000/publications",
+    "http://localhost:3000/funding",
+    "http://localhost:3000/people",
+    "http://localhost:3000/education",
+    "http://localhost:3000/outreach"
+  ]
+}

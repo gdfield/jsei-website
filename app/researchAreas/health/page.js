@@ -13,6 +13,7 @@ const DevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Bioinformatics and Population Health"
         subtitle="Finding the factors that underly eye disease"
@@ -44,6 +45,8 @@ const DevelopmentPage = () => {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

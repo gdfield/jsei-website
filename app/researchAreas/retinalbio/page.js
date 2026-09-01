@@ -14,6 +14,7 @@ const DevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Retinal Cell and Molecular Biology"
         subtitle="Revealing and understanding the fundamental biological mechanisms of the retina"
@@ -43,6 +44,8 @@ const DevelopmentPage = () => {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

@@ -48,7 +48,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/70 sm:flex-row sm:items-start sm:justify-between">
           <p>© {new Date().getFullYear()} Jules Stein Eye Institute — Research Division</p>
           <p className="sm:max-w-md sm:text-right">
             Presented by the Faculty of the Jules Stein Eye Institute at the

@@ -14,6 +14,7 @@ const DevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Artificial Intelligence and Robotics"
         subtitle="Using machine learning and robotics to advance knowledge and clinical practice"
@@ -45,6 +46,8 @@ const DevelopmentPage = () => {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

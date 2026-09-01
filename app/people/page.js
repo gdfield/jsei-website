@@ -174,6 +174,7 @@ const PeoplePage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Leadership @ JSEI"
         subtitle="Leadership and Administration"
@@ -216,6 +217,7 @@ const PeoplePage = () => {
       </div>
 
       {/* Footer */}
+      </main>
       <Footer />
     </div>
   );

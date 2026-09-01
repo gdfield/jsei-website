@@ -14,6 +14,7 @@ const DevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Eye Mobility and Rehabilitation"
         subtitle="Improving vision by understanding how patients look at the world"
@@ -45,6 +46,8 @@ const DevelopmentPage = () => {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

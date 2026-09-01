@@ -14,6 +14,7 @@ const DevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-paper">
       <Navbar />
+      <main id="main-content">
       <Hero 
         title="Visual Neuroscience"
         subtitle="Understanding how neurons respond to and signal visual stimuli and how the brain and muscles control eye movements"
@@ -45,6 +46,8 @@ const DevelopmentPage = () => {
           ))}
         </div>
       </div>
+
+      </main>
 
       <Footer />
     </div>

@@ -13,6 +13,7 @@ const OutreachPage = () => {
     <div className="min-h-screen bg-paper">
       <Navbar />
 
+      <main id="main-content">
       {/* Hero section */}
       <Hero 
         title="Outreach @ JSEI"
@@ -73,31 +74,31 @@ const OutreachPage = () => {
                   <h3 className="text-xl font-bold text-ink mb-4">Program Highlights</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Free vision screenings</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Comprehensive eye examinations</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Free prescription eyeglasses with delivery</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">39-foot-long fully equipped mobile clinic</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Replacement glasses within one year if needed</span>
@@ -139,31 +140,31 @@ const OutreachPage = () => {
                   <h3 className="text-xl font-bold text-ink mb-4">Educational Opportunities</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Clinical training for medical students</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Research experience for undergraduates</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Study design and IRB submission</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Data collection and analysis</span>
                     </li>
                     <li className="flex items-start">
-                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                         <span className="text-white text-xs">✓</span>
                       </div>
                       <span className="ml-2 text-ink-soft">Scientific publication opportunities</span>
@@ -211,25 +212,25 @@ const OutreachPage = () => {
           <h3 className="text-xl font-bold text-ink mb-4">Program Components</h3>
           <ul className="space-y-3">
             <li className="flex items-start">
-              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                 <span className="text-white text-xs">✓</span>
               </div>
               <span className="ml-2 text-ink-soft">Classroom vision education sessions</span>
             </li>
             <li className="flex items-start">
-              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                 <span className="text-white text-xs">✓</span>
               </div>
               <span className="ml-2 text-ink-soft">Eye anatomy and function demonstrations</span>
             </li>
             <li className="flex items-start">
-              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                 <span className="text-white text-xs">✓</span>
               </div>
               <span className="ml-2 text-ink-soft">Vision safety awareness training</span>
             </li>
             <li className="flex items-start">
-              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-500 flex items-center justify-center mt-1">
+              <div className="flex-shrink-0 h-5 w-5 rounded-full bg-sea-600 flex items-center justify-center mt-1">
                 <span className="text-white text-xs">✓</span>
               </div>
               <span className="ml-2 text-ink-soft">Take-home educational materials</span>
@@ -243,6 +244,7 @@ const OutreachPage = () => {
       </div>
 
       {/* Footer */}
+      </main>
       <Footer />
     </div>
   );
