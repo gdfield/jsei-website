@@ -10,6 +10,11 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  # Weekly re-audit (Mondays 13:00 UTC) so content/dependency drift is caught
+  # even without a code change.
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch: {}
 
 jobs:
   a11y:
