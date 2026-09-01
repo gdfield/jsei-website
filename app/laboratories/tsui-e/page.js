@@ -127,7 +127,7 @@ export default async function TsuiEdmundPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -148,14 +148,14 @@ export default async function TsuiEdmundPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Edmund Tsui, M.D., M.S.</h2>
-              <p className="text-gray-600">Associate Professor</p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Edmund Tsui, M.D., M.S.</h2>
+              <p className="text-muted">Associate Professor</p>
+              <p className="text-muted">Department of Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:etsui@mednet.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -163,7 +163,7 @@ export default async function TsuiEdmundPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/edmund.tsui" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -171,7 +171,7 @@ export default async function TsuiEdmundPage() {
                 </a>
                 <a 
                   href="https://x.com/EdmundTsuiMD" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -179,7 +179,7 @@ export default async function TsuiEdmundPage() {
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/edmundtsui/" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -187,7 +187,7 @@ export default async function TsuiEdmundPage() {
                 </a>
                 <a 
                   href="https://pubmed.ncbi.nlm.nih.gov/?term=edmund+tsui&sort=date" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -195,7 +195,7 @@ export default async function TsuiEdmundPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -207,20 +207,20 @@ export default async function TsuiEdmundPage() {
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
             The Tsui Research Group is committed to advancing the field of uveitis through innovative imaging analysis, improved diagnostic tools, and clinical trials. By leveraging advanced imaging modalities such as optical coherence tomography, we aim to quantify objectively intraocular inflammation and enhance diagnostic accuracy in uveitis. Our work also includes developing standardized methodologies for assessing inflammation, and conducting clinical trials to evaluate novel therapeutics in the treatment of uveitis and ocular inflammatory disease. 
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Our research focuses on these areas:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Our research focuses on these areas:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>Image Analysis: Develop and validate imaging biomarkers using optical coherence tomography (OCT) and other advanced imaging modalities to quantify intraocular inflammation and monitor disease activity in uveitis. This work aims to improve the objectivity of diagnostic assessments, enhance disease monitoring, and guide treatment decisions by leveraging cutting-edge imaging technologies.</li>
                 <li>Advanced Diagnostics: Utilize ocular fluid sampling techniques, such as aqueous and vitreous humor analysis, to improve the diagnosis of uveitis. This includes cytokine profiling, pathogen detection, and biomarker discovery to enable precision diagnostics and uncover underlying etiologies of ocular inflammation.</li>
                 <li>Clinical Trials: Design and conduct clinical trials to evaluate novel therapies and refine treatment strategies for uveitis and other ocular inflammatory diseases. Our research encompasses immune-modulating therapies, biologics, small molecules, and targeted immunotherapies aimed at reducing inflammation, preventing vision loss, and improving patient outcomes.</li>
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
             These research areas reflect our group’s mission to advance the understanding, diagnosis, and treatment of uveitis and ocular inflammatory diseases through innovation and collaboration.
             </p>
           </div>
@@ -228,21 +228,21 @@ export default async function TsuiEdmundPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

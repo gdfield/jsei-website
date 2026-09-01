@@ -127,7 +127,7 @@ export default async function GilhooleyPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -146,14 +146,14 @@ export default async function GilhooleyPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Michael J Gilhooley MD PhD</h2>
-              <p className="text-gray-600">Assistant Professor in Residence</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
-              <p className="text-gray-600">University of California, Los Angeles</p>
+              <h2 className="text-xl font-bold text-ink">Michael J Gilhooley MD PhD</h2>
+              <p className="text-muted">Assistant Professor in Residence</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
+              <p className="text-muted">University of California, Los Angeles</p>
               <div className="flex flex-col space-y-2 pt-2">
                 <a
                   href="https://profiles.ucla.edu/michael.gilhooley"
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -161,7 +161,7 @@ export default async function GilhooleyPage() {
                 </a>
                 <a
                   href="https://www.uclahealth.org/providers/michael-gilhooley"
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -169,7 +169,7 @@ export default async function GilhooleyPage() {
                 </a>
                 <a
                   href="https://www.ncbi.nlm.nih.gov/myncbi/michael.gilhooley.1/bibliography/public/"
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -177,7 +177,7 @@ export default async function GilhooleyPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -188,14 +188,14 @@ export default async function GilhooleyPage() {
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Research in our lab centers on the intrinsically photosensitive retinal ganglion
               cells of the optic nerve (ipRGCs) and the fascinating protein that renders them
               sensitive to light (melanopsin). We are particularly interested in defining the
               mechanisms by which ipRGCs survive in optic nerve disease, in some cases long after
               vision is lost as more conventional types of retinal ganglion cell die.
             </p>
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               This survival is particularly notable in the inherited optic neuropathies —{' '}
               <em>Leber Hereditary Optic Neuropathy</em> (LHON) and{' '}
               <em>Dominant Optic Atrophy (DOA)</em>, caused by mutations in genes central to
@@ -205,15 +205,15 @@ export default async function GilhooleyPage() {
               of neurodegeneration where mitochondrial dysfunction is implicated.
             </p>
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Key research questions include:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Key research questions include:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>Why are ipRGCs selectively resistant to degeneration in inherited optic neuropathies?</li>
                 <li>What role does melanopsin signaling play in conferring neuroprotection?</li>
                 <li>Can the survival mechanisms of ipRGCs be harnessed to protect conventional retinal ganglion cells from disease?</li>
                 <li>How does ipRGC biology differ across disease states such as OPA1 and LHON?</li>
               </ul>
             </div>
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Gilhooley combines his clinical expertise in inherited optic neuropathies with
               basic science investigation to translate findings from ipRGC biology toward
               neuroprotective therapies for patients.
@@ -223,21 +223,21 @@ export default async function GilhooleyPage() {
 
         {publications.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+            <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
             <div className="space-y-3">
                   {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -70,7 +70,7 @@ export default function GlasgowPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -91,15 +91,15 @@ export default function GlasgowPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Ben J. Glasgow, M.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-gray-600"> The Wasserman Professor of Ophthalmology </p>
-              <p className="text-gray-600">Departments of Pathology and Laboratory Medicine and Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Ben J. Glasgow, M.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-muted"> The Wasserman Professor of Ophthalmology </p>
+              <p className="text-muted">Departments of Pathology and Laboratory Medicine and Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:bglasgow@mednet.ucla.edu"
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -107,7 +107,7 @@ export default function GlasgowPage() {
               </a>
                 <a 
                   href="https://profiles.ucla.edu/ben.glasgow" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -119,15 +119,15 @@ export default function GlasgowPage() {
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Glasgow laboratory focuses on understanding the molecular mechanisms that regulate tear film
               stability and their implications for ocular surface disorders. His research explores the structure
               and function of tear lipocalins and their interactions with lipids to maintain ocular health.
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Key research questions include:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Key research questions include:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>What are the structural mechanisms by which tear lipocalins stabilize the tear film?</li>
                 <li>How do lipid-protein interactions contribute to ocular surface health?</li>
                 <li>What roles do tear film components play in protecting against environmental stressors?</li>
@@ -136,7 +136,7 @@ export default function GlasgowPage() {
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Glasgow's work integrates biochemistry, structural biology, and clinical studies to advance
               our understanding of the tear film's role in maintaining a healthy ocular surface. His findings
               have significant implications for developing therapies for dry eye syndrome and other related conditions.
@@ -146,19 +146,19 @@ export default function GlasgowPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
+              <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                <p className="text-ink-soft mb-1">{pub.authors}</p>
+                <p className="text-muted">
                   {pub.journal} ({pub.year}) • {pub.citations} citations
                 </p>
                 {pub.doi && (
                   <a 
                     href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
+                    className="text-sea hover:text-gold-deep text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

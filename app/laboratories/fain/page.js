@@ -126,7 +126,7 @@ export default async function FainPage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
@@ -145,14 +145,14 @@ export default async function FainPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-gray-900">Gordon L. Fain, Ph.D.</h2>
-             <p className="text-gray-600">Professor</p>
-             <p className="text-gray-600">Department of Ophthalmology</p>
-             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <h2 className="text-xl font-bold text-ink">Gordon L. Fain, Ph.D.</h2>
+             <p className="text-muted">Professor</p>
+             <p className="text-muted">Department of Ophthalmology</p>
+             <p className="text-muted">Jules Stein Eye Institute</p>
              <div className="flex flex-col space-y-2">
              <a 
                   href="mailto:gfain@ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -161,7 +161,7 @@ export default async function FainPage() {
 
                 <a 
                   href="https://bioscience.ucla.edu/people/gordon-fain/" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -169,7 +169,7 @@ export default async function FainPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -180,13 +180,13 @@ export default async function FainPage() {
          </div>
 
          <div className="w-full md:w-2/3 space-y-6">
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
              The Fain laboratory studies the biophysical mechanisms of photoreceptor function and adaptation. Our research focuses on understanding how photoreceptors respond to light and adapt to different lighting conditions, contributing to both normal vision and retinal disease mechanisms.
            </p>
            
            <div className="space-y-3">
-             <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-             <ul className="list-disc pl-6 space-y-2 text-gray-800">
+             <p className="text-ink font-semibold">Research Focus Areas:</p>
+             <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                <li>
                  Photoreceptor light adaptation mechanisms
                </li>
@@ -205,28 +205,28 @@ export default async function FainPage() {
              </ul>
            </div>
 
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
              Our work combines electrophysiology and imaging approaches to understand the fundamental mechanisms of photoreceptor function. These studies have provided key insights into how the retina processes visual information and adapts to changing light conditions.
            </p>
          </div>
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
          <div className="space-y-3">
                {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

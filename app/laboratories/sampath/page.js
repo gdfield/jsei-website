@@ -126,7 +126,7 @@ export default async function SampathPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
  <Navbar />
       <main id="main-content">
@@ -137,9 +137,9 @@ export default async function SampathPage() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 20%' }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2">Alapakkam Sampath Laboratory</h1>
-          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2">Phototransduction and Synaptic Transmission</h2>
+        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2 text-white">Alapakkam Sampath Laboratory</h1>
+          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2 text-white">Phototransduction and Synaptic Transmission</h2>
           <p className="text-lg md:text-4xl text-center">Understanding visual processing in the retina</p>
         </div>
       </div>
@@ -155,16 +155,16 @@ export default async function SampathPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-gray-900">Alapakkam Sampath, Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-gray-600">Grace and Walter Lantz Endowed Chair in Ophthalmology</p>
-              <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
-              <p className="text-gray-600">Associate Director of Research</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Alapakkam Sampath, Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-muted">Grace and Walter Lantz Endowed Chair in Ophthalmology</p>
+              <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
+              <p className="text-muted">Associate Director of Research</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:asampath@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -172,7 +172,7 @@ export default async function SampathPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/alapakkam.sampath" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -180,7 +180,7 @@ export default async function SampathPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -192,7 +192,7 @@ export default async function SampathPage() {
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The goal of the Sampath laboratory is the elucidation of fundamental mechanisms of visual processing. 
               We have focused on generating a deeper understanding of development and signaling between photoreceptor 
               cells—the rods and cones—and their synaptic partners, the bipolar cells, to determine how information 
@@ -200,8 +200,8 @@ export default async function SampathPage() {
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Our research focuses on the following questions:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Our research focuses on the following questions:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>
                   How can rod photoresponses in the mammalian retina provide such an enormous range of rod 
                   vision - from single-photon responses in few rods to light bright enough to activate thousands 
@@ -229,7 +229,7 @@ export default async function SampathPage() {
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               These questions remain of great interest because of the large proportion of visual deficits arising 
               from abnormal signaling, either within the phototransduction cascade or in synaptic transmission 
               from photoreceptor terminals to bipolar cells. To answer these questions, we employ classical 
@@ -242,21 +242,21 @@ export default async function SampathPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-  <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+  <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
   <div className="space-y-3">  {/* Changed from space-y-6 to space-y-3 */}
         {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

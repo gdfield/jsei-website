@@ -127,7 +127,7 @@ export default async function PengPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -148,14 +148,14 @@ export default async function PengPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Yi-Rong Peng, Ph.D.</h2>
-              <p className="text-gray-600">Assistant Professor</p>
-              <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Yi-Rong Peng, Ph.D.</h2>
+              <p className="text-muted">Assistant Professor</p>
+              <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:yirongpeng@mednet.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -164,7 +164,7 @@ export default async function PengPage() {
 
               <a 
                   href="https://yirongpeng.com" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -172,7 +172,7 @@ export default async function PengPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/yirong.peng" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -180,7 +180,7 @@ export default async function PengPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -192,13 +192,13 @@ export default async function PengPage() {
 
 {/* Research Description */}
 <div className="w-full md:w-2/3 space-y-6">
-  <p className="text-gray-800">
+  <p className="text-ink-soft">
     Cells are the building blocks of complex biological systems, exhibiting remarkable diversity in the visual system. Understanding how cell types form, connect, and degenerate is fundamental to uncover the mechanisms behind blinding diseases. The Peng lab leverages multi-omics approaches–genomics, transcriptomics, and proteomics–to decode genetic programs that define cell-type features, unravel the molecular basis of specialized human vision, and identify key signatures driving degeneration in ocular diseases.
   </p>
   
   <div className="mt-4">
-    <h3 className="text-xl font-bold text-gray-900 mb-3">Research Focus Areas:</h3>
-    <ul className="list-decimal pl-5 space-y-2 text-gray-800">
+    <h3 className="text-xl font-bold text-ink mb-3">Research Focus Areas:</h3>
+    <ul className="list-decimal pl-5 space-y-2 text-ink-soft">
       <li>Genetic Regulations of Cell Type Generation and Differentiation</li>
       <li>Molecular Mechanisms of Circuit Formation and Specialization</li>
       <li>Cellular and Synaptic Adaptations During Retinal Degeneration</li>
@@ -206,7 +206,7 @@ export default async function PengPage() {
     </ul>
   </div>
   
-  <p className="text-gray-800 mt-4">
+  <p className="text-ink-soft mt-4">
     The ultimate goal of our research is to provide a fundamental understanding of circuit formation and degeneration in the visual system and to develop therapeutic strategies to prevent or treat vision loss.
   </p>
 </div>
@@ -214,21 +214,21 @@ export default async function PengPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-  <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+  <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
   <div className="space-y-3">
         {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

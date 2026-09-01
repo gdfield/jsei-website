@@ -73,7 +73,7 @@ export default function AuPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -84,9 +84,9 @@ export default function AuPage() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 50%' }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2">Adrian Au Laboratory</h1>
-          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2">Ophthalmic Imaging, AI, and Retinal Genomics</h2>
+        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2 text-white">Adrian Au Laboratory</h1>
+          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2 text-white">Ophthalmic Imaging, AI, and Retinal Genomics</h2>
           <p className="text-lg md:text-4xl text-center">Integrating AI, imaging, and genomics for curing retinal disease</p>
         </div>
       </div>
@@ -100,14 +100,14 @@ export default function AuPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-gray-900">Adrian Au, M.D., Ph.D.</h2>
-              <p className="text-gray-600">Assistant Professor</p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Adrian Au, M.D., Ph.D.</h2>
+              <p className="text-muted">Assistant Professor</p>
+              <p className="text-muted">Department of Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
                 <a 
                   href="mailto:adrianau@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -115,7 +115,7 @@ export default function AuPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/adrian.au" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -126,17 +126,17 @@ export default function AuPage() {
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Adrian Au applies machine learning algorithms to ocular imaging modalities, including fundus photography and optical coherence tomography (OCT), to extract and quantify retinal biomarkers associated with disease phenotypes. His research emphasizes the integration of these imaging-derived features with genomic datasets to elucidate the molecular and genetic underpinnings of retinal pathology.
             </p>
             
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Through the fusion of deep learning-based image analysis and genomic frameworks, Dr. Au seeks to advance our understanding of the biological mechanisms driving disease onset, progression, and therapeutic response. His work operates at the intersection of ophthalmology, computational biology, and precision medicine, with the aim of developing clinically translatable tools for personalized diagnostics and targeted interventions in retinal disease.
             </p>
 
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Research Focus Areas:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>
                   Machine learning and deep learning for ocular imaging analysis
                 </li>
@@ -159,18 +159,18 @@ export default function AuPage() {
 
         {publications.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+            <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
             <div className="space-y-3">
               {publications.map((pub, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                  <p className="text-gray-700 mb-1">{pub.authors}</p>
-                  <p className="text-gray-600">
+                <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                  <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                  <p className="text-ink-soft mb-1">{pub.authors}</p>
+                  <p className="text-muted">
                     {pub.journal} ({pub.year})
                   </p>
                   <a 
                     href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
+                    className="text-sea hover:text-gold-deep text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -12,7 +12,7 @@ const DevelopmentPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <Navbar />
       <Hero 
         title="Retinal Cell and Molecular Biology"
@@ -22,13 +22,13 @@ const DevelopmentPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
-          <p className="text-gray-700">
+          <h2 className="text-3xl font-bold text-ink mb-4">Research Focus</h2>
+          <p className="text-ink-soft">
             A long-standing area of excellence at JSEI is understanding the fundamental retinal biology that makes vision possible. These labs reveal the highly specialized molecular and cellular interactions that occur in the retina.
           </p>
           <div className="mt-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Key Research Areas:</h3>
-            <ul className="list-disc pl-6 text-gray-700">
+            <h3 className="text-xl font-bold text-ink mb-2">Key Research Areas:</h3>
+            <ul className="list-disc pl-6 text-ink-soft">
               <li>Photoreceptor biology</li>
               <li>The retinal pigment epithelium</li>
               <li>Molecular signaling and receptors</li>
@@ -36,7 +36,7 @@ const DevelopmentPage = () => {
           </div>
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Faculty</h2>
+        <h2 className="text-3xl font-bold text-ink mb-8">Faculty</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {areaFaculty.map((faculty) => (
             <FacultyCard key={faculty.name} faculty={faculty} />

@@ -70,7 +70,7 @@ export default function GorinPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -89,20 +89,20 @@ export default function GorinPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Michael B. Gorin, M.D., Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-blue-800">Department of Ophthalmology</p>
+              <h2 className="text-xl font-bold text-ink">Michael B. Gorin, M.D., Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-sea-600">Department of Ophthalmology</p>
             </div>
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Gorin laboratory focuses on understanding the genetic basis of complex eye diseases, particularly glaucoma and age-related macular degeneration. Our research combines advanced genomic approaches with clinical expertise to identify genetic risk factors and develop personalized treatment strategies.
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Research Focus Areas:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>
                   Genetic risk factors in glaucoma
                 </li>
@@ -121,25 +121,25 @@ export default function GorinPage() {
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Our work aims to translate genetic discoveries into clinical applications, improving risk assessment and treatment selection for patients with inherited eye diseases. We collaborate extensively with clinical and basic science researchers worldwide.
             </p>
           </div>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
+              <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                <p className="text-ink-soft mb-1">{pub.authors}</p>
+                <p className="text-muted">
                   {pub.journal} ({pub.year}) • {pub.citations} citations
                 </p>
                 <a 
                   href={pub.doi}
-                  className="text-blue-600 hover:text-blue-800 text-sm"
+                  className="text-sea hover:text-gold-deep text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -127,7 +127,7 @@ export default async function NouriMahdaviPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -148,17 +148,17 @@ export default async function NouriMahdaviPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Kouros Nouri-Mahdavi, M.D., M.Sc.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-gray-600">Kay K. Pick Endowed Chair in Glaucoma Research</p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Chief, Glaucoma Division</p>
-              <p className="text-gray-600">Director, Glaucoma Advaced Imaging and AI Laboratory</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Kouros Nouri-Mahdavi, M.D., M.Sc.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-muted">Kay K. Pick Endowed Chair in Glaucoma Research</p>
+              <p className="text-muted">Department of Ophthalmology</p>
+              <p className="text-muted">Chief, Glaucoma Division</p>
+              <p className="text-muted">Director, Glaucoma Advaced Imaging and AI Laboratory</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:nouri-mahdavi@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -166,7 +166,7 @@ export default async function NouriMahdaviPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/kouros.nouri-mahdavi" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -174,7 +174,7 @@ export default async function NouriMahdaviPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -186,11 +186,11 @@ export default async function NouriMahdaviPage() {
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
             Dr. Nouri-Mahdavi has an active clinical practice managing adult glaucoma patients and complex cataract surgeries. Dr. Nouri-Mahdavi's research focuses on functional and structural measurements for optimizing diagnosis of glaucoma and detection of disease progression, use of machine learning approaches in glaucoma diagnostics, and study of surgical outcomes in glaucoma. He has been the recipient of many awards including the American Academy of Ophthalmology's Secretariat and Achievement Awards, American Glaucoma Society MAPS Grant Award, the American Glaucoma Society Early and Mid-Career Clinician Scientist Awards, the Gerald Oppenheimer Family Foundation Center for Prevention of Eye Disease Award, Senior Alcon Research Award, and NIH K23 and R01 awards. He has been the co-recipient of UCLA Innovation Awards in 2018 and 2019 for translational research projects. His research is currently funded by an NIH R01 award to optimize detection of glaucoma progression in eyes with advanced glaucoma.
                       </p>
             
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
             Dr. Nouri-Mahdavi is a clinician-scientist who continues to teach and publish extensively. He frequently lectures at national and international meetings. He is currently a member of the American Academy of Ophthalmology's (AAO), Association for Research in Vision and Ophthalmology, and the Chair of the AGS' Annual Meeting Committee. He serves on the Editorial Boards of Journal of Glaucoma, International Glaucoma Review, and Journal of Ophthalmic and Vision Research.
             </p>
           </div>
@@ -198,21 +198,21 @@ export default async function NouriMahdaviPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

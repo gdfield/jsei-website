@@ -125,7 +125,7 @@ export default async function RaduPage() {
 };
 
     return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -136,9 +136,9 @@ export default async function RaduPage() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 10%' }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-2">Roxana A. Radu Laboratory</h1>
-          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2">Retina Biochemistry and Disease Modeling</h2>
+        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold text-center mb-2 text-white">Roxana A. Radu Laboratory</h1>
+          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2 text-white">Retina Biochemistry and Disease Modeling</h2>
           <p className="text-lg md:text-xl text-center">Understanding and treatment of retinal diseases through research on retinoid metabolism and pigment epithelium biology</p>
         </div>
       </div>
@@ -155,15 +155,15 @@ export default async function RaduPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-gray-900">Roxana A. Radu, M.D.</h2>
-              <p className="text-gray-600">Associate Professor</p>
-              <p className="text-gray-600">Vernon O. Underwood Family Chair in Ophthalmology </p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Roxana A. Radu, M.D.</h2>
+              <p className="text-muted">Associate Professor</p>
+              <p className="text-muted">Vernon O. Underwood Family Chair in Ophthalmology </p>
+              <p className="text-muted">Department of Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:radu@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -171,7 +171,7 @@ export default async function RaduPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/roxana.radu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -179,7 +179,7 @@ export default async function RaduPage() {
                 </a>
                 <a
                   href="https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory"
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -187,7 +187,7 @@ export default async function RaduPage() {
                 </a>
                 <a 
                   href="https://www.ncbi.nlm.nih.gov/myncbi/roxana.radu.1/bibliography/public/" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -195,7 +195,7 @@ export default async function RaduPage() {
                 </a>
                 <a 
                   href="https://scholar.google.com/citations?user=msOSAGEAAAAJ&hl=en" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -203,7 +203,7 @@ export default async function RaduPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -218,11 +218,11 @@ export default async function RaduPage() {
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
             Dr. Radu leads a cutting-edge research program focused on understanding and treating degenerative macular diseases, specifically Stargardt disease (STGD1) and age-dependent macular degeneration (AMD). Dr. Radu’s group has made significant breakthroughs in understanding complex eye diseases. Key discoveries include identifying the ABCA4 gene’s expression in RPE cells, developing innovative "disease-in-a-dish" models using induced pluripotent stem cells, and revealing complement system dysregulation as a common pathological pathway in both STGD1 and AMD. The laboratory is pioneering new approaches by examining retinoid-lipid processing, mitochondrial function, and cellular interactions to identify molecular targets for potential therapeutic interventions.             </p>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Key Scientific Questions</h3>
-              <ul className="space-y-2 text-gray-800 list-disc list-outside ml-4">
+              <h3 className="text-lg font-semibold text-ink mb-3">Key Scientific Questions</h3>
+              <ul className="space-y-2 text-ink-soft list-disc list-outside ml-4">
                 <li>What are the distinct, cell-type-specific roles of ABCA4 in photoreceptors versus RPE, and how does their loss synergize to drive STGD1 pathology?</li>
                 <li>How does dysregulated vitamin A-lipid metabolism contribute to retinoid-lipid buildup and metabolic impairment in STGD1 RPE cells?</li>
                 <li>How does loss of ABCA4 impair phosphatidylethanolamine-dependent LC3-associated phagocytosis (LAP) and endolysosomal function, leading to toxic bisretinoid and lipid accumulation in RPE?</li>
@@ -235,21 +235,21 @@ export default async function RaduPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

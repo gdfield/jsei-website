@@ -126,7 +126,7 @@ export default async function WilliamsPage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
  <Navbar />
       <main id="main-content">
@@ -137,9 +137,9 @@ export default async function WilliamsPage() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 20%' }}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2">David Williams Laboratory</h1>
-          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2">Retinal Cell Biology</h2>
+        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2 text-white">David Williams Laboratory</h1>
+          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2 text-white">Retinal Cell Biology</h2>
         </div>
       </div>
 
@@ -152,16 +152,16 @@ export default async function WilliamsPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-1">
-             <h2 className="text-xl font-bold text-gray-900">David S. Williams, Ph.D.</h2>
-             <p className="text-gray-600">Professor</p>
-             <p className="text-gray-600">Karl Kirchgessner Foundation Chair in Vision Science </p>
-             <p className="text-gray-600">Departments of Ophthalmology and Neurobiology</p>
-             <p className="text-gray-600">Director, Microscopy and Image Analysis Core</p>
-             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <h2 className="text-xl font-bold text-ink">David S. Williams, Ph.D.</h2>
+             <p className="text-muted">Professor</p>
+             <p className="text-muted">Karl Kirchgessner Foundation Chair in Vision Science </p>
+             <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
+             <p className="text-muted">Director, Microscopy and Image Analysis Core</p>
+             <p className="text-muted">Jules Stein Eye Institute</p>
              
              <a 
                   href="mailto:dswilliams@ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -170,7 +170,7 @@ export default async function WilliamsPage() {
                 <br />
              <a 
                   href="https://profiles.ucla.edu/david.williams" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -179,7 +179,7 @@ export default async function WilliamsPage() {
                 <br />
                 <a 
                   href="https://www.uclahealth.org/eye/photoreceptor-rpe-cell-biology" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -187,7 +187,7 @@ export default async function WilliamsPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -197,13 +197,13 @@ export default async function WilliamsPage() {
          </div>
 
          <div className="w-full md:w-2/3 space-y-6">
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            The Williams laboratory studies dynamic cellular processes in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these most highly specialized cells. Emphasis is on using advanced microscopy methods, including high-speed live-cell imaging and 3-D electron microscopy. 
                       </p>
            
            <div className="space-y-3">
-             <p className="text-gray-900 font-semibold">Current Research Areas:</p>
-             <ul className="list-disc pl-6 space-y-2 text-gray-800">
+             <p className="text-ink font-semibold">Current Research Areas:</p>
+             <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                <li>
                The delivery of opsin to the photoreceptor cilium and membrane shaping to form the disk membranes the photoreceptor outer segment.               </li>
                <li>
@@ -220,28 +220,28 @@ export default async function WilliamsPage() {
              </ul>
            </div>
 
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            By studying fundamental cellular processes that are essential for photoreceptor and RPE cell function, the lab's research is advancing general cell biological principles. It also provides an understanding of how defects in these processes lead to retinal degeneration.  This knowledge is critical for developing treatments for inherited retinal diseases.  
                     </p>
          </div>
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
          <div className="space-y-3">
                {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

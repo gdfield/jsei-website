@@ -127,7 +127,7 @@ export default async function SunPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -148,14 +148,14 @@ export default async function SunPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Hui Sun, Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-gray-600">Departments of Physiology and Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Hui Sun, Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-muted">Departments of Physiology and Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <div className="flex flex-col space-y-2">
               <a 
                   href="mailto:hsun@mednet.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -163,7 +163,7 @@ export default async function SunPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/hui.sun" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -171,7 +171,7 @@ export default async function SunPage() {
               </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -183,7 +183,7 @@ export default async function SunPage() {
 
           {/* Research Description */}
 <div className="w-full md:w-2/3 space-y-6">
-  <p className="text-gray-800">
+  <p className="text-ink-soft">
     Many highly impactful medicines target membrane receptors (e.g., weight loss drug Ozempic and cancer drug anti-PD1).  The Sun lab has devoted its efforts to the discovery, mechanistic study and identification of chemical modulators of novel membrane receptors that play important roles in physiology and diseases.  The first endeavor is to elucidate the receptor mechanism that mediates cellular uptake of vitamin A, a multitasking chemical that is essential for human vision and human survival.  We discovered this elusive membrane receptor using a novel technique and developed novel real-time monitoring techniques to study its molecular mechanism.  We further identified potent small molecule modulators can potentially be used in treating human diseases caused by insufficient or excessive retinoid level (relevant disease areas include ophthalmology, dermatology, and oncology).  
   </p>
 
@@ -196,7 +196,7 @@ export default async function SunPage() {
     />
   </div>
   
-  <p className="text-gray-800">
+  <p className="text-ink-soft">
     The second endeavor is to elucidate the molecular mechanism and to identify novel chemical agonists for a new type of membrane receptors highly enriched in pathogenic blood vessels.  After several years of unbiased and large-scale screening, we identified the receptors of the most potent endogenous anti-angiogenic factor.  These are the only proteins in the human genome that are known to confer cell-surface binding to the factor and to transduce its signal into the cells.  Their highly specific expression in pathogenic blood vessels in vision diseases and tumors matches the therapeutic targets of the endogenous factor. By developing a novel fluorescence-based technique, we identified potent chemical compounds that target this receptor to specifically kill pathogenic blood vessels in vision disease and also tumor blood vessels to lead to effective tumor killing in vivo. In addition, we also developed a novel technique to screen for receptor-activating antibodies and successfully identified antibody drug candidates after large-scale screening 10 billion antibody clones.  They are candidate drugs that can be used to treat a wide range of human diseases driven by pathogenic angiogenesis including major blinding diseases and diverse types of cancer.  
   </p>
 </div>
@@ -204,21 +204,21 @@ export default async function SunPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -71,7 +71,7 @@ export default function BhatPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -90,15 +90,15 @@ export default function BhatPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Suraj Bhat, Ph.D.</h2>
-              <p className="text-gray-600">Professor Emeritus</p>
-              <p className="text-gray-600">Department of Ophthalmology</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Suraj Bhat, Ph.D.</h2>
+              <p className="text-muted">Professor Emeritus</p>
+              <p className="text-muted">Department of Ophthalmology</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
 
               <div className="flex flex-col space-y-2">
                <a 
                   href="mailto:bhat@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -106,7 +106,7 @@ export default function BhatPage() {
                 </a>
                 <a 
                   href="https://profiles.ucla.edu/suraj.bhat" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -114,7 +114,7 @@ export default function BhatPage() {
                 </a>
                 <a 
                   href="https://www.uclahealth.org/departments/eye/research/research-laboratories/vision-molecular-biology" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -122,7 +122,7 @@ export default function BhatPage() {
                 </a>
                 <a 
                   href="https://www.ncbi.nlm.nih.gov/myncbi/1bwRSwe8mklkt/bibliography/public/" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -133,13 +133,13 @@ export default function BhatPage() {
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Vision Molecular Biology Laboratory investigates the ocular lens (in the anterior) and the retinal pigment epithelium (RPE) in the posterior eye. Our current focus is on understanding (a) the role of the lens epithelium in maintaining a functional fiber mass of the ocular lens and (b) the role of exosome secretion in sustaining a functional RPE. These two epithelia are at the interface of systemic biology and tissue-specific physiology.
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-              <ol className="list-decimal pl-6 space-y-3 text-gray-800">
+              <p className="text-ink font-semibold">Research Focus Areas:</p>
+              <ol className="list-decimal pl-6 space-y-3 text-ink-soft">
                 <li>
                   <span className="font-medium">Molecular characterization of the developing mouse lens at the single-cell level:</span>
                   <p className="mt-1">The ocular lens is characterized by a gradient of refractive index (RI), highest in the center and lowest at the periphery. We are investigating how gene activity connects to the phenotype (RI) by applying spatial transcriptomics to the mouse and the human eye.</p>
@@ -168,18 +168,18 @@ export default function BhatPage() {
 
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
+              <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                <p className="text-ink-soft mb-1">{pub.authors}</p>
+                <p className="text-muted">
                   {pub.journal} ({pub.year})
                 </p>
                 <a 
                   href={pub.doi}
-                  className="text-blue-600 hover:text-blue-800 text-sm"
+                  className="text-sea hover:text-gold-deep text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

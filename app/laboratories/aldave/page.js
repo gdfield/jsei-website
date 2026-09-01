@@ -127,7 +127,7 @@ export default async function AldavePage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
@@ -146,14 +146,14 @@ export default async function AldavePage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-gray-900">Anthony J. Aldave, M.D.</h2>
-             <p className="text-gray-600">Professor and Vice Chair</p>
-             <p className="text-gray-600">Bartly J. Mondino M.D., Chair in Ophthalmology </p>
-             <p className="text-gray-600">Department of Ophthalmology</p>
-             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <h2 className="text-xl font-bold text-ink">Anthony J. Aldave, M.D.</h2>
+             <p className="text-muted">Professor and Vice Chair</p>
+             <p className="text-muted">Bartly J. Mondino M.D., Chair in Ophthalmology </p>
+             <p className="text-muted">Department of Ophthalmology</p>
+             <p className="text-muted">Jules Stein Eye Institute</p>
              <a 
                   href="mailto:aldave@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -162,7 +162,7 @@ export default async function AldavePage() {
                 <br />
                 <a 
                   href="https://profiles.ucla.edu/anthony.aldave" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -171,7 +171,7 @@ export default async function AldavePage() {
                 <br />
                 <a 
                   href="https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-genetics-laboratory" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -179,7 +179,7 @@ export default async function AldavePage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -190,23 +190,23 @@ export default async function AldavePage() {
 
          <div className="w-full md:w-2/3 space-y-6">
            <div className="space-y-3">
-             <h2 className="text-xl font-bold text-gray-900">Research Areas</h2>
-             <p className="text-gray-800">
+             <h2 className="text-xl font-bold text-ink">Research Areas</h2>
+             <p className="text-ink-soft">
                Molecular genetic basis of inherited disorders of the cornea, known as the corneal dystrophies
              </p>
            </div>
            
            <div className="space-y-3">
-             <h2 className="text-xl font-bold text-gray-900">Description</h2>
-             <p className="text-gray-800">
+             <h2 className="text-xl font-bold text-ink">Description</h2>
+             <p className="text-ink-soft">
                The Cornea Genetics Laboratory focuses on identifying and characterizing the molecular genetic basis of corneal dystrophies and elucidating the normal and disease biology of corneal endothelial cells.
              </p>
              
-             <p className="text-gray-800">
+             <p className="text-ink-soft">
                The Laboratory employs an array of genetic analysis tools to identify causative mutations associated with inherited corneal disorders and utilizes mouse and cell-based disease models to study the pathomechanisms via which the identified mutations lead to loss of corneal clarity, and thus loss of vision. The identification and elucidation of the genetic basis of the corneal dystrophies has allowed Dr. Aldave and colleagues to develop and test molecular therapeutics approaches in these same cell-based and animal models. In 2023, the Laboratory was selected to participate in the Foundation for the NIH Accelerating Medicines Partnership® (AMP®) Bespoke Gene Therapy Consortium and received funding from the California Institute for Regeneration Medicine to perform preclinical studies of AAV gene therapy for congenital hereditary endothelial dystrophy.
              </p>
              
-             <p className="text-gray-800">
+             <p className="text-ink-soft">
                The Laboratory is also involved in the characterization and optimization of ex vivo expansion of corneal endothelial cells, with the goal of transplanting the cells from one individual to multiple recipients. As it is estimated that worldwide only one donor cornea is available for every 70 that are needed, the use of expanded corneal endothelial cells to restore sight to individuals with corneal endothelial dysfunction, most commonly due to corneal endothelial dystrophies, will transform the current paradigm of one donor cornea restoring sight to only one recipient.
              </p>
            </div>
@@ -214,21 +214,21 @@ export default async function AldavePage() {
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
          <div className="space-y-3">
                {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

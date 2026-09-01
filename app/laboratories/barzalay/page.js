@@ -78,7 +78,7 @@ export default function BarzalayPage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
@@ -97,13 +97,13 @@ export default function BarzalayPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-gray-900">Aya Barzelay-Wollman, M.D., Ph.D.</h2>
-             <p className="text-gray-600">Assistant Professor</p>
-             <p className="text-gray-600">Department of Ophthalmology</p>
-             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <h2 className="text-xl font-bold text-ink">Aya Barzelay-Wollman, M.D., Ph.D.</h2>
+             <p className="text-muted">Assistant Professor</p>
+             <p className="text-muted">Department of Ophthalmology</p>
+             <p className="text-muted">Jules Stein Eye Institute</p>
              <a 
                   href="mailto:ayaba@g.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -112,7 +112,7 @@ export default function BarzalayPage() {
                 <br />
                              <a 
                   href="https://www.uclahealth.org/providers/aya-barzelay-wollman" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -121,7 +121,7 @@ export default function BarzalayPage() {
                 <br />
                 <a 
                   href="https://www.uclahealth.org/departments/eye/research/research-laboratories/advanced-robotic-micro-surgery-arms-laboratory" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -131,25 +131,25 @@ export default function BarzalayPage() {
          </div>
 
          <div className="w-full md:w-2/3 space-y-6">
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            Dr. Aya Barzelay-Wollman leads a translational research program focused on advancing robotic-assisted microsurgery for retinal disease. Her lab develops AI-guided robotic systems capable of performing delicate intraocular surgeries with sub-millimeter precision—enabling tasks such as retinal vein cannulation, targeted subretinal delivery of gene and drug therapies, and automated intravitreal injections that exceed human manual capabilities.
                       </p>
            
-                      <p className="text-gray-800">
+                      <p className="text-ink-soft">
                       Her research also explores regenerative strategies using stem cell–derived retinal grafts to replace damaged retinal tissue in degenerative diseases like age-related macular degeneration. By combining microsurgical robotics with cell-based therapies, her team aims to improve the precision, consistency, and long-term integration of these treatments, accelerating their translation into clinical care.
                                             </p>
 
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            Dr. Barzelay-Wollman is the UCLA principal investigator for a national ARPA-H–funded initiative on whole eye transplantation. Her contributions focus on robotic microsurgery and intraocular tissue preservation, developing enabling technologies to support the viability and functional integration of transplanted eyes. 
                      </p>
           
           {/* Media Links */}
           <div className="mt-6 mb-4 space-y-3">
-            <h3 className="text-lg font-semibold text-gray-900">Media</h3>
+            <h3 className="text-lg font-semibold text-ink">Media</h3>
             <div className="flex flex-col space-y-2">
               <a 
                 href="https://www.youtube.com/watch?v=7KUbnv1DmiI" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-800"
+                className="inline-flex items-center text-sea hover:text-gold-deep"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -161,7 +161,7 @@ export default function BarzalayPage() {
               </a>
               <a 
                 href="https://www.medscape.com/viewarticle/super-human-robot-could-be-future-eye-surgery-2024a1000ivf" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-800"
+                className="inline-flex items-center text-sea hover:text-gold-deep"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -186,19 +186,19 @@ export default function BarzalayPage() {
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
          <div className="space-y-3">
            {publications.map((pub, index) => (
-             <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-               <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-               <p className="text-gray-700 mb-1">{pub.authors}</p>
-               <p className="text-gray-600">
+             <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+               <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+               <p className="text-ink-soft mb-1">{pub.authors}</p>
+               <p className="text-muted">
                  {pub.journal} ({pub.year}) {pub.citations && `• ${pub.citations} citations`}
                </p>
                {pub.doi !== "#" && (
                  <a 
                    href={pub.doi}
-                   className="text-blue-600 hover:text-blue-800 text-sm"
+                   className="text-sea hover:text-gold-deep text-sm"
                    target="_blank"
                    rel="noopener noreferrer"
                  >

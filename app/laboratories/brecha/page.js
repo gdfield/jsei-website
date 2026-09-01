@@ -69,7 +69,7 @@ export default function BrechaPage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
@@ -88,13 +88,13 @@ export default function BrechaPage() {
              className="w-full rounded-lg shadow-lg"
            />
            <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-gray-900">Nicholas C. Brecha, Ph.D.</h2>
-             <p className="text-gray-600">Professor</p>
-             <p className="text-gray-600">Departments of Neurobiology, Medicine and Ophthalmology</p>
-             <p className="text-gray-600">Jules Stein Eye Institute</p>
+             <h2 className="text-xl font-bold text-ink">Nicholas C. Brecha, Ph.D.</h2>
+             <p className="text-muted">Professor</p>
+             <p className="text-muted">Departments of Neurobiology, Medicine and Ophthalmology</p>
+             <p className="text-muted">Jules Stein Eye Institute</p>
              <a 
                   href="https://profiles.ucla.edu/nicholas.brecha" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -107,13 +107,13 @@ export default function BrechaPage() {
 
 
          <div className="w-full md:w-2/3 space-y-6">
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
              The Brecha laboratory studies the organization and function of neural circuits in the retina. Our research focuses on understanding neurotransmitter systems and their role in retinal signal processing, with particular emphasis on inhibitory circuits and neuromodulation.
            </p>
            
            <div className="space-y-3">
-             <p className="text-gray-900 font-semibold">Research Focus Areas:</p>
-             <ul className="list-disc pl-6 space-y-2 text-gray-800">
+             <p className="text-ink font-semibold">Research Focus Areas:</p>
+             <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                <li>
                  Neurotransmitter systems in retinal circuits
                </li>
@@ -132,25 +132,25 @@ export default function BrechaPage() {
              </ul>
            </div>
 
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
              Our work combines neuroanatomical, neurochemical, and functional approaches to understand how retinal circuits process visual information. These studies provide fundamental insights into retinal organization and function in health and disease.
            </p>
          </div>
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
          <div className="space-y-3">
            {publications.map((pub, index) => (
-             <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-               <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-               <p className="text-gray-700 mb-1">{pub.authors}</p>
-               <p className="text-gray-600">
+             <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+               <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+               <p className="text-ink-soft mb-1">{pub.authors}</p>
+               <p className="text-muted">
                  {pub.journal} ({pub.year}) • {pub.citations} citations
                </p>
                <a 
                  href={pub.doi}
-                 className="text-blue-600 hover:text-blue-800 text-sm"
+                 className="text-sea hover:text-gold-deep text-sm"
                  target="_blank"
                  rel="noopener noreferrer"
                >

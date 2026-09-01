@@ -70,7 +70,7 @@ export default function PiriPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -91,21 +91,21 @@ export default function PiriPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Natik Piri, Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-blue-800">Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Natik Piri, Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-sea-600">Stein Eye Institute</p>
             </div>
           </div>
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Natik Piri's research focuses on understanding the molecular mechanisms leading to retinal ganglion cell (RGC) death in glaucoma. His lab is dedicated to identifying the genetic and biochemical pathways underlying RGC apoptosis and exploring novel genes expressed preferentially in RGCs. By employing advanced techniques such as DNA microarrays, proteomics, and molecular biology methods, Dr. Piri aims to uncover therapeutic targets for neuroprotection.
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Key research questions include:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Key research questions include:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>What are the molecular pathways driving retinal ganglion cell apoptosis in glaucoma?</li>
                 <li>How can novel RGC-specific genes be leveraged to develop targeted therapies?</li>
                 <li>What roles do heat shock proteins (e.g., HSP70) play in enhancing RGC survival?</li>
@@ -114,7 +114,7 @@ export default function PiriPage() {
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Piri's work has significant implications for understanding the pathophysiology of glaucoma
               and developing neuroprotective strategies to prevent or delay vision loss.
             </p>
@@ -123,19 +123,19 @@ export default function PiriPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
+              <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                <p className="text-ink-soft mb-1">{pub.authors}</p>
+                <p className="text-muted">
                   {pub.journal} ({pub.year}) • {pub.citations} citations
                 </p>
                 {pub.doi && (
                   <a 
                     href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
+                    className="text-sea hover:text-gold-deep text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

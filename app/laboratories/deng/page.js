@@ -127,7 +127,7 @@ export default async function DengPage() {
 };
 
  return (
-   <div className="min-h-screen bg-gray-50">
+   <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
@@ -146,17 +146,17 @@ export default async function DengPage() {
              className="w-full rounded-lg shadow-lg"
            />
 <div className="mt-4 space-y-2">
-  <h2 className="text-xl font-bold text-gray-900">Sophie X. Deng, M.D., Ph.D.</h2>
-  <p className="text-gray-600">Professor</p>
-  <p className="text-gray-600">Walton Li Chair in Cornea and Uveitis</p>
-  <p className="text-gray-600">Co-Chief, Cornea Division</p>
-  <p className="text-gray-600">Vice Chair for Inspiring Excellence</p>
-  <p className="text-gray-600">Department of Ophthalmology</p>
-  <p className="text-gray-600">Jules Stein Eye Institute</p>
+  <h2 className="text-xl font-bold text-ink">Sophie X. Deng, M.D., Ph.D.</h2>
+  <p className="text-muted">Professor</p>
+  <p className="text-muted">Walton Li Chair in Cornea and Uveitis</p>
+  <p className="text-muted">Co-Chief, Cornea Division</p>
+  <p className="text-muted">Vice Chair for Inspiring Excellence</p>
+  <p className="text-muted">Department of Ophthalmology</p>
+  <p className="text-muted">Jules Stein Eye Institute</p>
   <div className="flex flex-col space-y-2">
   <a 
                   href="https://profiles.ucla.edu/sophie.deng" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -165,7 +165,7 @@ export default async function DengPage() {
 
                 <a 
                   href="https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-biology" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -173,7 +173,7 @@ export default async function DengPage() {
                 </a>
                 <a 
                   href="https://www.ncbi.nlm.nih.gov/myncbi/sophie.deng.1/bibliography/public/" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -181,7 +181,7 @@ export default async function DengPage() {
                 </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -192,37 +192,37 @@ export default async function DengPage() {
 </div>  
 
          <div className="w-full md:w-2/3 space-y-6">
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            The Cornea Biology Laboratory, under Dr. Deng's direction, studies the limbal epithelial stem cells (LSCs) and their microenvironment to elucidate the mechanisms by which these cells and the niche factors aid in the regeneration of the corneal surface in patients suffering from limbal stem cell deficiency (LSCD). The role of signaling pathways such as Wnt and Notch in the regulation of LSCs and modulation of these signaling pathways in vitro and in vivo through small molecules is under investigation. 
                       </p>
            
-                      <p className="text-gray-800">
-                      Two clinical studies aimed to characterize the cellular changes in the cornea and limbus leading to LSCD and to study the safety and efficacy of LSC transplantation are ongoing. The first study aims to evaluate and validate in vivo parameters using multimodal imaging such as anterior segment optical coherence tomography (AS-OCT) and in vivo confocal microscopy (IVCM) to diagnose and stage LSCD and to assess LSCD treatment outcome. The second clinical study is a Phase I clinical trial to assess the safety, feasibility and efficacy of autologous cultivated LSC therapy in patients suffering from severe or total LSCD (<a href="https://classic.clinicaltrials.gov/ct2/show/NCT03957954" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">more info here</a>).
+                      <p className="text-ink-soft">
+                      Two clinical studies aimed to characterize the cellular changes in the cornea and limbus leading to LSCD and to study the safety and efficacy of LSC transplantation are ongoing. The first study aims to evaluate and validate in vivo parameters using multimodal imaging such as anterior segment optical coherence tomography (AS-OCT) and in vivo confocal microscopy (IVCM) to diagnose and stage LSCD and to assess LSCD treatment outcome. The second clinical study is a Phase I clinical trial to assess the safety, feasibility and efficacy of autologous cultivated LSC therapy in patients suffering from severe or total LSCD (<a href="https://classic.clinicaltrials.gov/ct2/show/NCT03957954" className="text-sea hover:text-gold-deep" target="_blank" rel="noopener noreferrer">more info here</a>).
                                             </p>
 
 
-           <p className="text-gray-800">
+           <p className="text-ink-soft">
            Another research project focused on the stromal cell layer of the cornea aims to treat corneal stromal scars with extracellular vesicles (EVs) derived from corneal stromal stem cells (CSSCs), which are multipotent mesenchymal stem cells that regenerate normal corneal stroma and significantly reduce corneal scarring by mediating anti-inflammatory and anti-fibrosis processes. The specific content (cargo) of the EVs and mechanism of action is also under investigation. Pre-clinical research is ongoing to develop an EV-based therapy that could be directly applied to the eye to reduce corneal stromal scarring and improve vision.
                       </p>
          </div>
        </div>
 
        <div className="mt-12">
-         <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+         <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
          <div className="space-y-3">
                {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

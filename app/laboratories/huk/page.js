@@ -69,7 +69,7 @@ export default function HukPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -90,15 +90,15 @@ export default function HukPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-gray-900">Alexander C. Huk, Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-blue-800">Department of Neuroscience</p>
+              <h2 className="text-xl font-bold text-ink">Alexander C. Huk, Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-sea-600">Department of Neuroscience</p>
             </div>
           </div>
 
           {/* Research Description */}
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Huk laboratory investigates the neural dynamics underlying sensory processing,
               decision-making, and motor planning. Dr. Huk's team combines computational modeling,
               neurophysiology, and behavioral experiments to study how the brain integrates sensory
@@ -106,8 +106,8 @@ export default function HukPage() {
             </p>
             
             <div className="space-y-3">
-              <p className="text-gray-900 font-semibold">Key research questions include:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-800">
+              <p className="text-ink font-semibold">Key research questions include:</p>
+              <ul className="list-disc pl-6 space-y-2 text-ink-soft">
                 <li>How do neural circuits in the visual cortex support motion perception?</li>
                 <li>What are the mechanisms underlying temporal integration during decision-making?</li>
                 <li>How does persistent neural activity encode information for delayed responses?</li>
@@ -116,7 +116,7 @@ export default function HukPage() {
               </ul>
             </div>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               Dr. Huk's work bridges experimental neuroscience and computational approaches to uncover
               fundamental principles of brain function. His research has implications for understanding
               sensory processing disorders and developing brain-machine interfaces.
@@ -126,19 +126,19 @@ export default function HukPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
-                <p className="text-gray-700 mb-1">{pub.authors}</p>
-                <p className="text-gray-600">
+              <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
+                <p className="text-ink-soft mb-1">{pub.authors}</p>
+                <p className="text-muted">
                   {pub.journal} ({pub.year}) • {pub.citations} citations
                 </p>
                 {pub.doi && (
                   <a 
                     href={pub.doi}
-                    className="text-blue-600 hover:text-blue-800 text-sm"
+                    className="text-sea hover:text-gold-deep text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

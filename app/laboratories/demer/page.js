@@ -127,7 +127,7 @@ export default async function DemerPage() {
 };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-paper">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
@@ -146,15 +146,15 @@ export default async function DemerPage() {
               className="w-full rounded-lg shadow-lg"
             />
             <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-gray-900">Joseph L. Demer, M.D., Ph.D.</h2>
-              <p className="text-gray-600">Professor</p>
-              <p className="text-gray-600">Arthur L. Rosenbaum, MD, Chair in Pediatric Ophthalmology </p>
-              <p className="text-gray-600">Departments of Ophthalmology and Neurology</p>
-              <p className="text-gray-600">Director, Prototype Construction Core</p>
-              <p className="text-gray-600">Jules Stein Eye Institute</p>
+              <h2 className="text-xl font-bold text-ink">Joseph L. Demer, M.D., Ph.D.</h2>
+              <p className="text-muted">Professor</p>
+              <p className="text-muted">Arthur L. Rosenbaum, MD, Chair in Pediatric Ophthalmology </p>
+              <p className="text-muted">Departments of Ophthalmology and Neurology</p>
+              <p className="text-muted">Director, Prototype Construction Core</p>
+              <p className="text-muted">Jules Stein Eye Institute</p>
               <a 
                   href="mailto:jld@jsei.ucla.edu" 
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -163,7 +163,7 @@ export default async function DemerPage() {
                 <br />
               <a 
                 href="https://profiles.ucla.edu/joseph.demer" 
-                className="text-blue-600 hover:text-blue-800 inline-block"
+                className="text-sea hover:text-gold-deep inline-block"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -171,7 +171,7 @@ export default async function DemerPage() {
               </a>
                 <a
                   href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-blue-600 hover:text-blue-800 inline-block"
+                  className="text-sea hover:text-gold-deep inline-block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -181,36 +181,36 @@ export default async function DemerPage() {
           </div>
 
           <div className="w-full md:w-2/3 space-y-6">
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               While the extraocular muscles obviously play complex roles in ocular rotation and alignment, extraocular muscle forces must mechanically balance against the eyeball, optic nerve, and a network of suspensory tissues within the orbit. The effects of eye rotation are concentrated at the optic disc and propagate from it into surrounding retina, choroid, and sclera. The optic nerve both contributes to muscle loading, and is in turn loaded by the muscles, potentially contributing to: 1) strabismus, the misalignment of the eyes often associated with double vision; 2) normal tension glaucoma associated with visual loss; and 3) pathologic myopia, the elongation and deformation of the eye causing nearsightedness. The Demer lab studies the dynamic ocular motility contribution to these disorders.
             </p>
             
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Demer Lab studies mechanisms of strabismus by detailed clinical measurements of ocular motility in normal volunteers and patients with specific forms of strabismus such as superior oblique palsy and masquerading conditions. Specialized magnetic resonance imaging (MRI) technique quantitatively demonstrates the anatomy and function of the extraocular muscles and associated connective tissues in the eye sockets. Lumped parameter and finite element computational models are used to test hypotheses about mechanisms of strabismus, and to guide precision diagnosis and optimize surgical therapy for strabismus. Analysis of long-term results of standardized strabismus surgeries are used to develop and test quantitative, data-driven recommendations for use by surgeons worldwide. To date, these studies have fundamentally changed the understanding of the anatomy of human muscles and associated connective tissues, elucidating common but heretofore unrecognized causes of common strabismus.
             </p>
 
-            <p className="text-gray-800">
+            <p className="text-ink-soft">
               The Demer lab performs MRI and optical imaging of the human eye during eye movements to measure the resulting deformations of the optic nerve, optic disc, retina, and choroid. Tissue deformations determined from the imaging using machine learning are compared with finite element computational models based on measured biomechanical properties of post-mortem human ocular tissues. Resulting models are then correlated with clinical findings in patients with glaucoma and pathological myopia. These studies suggest that eye movements significantly to both common, blinding disorders, and may eventually improve their treatments.
             </p>
           </div>
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
-      <div key={index} className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{pub.title}</h3>
+      <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
+        <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
         {pub.authors.length > 0 && (
-          <p className="text-gray-700 mb-1">{pub.authors.join(', ')}</p>
+          <p className="text-ink-soft mb-1">{pub.authors.join(', ')}</p>
         )}
-        <p className="text-gray-600">
+        <p className="text-muted">
           {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
         </p>
         {pub.doi && (
           <a
             href={`https://doi.org/${pub.doi}`}
-            className="text-blue-600 hover:text-blue-800 text-sm"
+            className="text-sea hover:text-gold-deep text-sm"
             target="_blank"
             rel="noopener noreferrer"
           >
