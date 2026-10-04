@@ -19,6 +19,9 @@ npm start              # Serve the production build
 npm run test:contrast  # WCAG AA contrast check of design tokens (scripts/check-contrast.mjs)
 npm run test:a11y      # pa11y-ci (axe + HTMLCS) against a running server; URLs in .pa11yci
 npm run test:funding   # Offline checks of the Funding page's grant-matching logic
+npm run test:trainees  # Offline checks of the trainee intake pipeline
+npm run sync:trainees  # Sync approved trainee profiles from Google (needs credentials; normally run by CI)
+npm run trainees:lab-choices  # Print the Lab dropdown choices for the Google Form
 npm run lint           # Not yet configured: next lint prompts to set up ESLint
 ```
 
@@ -64,7 +67,9 @@ Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri
 | `/core` | `app/core/page.js` | Four P30 cores (directors and staff in a local array) |
 | `/publications` | `app/publications/page.js` | ORCID works for all non-emeritus faculty with `orcid`, last 5 years, grouped by year |
 | `/funding` | `app/funding/page.js` | NIH RePORTER + ORCID fundings, last 5 fiscal years (see below) |
-| `/sitemap.xml` | `app/sitemap.js` | Static pages plus every `facultyData` entry with a `pageUrl` |
+| `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
+| `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
+| `/sitemap.xml` | `app/sitemap.js` | Static pages, every `facultyData` entry with a `pageUrl`, and active trainees |
 
 Root layout (`app/layout.tsx`): fonts (Spectral display, Inter body, IBM Plex Mono labels via `next/font/google`), site metadata and Open Graph, `ResearchOrganization` JSON-LD, skip link.
 
@@ -89,6 +94,17 @@ The page lists **new and competitively renewed** grants only, not every active g
 - ORCID: non-NIH entries whose grant number does not contain an NIH core project number already shown, listed under their start year if it falls in the window. ORCID cannot distinguish renewals, so start year is the only signal. Non-grant entries (awards, fellowships) are listed separately on the same rule.
 - Run `npm run test:funding` after changing this logic.
 
+### Trainee profiles (postdocs, graduate students, SRAs)
+
+Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves rows in the linked Sheet (approved rows are copied to its "Published" tab by Apps Script triggers in `scripts/google/create-trainee-form.gs`); the nightly GitHub Action `.github/workflows/sync-trainees.yml` runs `scripts/sync-trainees.mjs`, which writes `app/data/trainees.json`, `app/data/trainees-meta.json`, `scripts/trainees/slug-registry.json`, and 600x600 headshots in `public/images/trainees/`, then commits to `main`.
+
+- **Never hand-edit** `trainees.json`, `trainees-meta.json`, or `slug-registry.json`; the next sync overwrites them. Never commit fixture data (`--fixture ... --write` is for local previews only).
+- `app/data/labs.js` is the single lab list (non-emeritus `facultyData` plus the standalone brecha, gorin, huk, piri pages) shared by the form's Lab dropdown, the sync, and the pages. Question titles live in `scripts/trainees/fields.mjs` and must match the form.
+- `app/data/trainees.js`: `activeTrainees()` (between start and end date, adds `labName`), `traineesForLab()`, `traineeBySlug()`, `ROLES`.
+- Every lab page renders `<LabTrainees lab="<slug>" />` before `</main>` and exports `revalidate = 86400`, so the Lab Members section follows start/end dates without a deploy. Include both when creating a new lab page.
+- The Trainees nav/footer link appears only when `trainees-meta.json` has `count > 0`.
+- Privacy: the respondent's Google account email and Drive file IDs must never reach the public data or client bundles; `transform.mjs` builds records from an explicit field list. Keep `app/data/*` imports out of client components (`TraineeDirectory` gets plain props).
+
 ### Shared components (`app/components/`)
 
 - `Navbar.js` (client): sticky header, hardcoded `links` (Research Areas, Laboratories, Core Facilities, Publications, Funding), accessible mobile menu.
@@ -98,6 +114,7 @@ The page lists **new and competitively renewed** grants only, not every active g
 - `SectionHeading.js`: eyebrow + title + intro heading block.
 - `Reveal.js` (client): scroll-in animation wrapper (respects reduced motion).
 - `CountUp.js` (client): animated number for the home-page stats.
+- `TraineeCard.js`, `TraineeDirectory.js` (client), `LabTrainees.js`: trainee cards, filterable directory, and the lab-page Lab Members section.
 
 ### Page pattern
 
@@ -110,7 +127,7 @@ The page lists **new and competitively renewed** grants only, not every active g
 ### Adding a new lab page
 
 1. Create `app/laboratories/<slug>/page.js` from `app/laboratories/field/page.js` (set `FACULTY_ORCID`, metadata, Person JSON-LD, bio, links).
-2. Add an entry to `facultyData` in `app/data/faculty.js` with `pageUrl`, `researchAreas` (exact tags above), group flags, `orcid`, and `nihName`.
+2. Add an entry to `facultyData` in `app/data/faculty.js` with `pageUrl`, `researchAreas` (exact tags above), group flags, `orcid`, and `nihName`. Add `<LabTrainees lab="<slug>" />` and `export const revalidate = 86400` to the page, then update the form's Lab choices (`npm run trainees:lab-choices`, see `docs/TRAINEES.md`).
 3. Put the photo in `public/images/faculty/` (filenames are case-sensitive on Vercel) and give it descriptive `alt` text.
 
 ### Styling conventions

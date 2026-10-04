@@ -1,4 +1,5 @@
 import React from 'react';
+import LabTrainees from '@/app/components/LabTrainees';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -91,6 +92,9 @@ async function fetchRecentPublications(orcid, limit = 10) {
     return [];
   }
 }
+
+// Re-evaluate daily so the Lab Members section follows trainee start/end dates.
+export const revalidate = 86400;
 
 export const metadata = {
   title: 'Edmund Tsui Laboratory',
@@ -256,6 +260,7 @@ export default async function TsuiEdmundPage() {
       </div>
 
       {/* Footer */}
+      <LabTrainees lab="tsui-e" />
       </main>
       <Footer />
     </div>

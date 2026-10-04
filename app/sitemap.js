@@ -1,6 +1,10 @@
 import { facultyData } from './data/faculty';
+import { activeTrainees } from './data/trainees';
 
 const BASE = 'https://julessteinlabs.org';
+
+// Re-evaluate daily so former trainees drop out of the sitemap.
+export const revalidate = 86400;
 
 export default function sitemap() {
   const now = new Date();
@@ -22,5 +26,13 @@ export default function sitemap() {
       priority: 0.6,
     }));
 
-  return [...staticPages, ...labPages];
+  const trainees = activeTrainees();
+  const traineePages = trainees.length
+    ? [
+        { url: `${BASE}/trainees`, lastModified: now, priority: 0.7 },
+        ...trainees.map((t) => ({ url: `${BASE}/trainees/${t.slug}`, lastModified: now, priority: 0.4 })),
+      ]
+    : [];
+
+  return [...staticPages, ...labPages, ...traineePages];
 }

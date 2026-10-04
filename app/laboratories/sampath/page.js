@@ -1,4 +1,5 @@
 import React from 'react';
+import LabTrainees from '@/app/components/LabTrainees';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -90,6 +91,9 @@ async function fetchRecentPublications(orcid, limit = 10) {
     return [];
   }
 }
+
+// Re-evaluate daily so the Lab Members section follows trainee start/end dates.
+export const revalidate = 86400;
 
 export const metadata = {
   title: 'Alapakkam Sampath Laboratory',
@@ -270,6 +274,7 @@ export default async function SampathPage() {
       </div>
 
       {/* Footer */}
+      <LabTrainees lab="sampath" />
       </main>
       <Footer />
     </div>

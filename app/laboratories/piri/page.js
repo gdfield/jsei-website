@@ -1,7 +1,11 @@
 import React from 'react';
+import LabTrainees from '@/app/components/LabTrainees';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+
+// Re-evaluate daily so the Lab Members section follows trainee start/end dates.
+export const revalidate = 86400;
 
 export const metadata = {
   title: 'Natik Piri Laboratory',
@@ -149,6 +153,7 @@ export default function PiriPage() {
       </div>
 
       {/* Footer */}
+      <LabTrainees lab="piri" />
       </main>
       <Footer />
     </div>

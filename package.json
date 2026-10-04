@@ -9,7 +9,10 @@
     "lint": "next lint",
     "test:contrast": "node scripts/check-contrast.mjs",
     "test:a11y": "pa11y-ci",
-    "test:funding": "node scripts/test-funding-logic.mjs"
+    "test:funding": "node scripts/test-funding-logic.mjs",
+    "test:trainees": "node scripts/test-trainees.mjs",
+    "sync:trainees": "node scripts/sync-trainees.mjs",
+    "trainees:lab-choices": "node scripts/trainees/print-lab-choices.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
@@ -26,8 +29,10 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.0.3",
+    "google-auth-library": "^9.15.1",
     "pa11y-ci": "^4.1.1",
     "postcss": "^8.4.49",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   },

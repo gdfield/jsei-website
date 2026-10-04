@@ -158,6 +158,10 @@ On 2026-10-04 (before the changes below) the live page listed roughly 33 grants 
 
 Changes made 2026-10-04 (not yet deployed), which can only add grants that were wrongly missed, not continuation years: (1) RePORTER results were capped at 100 records per faculty member with no paging; now pages 500 at a time, so common names (Sun, Yang, Zheng, Williams) no longer risk truncation. (2) Name matching ignores hyphens, spaces, and case and searches hyphenated variants (Peng, Yang, Barzelay-Wollman, Nouri-Mahdavi), plus `altFirstNames` (Glasgow: "Ben"). (3) Au now has an ORCID iD, so his non-NIH grants can appear. (4) ORCID entries duplicating an NIH grant are matched on normalized grant numbers. (5) The hardcoded 2022 cutoff follows the rolling window. (6) Page and home-page copy now say "new and competitively renewed". The effect on counts could not be measured in this session because NIH RePORTER was not reachable; check the page after deployment.
 
+## 9a. Trainee profiles (branch `feature/trainees`, not yet merged as of 2026-10-04)
+
+Adds a `/trainees` directory, per-person profile pages, and a Lab Members section on every lab page for postdocs, graduate students, and staff research associates. Decisions (Greg, 2026-10-04): intake by Google Form with headshot upload (Google sign-in required), Greg approves every submission in the Sheet, nightly GitHub Action syncs approved profiles into the repo. Optional fields: start/expected end dates (profiles auto-hide after the end date), links (website, ORCID, Scholar, LinkedIn), pronouns, public email. The nav link appears only once a profile is published. Setup steps: `docs/TRAINEES.md` (create form via Apps Script, add the Headshot question by hand, run `finishSetup`, create a Google service account, add GitHub secrets `GOOGLE_SERVICE_ACCOUNT_JSON` and `TRAINEE_SHEET_ID`).
+
 ## 10. Repository documentation
 
 - `CLAUDE.md`: architecture and conventions for AI-assisted editing. Rewritten 2026-10-04 to match current behavior (live ORCID/RePORTER/CrossRef data, data-model fields, funding logic, unpublished pages, design tokens).
@@ -187,3 +191,4 @@ Changes made 2026-10-04 (not yet deployed), which can only add grants that were 
 | 12 | Site copy uses em dashes in several places | Open |
 | 13 | Funding page could miss new/renewed grants (100-record cap, hyphenated and nickname variants, missing Au ORCID) | Fixed in code; page intentionally shows only NIH types 1, 2, and 7 (to UCLA); verify after deploy |
 | 14 | `npm run lint` is not configured (Next 14 prompts for ESLint setup) | Open |
+| 15 | Trainee profiles | Built on `feature/trainees`; needs Google setup per `docs/TRAINEES.md`, then merge |

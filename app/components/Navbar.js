@@ -3,10 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import traineesMeta from '@/app/data/trainees-meta.json';
 
 const links = [
   { label: 'Research Areas', href: '/researchAreas' },
   { label: 'Laboratories', href: '/laboratories' },
+  // Shown once at least one trainee profile has been published.
+  ...(traineesMeta.count > 0 ? [{ label: 'Trainees', href: '/trainees' }] : []),
   { label: 'Core Facilities', href: '/core' },
   { label: 'Publications', href: '/publications' },
   { label: 'Funding', href: '/funding' },
