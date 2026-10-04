@@ -3,13 +3,105 @@ import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
+const FACULTY_ORCID = '0000-0001-8110-9988';
+
+async function fetchRecentPublications(orcid, limit = 10) {
+  try {
+    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 86400 },
+    });
+    if (!summaryRes.ok) return [];
+    const summaryData = await summaryRes.json();
+
+    const sorted = (summaryData.group || [])
+      .map((g) => ({
+        putCode: g['work-summary'][0]['put-code'],
+        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
+        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
+      }))
+      .sort((a, b) => b.year - a.year || b.month - a.month)
+      .slice(0, limit * 2 + 5);
+
+    if (sorted.length === 0) return [];
+
+    const putCodes = sorted.map((s) => s.putCode);
+    const fullRes = await fetch(
+      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
+      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
+    );
+    if (!fullRes.ok) return [];
+    const fullData = await fullRes.json();
+
+    const pubs = (fullData.bulk || [])
+      .map((item) => {
+        const work = item.work;
+        const authors = (work?.contributors?.contributor || [])
+          .filter((c) => { const role = c['contributor-attributes']?.['contributor-role']; return !role || role === 'author'; })
+          .map((c) => c['credit-name']?.value)
+          .filter(Boolean);
+        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
+          .find((id) => id['external-id-type'] === 'doi');
+        return {
+          title: work?.title?.title?.value ?? '',
+          journal: work?.['journal-title']?.value ?? '',
+          year: work?.['publication-date']?.year?.value ?? '',
+          doi: doiEntry?.['external-id-value'] ?? null,
+          authors,
+        };
+      })
+      .filter((p) => {
+        if (!p.title) return false;
+        const journal = p.journal.toLowerCase();
+        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
+        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
+        return true;
+      })
+      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .slice(0, limit);
+
+    await Promise.all(
+      pubs
+        .filter((p) => (!p.journal || p.authors.length === 0) && p.doi)
+        .map(async (p) => {
+          try {
+            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
+              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
+              next: { revalidate: 86400 },
+            });
+            if (!r.ok) return;
+            const data = await r.json();
+            const msg = data?.message;
+            if (!p.journal) {
+              const containerTitle = msg?.['container-title']?.[0];
+              if (containerTitle) p.journal = containerTitle;
+            }
+            if (p.authors.length === 0 && msg?.author) {
+              p.authors = msg.author
+                .map((a) => [a.given, a.family].filter(Boolean).join(' '))
+                .filter(Boolean);
+            }
+          } catch {}
+        })
+    );
+
+    return pubs;
+  } catch {
+    return [];
+  }
+}
+
+
 export const metadata = {
   title: 'Adrian Au Laboratory',
   description: "Dr. Au's research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify n...",
 };
 
-export default function AuPage() {
-  const publications = [
+export default async function AuPage() {
+  const orcidPublications = await fetchRecentPublications(FACULTY_ORCID, 10);
+
+  // Fallback list shown only if the ORCID record returns nothing.
+  const fallbackPublications = [
     {
       title: "Systemic and ocular outcomes in patients with young-onset type 2 diabetes",
       authors: "Au A, Bajar BT, Wong BM, Daskivich LP, Hosseini H, Prasad PS",
@@ -47,6 +139,16 @@ export default function AuPage() {
     }
   ];
 
+  const publications = orcidPublications.length > 0
+    ? orcidPublications.map((p) => ({
+        title: p.title,
+        authors: p.authors.join(', '),
+        journal: p.journal,
+        year: p.year,
+        doi: p.doi ? `https://doi.org/${p.doi}` : null,
+      }))
+    : fallbackPublications;
+
   const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -58,6 +160,7 @@ export default function AuPage() {
     "url": "https://julessteinlabs.org"
   },
   "url": "https://julessteinlabs.org/laboratories/au",
+  "sameAs": [`https://orcid.org/${FACULTY_ORCID}`],
   "description": "Dr. Au's research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify novel therapeutic targets in retinal disease.",
   "knowsAbout": [
     "AI",
@@ -121,6 +224,14 @@ export default function AuPage() {
                 >
                   Faculty Profile
                 </a>
+                <a
+                  href={`https://orcid.org/${FACULTY_ORCID}`}
+                  className="text-sea hover:text-gold-deep inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ORCID Profile
+                </a>
               </div>
             </div>
           </div>
@@ -159,23 +270,27 @@ export default function AuPage() {
 
         {publications.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
+            <h2 className="text-2xl font-bold text-ink mb-4">
+              {orcidPublications.length > 0 ? 'Recent Publications' : 'Selected Publications'}
+            </h2>
             <div className="space-y-3">
               {publications.map((pub, index) => (
                 <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">
                   <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
-                  <p className="text-ink-soft mb-1">{pub.authors}</p>
+                  {pub.authors && <p className="text-ink-soft mb-1">{pub.authors}</p>}
                   <p className="text-muted">
-                    {pub.journal} ({pub.year})
+                    {pub.journal}{pub.journal && pub.year ? ` (${pub.year})` : pub.year}
                   </p>
-                  <a 
-                    href={pub.doi}
-                    className="text-sea hover:text-gold-deep text-sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Publication
-                  </a>
+                  {pub.doi && (
+                    <a
+                      href={pub.doi}
+                      className="text-sea hover:text-gold-deep text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Publication
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

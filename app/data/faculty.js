@@ -17,7 +17,8 @@
       description: "Dr. Au’s research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify novel therapeutic targets. His laboratory integrates large-scale imaging and genomic data using AI-driven approaches to advance precision care in retinal disease.",
       profileImage: "/images/faculty/au2.jpg",
       pageUrl: "/laboratories/au",
-      researchAreas: ["AI and Robostics", "Ocular Imaging", "Bioinformatics and Population Health"],
+      researchAreas: ["AI and Robotics", "Ocular Imaging", "Bioinformatics and Population Health"],
+      orcid: "0000-0001-8110-9988",
       nihName: { lastName: "Au", firstName: "Adrian" }
     },
     {
@@ -162,7 +163,7 @@
       profileImage: "/images/faculty/empty.jpg",
       pageUrl: "/laboratories/glasgow",
       researchAreas: ["Eye Surface and Lens"],
-      nihName: { lastName: "Glasgow", firstName: "Benjamin" }
+      nihName: { lastName: "Glasgow", firstName: "Benjamin", altFirstNames: ["Ben"] }
     },
     /*
     {

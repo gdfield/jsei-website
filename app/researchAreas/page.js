@@ -70,7 +70,7 @@ const researchAreas = [
     pageUrl: '/researchAreas/health',
   },
   {
-    title: 'Rehabilitation and Eye Motility',
+    title: 'Eye Mobility and Rehabilitation',
     description:
       'How we look at the world shapes what we see. From magnifiers to eye movements, these labs study what lands on the retina moment to moment — and how it shapes long-term sight.',
     projects: ['Ocular muscles and biomechanics', 'Amblyopia', 'Low vision'],

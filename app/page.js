@@ -61,7 +61,7 @@ const resourcePillars = [
   {
     title: 'Funding',
     description:
-      'Active NIH and foundation support powering vision research, sourced from NIH Reporter.',
+      'New and competitively renewed NIH and foundation awards powering vision research, sourced from NIH Reporter and ORCID.',
     linkUrl: '/funding',
     imageUrl: '/images/mission/pyramid.png',
   },

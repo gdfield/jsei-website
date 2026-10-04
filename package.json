@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:contrast": "node scripts/check-contrast.mjs",
-    "test:a11y": "pa11y-ci"
+    "test:a11y": "pa11y-ci",
+    "test:funding": "node scripts/test-funding-logic.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

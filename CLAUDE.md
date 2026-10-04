@@ -1,60 +1,122 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude (claude.ai/code and Cowork) when working with code in this repository. Keep it in sync with what the site actually does. A fuller snapshot of the site's content and known issues lives in `SITE_STATE.md`.
 
-The canonical template for faculty pages is `app/laboratories/field/page.js` — match its structure for bio, publications, and layout when creating new pages.
+The canonical template for faculty lab pages is `app/laboratories/field/page.js`. Match its structure for bio, ORCID-driven publications, and layout when creating new lab pages.
 
 ## Deployment
-   - Hosted on Vercel, deployed from the `main` branch via GitHub integration.
-   - Production domain: julessteinlabs.org (DNS managed via Cloudflare).
-   - Pushing to `main` triggers an automatic production deployment — work on a branch for anything you don't want live immediately.
+
+- Hosted on Vercel, deployed from the `main` branch via GitHub integration.
+- Production domain: julessteinlabs.org (DNS managed via Cloudflare).
+- Pushing to `main` triggers an automatic production deployment. Work on a branch for anything you don't want live immediately.
 
 ## Commands
 
 ```bash
-npm run dev      # Start dev server at localhost:3000
-npm run build    # Production build
-npm run lint     # Run ESLint
+npm run dev            # Dev server at localhost:3000
+npm run build          # Production build (fetches Google Fonts, ORCID, NIH RePORTER, CrossRef)
+npm start              # Serve the production build
+npm run test:contrast  # WCAG AA contrast check of design tokens (scripts/check-contrast.mjs)
+npm run test:a11y      # pa11y-ci (axe + HTMLCS) against a running server; URLs in .pa11yci
+npm run test:funding   # Offline checks of the Funding page's grant-matching logic
+npm run lint           # Not yet configured: next lint prompts to set up ESLint
 ```
 
-No test suite exists.
+There is no general unit test suite; `test:funding` (`scripts/test-funding-logic.mjs`) covers only the Funding page helpers and should be run after editing `app/funding/page.js`. The accessibility checks run in CI (`.github/workflows/accessibility.yml`) on every push and PR to `main` and weekly on Mondays. See `ACCESSIBILITY.md`. PRs use the checklist in `.github/PULL_REQUEST_TEMPLATE.md`.
+
+The build needs network access to fonts.googleapis.com (`next/font/google`); without it the build fails. Without access to ORCID, NIH RePORTER, or CrossRef the build still succeeds, but those sections render empty (fetch errors are caught).
 
 ## Architecture
 
-This is a **Next.js 14 App Router** site (React 18, Tailwind CSS) for the Jules Stein Eye Institute (JSEI) at UCLA. It is deployed on Vercel.
+**Next.js 14 App Router** site (React 18, Tailwind CSS 3) for the Jules Stein Eye Institute (JSEI), an Organized Research Unit of the University of California at UCLA.
 
-**All content is static.** There are no API calls, no CMS, and no dynamic data fetching. Everything is hardcoded in page components or in `app/data/faculty.js`.
+There is no CMS and no database. Content is a mix of:
 
-### Data
+1. **Hardcoded content** in page components and in `app/data/faculty.js`.
+2. **Live data fetched at build/render time** from public APIs, cached with `next: { revalidate: 86400 }` (ISR, refreshed daily):
+   - **ORCID** (`pub.orcid.org/v3.0/<id>/works` and `/fundings`) for the Publications page, ORCID-based lab-page publication lists, and non-NIH grants/awards on the Funding page.
+   - **CrossRef** (`api.crossref.org/works/<doi>`) to fill in missing journal names or authors on lab-page publications.
+   - **NIH RePORTER** (`api.reporter.nih.gov/v2/projects/search`) for NIH grants on the Funding page.
 
-- `app/data/faculty.js` — exports `facultyData`, an array of faculty objects used by the Laboratories listing page (`app/laboratories/page.js`) and the `FacultyCard` component. Fields: `name`, `title`, `research`, `description`, `profileImage`, `pageUrl`, `researchAreas`.
-- Individual lab pages (`app/laboratories/[lastname]/page.js`) are **self-contained** — they do not import from `faculty.js`. All bio, publications, and research details are hardcoded inside each page file.
+### Data: `app/data/faculty.js`
 
-### Shared Components
+Exports `facultyData`, the single source of truth for which faculty appear on the Laboratories page, Research Area pages, home-page lab count, sitemap, Publications page, and Funding page.
 
-- `app/components/Navbar.js` — hardcoded navigation links; used on every page.
-- `app/components/Hero.js` — client component; auto-rotating image carousel. Accepts `title`, `subtitle`, `description` props.
-- `app/components/FacultyCard.js` — card linking to a lab page via `faculty.pageUrl`.
+Fields:
 
-### Page Patterns
+- `name`, `title`, `research`, `description`, `profileImage`, `pageUrl`
+- `researchAreas`: array of area tags. Must exactly match one of: `Therapeutics and Regeneration`, `Retinal Biology`, `Visual Neuroscience`, `Ocular Imaging`, `Eye Surface and Lens`, `AI and Robotics`, `Bioinformatics and Population Health`, `Eye Mobility and Rehabilitation`. A typo silently drops the person from that area page.
+- `basicScience`, `clinicalScience`, `emeritus` (booleans): drive grouping on `/laboratories`. Basic = `basicScience && !emeritus`; Clinical = `(clinicalScience || !basicScience) && !emeritus`; Emeritus = `emeritus`. Emeritus faculty are excluded from Research Area pages, the home-page count, Publications, and Funding.
+- `orcid` (optional): ORCID iD. Required for the person's work to appear on `/publications` and for ORCID-sourced funding.
+- `nihName` (optional): `{ lastName, firstName, altFirstNames?, altLastNames? }` used to search NIH RePORTER. Hyphenated names are automatically also searched with a space, joined, and (last names) by the first segment. Use `altFirstNames`/`altLastNames` for other spellings (e.g. Glasgow has `altFirstNames: ["Ben"]`).
 
-All pages follow the same structure:
+Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri` are intentionally standalone pages, reachable by URL only (no card, not in the sitemap).
+
+### Pages
+
+| Route | File | Notes |
+|---|---|---|
+| `/` | `app/page.js` | Hero, stats (lab count computed from `facultyData`), five section cards |
+| `/researchAreas` | `app/researchAreas/page.js` | Index of 8 areas (titles, blurbs, images, links in a local array) |
+| `/researchAreas/<area>` | `app/researchAreas/*/page.js` | Each filters `facultyData` on one `researchAreas` tag. `bioinfo/` is a legacy duplicate of the AI page and is not linked |
+| `/laboratories` | `app/laboratories/page.js` | FacultyCards grouped Basic / Clinical / Emeritus |
+| `/laboratories/<slug>` | `app/laboratories/<slug>/page.js` | Self-contained lab pages (see below) |
+| `/core` | `app/core/page.js` | Four P30 cores (directors and staff in a local array) |
+| `/publications` | `app/publications/page.js` | ORCID works for all non-emeritus faculty with `orcid`, last 5 years, grouped by year |
+| `/funding` | `app/funding/page.js` | NIH RePORTER + ORCID fundings, last 5 fiscal years (see below) |
+| `/sitemap.xml` | `app/sitemap.js` | Static pages plus every `facultyData` entry with a `pageUrl` |
+
+Root layout (`app/layout.tsx`): fonts (Spectral display, Inter body, IBM Plex Mono labels via `next/font/google`), site metadata and Open Graph, `ResearchOrganization` JSON-LD, skip link.
+
+### Unpublished pages
+
+`app/_unpublished/` holds `education/`, `outreach/`, and `people/`. Next.js does not route folders whose names start with `_`, so these are kept for future work but are not built or reachable. To publish one, move it back under `app/`, add it to the `links` arrays in `Navbar.js` and `Footer.js`, `app/sitemap.js`, and `.pa11yci`. See `app/_unpublished/README.md`.
+
+### Lab pages
+
+Each `app/laboratories/<slug>/page.js` is self-contained: bio, links, research text, and publications live in the file and do not import from `faculty.js`. Lab pages are server components (not `'use client'`) and export `metadata` plus a Person JSON-LD block.
+
+- **ORCID-driven (21 pages):** define `FACULTY_ORCID`, include a local `fetchRecentPublications(orcid, limit)` (ORCID works, preprints filtered out, CrossRef fallback for missing journal/authors), render "Recent Publications", and link to the ORCID profile. Au's page falls back to a hardcoded list if ORCID returns nothing.
+- **Hardcoded publications:** barzalay, bhat, bok, brecha, farber, glasgow, gorin, hubbell, huk, nusinowitz, piri, tseng.
+- Slugs do not always match surnames: Jie J. Zheng is `/laboratories/zhang`, Aya Barzelay-Wollman is `/laboratories/barzalay`.
+
+### Funding page logic (`app/funding/page.js`)
+
+The page lists **new and competitively renewed** grants only, not every active grant.
+
+- Window: the current year and the four before it (`FISCAL_YEARS`, `MIN_YEAR`).
+- NIH: query RePORTER per faculty member with all name variants, paging 500 records at a time (capped at 2000). Only NIH application types 1 (new), 2 (competing renewal), and 7 (change of grantee institution, counted only when the receiving organization is UCLA, e.g. a recruit's transferred grant) are kept (`NEW_AWARD_TYPES`). Type 5 (non-competing continuation, the routine yearly funding of an existing grant) is excluded so an older grant does not appear as new; supplements (3), extensions (4), and other administrative changes (6, 9) are excluded too. Results are re-validated by name (normalized; NIH first name must start with ours), then each matched PI profile is confirmed to have at least one UCLA-administered project. Grants are deduplicated by core project number and listed under the fiscal year of their most recent qualifying (type 1, 2, or 7) award.
+- ORCID: non-NIH entries whose grant number does not contain an NIH core project number already shown, listed under their start year if it falls in the window. ORCID cannot distinguish renewals, so start year is the only signal. Non-grant entries (awards, fellowships) are listed separately on the same rule.
+- Run `npm run test:funding` after changing this logic.
+
+### Shared components (`app/components/`)
+
+- `Navbar.js` (client): sticky header, hardcoded `links` (Research Areas, Laboratories, Core Facilities, Publications, Funding), accessible mobile menu.
+- `Footer.js`: shared footer with the same links, address, and copyright. Used on every page.
+- `Hero.js` (client): auto-rotating banner carousel with pause/play. Props: `title`, `subtitle`, `description`, `eyebrow`, `compact`.
+- `FacultyCard.js`: card linking to `faculty.pageUrl`.
+- `SectionHeading.js`: eyebrow + title + intro heading block.
+- `Reveal.js` (client): scroll-in animation wrapper (respects reduced motion).
+- `CountUp.js` (client): animated number for the home-page stats.
+
+### Page pattern
+
 1. `<Navbar />`
-2. `<Hero title="..." subtitle="..." description="..." />`
-3. Page content in `<div className="max-w-7xl mx-auto px-4 ...">` 
-4. Simple footer
+2. `<main id="main-content">` (required on every page for the skip link and landmarks)
+3. `<Hero ... />` or, on lab pages, a banner image with a navy scrim
+4. Content in `mx-auto max-w-content px-4 sm:px-6 lg:px-8` (some older pages use `max-w-7xl`)
+5. `<Footer />`
 
-Individual lab pages are `'use client'` components. Research area sub-pages follow the same pattern.
+### Adding a new lab page
 
-### Adding a New Lab Page
+1. Create `app/laboratories/<slug>/page.js` from `app/laboratories/field/page.js` (set `FACULTY_ORCID`, metadata, Person JSON-LD, bio, links).
+2. Add an entry to `facultyData` in `app/data/faculty.js` with `pageUrl`, `researchAreas` (exact tags above), group flags, `orcid`, and `nihName`.
+3. Put the photo in `public/images/faculty/` (filenames are case-sensitive on Vercel) and give it descriptive `alt` text.
 
-1. Create `app/laboratories/[lastname]/page.js` as a `'use client'` component, following an existing lab page as a template (e.g., `app/laboratories/au/page.js`).
-2. Add a corresponding entry to `facultyData` in `app/data/faculty.js`.
-3. Place the faculty photo in `public/images/faculty/`.
+### Styling conventions
 
-### Styling Conventions
-
-- Tailwind CSS utility classes throughout.
-- Background: `bg-gray-50`; accent color: `blue-600` / `#0066cc`.
-- Centered content with `max-w-7xl mx-auto`.
-- Remote image optimization is configured only for `placehold.co` (see `next.config.js`). Use local images in `public/` for all real content.
+- Tailwind with design tokens defined as CSS variables in `app/globals.css` and mapped in `tailwind.config.js`: colors `ink` (`ink-700`, `ink-soft`), `sea` (`sea-600`), `sky`, `gold` (`gold-deep`), `paper`, `surface`, `mist`, `muted`; fonts `font-display`, `font-sans`, `font-mono`; shadows `shadow-card`, `shadow-lift`; `max-w-content` (80rem).
+- Page background `bg-paper`; cards `bg-surface border-mist shadow-card`; links `text-sea hover:text-gold-deep`.
+- Use the tokens rather than raw Tailwind colors so `npm run test:contrast` covers them.
+- Remote image optimization is configured only for `placehold.co` (`next.config.js`). Use local images in `public/` for real content.
+- Accessibility target is WCAG 2.1 AA (see `ACCESSIBILITY.md`): keep heading order, label images, and keep text over banner imagery on a strong navy scrim.

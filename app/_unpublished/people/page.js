@@ -1,8 +1,8 @@
 // app/people/page.js
 import React from 'react';
 import Image from 'next/image';
-import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
+import Hero from '@/app/components/Hero';
+import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import { ArrowUpRight } from 'lucide-react';
 

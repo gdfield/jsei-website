@@ -7,11 +7,18 @@ import { facultyData } from '../data/faculty';
 export const metadata = {
   title: 'Research Funding',
   description:
-    'Active NIH grants awarded to Jules Stein Eye Institute faculty at UCLA, supporting research in vision science, retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
+    'New and competitively renewed NIH grants awarded to Jules Stein Eye Institute faculty at UCLA, supporting research in vision science, retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
 };
 
 const CURRENT_YEAR = new Date().getFullYear();
 const FISCAL_YEARS = Array.from({ length: 5 }, (_, i) => CURRENT_YEAR - i);
+const MIN_YEAR = FISCAL_YEARS[FISCAL_YEARS.length - 1];
+// NIH Reporter returns at most 500 records per request; page through anything larger.
+const NIH_PAGE_SIZE = 500;
+const NIH_MAX_RECORDS = 2000;
+// NIH application types shown on the page: 1 = new award, 2 = competing renewal,
+// 7 = change of grantee institution (a grant transferred in, e.g. by a new recruit).
+const NEW_AWARD_TYPES = new Set(['1', '2', '7']);
 
 async function fetchOrcidFunding(faculty) {
   if (!faculty.orcid) return [];
@@ -45,41 +52,92 @@ async function fetchOrcidFunding(faculty) {
   }
 }
 
+// Names are compared with case, spaces, hyphens, and punctuation removed, so
+// "Yi-Rong" matches "YIRONG" and "Barzelay-Wollman" matches "BARZELAY WOLLMAN".
+const normName = (s) => (s ?? '').toLowerCase().replace(/[^a-z]/g, '');
+
+// Every spelling of a faculty member's name to search NIH Reporter with.
+// Hyphenated names are also tried with a space, joined, and (for last names)
+// the first segment alone, because NIH records are inconsistent about these.
+// `nihName.altFirstNames` / `altLastNames` in faculty.js add extra variants
+// (e.g. "Ben" for "Benjamin").
+function nameVariants(faculty) {
+  const { firstName, lastName, altFirstNames = [], altLastNames = [] } = faculty.nihName;
+  const expand = (name, isLast) => {
+    const out = [name];
+    if (/[-\s]/.test(name)) {
+      out.push(name.replace(/-/g, ' '), name.replace(/[-\s]/g, ''));
+      if (isLast) out.push(name.split(/[-\s]/)[0]);
+    }
+    return out;
+  };
+  const firsts = [...new Set([firstName, ...altFirstNames].flatMap((n) => expand(n, false)))];
+  const lasts = [...new Set([lastName, ...altLastNames].flatMap((n) => expand(n, true)))];
+  return { firsts, lasts };
+}
+
 // NIH Reporter's pi_names search matches on partial first-name substrings
 // (e.g. querying "Hui Sun" also returns "Xinghui Sun"), so results must be
 // re-validated: same last name, and the NIH first name must start with ours
 // to allow full-name vs. nickname mismatches (e.g. "Gregory Darin" vs "Greg").
 function piMatchesFaculty(pi, faculty) {
-  const piLast = pi.last_name?.toLowerCase() ?? '';
-  const piFirst = pi.first_name?.toLowerCase() ?? '';
-  const facLast = faculty.nihName.lastName.toLowerCase();
-  const facFirst = faculty.nihName.firstName.toLowerCase();
-  return piLast === facLast && piFirst.startsWith(facFirst);
+  const { firsts, lasts } = nameVariants(faculty);
+  const piLast = normName(pi.last_name);
+  const piFirst = normName(pi.first_name);
+  return (
+    lasts.some((l) => normName(l) === piLast) &&
+    firsts.some((f) => normName(f) && piFirst.startsWith(normName(f)))
+  );
 }
 
 async function fetchGrants(faculty) {
   try {
-    const res = await fetch('https://api.reporter.nih.gov/v2/projects/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        criteria: {
-          pi_names: [{ last_name: faculty.nihName.lastName, first_name: faculty.nihName.firstName }],
-          fiscal_years: FISCAL_YEARS,
-        },
-        fields: [
-          'ProjectTitle', 'FiscalYear', 'AwardAmount', 'ProjectStartDate',
-          'ProjectEndDate', 'AgencyIcAdmin', 'ActivityCode', 'ProjectNum',
-          'CoreProjectNum', 'PrincipalInvestigators', 'IsActive', 'ProjectDetailUrl',
-        ],
-        limit: 100,
-      }),
-      next: { revalidate: 86400 },
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (data.results || [])
-      .filter((g) => g.award_type !== '5')
+    const { firsts, lasts } = nameVariants(faculty);
+    const piNames = lasts.flatMap((last_name) =>
+      firsts.map((first_name) => ({ last_name, first_name }))
+    );
+    const results = [];
+    for (let offset = 0; offset < NIH_MAX_RECORDS; offset += NIH_PAGE_SIZE) {
+      const res = await fetch('https://api.reporter.nih.gov/v2/projects/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          criteria: {
+            pi_names: piNames,
+            fiscal_years: FISCAL_YEARS,
+          },
+          fields: [
+            'ProjectTitle', 'FiscalYear', 'AwardAmount', 'ProjectStartDate',
+            'ProjectEndDate', 'AgencyIcAdmin', 'ActivityCode', 'ProjectNum',
+            'CoreProjectNum', 'PrincipalInvestigators', 'IsActive', 'ProjectDetailUrl',
+            'Organization', 'AwardType',
+          ],
+          offset,
+          limit: NIH_PAGE_SIZE,
+        }),
+        next: { revalidate: 86400 },
+      });
+      if (!res.ok) break;
+      const data = await res.json();
+      const page = data.results || [];
+      results.push(...page);
+      const total = data.meta?.total ?? 0;
+      if (page.length < NIH_PAGE_SIZE || results.length >= total) break;
+    }
+    // Only new awards (type 1), competing renewals (type 2), and grants transferred
+    // to UCLA (type 7) are listed. Type 5 (non-competing continuation) records are the
+    // routine yearly funding of an existing grant and would make an old grant look
+    // new; supplements (3), extensions (4), and other administrative changes (6, 9)
+    // are excluded too. A type 7 counts only when the receiving institution is UCLA,
+    // so a transfer between two other institutions before a recruit arrived is skipped.
+    // Grants are deduplicated by core project number in FundingPage.
+    return results
+      .filter((g) => {
+        const type = String(g.award_type);
+        if (!NEW_AWARD_TYPES.has(type)) return false;
+        if (type === '7') return g.organization?.org_name?.toUpperCase() === UCLA_ORG_NAME;
+        return true;
+      })
       .map((g) => {
         const matchedPi = (g.principal_investigators || []).find((pi) => piMatchesFaculty(pi, faculty));
         return matchedPi ? { ...g, _facultyName: faculty.name, _matchedProfileId: matchedPi.profile_id } : null;
@@ -154,7 +212,13 @@ export default async function FundingPage() {
       nihByCore[key] = { ...g, _facultyNames: new Set([g._facultyName]) };
     } else {
       nihByCore[key]._facultyNames.add(g._facultyName);
-      if (g.fiscal_year > nihByCore[key].fiscal_year) {
+      // Keep the most recent new/renewal award; if two records share a fiscal year,
+      // keep the larger award amount.
+      const cur = nihByCore[key];
+      if (
+        g.fiscal_year > cur.fiscal_year ||
+        (g.fiscal_year === cur.fiscal_year && (g.award_amount ?? 0) > (cur.award_amount ?? 0))
+      ) {
         nihByCore[key] = { ...nihByCore[key], ...g, _facultyNames: nihByCore[key]._facultyNames };
       }
     }
@@ -162,14 +226,29 @@ export default async function FundingPage() {
   const unique = Object.values(nihByCore);
   const nihSeen = new Set(Object.keys(nihByCore));
 
-  // Build uppercase set of NIH grant numbers for deduplication against ORCID
-  const nihGrantNums = new Set([...nihSeen].map((n) => n.toUpperCase()));
+  // Normalized NIH core project numbers (e.g. "R01EY031059") for deduplication against
+  // ORCID, where grant numbers are often written with spaces, dashes, or full
+  // application prefixes/suffixes (e.g. "5 R01 EY031059-04").
+  const normGrant = (n) => (n ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const nihGrantNums = [...nihSeen].map(normGrant).filter(Boolean);
+  const isNihDuplicate = (n) => {
+    const g = normGrant(n);
+    return g.length > 0 && nihGrantNums.some((core) => g.includes(core));
+  };
 
-  // Filter ORCID entries: exclude NIH Reporter duplicates, require start year >= 2022, then deduplicate
+  // Non-NIH grants from ORCID count as new in the year they started. ORCID does not
+  // distinguish renewals, so the start year is the only signal; grants that started
+  // before the window are not listed even if still running.
+  const orcidStartYear = (g) => {
+    const start = parseInt(g.startYear);
+    return start >= MIN_YEAR && start <= CURRENT_YEAR ? String(start) : null;
+  };
+
+  // Filter ORCID entries: exclude NIH Reporter duplicates, require a start year in the window, then deduplicate
   const orcidSeen = new Set();
   const orcidUnique = allOrcidFunding.filter((g) => {
-    if (g.grantNumbers.some((n) => nihGrantNums.has(n.toUpperCase()))) return false;
-    if (!g.startYear || parseInt(g.startYear) < 2022) return false;
+    if (g.grantNumbers.some(isNihDuplicate)) return false;
+    if (!orcidStartYear(g)) return false;
     const key = `${g.title}|${g.funder}`;
     if (orcidSeen.has(key)) return false;
     orcidSeen.add(key);
@@ -179,16 +258,17 @@ export default async function FundingPage() {
   const orcidGrants = orcidUnique.filter((g) => g.type === 'grant');
   const orcidAwards = orcidUnique.filter((g) => g.type !== 'grant');
 
-  // Merge NIH and non-NIH grants into year buckets: NIH keyed by fiscal year, ORCID by start year
+  // Merge NIH and non-NIH grants into year buckets: NIH keyed by the fiscal year of the
+  // most recent new or competing-renewal award, ORCID by start year
   const grantsByYear = {};
   unique
-    .filter((g) => g.fiscal_year >= 2022)
+    .filter((g) => g.fiscal_year >= MIN_YEAR)
     .forEach((g) => {
       const year = String(g.fiscal_year);
       (grantsByYear[year] ??= []).push({ _source: 'nih', data: g });
     });
   orcidGrants.forEach((g) => {
-    (grantsByYear[g.startYear] ??= []).push({ _source: 'orcid', data: g });
+    (grantsByYear[orcidStartYear(g)] ??= []).push({ _source: 'orcid', data: g });
   });
   const sortedYears = Object.keys(grantsByYear).sort((a, b) => parseInt(b) - parseInt(a));
 
@@ -215,7 +295,7 @@ export default async function FundingPage() {
         eyebrow="Research Funding"
         title="What powers the research"
         subtitle="Grants & awards"
-        description={`Active support for institute faculty, ${CURRENT_YEAR - 4}–${CURRENT_YEAR}.`}
+        description={`New and competitively renewed awards to institute faculty, ${MIN_YEAR}–${CURRENT_YEAR}.`}
         compact
       />
 
@@ -345,7 +425,7 @@ export default async function FundingPage() {
 
         {sortedYears.length === 0 && (
           <p className="py-16 text-center italic text-muted">
-            No active grants found.
+            No new or renewed grants found.
           </p>
         )}
 

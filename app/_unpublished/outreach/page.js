@@ -3,8 +3,8 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
+import Hero from '@/app/components/Hero';
+import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import Link from 'next/link';
 
