@@ -1,7 +1,6 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
-import Reveal from '../components/Reveal';
 import { facultyData } from '../data/faculty';
 import { orcidDate, fetchCrossrefDates, sortKey, formatDate, isoDate } from '../lib/pubDates';
 
@@ -12,6 +11,8 @@ export const metadata = {
 };
 
 const CUTOFF_YEAR = new Date().getFullYear() - 5;
+// Long consortium author lists are shortened on the page (the full list is at the DOI link).
+const MAX_AUTHORS = 10;
 
 function chunkArray(arr, size) {
   const chunks = [];
@@ -173,7 +174,9 @@ export default async function PublicationsPage() {
         )
           .sort(([a], [b]) => b.localeCompare(a))
           .map(([year, pubs]) => (
-            <Reveal key={year} className="mb-14">
+            // Plain sections (no scroll animation) so every year renders immediately;
+            // content-visibility lets the browser skip laying out off-screen years.
+            <section key={year} className="mb-14 [content-visibility:auto] [contain-intrinsic-size:auto_2000px]">
               <div className="mb-5 flex items-center gap-4">
                 <h2 className="font-display text-2xl font-semibold text-ink">{year}</h2>
                 <span className="h-px flex-1 bg-mist" aria-hidden="true" />
@@ -203,7 +206,11 @@ export default async function PublicationsPage() {
                           {pub.title}
                         </h3>
                         {pub.authors.length > 0 && (
-                          <p className="mb-1 text-sm text-ink-soft">{pub.authors.join(', ')}</p>
+                          <p className="mb-1 text-sm text-ink-soft">
+                            {pub.authors.length > MAX_AUTHORS
+                              ? `${pub.authors.slice(0, MAX_AUTHORS).join(', ')}, et al. (${pub.authors.length} authors)`
+                              : pub.authors.join(', ')}
+                          </p>
                         )}
                         <p className="text-sm text-muted">
                           {pub.journal && <span className="italic">{pub.journal}</span>}
@@ -234,7 +241,7 @@ export default async function PublicationsPage() {
                   </div>
                 ))}
               </div>
-            </Reveal>
+            </section>
           ))}
 
         {unique.length === 0 && (

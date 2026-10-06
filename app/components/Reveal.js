@@ -31,7 +31,11 @@ const Reveal = ({ children, className = '', delay = 0, as = 'div', ...rest }) =>
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      // threshold 0: reveal as soon as any part enters the viewport. A ratio
+      // threshold (e.g. 0.12) can never be met by a block taller than about
+      // eight screens, which left long lists (like a year of publications)
+      // permanently invisible.
+      { threshold: 0, rootMargin: '0px 0px -8% 0px' }
     );
     observer.observe(node);
     return () => observer.disconnect();
