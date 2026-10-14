@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T20:56:33.287Z",
+  "generatedAt": "2026-10-14T22:35:37.289Z",
   "trainees": [
     {
       "slug": "maya-alexandra-carleton",
@@ -71,6 +71,24 @@
         "linkedin": "https://www.linkedin.com/in/anushka-narasani-59b936190/"
       },
       "photo": "/images/trainees/anushka-narasani-011b14ede1.jpg"
+    },
+    {
+      "slug": "christopher-meredith",
+      "name": "Christopher Meredith",
+      "sortName": "Meredith Christopher",
+      "pronouns": null,
+      "role": "grad",
+      "title": "PhD Student",
+      "lab": "sampath",
+      "description": "Through the use of microspectrophotometry and ex-vivo electroretinograms, Chris investigates the light-driven visual pigment regeneration that allows cones to remain sensitive to stimuli. While his primary focus is on cones, he has also done work studying the effects of pigment lifetime in rod dark adaptation.",
+      "startDate": "2024-07-01",
+      "endDate": "2029-12-31",
+      "email": "cmeredith@g.ucla.edu",
+      "links": {
+        "orcid": "0009-0007-5248-5977",
+        "linkedin": "https://www.linkedin.com/in/christopherjamesmeredith/"
+      },
+      "photo": "/images/trainees/christopher-meredith-dfb2bbc8ec.jpg"
     }
   ]
 }
