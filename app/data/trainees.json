@@ -1,25 +1,4 @@
 {
-  "generatedAt": "2026-10-14T15:18:48.490Z",
-  "trainees": [
-    {
-      "slug": "john-test-trainee",
-      "name": "John Test Trainee",
-      "sortName": "Trainee John Test",
-      "pronouns": null,
-      "role": "postdoc",
-      "title": "Postdoctoral Fellow",
-      "lab": "field",
-      "description": "I'm interested in retinal adaptation and signal processing",
-      "startDate": "2026-08-01",
-      "endDate": "2027-03-24",
-      "email": "gregfield@ucla.edu",
-      "links": {
-        "website": "https://www.retinalcircuits.org/",
-        "orcid": "0000-0001-5942-2679",
-        "scholar": "https://scholar.google.com/citations?user=DGTvaW0AAAAJ&hl=en",
-        "linkedin": "https://www.linkedin.com/in/greg-field-3048623a/"
-      },
-      "photo": "/images/trainees/john-test-trainee-63d90b1141.jpg"
-    }
-  ]
+  "generatedAt": "2026-10-14T15:25:54.290Z",
+  "trainees": []
 }
