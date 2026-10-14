@@ -19,6 +19,12 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Only download an image once it is current or next in the rotation, so the
+  // first paint needs one image instead of all five.
+  const [loadedUpTo, setLoadedUpTo] = useState(1);
+  useEffect(() => {
+    setLoadedUpTo((n) => Math.max(n, Math.min(currentImageIndex + 1, backgroundImages.length - 1)));
+  }, [currentImageIndex]);
   const [paused, setPaused] = useState(() =>
     typeof window !== 'undefined'
       ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -53,12 +59,15 @@ const Hero = ({ title, subtitle, description, eyebrow, compact = false }) => {
             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img
-            src={img}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover object-center"
-          />
+          {index <= loadedUpTo && (
+            <img
+              src={img}
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              className="h-full w-full object-cover object-center"
+            />
+          )}
         </div>
       ))}
 

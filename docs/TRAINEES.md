@@ -83,6 +83,8 @@ Then delete the downloaded key file from your computer.
 
 GitHub > **Actions > Sync trainee profiles > Run workflow**. The log reports how many profiles were published and any rows that were skipped. If anything changed it commits to `main`, and Vercel deploys a minute or two later.
 
+To check new profiles before they go live, type a branch name such as `trainee-preview` in the **preview_branch** box. The sync then pushes to that branch instead of `main`, and Vercel builds a preview deployment you can open from the branch's commit on GitHub (or the Vercel dashboard). The live site is untouched. Leave the box blank to publish.
+
 ### 6. Branch protection
 
 The Action commits directly to `main`. If you later add branch protection that requires pull requests or status checks on `main`, allow GitHub Actions to bypass it or the nightly sync will fail to push.

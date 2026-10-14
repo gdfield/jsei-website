@@ -1,8 +1,8 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
-import Reveal from '../components/Reveal';
 import { facultyData } from '../data/faculty';
+import { orcidDate, fetchCrossrefDates, sortKey, formatDate, isoDate } from '../lib/pubDates';
 
 export const metadata = {
   title: 'Publications',
@@ -11,6 +11,8 @@ export const metadata = {
 };
 
 const CUTOFF_YEAR = new Date().getFullYear() - 5;
+// Long consortium author lists are shortened on the page (the full list is at the DOI link).
+const MAX_AUTHORS = 10;
 
 function chunkArray(arr, size) {
   const chunks = [];
@@ -71,7 +73,7 @@ async function fetchPublications(faculty) {
           title: work?.title?.title?.value ?? '',
           journal: work?.['journal-title']?.value ?? '',
           year: work?.['publication-date']?.year?.value ?? '',
-          month: work?.['publication-date']?.month?.value ?? '00',
+          date: orcidDate(work?.['publication-date']),
           doi: doiEntry?.['external-id-value'] ?? null,
           type: work?.type ?? '',
           authors,
@@ -105,13 +107,19 @@ export default async function PublicationsPage() {
       pubMap.set(key, { ...pub, _jseiAuthors: [pub._facultyName] });
     }
   });
-  const unique = Array.from(pubMap.values());
+  // Use the date each paper was first published (earliest of CrossRef's online
+  // and print dates) when it has a DOI; otherwise keep the date from ORCID.
+  const crossrefDates = await fetchCrossrefDates(Array.from(pubMap.values()).map((p) => p.doi));
+  const unique = Array.from(pubMap.values())
+    .map((p) => {
+      const date = (p.doi && crossrefDates.get(p.doi)) || p.date;
+      return { ...p, date, year: date ? String(date.year) : p.year };
+    })
+    .filter((p) => !p.date || p.date.year >= CUTOFF_YEAR);
 
-  unique.sort((a, b) => {
-    const yearDiff = (b.year || '0').localeCompare(a.year || '0');
-    if (yearDiff !== 0) return yearDiff;
-    return (b.month || '00').localeCompare(a.month || '00');
-  });
+  // Newest first. Papers known only to the month or year sort after fully
+  // dated papers from the same month or year.
+  unique.sort((a, b) => sortKey(b.date).localeCompare(sortKey(a.date)) || a.title.localeCompare(b.title));
 
   // Build last-name lookup across ALL active faculty (not just those with ORCID)
   // so we can detect JSEI co-authors by scanning each paper's author list
@@ -147,7 +155,7 @@ export default async function PublicationsPage() {
         eyebrow="Publications"
         title="The latest from the bench"
         subtitle="JSEI research output"
-        description={`Peer-reviewed work from institute faculty, ${CUTOFF_YEAR}–present.`}
+        description={`Peer-reviewed work from institute faculty, ${CUTOFF_YEAR}–present, newest first.`}
         compact
       />
 
@@ -166,7 +174,9 @@ export default async function PublicationsPage() {
         )
           .sort(([a], [b]) => b.localeCompare(a))
           .map(([year, pubs]) => (
-            <Reveal key={year} className="mb-14">
+            // Plain sections (no scroll animation) so every year renders immediately;
+            // content-visibility lets the browser skip laying out off-screen years.
+            <section key={year} className="mb-14 [content-visibility:auto] [contain-intrinsic-size:auto_2000px]">
               <div className="mb-5 flex items-center gap-4">
                 <h2 className="font-display text-2xl font-semibold text-ink">{year}</h2>
                 <span className="h-px flex-1 bg-mist" aria-hidden="true" />
@@ -196,12 +206,16 @@ export default async function PublicationsPage() {
                           {pub.title}
                         </h3>
                         {pub.authors.length > 0 && (
-                          <p className="mb-1 text-sm text-ink-soft">{pub.authors.join(', ')}</p>
+                          <p className="mb-1 text-sm text-ink-soft">
+                            {pub.authors.length > MAX_AUTHORS
+                              ? `${pub.authors.slice(0, MAX_AUTHORS).join(', ')}, et al. (${pub.authors.length} authors)`
+                              : pub.authors.join(', ')}
+                          </p>
                         )}
                         <p className="text-sm text-muted">
                           {pub.journal && <span className="italic">{pub.journal}</span>}
-                          {pub.journal && pub.year && ' · '}
-                          {pub.year}
+                          {pub.journal && pub.date && ' · '}
+                          {pub.date ? <time dateTime={isoDate(pub.date)}>{formatDate(pub.date)}</time> : pub.year}
                           {TYPE_LABELS[pub.type] && (
                             <span className="ml-2 inline-block rounded bg-sea/8 px-2 py-0.5 font-mono text-xs text-sea-600">
                               {TYPE_LABELS[pub.type]}
@@ -227,7 +241,7 @@ export default async function PublicationsPage() {
                   </div>
                 ))}
               </div>
-            </Reveal>
+            </section>
           ))}
 
         {unique.length === 0 && (

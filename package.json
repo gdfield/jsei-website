@@ -12,7 +12,8 @@
     "test:funding": "node scripts/test-funding-logic.mjs",
     "test:trainees": "node scripts/test-trainees.mjs",
     "sync:trainees": "node scripts/sync-trainees.mjs",
-    "trainees:lab-choices": "node scripts/trainees/print-lab-choices.mjs"
+    "trainees:lab-choices": "node scripts/trainees/print-lab-choices.mjs",
+    "test:pubdates": "node scripts/test-pub-dates.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

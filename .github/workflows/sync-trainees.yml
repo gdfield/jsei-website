@@ -13,6 +13,10 @@ on:
         description: "Allow removing more than half of the published profiles at once"
         type: boolean
         default: false
+      preview_branch:
+        description: "Leave blank to publish to the live site. Or name a branch (e.g. trainee-preview) to get a Vercel preview without touching main."
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -59,5 +63,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Sync trainee profiles from intake form"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if [ -n "$PREVIEW_BRANCH" ]; then
+            case "$PREVIEW_BRANCH" in main|master) echo "Use a branch other than main for previews."; exit 1;; esac
+            git push --force origin "HEAD:refs/heads/$PREVIEW_BRANCH"
+            echo "Pushed to $PREVIEW_BRANCH. Vercel will build a preview deployment for it."
+          else
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+        env:
+          PREVIEW_BRANCH: ${{ inputs.preview_branch }}
