@@ -86,7 +86,7 @@ export default function TraineeProfilePage({ params }) {
               />
             ) : (
               <div
-                className="grid aspect-square w-full max-w-[280px] place-items-center rounded-2xl bg-[rgba(30,111,168,0.10)] font-display text-6xl font-semibold text-sea-600"
+                className="grid aspect-square w-full max-w-[280px] place-items-center rounded-2xl bg-sea/10 font-display text-6xl font-semibold text-sea-600"
                 aria-hidden="true"
               >
                 {t.name.charAt(0)}

@@ -23,7 +23,7 @@ const TraineeDirectory = ({ trainees, roles, labs }) => {
 
   const chip = (active) =>
     `rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea ${
-      active ? 'border-sea bg-sea text-white' : 'border-mist bg-surface text-ink-soft hover:border-[rgba(30,111,168,0.40)] hover:text-ink'
+      active ? 'border-sea bg-sea text-white' : 'border-mist bg-surface text-ink-soft hover:border-sea/40 hover:text-ink'
     }`;
 
   return (

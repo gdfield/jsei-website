@@ -135,5 +135,6 @@ Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves row
 - Tailwind with design tokens defined as CSS variables in `app/globals.css` and mapped in `tailwind.config.js`: colors `ink` (`ink-700`, `ink-soft`), `sea` (`sea-600`), `sky`, `gold` (`gold-deep`), `paper`, `surface`, `mist`, `muted`; fonts `font-display`, `font-sans`, `font-mono`; shadows `shadow-card`, `shadow-lift`; `max-w-content` (80rem).
 - Page background `bg-paper`; cards `bg-surface border-mist shadow-card`; links `text-sea hover:text-gold-deep`.
 - Use the tokens rather than raw Tailwind colors so `npm run test:contrast` covers them.
+- Each token also has an R G B channel variable (`--sea-rgb` etc.) in `globals.css`, and `tailwind.config.js` maps colors as `rgb(var(--x-rgb) / <alpha-value>)`, so opacity modifiers such as `bg-sea/10` and `bg-paper/85` work. If you change a color, update both its hex and its `-rgb` value.
 - Remote image optimization is configured only for `placehold.co` (`next.config.js`). Use local images in `public/` for real content.
 - Accessibility target is WCAG 2.1 AA (see `ACCESSIBILITY.md`): keep heading order, label images, and keep text over banner imagery on a strong navy scrim.

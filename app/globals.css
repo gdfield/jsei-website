@@ -20,6 +20,21 @@
   --mist: #e1e9f1;       /* hairline borders */
   --muted: #5a7184;      /* secondary text */
   --ink-soft: #24425c;   /* body text on paper */
+
+  /* Same colors as R G B channels, so Tailwind opacity modifiers work
+     (e.g. bg-sea/10, bg-paper/85). Keep in sync with the hex values above. */
+  --ink-rgb: 6 38 63;
+  --ink-700-rgb: 12 53 87;
+  --sea-rgb: 30 111 168;
+  --sea-600-rgb: 23 93 143;
+  --sky-rgb: 111 178 216;
+  --gold-rgb: 255 199 44;
+  --gold-deep-rgb: 122 90 0;
+  --paper-rgb: 245 248 251;
+  --surface-rgb: 255 255 255;
+  --mist-rgb: 225 233 241;
+  --muted-rgb: 90 113 132;
+  --ink-soft-rgb: 36 66 92;
 }
 
 @layer base {

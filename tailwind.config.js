@@ -9,28 +9,32 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: 'var(--ink)',
-          700: 'var(--ink-700)',
-          soft: 'var(--ink-soft)',
+          DEFAULT: 'rgb(var(--ink-rgb) / <alpha-value>)',
+          700: 'rgb(var(--ink-700-rgb) / <alpha-value>)',
+          soft: 'rgb(var(--ink-soft-rgb) / <alpha-value>)',
         },
         sea: {
-          DEFAULT: 'var(--sea)',
-          600: 'var(--sea-600)',
+          DEFAULT: 'rgb(var(--sea-rgb) / <alpha-value>)',
+          600: 'rgb(var(--sea-600-rgb) / <alpha-value>)',
         },
-        sky: 'var(--sky)',
+        sky: 'rgb(var(--sky-rgb) / <alpha-value>)',
         gold: {
-          DEFAULT: 'var(--gold)',
-          deep: 'var(--gold-deep)',
+          DEFAULT: 'rgb(var(--gold-rgb) / <alpha-value>)',
+          deep: 'rgb(var(--gold-deep-rgb) / <alpha-value>)',
         },
-        paper: 'var(--paper)',
-        surface: 'var(--surface)',
-        mist: 'var(--mist)',
-        muted: 'var(--muted)',
+        paper: 'rgb(var(--paper-rgb) / <alpha-value>)',
+        surface: 'rgb(var(--surface-rgb) / <alpha-value>)',
+        mist: 'rgb(var(--mist-rgb) / <alpha-value>)',
+        muted: 'rgb(var(--muted-rgb) / <alpha-value>)',
       },
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'serif'],
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+      },
+      // bg-sea/8 is used for small pills; 8% is not in Tailwind's default opacity scale.
+      opacity: {
+        8: '0.08',
       },
       boxShadow: {
         card: '0 1px 2px rgba(6, 38, 63, 0.04), 0 8px 24px -12px rgba(6, 38, 63, 0.18)',
