@@ -200,6 +200,8 @@ export default async function NouriMahdaviPage() {
           </div>
         </div>
 
+        <LabTrainees lab="nouri-mahdavi" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
@@ -230,7 +232,6 @@ export default async function NouriMahdaviPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="nouri-mahdavi" />
       </main>
       <Footer />
     </div>

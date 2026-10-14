@@ -231,6 +231,8 @@ export default async function FieldPage() {
           </div>
         </div>
 
+        <LabTrainees lab="field" />
+
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
           <div className="space-y-3">
@@ -259,7 +261,6 @@ export default async function FieldPage() {
         </div>
       </div>
 
-      <LabTrainees lab="field" />
       </main>
       <Footer />
     </div>

@@ -216,6 +216,8 @@ export default async function TsuiIrenaPage() {
           </div>
         </div>
 
+        <LabTrainees lab="tsui-i" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Selected Key Publications</h2>
@@ -246,7 +248,6 @@ export default async function TsuiIrenaPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="tsui-i" />
       </main>
       <Footer />
     </div>

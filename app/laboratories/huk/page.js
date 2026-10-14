@@ -128,6 +128,8 @@ export default function HukPage() {
           </div>
         </div>
 
+        <LabTrainees lab="huk" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
@@ -156,7 +158,6 @@ export default function HukPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="huk" />
       </main>
       <Footer />
     </div>

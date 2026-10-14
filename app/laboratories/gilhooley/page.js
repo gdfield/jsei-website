@@ -225,6 +225,8 @@ export default async function GilhooleyPage() {
           </div>
         </div>
 
+        <LabTrainees lab="gilhooley" />
+
         {publications.length > 0 && (
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
@@ -255,7 +257,6 @@ export default async function GilhooleyPage() {
         )}
       </div>
 
-      <LabTrainees lab="gilhooley" />
       </main>
       <Footer />
     </div>

@@ -171,6 +171,8 @@ export default function BhatPage() {
         
 
 
+        <LabTrainees lab="bhat" />
+
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
@@ -195,7 +197,6 @@ export default function BhatPage() {
         </div>
       </div>
 
-      <LabTrainees lab="bhat" />
       </main>
       <Footer />
     </div>

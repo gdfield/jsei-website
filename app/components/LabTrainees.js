@@ -2,8 +2,9 @@ import React from 'react';
 import { traineesForLab, ROLES } from '@/app/data/trainees';
 import TraineeCard from './TraineeCard';
 
-// "Lab Members" section for a lab page. Renders nothing until the lab has at
-// least one active, approved trainee profile.
+// "Lab Members" section for a lab page, placed inside the page container just
+// above the publications list.
+// Renders nothing until the lab has at least one active, approved trainee profile.
 const LabTrainees = ({ lab }) => {
   const members = traineesForLab(lab);
   if (members.length === 0) return null;
@@ -11,7 +12,7 @@ const LabTrainees = ({ lab }) => {
     (g) => g.people.length > 0
   );
   return (
-    <section aria-labelledby="lab-members-heading" className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+    <section aria-labelledby="lab-members-heading" className="mt-12">
       <h2 id="lab-members-heading" className="mb-6 text-2xl font-bold text-ink">
         Lab Members
       </h2>

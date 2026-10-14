@@ -189,6 +189,8 @@ export default function BarzalayPage() {
          </div>
        </div>
 
+       <LabTrainees lab="barzalay" />
+
        <div className="mt-12">
          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
          <div className="space-y-3">
@@ -215,7 +217,6 @@ export default function BarzalayPage() {
        </div>
      </div>
 
-      <LabTrainees lab="barzalay" />
       </main>
      <Footer />
    </div>

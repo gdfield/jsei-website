@@ -237,6 +237,8 @@ export default async function YangPage() {
           </div>
         </div>
 
+        <LabTrainees lab="yang" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
@@ -267,7 +269,6 @@ export default async function YangPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="yang" />
       </main>
       <Footer />
     </div>

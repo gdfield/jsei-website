@@ -206,6 +206,8 @@ export default async function SunPage() {
 </div>
         </div>
 
+        <LabTrainees lab="sun" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
@@ -236,7 +238,6 @@ export default async function SunPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="sun" />
       </main>
       <Footer />
     </div>

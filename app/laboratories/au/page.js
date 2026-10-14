@@ -272,6 +272,8 @@ export default async function AuPage() {
           </div>
         </div>
 
+        <LabTrainees lab="au" />
+
         {publications.length > 0 && (
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-ink mb-4">
@@ -302,7 +304,6 @@ export default async function AuPage() {
         )}
       </div>
 
-      <LabTrainees lab="au" />
       </main>
       <Footer />
     </div>

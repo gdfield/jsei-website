@@ -91,6 +91,8 @@ export default function NusinowitzPage() {
           </div>
         </div>
 
+        <LabTrainees lab="nusinowitz" />
+
         {publications.length > 0 && (
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
@@ -117,7 +119,6 @@ export default function NusinowitzPage() {
         )}
       </div>
 
-      <LabTrainees lab="nusinowitz" />
       </main>
       <Footer />
     </div>

@@ -148,6 +148,8 @@ export default function GlasgowPage() {
           </div>
         </div>
 
+        <LabTrainees lab="glasgow" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
@@ -176,7 +178,6 @@ export default function GlasgowPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="glasgow" />
       </main>
       <Footer />
     </div>

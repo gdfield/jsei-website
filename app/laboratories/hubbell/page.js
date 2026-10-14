@@ -166,6 +166,8 @@ export default function HubbellPage() {
           </div>
         </div>
 
+        <LabTrainees lab="hubbell" />
+
         {/* Publications Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
@@ -194,7 +196,6 @@ export default function HubbellPage() {
       </div>
 
       {/* Footer */}
-      <LabTrainees lab="hubbell" />
       </main>
       <Footer />
     </div>
