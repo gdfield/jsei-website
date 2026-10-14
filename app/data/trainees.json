@@ -1,4 +1,22 @@
 {
-  "generatedAt": "2026-10-14T15:25:54.290Z",
-  "trainees": []
+  "generatedAt": "2026-10-14T17:13:02.754Z",
+  "trainees": [
+    {
+      "slug": "maya-alexandra-carleton",
+      "name": "Maya Alexandra Carleton",
+      "sortName": "Carleton Maya Alexandra",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Fellow",
+      "lab": "field",
+      "description": "Maya is a postdoctoral researcher in the Field lab. Her current research interests focus on understanding how the retina allocates energy for encoding visual signals and how it may be perturbed in disease.",
+      "startDate": "2026-06-15",
+      "endDate": "2029-06-14",
+      "email": "mcarleton@g.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?user=nwYP98cAAAAJ&hl=en&oi=ao"
+      },
+      "photo": "/images/trainees/maya-alexandra-carleton-0d5ce2c176.jpg"
+    }
+  ]
 }
