@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T19:35:52.370Z",
+  "generatedAt": "2026-10-14T20:56:33.287Z",
   "trainees": [
     {
       "slug": "maya-alexandra-carleton",
@@ -35,6 +35,42 @@
         "scholar": "https://scholar.google.com/citations?user=0VKzg9YAAAAJ&hl=en&oi=ao"
       },
       "photo": "/images/trainees/alejandro-gallego-ortega-175cc86319.jpg"
+    },
+    {
+      "slug": "yasmine-tani",
+      "name": "Yasmine Tani",
+      "sortName": "Tani Yasmine",
+      "pronouns": null,
+      "role": "sra",
+      "title": "Staff Research Associate",
+      "lab": "field",
+      "description": "Yasmine studies different ways to analyze the responses of retinal ganglion cells to varying stimuli, using multi-electrode array recordings. She is particulary interested in contributing to robust analysis pipelines for comparing electrophysiological experiments at different light levels.",
+      "startDate": "2024-11-01",
+      "endDate": null,
+      "email": "yasminetani@g.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/yasmine-tani"
+      },
+      "photo": "/images/trainees/yasmine-tani-4277ecc812.jpg"
+    },
+    {
+      "slug": "anushka-narasani",
+      "name": "Anushka Narasani",
+      "sortName": "Narasani Anushka",
+      "pronouns": "she/her",
+      "role": "sra",
+      "title": "Lab Assistant I",
+      "lab": "field",
+      "description": "Anushka is researching morphological diversity in retinal ganglion cells that project to the superior colliculus, and computational tools to analyze and classify those cells.",
+      "startDate": "2024-06-14",
+      "endDate": "2027-06-14",
+      "email": "anushkanarasani@ucla.edu",
+      "links": {
+        "orcid": "0009-0001-8387-2191",
+        "scholar": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=RNNSElYAAAAJ",
+        "linkedin": "https://www.linkedin.com/in/anushka-narasani-59b936190/"
+      },
+      "photo": "/images/trainees/anushka-narasani-011b14ede1.jpg"
     }
   ]
 }
