@@ -23,7 +23,7 @@ const coreFacilities = [
       'Advanced image analysis, including 3D reconstruction',
     ],
     director: 'David Williams, Ph.D.',
-    staff: 'Yuekan Jiao, Ph.D. & Jane Coffman, Ph.D.',
+    staff: 'Yuekan Jiao, Ph.D. & Duc Hoang, Ph.D.',
     imageUrl: '/images/cores/microscopy.jpg',
   },
   {
@@ -36,7 +36,7 @@ const coreFacilities = [
       'Electroporation',
     ],
     director: 'Xian-Jie Yang, Ph.D.',
-    staff: 'Duc Hoang, Ph.D. & Jane Coffman, Ph.D.',
+    staff: 'Duc Hoang, Ph.D.',
     imageUrl: '/images/cores/Gene-delivery.jpg',
   },
   {
