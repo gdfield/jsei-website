@@ -3,6 +3,7 @@
 import { buildRecords, orcidId, httpUrl, toIsoDate, driveFileId, assignSlugs, slugify, columnIndex, pickApprovedRows, accountKeyOf } from './trainees/transform.mjs';
 import { labByFormLabel, labs } from '../app/data/labs.js';
 import { readFileSync } from 'node:fs';
+import { ROLE_CHOICES } from './trainees/fields.mjs';
 
 let failed = 0;
 const ok = (c, m) => { console.log(`${c ? 'PASS' : 'FAIL'} ${m}`); if (!c) failed++; };
@@ -56,6 +57,10 @@ ok(!('account' in pd) && !JSON.stringify(records).includes('example.two@example.
 const gs = records.find((r) => r.name === 'Example Graduate Student');
 ok(!gs.links.orcid && !gs.links.scholar, 'invalid ORCID and off-site Scholar link dropped');
 ok(records.find((r) => r.name === 'Example Research Associate').lab === 'tsui-i', 'lab label with same last name resolves correctly');
+// Every role offered on the form maps to a role the site knows how to show.
+const siteRoleKeys = [...readFileSync(new URL('../app/data/trainees.js', import.meta.url), 'utf8').matchAll(/key: '([a-z]+)'/g)].map((m) => m[1]);
+ok(Object.values(ROLE_CHOICES).every((k) => siteRoleKeys.includes(k)), `every form role has a site role (${siteRoleKeys.join(', ')})`);
+ok(ROLE_CHOICES['Medical Student'] === 'med' && ROLE_CHOICES['Project Scientist'] === 'projsci', 'Medical Student and Project Scientist choices map');
 ok(warnings.length === 0, `no warnings (${warnings.join('; ')})`);
 
 let threw = false;

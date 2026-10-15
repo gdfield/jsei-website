@@ -94,7 +94,7 @@ The page lists **new and competitively renewed** grants only, not every active g
 - ORCID: non-NIH entries whose grant number does not contain an NIH core project number already shown, listed under their start year if it falls in the window. ORCID cannot distinguish renewals, so start year is the only signal. Non-grant entries (awards, fellowships) are listed separately on the same rule.
 - Run `npm run test:funding` after changing this logic.
 
-### Trainee profiles (postdocs, graduate students, SRAs)
+### Trainee profiles (project scientists, postdocs, graduate and medical students, SRAs)
 
 Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves rows in the linked Sheet (approved rows are copied to its "Published" tab by Apps Script triggers in `scripts/google/create-trainee-form.gs`); the nightly GitHub Action `.github/workflows/sync-trainees.yml` runs `scripts/sync-trainees.mjs`, which writes `app/data/trainees.json`, `app/data/trainees-meta.json`, `scripts/trainees/slug-registry.json`, and 600x600 headshots in `public/images/trainees/`, then commits to `main`.
 

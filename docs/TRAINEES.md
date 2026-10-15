@@ -1,6 +1,6 @@
 # Trainee profiles: how they work and how to set them up
 
-Postdocs, graduate students, and staff research associates add themselves to the website through a Google Form. Nothing appears on the site until you approve it in the linked Google Sheet. A GitHub Action copies approved profiles (and headshots) into the repository every night, and Vercel redeploys.
+Project scientists, postdocs, graduate students, medical students, and staff research associates add themselves to the website through a Google Form. Nothing appears on the site until you approve it in the linked Google Sheet. A GitHub Action copies approved profiles (and headshots) into the repository every night, and Vercel redeploys.
 
 ```
 Trainee fills in Google Form (signs in with Google to upload a headshot)
@@ -119,4 +119,4 @@ Running the real sync on your own computer needs the service-account key in `GOO
 
 ## Privacy
 
-Publication is opt-in: the form requires the consent checkbox and every profile is approved by a person before it appears. Graduate students may have FERPA directory-information restrictions; confirm UCLA's policy on publishing student information with the Registrar's Office before inviting graduate students. This document is not legal advice.
+Publication is opt-in: the form requires the consent checkbox and every profile is approved by a person before it appears. Graduate and medical students may have FERPA directory-information restrictions; confirm UCLA's policy on publishing student information with the Registrar's Office before inviting students. This document is not legal advice.

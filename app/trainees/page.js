@@ -14,7 +14,7 @@ export const revalidate = 86400;
 export const metadata = {
   title: 'Trainees and Research Staff',
   description:
-    'Postdoctoral scholars, graduate students, and staff research associates working in the laboratories of the Jules Stein Eye Institute at UCLA.',
+    'Project scientists, postdoctoral scholars, graduate and medical students, and staff research associates working in the laboratories of the Jules Stein Eye Institute at UCLA.',
 };
 
 export default function TraineesPage() {
@@ -29,7 +29,7 @@ export default function TraineesPage() {
           eyebrow="Our Trainees"
           title="Trainees and Research Staff"
           subtitle="The scientists behind the science"
-          description="Postdoctoral scholars, graduate students, and research staff working across the institute's laboratories."
+          description="Project scientists, postdoctoral scholars, graduate and medical students, and research staff working across the institute's laboratories."
           compact
         />
 

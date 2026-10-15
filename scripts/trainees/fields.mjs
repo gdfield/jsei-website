@@ -24,8 +24,10 @@ export const FIELDS = {
 
 // Form choice text -> role key used by the site (app/data/trainees.js ROLES).
 export const ROLE_CHOICES = {
+  'Project Scientist': 'projsci',
   'Postdoctoral Scholar / Fellow': 'postdoc',
   'Graduate Student': 'grad',
+  'Medical Student': 'med',
   'Staff Research Associate / Research Technician': 'sra',
 };
 

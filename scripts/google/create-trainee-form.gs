@@ -57,8 +57,10 @@ const LAB_CHOICES = [
 ];
 
 const ROLE_CHOICES = [
+    "Project Scientist",
     "Postdoctoral Scholar / Fellow",
     "Graduate Student",
+    "Medical Student",
     "Staff Research Associate / Research Technician",
 ];
 
