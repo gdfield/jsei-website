@@ -18,6 +18,13 @@ export default function sitemap() {
     { url: `${BASE}/core`, lastModified: now, priority: 0.7 },
   ];
 
+  // bioinfo is a legacy duplicate of the AI page (noindex), so it is left out.
+  const areaPages = ['regeneration', 'retinalbio', 'visualneuro', 'ocular', 'surface', 'AI', 'health', 'rehab'].map((a) => ({
+    url: `${BASE}/researchAreas/${a}`,
+    lastModified: now,
+    priority: 0.6,
+  }));
+
   const labPages = facultyData
     .filter((f) => f.pageUrl)
     .map((f) => ({
@@ -34,5 +41,5 @@ export default function sitemap() {
       ]
     : [];
 
-  return [...staticPages, ...labPages, ...traineePages];
+  return [...staticPages, ...areaPages, ...labPages, ...traineePages];
 }

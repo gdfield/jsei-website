@@ -8,12 +8,14 @@ import Reveal from './components/Reveal';
 import SectionHeading from './components/SectionHeading';
 import CountUp from './components/CountUp';
 import { facultyData } from './data/faculty';
+import { pageMeta } from './lib/seo';
 
-export const metadata = {
-  title: { absolute: 'Jules Stein Eye Institute | UCLA Vision Research' },
-  description:
-    'The Jules Stein Eye Institute (JSEI) at UCLA advances vision science through innovative basic and clinical research in retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
-};
+export const metadata = pageMeta({
+  path: '/',
+  title: "Jules Stein Eye Institute | UCLA Vision Research",
+  description: "The Jules Stein Eye Institute at UCLA advances vision science through basic and clinical research in retinal disease, cornea, glaucoma, and neuro-ophthalmology.",
+  absoluteTitle: true,
+});
 
 const labCount = facultyData.filter((f) => !f.emeritus).length;
 

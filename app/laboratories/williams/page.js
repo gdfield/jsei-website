@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'David Williams Laboratory',
-  description: "The Williams laboratory studies dynamic cellular events in photoreceptor and RPE cells, aiming to understand basic cellular functions within these highl...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/williams',
+  title: "David Williams Laboratory",
+  description: "The Williams lab studies dynamic cellular events in photoreceptor and RPE cells to understand their basic biology and the processes behind retinal degeneration.",
+  image: "/images/faculty/williams.jpg",
+  imageAlt: "Dr. David Williams",
+});
 
 export default async function WilliamsPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

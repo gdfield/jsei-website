@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Edmund Tsui Laboratory',
-  description: "Dr. Edmund Tsui specializes in ocular inflammatory diseases including uveitis, leading research on advanced imaging analysis and biomarker discovery as ...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/tsui-e',
+  title: "Edmund Tsui Laboratory",
+  description: "Dr. Edmund Tsui studies uveitis and ocular inflammatory disease, focusing on imaging analysis, biomarker discovery, and clinical trials of new therapies.",
+  image: "/images/faculty/tsui-e.jpg",
+  imageAlt: "Dr. Edmund Tsui",
+});
 
 export default async function TsuiEdmundPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

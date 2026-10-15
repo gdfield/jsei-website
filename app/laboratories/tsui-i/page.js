@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Irena Tsui Laboratory',
-  description: "Dr. Irena Tsui specializes in clinical research focused on retinal disease and oculomics, combining clinical insights with optical coherence tomography ...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/tsui-i',
+  title: "Irena Tsui Laboratory",
+  description: "Dr. Irena Tsui studies retinal disease and oculomics, using OCT angiography to evaluate systemic conditions in premature infants and pregnant women.",
+  image: "/images/faculty/tsui-i.jpg",
+  imageAlt: "Dr. Irena Tsui",
+});
 
 export default async function TsuiIrenaPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

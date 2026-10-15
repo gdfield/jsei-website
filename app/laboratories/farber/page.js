@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Deborah Farber Laboratory',
-  description: "Dr. Farber's landmark research characterized mutations in the \u03b2-subunit of rod cGMP-phosphodiesterase (PDE6B) causing retinitis pigmentosa and elucidate...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/farber',
+  title: "Deborah Farber Laboratory",
+  description: "Dr. Farber identified PDE6B mutations that cause retinitis pigmentosa and mechanisms of photoreceptor cell death, laying groundwork for gene therapy.",
+  image: "/images/faculty/Farber.jpg",
+  imageAlt: "Dr. Deborah Farber",
+});
 
 export default function FarberPage() {
   const publications = [];

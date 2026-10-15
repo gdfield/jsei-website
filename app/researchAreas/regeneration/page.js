@@ -4,6 +4,14 @@ import Navbar from '../../components/Navbar';
 import Footer from '@/app/components/Footer';
 import FacultyCard from '../../components/FacultyCard';
 import { facultyData } from '../../data/faculty';
+import { pageMeta } from '@/app/lib/seo';
+
+export const metadata = pageMeta({
+  path: '/researchAreas/regeneration',
+  title: "Therapeutics and Regeneration",
+  description: "Faculty at the Jules Stein Eye Institute, UCLA developing gene, cell, and drug therapies and regenerative approaches to treat vision loss.",
+});
+
 
 const DevelopmentPage = () => {
   const areaFaculty = facultyData.filter(faculty => 

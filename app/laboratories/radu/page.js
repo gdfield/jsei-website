@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Roxana A. Radu Laboratory',
-  description: "Dr. Radu's research investigates retinal degenerative diseases by exploring the retinal pigment epithelium (RPE) using genetic, biochemical, and cell bi...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/radu',
+  title: "Roxana A. Radu Laboratory",
+  description: "Dr. Radu studies retinal degenerative diseases through the retinal pigment epithelium (RPE), using stem cells, mouse models, and biochemical approaches.",
+  image: "/images/faculty/radu.jpg",
+  imageAlt: "Dr. Roxana A. Radu",
+});
 
 export default async function RaduPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

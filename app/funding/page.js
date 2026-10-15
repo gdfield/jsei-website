@@ -3,12 +3,13 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 import { facultyData } from '../data/faculty';
+import { pageMeta } from '../lib/seo';
 
-export const metadata = {
-  title: 'Research Funding',
-  description:
-    'New and competitively renewed NIH grants awarded to Jules Stein Eye Institute faculty at UCLA, supporting research in vision science, retinal disease, cornea, glaucoma, and neuro-ophthalmology.',
-};
+export const metadata = pageMeta({
+  path: '/funding',
+  title: "Research Funding",
+  description: "New and competitively renewed NIH grants awarded to Jules Stein Eye Institute faculty at UCLA for research on vision, retinal disease, cornea, and glaucoma.",
+});
 
 const CURRENT_YEAR = new Date().getFullYear();
 const FISCAL_YEARS = Array.from({ length: 5 }, (_, i) => CURRENT_YEAR - i);

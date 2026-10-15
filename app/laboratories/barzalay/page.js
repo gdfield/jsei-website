@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Aya Barzelay-Wollman Laboratory',
-  description: "Dr. Barzelay-Wollman develops advanced robotic systems for high-precision ophthalmic surgery, with a focus on retinal disease. Her research integrates m...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/barzalay',
+  title: "Aya Barzelay-Wollman Laboratory",
+  description: "Dr. Barzelay-Wollman builds robotic systems for high-precision retinal surgery, including robotic delivery of stem cells, gene therapy, and intraocular drugs.",
+  image: "/images/faculty/barzalay.jpg",
+  imageAlt: "Dr. Aya Barzelay-Wollman",
+});
 
 export default function BarzalayPage() {
  const publications = [

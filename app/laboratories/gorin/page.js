@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Michael Gorin Laboratory',
-  description: "Dr. Gorin's research centers on identifying and understanding genetic factors in inherited eye diseases, particularly age-related macular degeneration a...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/gorin',
+  title: "Michael Gorin Laboratory",
+  description: "The Gorin lab studies the genetic basis of complex eye diseases, including glaucoma and age-related macular degeneration, to guide personalized treatment.",
+  image: "/images/faculty/gorin.jpg",
+  imageAlt: "Dr. Michael Gorin",
+});
 
 export default function GorinPage() {
   const publications = [

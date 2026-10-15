@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Joseph Demer Laboratory',
-  description: "The Demer lab studies the neural and structural basis of eye movements, with application to the diagnosis and treatment of strabismus, and the role of e...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/demer',
+  title: "Joseph Demer Laboratory",
+  description: "The Demer lab studies the neural and structural basis of eye movements, with applications to strabismus, glaucoma, and myopia.",
+  image: "/images/faculty/demer.jpg",
+  imageAlt: "Dr. Joseph Demer",
+});
 
 export default async function DemerPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

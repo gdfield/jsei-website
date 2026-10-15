@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Natik Piri Laboratory',
-  description: "Dr. Piri's research focuses on how glaucoma impacts retinal ganglion cell survival and the mechanisms of cell death, investigating ways to make ganglion...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/piri',
+  title: "Natik Piri Laboratory",
+  description: "Dr. Piri studies the molecular mechanisms of retinal ganglion cell death in glaucoma and genes expressed preferentially in these cells.",
+  image: "/images/faculty/piri.jpg",
+  imageAlt: "Dr. Natik Piri",
+});
 
 export default function PiriPage() {
   const publications = [

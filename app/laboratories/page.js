@@ -1,17 +1,18 @@
 import React from 'react';
 import Hero from '../components/Hero';
 
-export const metadata = {
-  title: 'Research Laboratories',
-  description:
-    'Explore the basic science and clinical research laboratories of the Jules Stein Eye Institute at UCLA, led by faculty spanning retinal biology, visual neuroscience, cornea, glaucoma, and more.',
-};
+export const metadata = pageMeta({
+  path: '/laboratories',
+  title: "Research Laboratories",
+  description: "The basic science and clinical research laboratories of the Jules Stein Eye Institute, UCLA, spanning retina, visual neuroscience, cornea, glaucoma, and more.",
+});
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';
+import { pageMeta } from '../lib/seo';
 
 const LaboratoriesPage = () => {
   const basicScience = facultyData.filter((f) => f.basicScience && !f.emeritus);

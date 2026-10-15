@@ -4,6 +4,14 @@ import Navbar from '../../components/Navbar';
 import Footer from '@/app/components/Footer';
 import FacultyCard from '../../components/FacultyCard';
 import { facultyData } from '../../data/faculty';
+import { pageMeta } from '@/app/lib/seo';
+
+export const metadata = pageMeta({
+  path: '/researchAreas/health',
+  title: "Bioinformatics and Population Health",
+  description: "Faculty at the Jules Stein Eye Institute, UCLA studying bioinformatics, epidemiology, and population health to find the factors that underlie eye disease.",
+});
+
 
 const DevelopmentPage = () => {
   const areaFaculty = facultyData.filter(faculty => 

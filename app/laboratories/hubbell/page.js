@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Wayne L. Hubbell Laboratory',
-  description: "Dr. Hubbell's research focuses on the development and application of site-directed spin labeling to investigate protein structure and dynamics, providin...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/hubbell',
+  title: "Wayne L. Hubbell Laboratory",
+  description: "Dr. Hubbell developed site-directed spin labeling to study protein structure and dynamics, revealing molecular mechanisms of vision and membrane proteins.",
+  image: "/images/faculty/hubbell.jpg",
+  imageAlt: "Dr. Wayne Hubbell",
+});
 
 export default function HubbellPage() {
   const publications = [

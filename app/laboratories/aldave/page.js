@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Anthony Aldave Laboratory',
-  description: "Dr. Aldave's research focuses on the development of novel gene- and cell-based therapies for corneal dystrophies, a group of inherited disorders of the ...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/aldave',
+  title: "Anthony Aldave Laboratory",
+  description: "Dr. Aldave develops gene- and cell-based therapies for corneal dystrophies, combining clinical genetics with molecular techniques to find their genetic causes.",
+  image: "/images/faculty/aldave.jpg",
+  imageAlt: "Dr. Anthony Aldave",
+});
 
 export default async function AldavePage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

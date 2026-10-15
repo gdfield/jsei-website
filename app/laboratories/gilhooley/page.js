@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Michael J Gilhooley Laboratory',
-  description: "Dr. Gilhooley's laboratory focuses on intrinsically photosensitive retinal ganglion cells (ipRGCs) in the context of mitochondrial optic neuropathies su...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/gilhooley',
+  title: "Michael J Gilhooley Laboratory",
+  description: "Dr. Gilhooley studies why intrinsically photosensitive retinal ganglion cells (ipRGCs) survive in mitochondrial optic neuropathies such as LHON and DOA.",
+  image: "/images/faculty/gilhooley.jpg",
+  imageAlt: "Dr. Michael Gilhooley",
+});
 
 export default async function GilhooleyPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

@@ -5,12 +5,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import { pageMeta } from '../lib/seo';
 
-export const metadata = {
-  title: 'Research Areas',
-  description:
-    'Explore the interdisciplinary vision-science research areas at the Jules Stein Eye Institute at UCLA, from retinal biology and visual neuroscience to ocular imaging, AI, and regenerative therapies.',
-};
+export const metadata = pageMeta({
+  path: '/researchAreas',
+  title: "Research Areas",
+  description: "Research areas at the Jules Stein Eye Institute, UCLA, from retinal biology and visual neuroscience to ocular imaging, AI, and regenerative therapies.",
+});
 
 const researchAreas = [
   {

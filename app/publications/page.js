@@ -3,12 +3,13 @@ import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import { facultyData } from '../data/faculty';
 import { orcidDate, fetchCrossrefDates, sortKey, formatDate, isoDate } from '../lib/pubDates';
+import { pageMeta } from '../lib/seo';
 
-export const metadata = {
-  title: 'Publications',
-  description:
-    'Recent publications from Jules Stein Eye Institute faculty at UCLA, covering vision science, retinal research, corneal biology, glaucoma, and ophthalmology.',
-};
+export const metadata = pageMeta({
+  path: '/publications',
+  title: "Publications",
+  description: "Recent publications from Jules Stein Eye Institute faculty at UCLA, covering vision science, retinal research, corneal biology, glaucoma, and ophthalmology.",
+});
 
 const CUTOFF_YEAR = new Date().getFullYear() - 5;
 // Long consortium author lists are shortened on the page (the full list is at the DOI link).

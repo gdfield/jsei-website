@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Victoria Tseng Laboratory',
-  description: "Dr. Tseng's research examines risk factors and outcomes for eye diseases from a population-based perspective, focusing on glaucoma risk factors and clin...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/tseng',
+  title: "Victoria Tseng Laboratory",
+  description: "Dr. Tseng studies risk factors and outcomes for eye diseases from a population-based perspective, focusing on glaucoma risk and the quality of glaucoma care.",
+  image: "/images/faculty/tseng.jpg",
+  imageAlt: "Dr. Victoria Tseng",
+});
 
 export default function FieldPage() {
   const publications = [

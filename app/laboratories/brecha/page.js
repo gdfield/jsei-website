@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Nicholas Brecha Laboratory',
-  description: "Dr. Brecha studies the organization and function of neural circuits in the retina, focusing on neurotransmitter systems and their role in retinal signal...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/brecha',
+  title: "Nicholas Brecha Laboratory",
+  description: "The Brecha lab studies retinal neural circuits, focusing on neurotransmitter systems, inhibitory circuits, and neuromodulation in retinal signal processing.",
+  image: "/images/faculty/brecha.jpg",
+  imageAlt: "Dr. Nicholas Brecha",
+});
 
 export default function BrechaPage() {
  const publications = [

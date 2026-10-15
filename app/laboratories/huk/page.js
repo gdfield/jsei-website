@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Alex Huk Laboratory',
-  description: "Dr. Huk investigates how the brain processes visual motion and makes decisions based on visual information, combining neurophysiology and computational ...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/huk',
+  title: "Alex Huk Laboratory",
+  description: "The Huk lab studies the neural dynamics of sensory processing, decision-making, and motor planning, combining modeling, neurophysiology, and behavior.",
+  image: "/images/faculty/huk.jpg",
+  imageAlt: "Dr. Alex Huk",
+});
 
 export default function HukPage() {
   const publications = [

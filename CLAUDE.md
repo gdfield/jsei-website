@@ -73,7 +73,10 @@ Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri
 | `/funding` | `app/funding/page.js` | NIH RePORTER + ORCID fundings, last 5 fiscal years (see below) |
 | `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
 | `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
-| `/sitemap.xml` | `app/sitemap.js` | Static pages, every `facultyData` entry with a `pageUrl`, and active trainees |
+| `/sitemap.xml` | `app/sitemap.js` | Static pages, the eight research-area pages, every `facultyData` entry with a `pageUrl`, and active trainees |
+| `/robots.txt` | `app/robots.js` | Allows all crawlers on production and lists the sitemap; Vercel previews get `Disallow: /` |
+
+Every page exports metadata through `pageMeta({ path, title, description, image?, imageAlt?, noindex? })` from `app/lib/seo.js`, which sets the canonical URL, Open Graph, and Twitter card tags. Titles render as "<title> | Jules Stein Eye Institute, UCLA" (template in the root layout). Keep descriptions complete sentences under about 160 characters; they are the snippet shown in search results. Lab pages use the faculty photo as the share image.
 
 Root layout (`app/layout.tsx`): fonts (Spectral display, Inter body, IBM Plex Mono labels via `next/font/google`), site metadata and Open Graph, `ResearchOrganization` JSON-LD, skip link.
 

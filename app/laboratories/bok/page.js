@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Dean Bok Laboratory',
-  description: "Dr. Bok's research focused on the structure and function of the retinal pigment epithelium (RPE) and its critical role in supporting photoreceptor cells...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/bok',
+  title: "Dean Bok Laboratory",
+  description: "Dr. Bok's research defined how the retinal pigment epithelium supports photoreceptors, including the visual cycle, RPE phagocytosis, and retinal degeneration.",
+  image: "/images/faculty/bok.webp",
+  imageAlt: "Dr. Dean Bok",
+});
 
 export default function BokPage() {
   const publications = [];

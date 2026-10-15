@@ -4,6 +4,14 @@ import Navbar from '../../components/Navbar';
 import Footer from '@/app/components/Footer';
 import FacultyCard from '../../components/FacultyCard';
 import { facultyData } from '../../data/faculty';
+import { pageMeta } from '@/app/lib/seo';
+
+export const metadata = pageMeta({
+  path: '/researchAreas/AI',
+  title: "Artificial Intelligence and Robotics",
+  description: "Faculty at the Jules Stein Eye Institute, UCLA using machine learning, artificial intelligence, and robotics to advance vision research and eye care.",
+});
+
 
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging

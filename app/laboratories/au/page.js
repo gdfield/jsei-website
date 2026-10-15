@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Adrian Au Laboratory',
-  description: "Dr. Au's research leverages advanced ophthalmic imaging, retinal genomics, and artificial intelligence to improve disease prognostication and identify n...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/au',
+  title: "Adrian Au Laboratory",
+  description: "Dr. Au's lab combines ophthalmic imaging, retinal genomics, and artificial intelligence to predict retinal disease outcomes and find new therapeutic targets.",
+  image: "/images/faculty/au2.jpg",
+  imageAlt: "Dr. Adrian Au",
+});
 
 export default async function AuPage() {
   const orcidPublications = await fetchRecentPublications(FACULTY_ORCID, 10);

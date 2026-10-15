@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Kouros Nouri-Mahdavi Laboratory',
-  description: "Dr. Nouri-Mahdavi's research focuses on improving the assessment and management of glaucoma using advanced statistical techniques, imaging technologies,...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/nouri-mahdavi',
+  title: "Kouros Nouri-Mahdavi Laboratory",
+  description: "Dr. Nouri-Mahdavi works to improve glaucoma assessment and management, including detecting disease progression and AI-based diagnostic methods.",
+  image: "/images/faculty/kouros2.jpg",
+  imageAlt: "Dr. Kouros Nouri-Mahdavi",
+});
 
 export default async function NouriMahdaviPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

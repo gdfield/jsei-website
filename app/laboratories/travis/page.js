@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Gabriel Travis Laboratory',
-  description: "Dr. Travis studies the regeneration of opsin visual pigments in rod and cone photoreceptor cells. The genes for several proteins in this enzymatic pathw...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/travis',
+  title: "Gabriel Travis Laboratory",
+  description: "Dr. Travis studies how opsin visual pigments are regenerated in rod and cone photoreceptors, a pathway affected in inherited blinding degenerations.",
+  image: "/images/faculty/travis.jpg",
+  imageAlt: "Dr. Gabriel Travis",
+});
 
 export default async function TravisPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

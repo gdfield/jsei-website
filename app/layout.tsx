@@ -29,7 +29,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://julessteinlabs.org'),
   title: {
-    template: '%s | Jules Stein Eye Institute',
+    template: '%s | Jules Stein Eye Institute, UCLA',
     default: 'Jules Stein Eye Institute | UCLA Vision Research',
   },
   description:
@@ -44,10 +44,12 @@ export const metadata: Metadata = {
     'UCLA eye institute',
   ],
   openGraph: {
-    siteName: 'Jules Stein Eye Institute',
+    siteName: 'Jules Stein Eye Institute, UCLA',
     locale: 'en_US',
     type: 'website',
+    images: ['/images/laboratory-banners/field.jpg'],
   },
+  twitter: { card: 'summary_large_image' },
 };
 
 const organizationSchema = {

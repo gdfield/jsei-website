@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Steven Nusinowitz Laboratory',
-  description: "Dr. Nusinowitz's research focused on the assessment of retinal and visual pathway function using electrophysiological methods including electroretinogra...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/nusinowitz',
+  title: "Steven Nusinowitz Laboratory",
+  description: "Dr. Nusinowitz used electroretinography and other electrophysiological methods to study retinal function in mouse models of disease and test therapies.",
+  image: "/images/faculty/Nusinowitz.jpg",
+  imageAlt: "Dr. Steven Nusinowitz",
+});
 
 export default function NusinowitzPage() {
   const publications = [];

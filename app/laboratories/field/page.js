@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -98,10 +99,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Greg D. Field Laboratory',
-  description: "Dr. Field's laboratory investigates neural circuits in the retina that process visual information, combining electrophysiology, imaging, and computation...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/field',
+  title: "Greg D. Field Laboratory",
+  description: "The Field lab studies how neural circuits in the retina process visual information, combining electrophysiology, imaging, and computational approaches.",
+  image: "/images/faculty/field.jpg",
+  imageAlt: "Dr. Greg D. Field",
+});
 
 export default async function FieldPage() {
   const publications = await fetchRecentPublications(FIELD_ORCID, 10);

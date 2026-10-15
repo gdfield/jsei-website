@@ -2,16 +2,20 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Suraj Bhat Laboratory',
-  description: "Dr. Bhat's research focuses on understanding the molecular basis of the biological transparency and refractive ability of the lens, including gene activ...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/bhat',
+  title: "Suraj Bhat Laboratory",
+  description: "Dr. Bhat studies how the eye's lens stays transparent and focuses light, using single-cell transcriptomics to characterize lens gene activity.",
+  image: "/images/faculty/bhat.jpg",
+  imageAlt: "Dr. Suraj Bhat",
+});
 
 export default function BhatPage() {
   const publications = [

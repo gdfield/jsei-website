@@ -5,12 +5,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
+import { pageMeta } from '../lib/seo';
 
-export const metadata = {
-  title: 'Core Facilities',
-  description:
-    'Shared core facilities at the Jules Stein Eye Institute at UCLA, providing advanced tools and resources to accelerate vision science research.',
-};
+export const metadata = pageMeta({
+  path: '/core',
+  title: "Core Facilities",
+  description: "Shared core facilities at the Jules Stein Eye Institute at UCLA, providing advanced tools and resources to accelerate vision science research.",
+});
 
 const coreFacilities = [
   {

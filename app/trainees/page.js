@@ -7,15 +7,16 @@ import SectionHeading from '../components/SectionHeading';
 import TraineeDirectory from '../components/TraineeDirectory';
 import { activeTrainees, ROLES } from '../data/trainees';
 import { labs } from '../data/labs';
+import { pageMeta } from '../lib/seo';
 
 // Re-evaluate daily so trainees drop off after their end date without a deploy.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Trainees and Research Staff',
-  description:
-    'Project scientists, postdoctoral scholars, graduate and medical students, and staff research associates working in the laboratories of the Jules Stein Eye Institute at UCLA.',
-};
+export const metadata = pageMeta({
+  path: '/trainees',
+  title: "Trainees and Research Staff",
+  description: "Project scientists, postdoctoral scholars, graduate and medical students, and research staff in the laboratories of the Jules Stein Eye Institute, UCLA.",
+});
 
 export default function TraineesPage() {
   const trainees = activeTrainees();

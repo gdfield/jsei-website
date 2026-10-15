@@ -4,6 +4,14 @@ import Navbar from '../../components/Navbar';
 import Footer from '@/app/components/Footer';
 import FacultyCard from '../../components/FacultyCard';
 import { facultyData } from '../../data/faculty';
+import { pageMeta } from '@/app/lib/seo';
+
+export const metadata = pageMeta({
+  path: '/researchAreas/visualneuro',
+  title: "Visual Neuroscience",
+  description: "Faculty at the Jules Stein Eye Institute, UCLA studying how retinal and brain circuits process visual signals and control eye movements.",
+});
+
 
 const DevelopmentPage = () => {
   // Filter faculty members who work in Development, Disease, and Aging

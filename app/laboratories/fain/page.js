@@ -2,6 +2,7 @@ import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
+import { pageMeta } from '@/app/lib/seo';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -97,10 +98,13 @@ async function fetchRecentPublications(orcid, limit = 10) {
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
 
-export const metadata = {
-  title: 'Gordon Fain Laboratory',
-  description: "Dr. Fain's research focuses on the biophysical mechanisms of photoreceptor function and adaptation, providing fundamental insights into how photorecepto...",
-};
+export const metadata = pageMeta({
+  path: '/laboratories/fain',
+  title: "Gordon Fain Laboratory",
+  description: "Dr. Fain studies the biophysical mechanisms of photoreceptor function and how photoreceptors respond and adapt to light in normal vision and retinal disease.",
+  image: "/images/faculty/fain.jpg",
+  imageAlt: "Dr. Gordon Fain",
+});
 
 export default async function FainPage() {
   const publications = await fetchRecentPublications(FACULTY_ORCID, 10);

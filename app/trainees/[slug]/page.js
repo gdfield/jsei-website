@@ -4,6 +4,15 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { pageMeta } from '../../lib/seo';
+
+// Search snippet from the person's own text: whole words only, under ~160 characters.
+const snippet = (text) => {
+  const s = (text || '').replace(/\s+/g, ' ').trim();
+  if (s.length <= 160) return s;
+  const cut = s.slice(0, 157);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '') + '...';
+};
 import { allTraineeSlugs, traineeBySlug, isActive, roleByKey } from '../../data/trainees';
 import { labBySlug } from '../../data/labs';
 
@@ -18,10 +27,12 @@ export function generateMetadata({ params }) {
   const t = traineeBySlug(params.slug);
   if (!t || !isActive(t)) return {};
   const lab = labBySlug[t.lab];
-  return {
+  return pageMeta({
+    path: `/trainees/${t.slug}`,
     title: `${t.name}, ${t.title}`,
-    description: t.description?.slice(0, 155) || `${t.name}, ${t.title}${lab ? `, ${lab.labName}` : ''}, Jules Stein Eye Institute.`,
-  };
+    description: snippet(t.description) || `${t.name}, ${t.title}${lab ? `, ${lab.labName}` : ''}, Jules Stein Eye Institute.`,
+    ...(t.photo ? { image: t.photo, imageAlt: t.name } : {}),
+  });
 }
 
 const LINKS = [
