@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T01:01:46.888Z",
+  "generatedAt": "2026-10-15T01:08:20.491Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -112,23 +112,6 @@
       "photo": "/images/trainees/huakun-li-2c5386e4cc.jpg"
     },
     {
-      "slug": "nilou-ghazavi",
-      "name": "Nilou Ghazavi",
-      "sortName": "Ghazavi Nilou",
-      "pronouns": "she/her",
-      "role": "grad",
-      "title": "PhD Candidate",
-      "lab": "field",
-      "description": "Nilou is interested in understanding how different retinal ganglion cell (RGC) types contribute to downstream visual processing and perception. Her research focuses on developing a computational framework to design visual stimuli that can selectively manipulate the activity of specific RGC types.",
-      "startDate": "2023-09-01",
-      "endDate": "2028-09-01",
-      "email": "niloughazavi@ucla.edu",
-      "links": {
-        "orcid": "0009-0001-1883-5482"
-      },
-      "photo": null
-    },
-    {
       "slug": "maya-alexandra-carleton",
       "name": "Maya Alexandra Carleton",
       "sortName": "Carleton Maya Alexandra",
@@ -144,6 +127,23 @@
         "scholar": "https://scholar.google.com/citations?user=nwYP98cAAAAJ&hl=en&oi=ao"
       },
       "photo": "/images/trainees/maya-alexandra-carleton-0d5ce2c176.jpg"
+    },
+    {
+      "slug": "nilou-ghazavi",
+      "name": "Nilou Ghazavi",
+      "sortName": "Ghazavi Nilou",
+      "pronouns": "she/her",
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "field",
+      "description": "Nilou is interested in understanding how different retinal ganglion cell (RGC) types contribute to downstream visual processing and perception. Her research focuses on developing a computational framework to design visual stimuli that can selectively manipulate the activity of specific RGC types.",
+      "startDate": "2023-09-01",
+      "endDate": "2028-09-01",
+      "email": "niloughazavi@ucla.edu",
+      "links": {
+        "orcid": "0009-0001-1883-5482"
+      },
+      "photo": "/images/trainees/nilou-ghazavi-1accf3ec3e.jpg"
     }
   ]
 }
