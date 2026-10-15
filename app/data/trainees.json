@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T22:35:37.289Z",
+  "generatedAt": "2026-10-15T00:49:03.060Z",
   "trainees": [
     {
       "slug": "maya-alexandra-carleton",
@@ -89,6 +89,44 @@
         "linkedin": "https://www.linkedin.com/in/christopherjamesmeredith/"
       },
       "photo": "/images/trainees/christopher-meredith-dfb2bbc8ec.jpg"
+    },
+    {
+      "slug": "annabelle-tran",
+      "name": "Annabelle Tran",
+      "sortName": "Tran Annabelle",
+      "pronouns": "she/her",
+      "role": "sra",
+      "title": "Staff Research Associate I",
+      "lab": "sampath",
+      "description": "Annabelle investigates how metabolism shapes rod photoreceptor computation and how retinal circuits remodel during degeneration, using ex-vivo electroretinography and targeted pharmacology.",
+      "startDate": "2023-10-05",
+      "endDate": "2027-10-01",
+      "email": "annabelletran@g.ucla.edu",
+      "links": {
+        "orcid": "0009-0008-9978-0356",
+        "linkedin": "https://www.linkedin.com/in/annabelle-tran-98644b23a"
+      },
+      "photo": "/images/trainees/annabelle-tran-56adde8abf.jpg"
+    },
+    {
+      "slug": "huakun-li",
+      "name": "Huakun Li",
+      "sortName": "Li Huakun",
+      "pronouns": "he/him",
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "field",
+      "description": "Huakun Li is a postdoctoral scholar in the Field Lab. He is passionate about developing state-of-the-art functional interrogation platforms to advance retinal physiology research.",
+      "startDate": "2026-08-01",
+      "endDate": "2031-07-31",
+      "email": null,
+      "links": {
+        "website": "https://huakun-li.github.io/",
+        "orcid": "0009-0003-9977-4590",
+        "scholar": "https://scholar.google.com/citations?user=ppJCeSQAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/huakun-li-366a7023b"
+      },
+      "photo": "/images/trainees/huakun-li-2c5386e4cc.jpg"
     }
   ]
 }
