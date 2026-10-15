@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -185,19 +185,13 @@ export default async function AuPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
-      <div className="w-full h-64 md:h-96 relative overflow-hidden">
-        <img
-          src="/images/laboratory-banners/sampath.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 50%' }}
-        />
-        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2 text-white">Adrian Au Laboratory</h1>
-          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2 text-white">Ophthalmic Imaging, AI, and Retinal Genomics</h2>
-          <p className="text-lg md:text-4xl text-center">Integrating AI, imaging, and genomics for curing retinal disease</p>
-        </div>
-      </div>
+      <LabBanner
+        image="/images/laboratory-banners/sampath.jpg"
+        position="center 50%"
+        title="Adrian Au Laboratory"
+        subtitle="Ophthalmic Imaging, AI, and Retinal Genomics"
+        description="Integrating AI, imaging, and genomics for curing retinal disease"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <LabProfile

@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -82,19 +82,13 @@ export default function FieldPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
-      <div className="w-full h-64 md:h-96 relative overflow-hidden">
-        <img
-          src="/images/laboratory-banners/field.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 60%' }}
-        />
-        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-8xl font-bold text-center mb-2 text-white">Victoria Tseng Laboratory</h1>
-          <h2 className="text-xl md:text-5xl font-semibold text-center mb-2 text-white">Epidemiology and Public Health in Ophthalmology</h2>
-          <p className="text-lg md:text-4xl text-center">Risk factors and outcomes for eye diseases from a population-based perspective</p>
-        </div>
-      </div>
+      <LabBanner
+        image="/images/laboratory-banners/field.jpg"
+        position="center 60%"
+        title="Victoria Tseng Laboratory"
+        subtitle="Epidemiology and Public Health in Ophthalmology"
+        description="Risk factors and outcomes for eye diseases from a population-based perspective"
+      />
      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <LabProfile

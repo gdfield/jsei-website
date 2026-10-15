@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -135,10 +135,11 @@ export default async function FainPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
-     <Hero 
+     <LabBanner
+       image="/images/laboratory-banners/radu.jpg"
+       position="center 10%"
        title="Gordon Fain Laboratory"
        subtitle="Photoreceptor Physiology"
-       description=""
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

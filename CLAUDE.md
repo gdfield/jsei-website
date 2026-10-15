@@ -126,7 +126,7 @@ Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves row
 
 1. `<Navbar />`
 2. `<main id="main-content">` (required on every page for the skip link and landmarks)
-3. `<Hero ... />` or, on lab pages, a banner image with a navy scrim
+3. `<Hero ... />`, or on lab pages `<LabBanner image position title subtitle description />` (`app/components/LabBanner.js`): a compact research image under a navy scrim. Labs without their own banner use one of the four high-resolution images in `public/images/laboratory-banners/` (field, radu, williams, yang); to give a lab its own, add an image there and point `image` at it.
 4. Content in `mx-auto max-w-content px-4 sm:px-6 lg:px-8` (some older pages use `max-w-7xl`)
 5. `<Footer />`
 

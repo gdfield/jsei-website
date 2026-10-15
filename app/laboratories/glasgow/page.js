@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -79,7 +79,9 @@ export default function GlasgowPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
-      <Hero 
+      <LabBanner
+        image="/images/laboratory-banners/field.jpg"
+        position="center 60%"
         title="Ben Glasgow Laboratory"
         subtitle="Ophthalmic Pathology and Tear Film Biochemistry"
         description="Investigating the molecular mechanisms underlying tear film stability and ocular surface health"

@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -45,7 +45,9 @@ export default function BokPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
-      <Hero
+      <LabBanner
+        image="/images/laboratory-banners/field.jpg"
+        position="center 60%"
         title="Dean Bok Laboratory"
         subtitle="Retinal Pigment Epithelium Biology"
         description="Investigating the structure and function of the RPE and its role in retinal health and disease"

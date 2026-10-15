@@ -1,7 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
-import Hero from '@/app/components/Hero';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -136,7 +136,9 @@ export default async function ZylberbergPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
      <Navbar />
       <main id="main-content">
-      <Hero 
+      <LabBanner
+        image="/images/laboratory-banners/radu.jpg"
+        position="center 10%"
         title="Joel Zylberberg Laboratory"
         subtitle="Computational Neuroscience and Machine Learning"
         description="Advancing our understanding of brain function and vision with machine learning and computational models"

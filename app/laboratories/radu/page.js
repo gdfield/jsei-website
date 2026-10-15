@@ -1,6 +1,7 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
+import LabBanner from '@/app/components/LabBanner';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -134,19 +135,13 @@ export default async function RaduPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <Navbar />
       <main id="main-content">
-      <div className="w-full h-64 md:h-96 relative overflow-hidden">
-        <img
-          src="/images/laboratory-banners/radu.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 10%' }}
-        />
-        <div className="absolute inset-0 bg-ink/60 flex flex-col justify-center items-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-2 text-white">Roxana A. Radu Laboratory</h1>
-          <h2 className="text-xl md:text-4xl font-semibold text-center mb-2 text-white">Retina Biochemistry and Disease Modeling</h2>
-          <p className="text-lg md:text-xl text-center">Understanding and treatment of retinal diseases through research on retinoid metabolism and pigment epithelium biology</p>
-        </div>
-      </div>
+      <LabBanner
+        image="/images/laboratory-banners/radu.jpg"
+        position="center 10%"
+        title="Roxana A. Radu Laboratory"
+        subtitle="Retina Biochemistry and Disease Modeling"
+        description="Understanding and treatment of retinal diseases through research on retinoid metabolism and pigment epithelium biology"
+      />
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
