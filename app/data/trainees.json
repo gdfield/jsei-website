@@ -1,23 +1,6 @@
 {
-  "generatedAt": "2026-10-15T00:49:03.060Z",
+  "generatedAt": "2026-10-15T01:01:46.888Z",
   "trainees": [
-    {
-      "slug": "maya-alexandra-carleton",
-      "name": "Maya Alexandra Carleton",
-      "sortName": "Carleton Maya Alexandra",
-      "pronouns": null,
-      "role": "postdoc",
-      "title": "Postdoctoral Fellow",
-      "lab": "field",
-      "description": "Maya is a postdoctoral researcher in the Field lab. Her current research interests focus on understanding how the retina allocates energy for encoding visual signals and how it may be perturbed in disease.",
-      "startDate": "2026-06-15",
-      "endDate": "2029-06-14",
-      "email": "mcarleton@g.ucla.edu",
-      "links": {
-        "scholar": "https://scholar.google.com/citations?user=nwYP98cAAAAJ&hl=en&oi=ao"
-      },
-      "photo": "/images/trainees/maya-alexandra-carleton-0d5ce2c176.jpg"
-    },
     {
       "slug": "alejandro-gallego-ortega",
       "name": "Alejandro Gallego-Ortega",
@@ -127,6 +110,40 @@
         "linkedin": "https://www.linkedin.com/in/huakun-li-366a7023b"
       },
       "photo": "/images/trainees/huakun-li-2c5386e4cc.jpg"
+    },
+    {
+      "slug": "nilou-ghazavi",
+      "name": "Nilou Ghazavi",
+      "sortName": "Ghazavi Nilou",
+      "pronouns": "she/her",
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "field",
+      "description": "Nilou is interested in understanding how different retinal ganglion cell (RGC) types contribute to downstream visual processing and perception. Her research focuses on developing a computational framework to design visual stimuli that can selectively manipulate the activity of specific RGC types.",
+      "startDate": "2023-09-01",
+      "endDate": "2028-09-01",
+      "email": "niloughazavi@ucla.edu",
+      "links": {
+        "orcid": "0009-0001-1883-5482"
+      },
+      "photo": null
+    },
+    {
+      "slug": "maya-alexandra-carleton",
+      "name": "Maya Alexandra Carleton",
+      "sortName": "Carleton Maya Alexandra",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Fellow",
+      "lab": "field",
+      "description": "Maya is a postdoctoral researcher in the Field lab. Her current research interests focus on understanding how the retina allocates energy for encoding visual signals and how it may be perturbed in disease.",
+      "startDate": "2026-06-15",
+      "endDate": "2029-06-14",
+      "email": "mcarleton@g.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?user=nwYP98cAAAAJ&hl=en&oi=ao"
+      },
+      "photo": "/images/trainees/maya-alexandra-carleton-0d5ce2c176.jpg"
     }
   ]
 }
