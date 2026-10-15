@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -51,23 +52,19 @@ export default function BokPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img
-              src="/images/faculty/bok.webp"
-              alt="Dr. Dean Bok"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Dean Bok, Ph.D.</h2>
-              <p className="text-muted">Professor Emeritus</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <p className="text-muted">University of California, Los Angeles</p>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/bok.webp"
+          alt="Dr. Dean Bok"
+          name="Dean Bok, Ph.D."
+          titles={[
+            "Professor Emeritus",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+            "University of California, Los Angeles",
+          ]}
+          links={[
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Bok's research focused on the structure and function of the retinal pigment
               epithelium (RPE) and its critical role in supporting photoreceptor cells. The RPE
@@ -88,8 +85,7 @@ export default function BokPage() {
               pathogenesis of retinal degenerative diseases, establishing a framework for
               cell-based and pharmacological therapies targeting the RPE.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="bok" />
 

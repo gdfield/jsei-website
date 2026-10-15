@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -84,33 +85,19 @@ export default function BrechaPage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/brecha.jpg"
-             alt="Dr. Nicholas Brecha"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-ink">Nicholas C. Brecha, Ph.D.</h2>
-             <p className="text-muted">Professor</p>
-             <p className="text-muted">Departments of Neurobiology, Medicine and Ophthalmology</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             <a 
-                  href="https://profiles.ucla.edu/nicholas.brecha" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-           </div>
-         </div>
-         
-
-
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/brecha.jpg"
+         alt="Dr. Nicholas Brecha"
+         name="Nicholas C. Brecha, Ph.D."
+         titles={[
+           "Professor",
+           "Departments of Neurobiology, Medicine and Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "profile", href: "https://profiles.ucla.edu/nicholas.brecha", label: "Faculty profile" },
+         ]}
+       >
            <p className="text-ink-soft">
              The Brecha laboratory studies the organization and function of neural circuits in the retina. Our research focuses on understanding neurotransmitter systems and their role in retinal signal processing, with particular emphasis on inhibitory circuits and neuromodulation.
            </p>
@@ -139,8 +126,7 @@ export default function BrechaPage() {
            <p className="text-ink-soft">
              Our work combines neuroanatomical, neurochemical, and functional approaches to understand how retinal circuits process visual information. These studies provide fundamental insights into retinal organization and function in health and disease.
            </p>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="brecha" />
 

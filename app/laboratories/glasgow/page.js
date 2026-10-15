@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -86,43 +87,21 @@ export default function GlasgowPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/empty.jpg"
-              alt="Dr. Ben Glasgow"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Ben J. Glasgow, M.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted"> The Wasserman Professor of Ophthalmology </p>
-              <p className="text-muted">Departments of Pathology and Laboratory Medicine and Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:bglasgow@mednet.ucla.edu"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-              bglasgow@mednet.ucla.edu
-              </a>
-                <a 
-                  href="https://profiles.ucla.edu/ben.glasgow" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                            </div>
-                            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/empty.jpg"
+          alt="Dr. Ben Glasgow"
+          name="Ben J. Glasgow, M.D."
+          titles={[
+            "Professor",
+            "The Wasserman Professor of Ophthalmology",
+            "Departments of Pathology and Laboratory Medicine and Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:bglasgow@mednet.ucla.edu", label: "bglasgow@mednet.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/ben.glasgow", label: "Faculty profile" },
+          ]}
+        >
             <p className="text-ink-soft">
               The Glasgow laboratory focuses on understanding the molecular mechanisms that regulate tear film
               stability and their implications for ocular surface disorders. His research explores the structure
@@ -145,8 +124,7 @@ export default function GlasgowPage() {
               our understanding of the tear film's role in maintaining a healthy ocular surface. His findings
               have significant implications for developing therapies for dry eye syndrome and other related conditions.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="glasgow" />
 

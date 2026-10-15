@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -149,67 +150,26 @@ export default async function FieldPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img
-              src="/images/faculty/field.jpg"
-              alt="Dr. Greg D. Field"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Greg D. Field, Ph.D.</h2>
-              <p className="text-muted">Associate Professor</p>
-              <p className="text-muted">Fran and Ray Stark Chair of Ophthalmology</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Assistant Director of Research</p>
-              <p className="text-muted">Director, Live Imaging and Functional Evaluation Core</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-                <a
-                  href="mailto:gregfield@ucla.edu"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  gregfield@ucla.edu
-                </a>
-                <a
-                  href="http://www.retinalcircuits.com"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/gregory.field.1/bibliography/public/"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-                <a
-                  href="https://profiles.ucla.edu/greg.field"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FIELD_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/field.jpg"
+          alt="Dr. Greg D. Field"
+          name="Greg D. Field, Ph.D."
+          titles={[
+            "Associate Professor",
+            "Fran and Ray Stark Chair of Ophthalmology",
+            "Department of Ophthalmology",
+            "Assistant Director of Research",
+            "Director, Live Imaging and Functional Evaluation Core",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:gregfield@ucla.edu", label: "gregfield@ucla.edu" },
+            { kind: "lab", href: "http://www.retinalcircuits.com", label: "Laboratory website" },
+            { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/gregory.field.1/bibliography/public/", label: "Publications" },
+            { kind: "profile", href: "https://profiles.ucla.edu/greg.field", label: "Faculty profile" },
+            { kind: "orcid", href: `https://orcid.org/${FIELD_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               The Field laboratory investigates how neural circuits in the retina process visual information and adapt to different environmental conditions. Our research combines electrophysiology, imaging, and computational approaches to understand the fundamental principles of retinal computation.
             </p>
@@ -228,8 +188,7 @@ export default async function FieldPage() {
             <p className="text-ink-soft">
               Our research aims to understand how the retina performs complex computations and adapts to changing environmental conditions. This work provides insights into both fundamental principles of neural computation and potential therapeutic strategies for vision restoration.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="field" />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -199,48 +200,21 @@ export default async function AuPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/au2.jpg"
-              alt="Dr. Adrian Au"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Adrian Au, M.D., Ph.D.</h2>
-              <p className="text-muted">Assistant Professor</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-                <a 
-                  href="mailto:adrianau@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  AAu@mednet.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/adrian.au" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/au2.jpg"
+          alt="Dr. Adrian Au"
+          name="Adrian Au, M.D., Ph.D."
+          titles={[
+            "Assistant Professor",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:adrianau@jsei.ucla.edu", label: "AAu@mednet.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/adrian.au", label: "Faculty profile" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Adrian Au applies machine learning algorithms to ocular imaging modalities, including fundus photography and optical coherence tomography (OCT), to extract and quantify retinal biomarkers associated with disease phenotypes. His research emphasizes the integration of these imaging-derived features with genomic datasets to elucidate the molecular and genetic underpinnings of retinal pathology.
             </p>
@@ -269,8 +243,7 @@ export default async function AuPage() {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="au" />
 

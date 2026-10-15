@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -85,59 +86,23 @@ export default function HubbellPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/hubbell.jpg"
-              alt="Dr. Wayne Hubbell"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Wayne L. Hubbell, Ph.D.</h2>
-              <p className="text-muted">Professor Emeritus</p>
-              <p className="text-muted">Jules Stein Chair in Ophthalmology</p>
-              <p className="text-muted">Department of Ophthalmology and Chemistry and Biochemistry</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:hubbellw@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  hubbellw@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://www.biochemistry.ucla.edu/Faculty/Hubbell/members.html" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a 
-                  href="https://en.wikipedia.org/wiki/Wayne_L._Hubbell" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Wikipedia
-                </a>
-                <a 
-                  href="https://bri.ucla.edu/people/wayne-hubbell/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-            </div>
-          </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/hubbell.jpg"
+          alt="Dr. Wayne Hubbell"
+          name="Wayne L. Hubbell, Ph.D."
+          titles={[
+            "Professor Emeritus",
+            "Jules Stein Chair in Ophthalmology",
+            "Department of Ophthalmology and Chemistry and Biochemistry",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:hubbellw@jsei.ucla.edu", label: "hubbellw@jsei.ucla.edu" },
+            { kind: "lab", href: "https://www.biochemistry.ucla.edu/Faculty/Hubbell/members.html", label: "Laboratory website" },
+            { kind: "web", href: "https://en.wikipedia.org/wiki/Wayne_L._Hubbell", label: "Wikipedia" },
+            { kind: "profile", href: "https://bri.ucla.edu/people/wayne-hubbell/", label: "Faculty profile" },
+          ]}
+        >
             <p className="text-ink-soft">
               The Hubbell laboratory investigates the relationship between protein structure, dynamics,
               and function. A key focus is on membrane proteins that act as molecular switches,
@@ -163,8 +128,7 @@ export default function HubbellPage() {
               of protein dynamics but also contributed to advancements in understanding visual
               system disorders and developing novel biophysical methodologies.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="hubbell" />
 

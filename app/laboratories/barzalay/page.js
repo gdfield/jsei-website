@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -93,48 +94,21 @@ export default function BarzalayPage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/barzalay.jpg"
-             alt="Dr. Aya Barzelay-Wollman"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-ink">Aya Barzelay-Wollman, M.D., Ph.D.</h2>
-             <p className="text-muted">Assistant Professor</p>
-             <p className="text-muted">Department of Ophthalmology</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             <a 
-                  href="mailto:ayaba@g.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ayaba@g.ucla.edu
-                </a>
-                <br />
-                             <a 
-                  href="https://www.uclahealth.org/providers/aya-barzelay-wollman" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <br />
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/advanced-robotic-micro-surgery-arms-laboratory" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Website
-                </a>
-           </div>
-         </div>
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/barzalay.jpg"
+         alt="Dr. Aya Barzelay-Wollman"
+         name="Aya Barzelay-Wollman, M.D., Ph.D."
+         titles={[
+           "Assistant Professor",
+           "Department of Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "email", href: "mailto:ayaba@g.ucla.edu", label: "ayaba@g.ucla.edu" },
+           { kind: "profile", href: "https://www.uclahealth.org/providers/aya-barzelay-wollman", label: "Faculty profile" },
+           { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/advanced-robotic-micro-surgery-arms-laboratory", label: "Website" },
+         ]}
+       >
            <p className="text-ink-soft">
            Dr. Aya Barzelay-Wollman leads a translational research program focused on advancing robotic-assisted microsurgery for retinal disease. Her lab develops AI-guided robotic systems capable of performing delicate intraocular surgeries with sub-millimeter precision—enabling tasks such as retinal vein cannulation, targeted subretinal delivery of gene and drug therapies, and automated intravitreal injections that exceed human manual capabilities.
                       </p>
@@ -185,9 +159,7 @@ export default function BarzalayPage() {
       className="w-full rounded-lg shadow-md"
     />
   </div>
-
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="barzalay" />
 

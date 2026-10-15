@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -142,57 +143,23 @@ export default async function AldavePage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/aldave.jpg"
-             alt="Dr. Anthony Aldave"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-ink">Anthony J. Aldave, M.D.</h2>
-             <p className="text-muted">Professor and Vice Chair</p>
-             <p className="text-muted">Bartly J. Mondino M.D., Chair in Ophthalmology </p>
-             <p className="text-muted">Department of Ophthalmology</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             <a 
-                  href="mailto:aldave@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  aldave@jsei.ucla.edu
-                </a>
-                <br />
-                <a 
-                  href="https://profiles.ucla.edu/anthony.aldave" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <br />
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-genetics-laboratory" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-           </div>
-         </div>
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/aldave.jpg"
+         alt="Dr. Anthony Aldave"
+         name="Anthony J. Aldave, M.D."
+         titles={[
+           "Professor and Vice Chair",
+           "Bartly J. Mondino M.D., Chair in Ophthalmology",
+           "Department of Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "email", href: "mailto:aldave@jsei.ucla.edu", label: "aldave@jsei.ucla.edu" },
+           { kind: "profile", href: "https://profiles.ucla.edu/anthony.aldave", label: "Faculty profile" },
+           { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-genetics-laboratory", label: "Laboratory website" },
+           { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+         ]}
+       >
            <div className="space-y-3">
              <h2 className="text-xl font-bold text-ink">Research Areas</h2>
              <p className="text-ink-soft">
@@ -214,8 +181,7 @@ export default async function AldavePage() {
                The Laboratory is also involved in the characterization and optimization of ex vivo expansion of corneal endothelial cells, with the goal of transplanting the cells from one individual to multiple recipients. As it is estimated that worldwide only one donor cornea is available for every 70 that are needed, the use of expanded corneal endothelial cells to restore sight to individuals with corneal endothelial dysfunction, most commonly due to corneal endothelial dystrophies, will transform the current paradigm of one donor cornea restoring sight to only one recipient.
              </p>
            </div>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="aldave" />
 

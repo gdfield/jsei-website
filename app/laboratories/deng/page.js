@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -142,60 +143,25 @@ export default async function DengPage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/deng.jpg"
-             alt="Dr. Sophie Deng"
-             className="w-full rounded-lg shadow-lg"
-           />
-<div className="mt-4 space-y-2">
-  <h2 className="text-xl font-bold text-ink">Sophie X. Deng, M.D., Ph.D.</h2>
-  <p className="text-muted">Professor</p>
-  <p className="text-muted">Walton Li Chair in Cornea and Uveitis</p>
-  <p className="text-muted">Co-Chief, Cornea Division</p>
-  <p className="text-muted">Vice Chair for Inspiring Excellence</p>
-  <p className="text-muted">Department of Ophthalmology</p>
-  <p className="text-muted">Jules Stein Eye Institute</p>
-  <div className="flex flex-col space-y-2">
-  <a 
-                  href="https://profiles.ucla.edu/sophie.deng" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-biology" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a 
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/sophie.deng.1/bibliography/public/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-</div>
-</div>
-</div>  
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/deng.jpg"
+         alt="Dr. Sophie Deng"
+         name="Sophie X. Deng, M.D., Ph.D."
+         titles={[
+           "Professor",
+           "Walton Li Chair in Cornea and Uveitis",
+           "Co-Chief, Cornea Division",
+           "Vice Chair for Inspiring Excellence",
+           "Department of Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "profile", href: "https://profiles.ucla.edu/sophie.deng", label: "Faculty profile" },
+           { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/cornea-biology", label: "Laboratory website" },
+           { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/sophie.deng.1/bibliography/public/", label: "Publications" },
+           { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+         ]}
+       >
            <p className="text-ink-soft">
            The Cornea Biology Laboratory, under Dr. Deng's direction, studies the limbal epithelial stem cells (LSCs) and their microenvironment to elucidate the mechanisms by which these cells and the niche factors aid in the regeneration of the corneal surface in patients suffering from limbal stem cell deficiency (LSCD). The role of signaling pathways such as Wnt and Notch in the regulation of LSCs and modulation of these signaling pathways in vitro and in vivo through small molecules is under investigation. 
                       </p>
@@ -208,8 +174,7 @@ export default async function DengPage() {
            <p className="text-ink-soft">
            Another research project focused on the stromal cell layer of the cornea aims to treat corneal stromal scars with extracellular vesicles (EVs) derived from corneal stromal stem cells (CSSCs), which are multipotent mesenchymal stem cells that regenerate normal corneal stroma and significantly reduce corneal scarring by mediating anti-inflammatory and anti-fibrosis processes. The specific content (cargo) of the EVs and mechanism of action is also under investigation. Pre-clinical research is ongoing to develop an EV-based therapy that could be directly applied to the eye to reduce corneal stromal scarring and improve vision.
                       </p>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="deng" />
 

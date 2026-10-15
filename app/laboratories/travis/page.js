@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,60 +144,23 @@ export default async function TravisPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/travis.jpg"
-              alt="Dr. Gabriel Travis"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Gabriel H. Travis, M.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted">Charles Kenneth Feldman Chair in Ophthalmology</p>
-              <p className="text-muted">Department of Ophthalmology and Biological Chemistry</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:travis@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  travis@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/gabriel.travis" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/photoreceptor-biochemistry" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-
-                </div>
-                </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/travis.jpg"
+          alt="Dr. Gabriel Travis"
+          name="Gabriel H. Travis, M.D."
+          titles={[
+            "Professor",
+            "Charles Kenneth Feldman Chair in Ophthalmology",
+            "Department of Ophthalmology and Biological Chemistry",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:travis@jsei.ucla.edu", label: "travis@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/gabriel.travis", label: "Faculty profile" },
+            { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/photoreceptor-biochemistry", label: "Laboratory website" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Travis has been working in the field of vision science since 1989, when he identified the gene affected in the spontaneous <em>retinal degeneration slow</em> (<em>rds</em>) mutant mouse as a postdoctoral fellow. This was one of the first genes causing neural degeneration to be identified. Since then, Dr. Travis has been working on several retinal proteins required for visual function in vertebrates. His approach has been to determine what each protein 'does for a living' normally, and to understand how loss of the protein causes pathology in genetically modified mice or zebrafish, and in patients with mutations in its gene. Methodologies commonly used by his group include molecular biology, biochemistry, analysis of visual retinoids, immunocytochemistry of retina sections, and photoreceptor physiology, in collaboration with Sampath at Jules Stein Eye Institute. The project described below represents one of several currently ongoing in Dr. Travis laboratory.
             </p>
@@ -221,9 +185,7 @@ export default async function TravisPage() {
                 </p>
               </div>
             </div>
-
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="travis" />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -86,23 +87,17 @@ export default function PiriPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/piri.jpg"
-              alt="Dr. Natik Piri"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Natik Piri, Ph.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-sea-600">Stein Eye Institute</p>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/piri.jpg"
+          alt="Dr. Natik Piri"
+          name="Natik Piri, Ph.D."
+          titles={[
+            "Professor",
+            "Stein Eye Institute",
+          ]}
+          links={[
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Natik Piri's research focuses on understanding the molecular mechanisms leading to retinal ganglion cell (RGC) death in glaucoma. His lab is dedicated to identifying the genetic and biochemical pathways underlying RGC apoptosis and exploring novel genes expressed preferentially in RGCs. By employing advanced techniques such as DNA microarrays, proteomics, and molecular biology methods, Dr. Piri aims to uncover therapeutic targets for neuroprotection.
             </p>
@@ -122,8 +117,7 @@ export default function PiriPage() {
               Dr. Piri's work has significant implications for understanding the pathophysiology of glaucoma
               and developing neuroprotective strategies to prevent or delay vision loss.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="piri" />
 

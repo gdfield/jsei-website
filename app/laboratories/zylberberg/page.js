@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -142,58 +143,22 @@ export default async function ZylberbergPage() {
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/zylberberg.jpg"
-              alt="Dr. Joel Zylberberg"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Joel Zylberberg, Ph.D.</h2>
-              <p className="text-muted">Associate Professor</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <a 
-                  href="mailto:joelzy@ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  joelzy@ucla.edu
-                </a>
-                <br />
-                <a 
-                href="https://profiles.ucla.edu/joel.zylberberg" 
-                className="text-sea hover:text-gold-deep inline-block"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Faculty Profile
-              </a>
-              <br />
-              <a 
-                href="http://www.jzlab.org" 
-                className="text-sea hover:text-gold-deep inline-block"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Laboratory Website
-              </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/zylberberg.jpg"
+          alt="Dr. Joel Zylberberg"
+          name="Joel Zylberberg, Ph.D."
+          titles={[
+            "Associate Professor",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:joelzy@ucla.edu", label: "joelzy@ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/joel.zylberberg", label: "Faculty profile" },
+            { kind: "lab", href: "http://www.jzlab.org", label: "Laboratory website" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Joel Zylberberg is a computational neuroscientist whose work bridges neuroscience and machine learning.
               His research focuses on understanding how the brain processes information about the world and how those representations
@@ -225,9 +190,7 @@ export default async function ZylberbergPage() {
       className="w-full rounded-lg shadow-md"
     />
           </div>
-  </div>
-
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="zylberberg" />
 

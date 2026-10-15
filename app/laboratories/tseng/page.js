@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -96,41 +97,21 @@ export default function FieldPage() {
       </div>
      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/tseng.jpg"
-              alt="Dr. Victoria Tseng"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Victoria Tseng M.D., Ph.D.</h2>
-              <p className="text-muted">Assistant Professor</p>
-              <p className="text-muted">Joan and Jerome Snyder Chair in Ophthalmology</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:vtseng@mednet.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  vtseng@mednet.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/victoria.tseng" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/tseng.jpg"
+          alt="Dr. Victoria Tseng"
+          name="Victoria Tseng M.D., Ph.D."
+          titles={[
+            "Assistant Professor",
+            "Joan and Jerome Snyder Chair in Ophthalmology",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:vtseng@mednet.ucla.edu", label: "vtseng@mednet.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/victoria.tseng", label: "Faculty profile" },
+          ]}
+        >
             <p className="text-ink-soft">
             Dr. Tseng is an Assistant Professor in Residence in the UCLA Department of Ophthalmology. 
             Her goal is to become an independent clinician-scientist focused on improving the quality 
@@ -154,9 +135,7 @@ export default function FieldPage() {
                      Tseng aims to continue performing large-scale data-driven studies individual and structural level 
                      factors as they relate to the quality of care for glaucoma and other chronic eye diseases. 
             </p>
-            
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="tseng" />
 

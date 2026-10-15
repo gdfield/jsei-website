@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -150,52 +151,23 @@ export default async function SampathPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/sampath.jpg"
-              alt="Dr. Alapakkam Sampath"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Alapakkam Sampath, Ph.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted">Grace and Walter Lantz Endowed Chair in Ophthalmology</p>
-              <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
-              <p className="text-muted">Associate Director of Research</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:asampath@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  asampath@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/alapakkam.sampath" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-                </div>
-                            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/sampath.jpg"
+          alt="Dr. Alapakkam Sampath"
+          name="Alapakkam Sampath, Ph.D."
+          titles={[
+            "Professor",
+            "Grace and Walter Lantz Endowed Chair in Ophthalmology",
+            "Departments of Ophthalmology and Neurobiology",
+            "Associate Director of Research",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:asampath@jsei.ucla.edu", label: "asampath@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/alapakkam.sampath", label: "Faculty profile" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               The goal of the Sampath laboratory is the elucidation of fundamental mechanisms of visual processing. 
               We have focused on generating a deeper understanding of development and signaling between photoreceptor 
@@ -241,8 +213,7 @@ export default async function SampathPage() {
               photoreceptors, bipolar cells, and ganglion cells, which let us determine how the functional 
               properties of responses are constructed by the retinal circuitry.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="sampath" />
 

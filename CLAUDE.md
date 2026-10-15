@@ -4,6 +4,10 @@ This file provides guidance to Claude (claude.ai/code and Cowork) when working w
 
 The canonical template for faculty lab pages is `app/laboratories/field/page.js`. Match its structure for bio, ORCID-driven publications, and layout when creating new lab pages.
 
+## Working on this site (Claude)
+
+Before changing code or design, load the relevant skills: `vercel-react-best-practices` for Next.js/React code; `frontend-design`, `make-interfaces-feel-better`, `emil-design-engineering`, and `web-design-guidelines` for visual and UI work; `design:accessibility-review` (WCAG 2.1 AA) for anything user-facing; `web-animation-design` for motion. Say which skills were used when reporting back.
+
 ## Deployment
 
 - Hosted on Vercel, deployed from the `main` branch via GitHub integration.
@@ -81,6 +85,8 @@ Root layout (`app/layout.tsx`): fonts (Spectral display, Inter body, IBM Plex Mo
 
 Each `app/laboratories/<slug>/page.js` is self-contained: bio, links, research text, and publications live in the file and do not import from `faculty.js`. Lab pages are server components (not `'use client'`) and export `metadata` plus a Person JSON-LD block.
 
+The top section of every lab page is `<LabProfile photo alt name titles links>` (`app/components/LabProfile.js`) wrapping the research description. Desktop: photo, name, and titles on the left; research text on the right with the links in a row beneath it. Phone: photo, name, titles, links in a two-column grid, then the research text. `links` items are `{ kind, href, label }`, where `kind` (email, lab, pubs, profile, orcid, web) picks the icon. Use sentence-case labels ("Laboratory website", "Faculty profile", "ORCID").
+
 - **ORCID-driven (21 pages):** define `FACULTY_ORCID`, include a local `fetchRecentPublications(orcid, limit)` (ORCID works, preprints filtered out, CrossRef fallback for missing journal/authors), render "Recent Publications", and link to the ORCID profile. Au's page falls back to a hardcoded list if ORCID returns nothing.
 - **Hardcoded publications:** barzalay, bhat, bok, brecha, farber, glasgow, gorin, hubbell, huk, nusinowitz, piri, tseng.
 - Slugs do not always match surnames: Jie J. Zheng is `/laboratories/zhang`, Aya Barzelay-Wollman is `/laboratories/barzalay`.
@@ -126,7 +132,7 @@ Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves row
 
 ### Adding a new lab page
 
-1. Create `app/laboratories/<slug>/page.js` from `app/laboratories/field/page.js` (set `FACULTY_ORCID`, metadata, Person JSON-LD, bio, links).
+1. Create `app/laboratories/<slug>/page.js` from `app/laboratories/field/page.js` (set `FACULTY_ORCID`, metadata, Person JSON-LD, and the `LabProfile` photo, name, titles, links, and research text).
 2. Add an entry to `facultyData` in `app/data/faculty.js` with `pageUrl`, `researchAreas` (exact tags above), group flags, `orcid`, and `nihName`. Add `<LabTrainees lab="<slug>" />` and `export const revalidate = 86400` to the page, then update the form's Lab choices (`npm run trainees:lab-choices`, see `docs/TRAINEES.md`).
 3. Put the photo in `public/images/faculty/` (filenames are case-sensitive on Vercel) and give it descriptive `alt` text.
 

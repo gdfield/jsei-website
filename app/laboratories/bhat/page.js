@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -86,57 +87,22 @@ export default function BhatPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/bhat.jpg"
-              alt="Dr. Suraj Bhat"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Suraj Bhat, Ph.D.</h2>
-              <p className="text-muted">Professor Emeritus</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-
-              <div className="flex flex-col space-y-2">
-               <a 
-                  href="mailto:bhat@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  bhat@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/suraj.bhat" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/vision-molecular-biology" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a 
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/1bwRSwe8mklkt/bibliography/public/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/bhat.jpg"
+          alt="Dr. Suraj Bhat"
+          name="Suraj Bhat, Ph.D."
+          titles={[
+            "Professor Emeritus",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:bhat@jsei.ucla.edu", label: "bhat@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/suraj.bhat", label: "Faculty profile" },
+            { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/vision-molecular-biology", label: "Laboratory website" },
+            { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/1bwRSwe8mklkt/bibliography/public/", label: "Publications" },
+          ]}
+        >
             <p className="text-ink-soft">
               The Vision Molecular Biology Laboratory investigates the ocular lens (in the anterior) and the retinal pigment epithelium (RPE) in the posterior eye. Our current focus is on understanding (a) the role of the lens epithelium in maintaining a functional fiber mass of the ocular lens and (b) the role of exosome secretion in sustaining a functional RPE. These two epithelia are at the interface of systemic biology and tissue-specific physiology.
             </p>
@@ -166,8 +132,7 @@ export default function BhatPage() {
                 </li>
               </ol>
             </div>
-          </div>
-        </div>
+        </LabProfile>
         
 
 

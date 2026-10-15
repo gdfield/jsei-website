@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,53 +144,24 @@ export default async function NouriMahdaviPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/kouros2.jpg"
-              alt="Dr. Kouros Nouri-Mahdavi"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Kouros Nouri-Mahdavi, M.D., M.Sc.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted">Kay K. Pick Endowed Chair in Glaucoma Research</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Chief, Glaucoma Division</p>
-              <p className="text-muted">Director, Glaucoma Advaced Imaging and AI Laboratory</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:nouri-mahdavi@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  nouri-mahdavi@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/kouros.nouri-mahdavi" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-            </div>
-          </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/kouros2.jpg"
+          alt="Dr. Kouros Nouri-Mahdavi"
+          name="Kouros Nouri-Mahdavi, M.D., M.Sc."
+          titles={[
+            "Professor",
+            "Kay K. Pick Endowed Chair in Glaucoma Research",
+            "Department of Ophthalmology",
+            "Chief, Glaucoma Division",
+            "Director, Glaucoma Advaced Imaging and AI Laboratory",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:nouri-mahdavi@jsei.ucla.edu", label: "nouri-mahdavi@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/kouros.nouri-mahdavi", label: "Faculty profile" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
             Dr. Nouri-Mahdavi has an active clinical practice managing adult glaucoma patients and complex cataract surgeries. Dr. Nouri-Mahdavi's research focuses on functional and structural measurements for optimizing diagnosis of glaucoma and detection of disease progression, use of machine learning approaches in glaucoma diagnostics, and study of surgical outcomes in glaucoma. He has been the recipient of many awards including the American Academy of Ophthalmology's Secretariat and Achievement Awards, American Glaucoma Society MAPS Grant Award, the American Glaucoma Society Early and Mid-Career Clinician Scientist Awards, the Gerald Oppenheimer Family Foundation Center for Prevention of Eye Disease Award, Senior Alcon Research Award, and NIH K23 and R01 awards. He has been the co-recipient of UCLA Innovation Awards in 2018 and 2019 for translational research projects. His research is currently funded by an NIH R01 award to optimize detection of glaucoma progression in eyes with advanced glaucoma.
                       </p>
@@ -197,8 +169,7 @@ export default async function NouriMahdaviPage() {
             <p className="text-ink-soft">
             Dr. Nouri-Mahdavi is a clinician-scientist who continues to teach and publish extensively. He frequently lectures at national and international meetings. He is currently a member of the American Academy of Ophthalmology's (AAO), Association for Research in Vision and Ophthalmology, and the Chair of the AGS' Annual Meeting Committee. He serves on the Editorial Boards of Journal of Glaucoma, International Glaucoma Review, and Journal of Ophthalmic and Vision Research.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="nouri-mahdavi" />
 

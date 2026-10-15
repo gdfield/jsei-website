@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -142,56 +143,22 @@ export default async function GilhooleyPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img
-              src="/images/faculty/gilhooley.jpg"
-              alt="Dr. Michael Gilhooley"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Michael J Gilhooley MD PhD</h2>
-              <p className="text-muted">Assistant Professor in Residence</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <p className="text-muted">University of California, Los Angeles</p>
-              <div className="flex flex-col space-y-2 pt-2">
-                <a
-                  href="https://profiles.ucla.edu/michael.gilhooley"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href="https://www.uclahealth.org/providers/michael-gilhooley"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Clinic Profile
-                </a>
-                <a
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/michael.gilhooley.1/bibliography/public/"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/gilhooley.jpg"
+          alt="Dr. Michael Gilhooley"
+          name="Michael J Gilhooley MD PhD"
+          titles={[
+            "Assistant Professor in Residence",
+            "Jules Stein Eye Institute",
+            "University of California, Los Angeles",
+          ]}
+          links={[
+            { kind: "profile", href: "https://profiles.ucla.edu/michael.gilhooley", label: "Faculty profile" },
+            { kind: "profile", href: "https://www.uclahealth.org/providers/michael-gilhooley", label: "Clinic profile" },
+            { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/michael.gilhooley.1/bibliography/public/", label: "Publications" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               Research in our lab centers on the intrinsically photosensitive retinal ganglion
               cells of the optic nerve (ipRGCs) and the fascinating protein that renders them
@@ -222,8 +189,7 @@ export default async function GilhooleyPage() {
               basic science investigation to translate findings from ipRGC biology toward
               neuroprotective therapies for patients.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="gilhooley" />
 

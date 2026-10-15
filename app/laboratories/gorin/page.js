@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -85,21 +86,17 @@ export default function GorinPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/gorin.jpg"
-              alt="Dr. Michael Gorin"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Michael B. Gorin, M.D., Ph.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-sea-600">Department of Ophthalmology</p>
-            </div>
-          </div>
-
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/gorin.jpg"
+          alt="Dr. Michael Gorin"
+          name="Michael B. Gorin, M.D., Ph.D."
+          titles={[
+            "Professor",
+            "Department of Ophthalmology",
+          ]}
+          links={[
+          ]}
+        >
             <p className="text-ink-soft">
               The Gorin laboratory focuses on understanding the genetic basis of complex eye diseases, particularly glaucoma and age-related macular degeneration. Our research combines advanced genomic approaches with clinical expertise to identify genetic risk factors and develop personalized treatment strategies.
             </p>
@@ -128,8 +125,7 @@ export default function GorinPage() {
             <p className="text-ink-soft">
               Our work aims to translate genetic discoveries into clinical applications, improving risk assessment and treatment selection for patients with inherited eye diseases. We collaborate extensively with clinical and basic science researchers worldwide.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="gorin" />
 

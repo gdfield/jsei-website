@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -148,59 +149,24 @@ export default async function WilliamsPage() {
       </div>
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/williams.jpg"
-             alt="Dr. David Williams"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-1">
-             <h2 className="text-xl font-bold text-ink">David S. Williams, Ph.D.</h2>
-             <p className="text-muted">Professor</p>
-             <p className="text-muted">Karl Kirchgessner Foundation Chair in Vision Science </p>
-             <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
-             <p className="text-muted">Director, Microscopy and Image Analysis Core</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             
-             <a 
-                  href="mailto:dswilliams@ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  dswilliams@ucla.edu
-                </a>
-                <br />
-             <a 
-                  href="https://profiles.ucla.edu/david.williams" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <br />
-                <a 
-                  href="https://www.uclahealth.org/eye/photoreceptor-rpe-cell-biology" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                   Laboratory Website 
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-           </div>
-         </div>
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/williams.jpg"
+         alt="Dr. David Williams"
+         name="David S. Williams, Ph.D."
+         titles={[
+           "Professor",
+           "Karl Kirchgessner Foundation Chair in Vision Science",
+           "Departments of Ophthalmology and Neurobiology",
+           "Director, Microscopy and Image Analysis Core",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "email", href: "mailto:dswilliams@ucla.edu", label: "dswilliams@ucla.edu" },
+           { kind: "profile", href: "https://profiles.ucla.edu/david.williams", label: "Faculty profile" },
+           { kind: "lab", href: "https://www.uclahealth.org/eye/photoreceptor-rpe-cell-biology", label: "Laboratory website" },
+           { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+         ]}
+       >
            <p className="text-ink-soft">
            The Williams laboratory studies dynamic cellular processes in photoreceptor and RPE cells, with the aim of understanding basic cellular functions within these most highly specialized cells. Emphasis is on using advanced microscopy methods, including high-speed live-cell imaging and 3-D electron microscopy. 
                       </p>
@@ -227,8 +193,7 @@ export default async function WilliamsPage() {
            <p className="text-ink-soft">
            By studying fundamental cellular processes that are essential for photoreceptor and RPE cell function, the lab's research is advancing general cell biological principles. It also provides an understanding of how defects in these processes lead to retinal degeneration.  This knowledge is critical for developing treatments for inherited retinal diseases.  
                     </p>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="williams" />
 

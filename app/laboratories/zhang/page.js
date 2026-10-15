@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,56 +144,22 @@ export default async function ZhangPage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/zhang.jpg"
-             alt="Dr. Jie Zhang"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-ink">Jie J. Zhang, Ph.D.</h2>
-             <p className="text-muted">Professor</p>
-             <p className="text-muted">Department of Ophthalmology</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             <div className="flex flex-col space-y-2">
-             <a 
-                  href="mailto:jzheng@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  jzheng@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/jie.zheng" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/therapeutic-development-ophthalmology" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-             </div>
-         </div>
-         </div>
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/zhang.jpg"
+         alt="Dr. Jie Zhang"
+         name="Jie J. Zhang, Ph.D."
+         titles={[
+           "Professor",
+           "Department of Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "email", href: "mailto:jzheng@jsei.ucla.edu", label: "jzheng@jsei.ucla.edu" },
+           { kind: "profile", href: "https://profiles.ucla.edu/jie.zheng", label: "Faculty profile" },
+           { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/therapeutic-development-ophthalmology", label: "Laboratory website" },
+           { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+         ]}
+       >
            <p className="text-ink-soft">
            Glaucoma and intraocular pressure (IOP).  Trabecular meshwork (TM) cells play a pivotal role in maintaining TM structure and regulating aqueous humor outflow. When TM cell function is compromised, structural disruptions lead to increased IOP, the primary risk factor for both primary open-angle glaucoma and steroid-induced glaucoma. Despite its significance, there remains a critical unmet need for effective, clinically viable therapies that target TM dysfunction. Their research focuses on developing transformative approaches to restore TM integrity, enhance aqueous humor drainage, and achieve sustained IOP reduction.
            </p>
@@ -208,8 +175,7 @@ export default async function ZhangPage() {
            <p className="text-ink-soft">
            Inherited Retinal Dystrophies and Protein Interaction Network Analysis. Most inherited retinal dystrophies (IRDs) are monogenic disorders in which mutations in different causal genes lead to similar clinical manifestations. They hypothesize that the causal genes of a given IRD must be interconnected at the molecular level to drive the shared disease phenotype. To explore this, they developed an algorithm to integrate and analyze these causal genes within a protein interaction network. By dissecting the resulting network, they aim to uncover the underlying molecular mechanisms of IRDs, shedding light on disease pathogenesis and potential therapeutic targets.
            </p>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="zhang" />
 

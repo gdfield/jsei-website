@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -85,23 +86,17 @@ export default function HukPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/huk.jpg"
-              alt="Dr. Alex Huk"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Alexander C. Huk, Ph.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-sea-600">Department of Neuroscience</p>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/huk.jpg"
+          alt="Dr. Alex Huk"
+          name="Alexander C. Huk, Ph.D."
+          titles={[
+            "Professor",
+            "Department of Neuroscience",
+          ]}
+          links={[
+          ]}
+        >
             <p className="text-ink-soft">
               The Huk laboratory investigates the neural dynamics underlying sensory processing,
               decision-making, and motor planning. Dr. Huk's team combines computational modeling,
@@ -125,8 +120,7 @@ export default function HukPage() {
               fundamental principles of brain function. His research has implications for understanding
               sensory processing disorders and developing brain-machine interfaces.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="huk" />
 

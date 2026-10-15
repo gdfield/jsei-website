@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,74 +144,24 @@ export default async function TsuiEdmundPage() {
 
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/tsui-e.jpg"
-              alt="Dr. Edmund Tsui"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Edmund Tsui, M.D., M.S.</h2>
-              <p className="text-muted">Associate Professor</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:etsui@mednet.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  etsui@mednet.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/edmund.tsui" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://x.com/EdmundTsuiMD" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  X (Twitter)
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/edmundtsui/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href="https://pubmed.ncbi.nlm.nih.gov/?term=edmund+tsui&sort=date" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/tsui-e.jpg"
+          alt="Dr. Edmund Tsui"
+          name="Edmund Tsui, M.D., M.S."
+          titles={[
+            "Associate Professor",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:etsui@mednet.ucla.edu", label: "etsui@mednet.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/edmund.tsui", label: "Faculty profile" },
+            { kind: "web", href: "https://x.com/EdmundTsuiMD", label: "X (Twitter)" },
+            { kind: "web", href: "https://www.linkedin.com/in/edmundtsui/", label: "LinkedIn" },
+            { kind: "pubs", href: "https://pubmed.ncbi.nlm.nih.gov/?term=edmund+tsui&sort=date", label: "Publications" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
             The Tsui Research Group is committed to advancing the field of uveitis through innovative imaging analysis, improved diagnostic tools, and clinical trials. By leveraging advanced imaging modalities such as optical coherence tomography, we aim to quantify objectively intraocular inflammation and enhance diagnostic accuracy in uveitis. Our work also includes developing standardized methodologies for assessing inflammation, and conducting clinical trials to evaluate novel therapeutics in the treatment of uveitis and ocular inflammatory disease. 
             </p>
@@ -227,8 +178,7 @@ export default async function TsuiEdmundPage() {
             <p className="text-ink-soft">
             These research areas reflect our group’s mission to advance the understanding, diagnosis, and treatment of uveitis and ocular inflammatory diseases through innovation and collaboration.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="tsui-e" />
 

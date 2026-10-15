@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -150,60 +151,23 @@ export default async function YangPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/yang.png"
-              alt="Dr. Xian-Jie Yang"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Xian-Jie Yang, Ph.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Director, Molecular Biology and Gene Delivery Core</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:yang@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  yang@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/xianjie.yang" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/xian-jie.yang.1/bibliography/public/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                  </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-
-            </div>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/yang.png"
+          alt="Dr. Xian-Jie Yang"
+          name="Xian-Jie Yang, Ph.D."
+          titles={[
+            "Professor",
+            "Department of Ophthalmology",
+            "Director, Molecular Biology and Gene Delivery Core",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:yang@jsei.ucla.edu", label: "yang@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/xianjie.yang", label: "Faculty profile" },
+            { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/xian-jie.yang.1/bibliography/public/", label: "Publications" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <h2 className="text-2xl font-bold text-ink mb-4">Regulatory Mechanisms Involved in Retinal Development and Repair</h2>
             <p className="text-ink-soft">
               Research of the Yang laboratory aims at understanding mechanisms regulating retinal development and maintenance. We study how intrinsic cell signaling events influence progenitor cell proliferation and neuronal fate commitment during retinal neurogenesis, and how exogenously applied growth factors affect neuronal survival under disease conditions. We also use human pluripotent stem cell-derived retinal organoids and neurons to establish disease models for inherited optic neuropathy and to facilitate treatment development.
@@ -234,8 +198,7 @@ export default async function YangPage() {
                 These studies will provide more efficient methodology to produce human retinal neurons and new knowledge regarding human retinal development. Furthermore, stem cell-based human optic neuropathy disease models will be a valuable testing platform to evaluate the efficacy of novel treatment strategy prior to clinical trials.
               </p>
             </div>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="yang" />
 

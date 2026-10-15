@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -141,49 +142,21 @@ export default async function FainPage() {
      />
 
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         <div className="w-full md:w-1/3">
-           <img 
-             src="/images/faculty/fain.jpg"
-             alt="Dr. Gordon Fain"
-             className="w-full rounded-lg shadow-lg"
-           />
-           <div className="mt-4 space-y-2">
-             <h2 className="text-xl font-bold text-ink">Gordon L. Fain, Ph.D.</h2>
-             <p className="text-muted">Professor</p>
-             <p className="text-muted">Department of Ophthalmology</p>
-             <p className="text-muted">Jules Stein Eye Institute</p>
-             <div className="flex flex-col space-y-2">
-             <a 
-                  href="mailto:gfain@ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  gfain@ucla.edu
-                </a>
-
-                <a 
-                  href="https://bioscience.ucla.edu/people/gordon-fain/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-                </div>
-                </div>
-         </div>
-
-         <div className="w-full md:w-2/3 space-y-6">
+       <LabProfile
+         photo="/images/faculty/fain.jpg"
+         alt="Dr. Gordon Fain"
+         name="Gordon L. Fain, Ph.D."
+         titles={[
+           "Professor",
+           "Department of Ophthalmology",
+           "Jules Stein Eye Institute",
+         ]}
+         links={[
+           { kind: "email", href: "mailto:gfain@ucla.edu", label: "gfain@ucla.edu" },
+           { kind: "profile", href: "https://bioscience.ucla.edu/people/gordon-fain/", label: "Faculty profile" },
+           { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+         ]}
+       >
            <p className="text-ink-soft">
              The Fain laboratory studies the biophysical mechanisms of photoreceptor function and adaptation. Our research focuses on understanding how photoreceptors respond to light and adapt to different lighting conditions, contributing to both normal vision and retinal disease mechanisms.
            </p>
@@ -212,8 +185,7 @@ export default async function FainPage() {
            <p className="text-ink-soft">
              Our work combines electrophysiology and imaging approaches to understand the fundamental mechanisms of photoreceptor function. These studies have provided key insights into how the retina processes visual information and adapts to changing light conditions.
            </p>
-         </div>
-       </div>
+       </LabProfile>
 
        <LabTrainees lab="fain" />
 

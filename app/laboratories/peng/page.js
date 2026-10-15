@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,59 +144,22 @@ export default async function PengPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/peng.jpg"
-              alt="Dr. Yi-Rong Peng"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Yi-Rong Peng, Ph.D.</h2>
-              <p className="text-muted">Assistant Professor</p>
-              <p className="text-muted">Departments of Ophthalmology and Neurobiology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:yirongpeng@mednet.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-              yirongpeng@mednet.ucla.edu
-              </a>
-
-              <a 
-                  href="https://yirongpeng.com" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory website
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/yirong.peng" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-                </div>
-                </div>
-          </div>
-
-{/* Research Description */}
-<div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/peng.jpg"
+          alt="Dr. Yi-Rong Peng"
+          name="Yi-Rong Peng, Ph.D."
+          titles={[
+            "Assistant Professor",
+            "Departments of Ophthalmology and Neurobiology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:yirongpeng@mednet.ucla.edu", label: "yirongpeng@mednet.ucla.edu" },
+            { kind: "lab", href: "https://yirongpeng.com", label: "Laboratory website" },
+            { kind: "profile", href: "https://profiles.ucla.edu/yirong.peng", label: "Faculty profile" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
   <p className="text-ink-soft">
     Cells are the building blocks of complex biological systems, exhibiting remarkable diversity in the visual system. Understanding how cell types form, connect, and degenerate is fundamental to uncover the mechanisms behind blinding diseases. The Peng lab leverages multi-omics approaches–genomics, transcriptomics, and proteomics–to decode genetic programs that define cell-type features, unravel the molecular basis of specialized human vision, and identify key signatures driving degeneration in ocular diseases.
   </p>
@@ -213,8 +177,7 @@ export default async function PengPage() {
   <p className="text-ink-soft mt-4">
     The ultimate goal of our research is to provide a fundamental understanding of circuit formation and degeneration in the visual system and to develop therapeutic strategies to prevent or treat vision loss.
   </p>
-</div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="peng" />
 

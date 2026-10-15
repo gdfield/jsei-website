@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -143,58 +144,22 @@ export default async function TsuiIrenaPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/tsui-i.jpg"
-              alt="Dr. Irena Tsui"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Irena Tsui, M.D.</h2>
-              <p className="text-muted">Associate Professor</p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:itsui@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  itsui@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/irena.tsui" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a 
-                  href="https://www.uclahealth.org/providers/irena-tsui" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  UCLA Health Profile
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/tsui-i.jpg"
+          alt="Dr. Irena Tsui"
+          name="Irena Tsui, M.D."
+          titles={[
+            "Associate Professor",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:itsui@jsei.ucla.edu", label: "itsui@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/irena.tsui", label: "Faculty profile" },
+            { kind: "profile", href: "https://www.uclahealth.org/providers/irena-tsui", label: "UCLA Health profile" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
               Dr. Irena Tsui specializes in the diagnosis and treatment of retinal diseases, with a particular focus on pediatric retina conditions such as retinopathy of prematurity (ROP). Her clinical expertise includes diabetic retinopathy management, macular degeneration therapy, retinal detachment surgery, and advanced imaging techniques for retinal diseases.
             </p>
@@ -213,8 +178,7 @@ export default async function TsuiIrenaPage() {
             <p className="text-ink-soft">
               Dr. Tsui's research integrates clinical expertise with advanced imaging technologies to improve patient outcomes in both adult and pediatric retina care. Her work has contributed significantly to understanding and treating complex retinal diseases.
             </p>
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="tsui-i" />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
@@ -150,78 +151,25 @@ export default async function RaduPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/radu.jpg"
-              alt="Dr. Roxana A. Radu"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-1">
-              <h2 className="text-xl font-bold text-ink">Roxana A. Radu, M.D.</h2>
-              <p className="text-muted">Associate Professor</p>
-              <p className="text-muted">Vernon O. Underwood Family Chair in Ophthalmology </p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <div className="flex flex-col space-y-2">
-              <a 
-                  href="mailto:radu@jsei.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  radu@jsei.ucla.edu
-                </a>
-                <a 
-                  href="https://profiles.ucla.edu/roxana.radu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <a
-                  href="https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory"
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Laboratory Website
-                </a>
-                <a 
-                  href="https://www.ncbi.nlm.nih.gov/myncbi/roxana.radu.1/bibliography/public/" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Publications
-                </a>
-                <a 
-                  href="https://scholar.google.com/citations?user=msOSAGEAAAAJ&hl=en" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Google Scholar
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-
-
-
-                </div>
-                </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/radu.jpg"
+          alt="Dr. Roxana A. Radu"
+          name="Roxana A. Radu, M.D."
+          titles={[
+            "Associate Professor",
+            "Vernon O. Underwood Family Chair in Ophthalmology",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:radu@jsei.ucla.edu", label: "radu@jsei.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/roxana.radu", label: "Faculty profile" },
+            { kind: "lab", href: "https://www.uclahealth.org/departments/eye/research/research-laboratories/retina-biochemistry-clinical-disease-modeling-laboratory", label: "Laboratory website" },
+            { kind: "pubs", href: "https://www.ncbi.nlm.nih.gov/myncbi/roxana.radu.1/bibliography/public/", label: "Publications" },
+            { kind: "web", href: "https://scholar.google.com/citations?user=msOSAGEAAAAJ&hl=en", label: "Google Scholar" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
             Dr. Radu leads a cutting-edge research program focused on understanding and treating degenerative macular diseases, specifically Stargardt disease (STGD1) and age-dependent macular degeneration (AMD). Dr. Radu’s group has made significant breakthroughs in understanding complex eye diseases. Key discoveries include identifying the ABCA4 gene’s expression in RPE cells, developing innovative "disease-in-a-dish" models using induced pluripotent stem cells, and revealing complement system dysregulation as a common pathological pathway in both STGD1 and AMD. The laboratory is pioneering new approaches by examining retinoid-lipid processing, mitochondrial function, and cellular interactions to identify molecular targets for potential therapeutic interventions.             </p>
             <div>
@@ -234,8 +182,7 @@ export default async function RaduPage() {
                 <li>Can human iPSC-derived RPE–retinal organoid co-culture systems recapitulate ABCA4 genotype-specific disease phenotypes and serve as platforms to identify and validate therapeutic targets?</li>
               </ul>
             </div>
-               </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="radu" />
 

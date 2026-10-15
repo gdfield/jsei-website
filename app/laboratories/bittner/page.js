@@ -1,5 +1,6 @@
 import React from 'react';
 import LabTrainees from '@/app/components/LabTrainees';
+import LabProfile from '@/app/components/LabProfile';
 import Hero from '@/app/components/Hero';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -141,59 +142,23 @@ export default async function BittnerPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Faculty Profile Section */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/3">
-            <img 
-              src="/images/faculty/bittner.jpg"
-              alt="Dr. Ava Bittner"
-              className="w-full rounded-lg shadow-lg"
-            />
-            <div className="mt-4 space-y-2">
-              <h2 className="text-xl font-bold text-ink">Ava K. Bittner, Ph.D., O.D.</h2>
-              <p className="text-muted">Professor</p>
-              <p className="text-muted">Smotrich Family Optometric Clinician-Scientist Chair </p>
-              <p className="text-muted">Department of Ophthalmology</p>
-              <p className="text-muted">Jules Stein Eye Institute</p>
-              <a 
-                  href="mailto:ABittner@mednet.ucla.edu" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ABittner@mednet.ucla.edu
-                </a>
-                <br />
-              <a 
-                  href="https://profiles.ucla.edu/ava.bittner" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Faculty Profile
-                </a>
-                <br />
-                <a 
-                  href="https://www.uclahealth.org/departments/eye/about-us/academic-centers/vision-rehabilitation" 
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Vision Rehabilitation
-                </a>
-                <a
-                  href={`https://orcid.org/${FACULTY_ORCID}`}
-                  className="text-sea hover:text-gold-deep inline-block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ORCID Profile
-                </a>
-            </div>
-          </div>
-
-          {/* Research Description */}
-          <div className="w-full md:w-2/3 space-y-6">
+        <LabProfile
+          photo="/images/faculty/bittner.jpg"
+          alt="Dr. Ava Bittner"
+          name="Ava K. Bittner, Ph.D., O.D."
+          titles={[
+            "Professor",
+            "Smotrich Family Optometric Clinician-Scientist Chair",
+            "Department of Ophthalmology",
+            "Jules Stein Eye Institute",
+          ]}
+          links={[
+            { kind: "email", href: "mailto:ABittner@mednet.ucla.edu", label: "ABittner@mednet.ucla.edu" },
+            { kind: "profile", href: "https://profiles.ucla.edu/ava.bittner", label: "Faculty profile" },
+            { kind: "web", href: "https://www.uclahealth.org/departments/eye/about-us/academic-centers/vision-rehabilitation", label: "Vision Rehabilitation" },
+            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
+          ]}
+        >
             <p className="text-ink-soft">
             Dr. Ava K. Bittner is an internationally renowned professor in the field of vision rehabilitation research whose 
             collaborative work aims to improve visual ability and functioning in patients with vision loss. She leads the design
@@ -201,9 +166,7 @@ export default async function BittnerPage() {
               technologies. Her team's pioneering work has significantly advanced our understanding of visual impairment,
                including its assessment, impact on individuals, and management strategies.
             </p>
-            
-          </div>
-        </div>
+        </LabProfile>
 
         <LabTrainees lab="bittner" />
 
