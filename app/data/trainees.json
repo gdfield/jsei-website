@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T01:08:20.491Z",
+  "generatedAt": "2026-10-15T05:03:32.319Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -144,6 +144,21 @@
         "orcid": "0009-0001-1883-5482"
       },
       "photo": "/images/trainees/nilou-ghazavi-1accf3ec3e.jpg"
+    },
+    {
+      "slug": "ting-hao-liu",
+      "name": "Ting-Hao Liu",
+      "sortName": "Liu Ting-Hao",
+      "pronouns": "he/him",
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "barzalay",
+      "description": "Ting-Hao’s research focuses on sensing and control for medical robotics, image-processing algorithms, and fluidic pump control systems. His current work involves developing multimodal sensing technologies to assist surgeons in performing procedures within the confined orbital region.",
+      "startDate": "2026-05-01",
+      "endDate": "2027-06-30",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/ting-hao-liu-ceae1b920d.jpg"
     }
   ]
 }
