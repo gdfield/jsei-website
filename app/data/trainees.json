@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T14:44:45.196Z",
+  "generatedAt": "2026-10-16T18:43:08.741Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -193,6 +193,24 @@
         "scholar": "https://scholar.google.com/citations?user=6rk6iNUAAAAJ"
       },
       "photo": "/images/trainees/eli-neimark-2b06b4c00f.jpg"
+    },
+    {
+      "slug": "ahmad-santina",
+      "name": "Ahmad Santina",
+      "sortName": "Santina Ahmad",
+      "pronouns": "he/him",
+      "role": "sra",
+      "title": "Senior Clinical Research Coordinator",
+      "lab": "coleman",
+      "description": "Ahmad Santina, MD, is a Senior Clinical Research Coordinator at the Stein Eye Institute. His research focuses on ophthalmic epidemiology, health disparities, and access to eye care, with an emphasis on identifying sociodemographic and clinical factors associated with ocular disease and treatment outcomes. He coordinates,contributes, and leads research projects using electronic health records, large-scale databases, and community-based vision screening data to inform clinical practice and public health policy.",
+      "startDate": "2024-07-22",
+      "endDate": null,
+      "email": "asantina@mednet.ucla.edu",
+      "links": {
+        "orcid": "0000-0002-9578-6362",
+        "scholar": "https://scholar.google.com/citations?user=R_B44SkAAAAJ&hl=en"
+      },
+      "photo": "/images/trainees/ahmad-santina-210d04c2f7.jpg"
     }
   ]
 }
