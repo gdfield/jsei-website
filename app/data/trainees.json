@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T18:43:08.741Z",
+  "generatedAt": "2026-10-16T20:01:24.983Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -211,6 +211,23 @@
         "scholar": "https://scholar.google.com/citations?user=R_B44SkAAAAJ&hl=en"
       },
       "photo": "/images/trainees/ahmad-santina-210d04c2f7.jpg"
+    },
+    {
+      "slug": "ying-zheng",
+      "name": "Ying Zheng",
+      "sortName": "Zheng Ying",
+      "pronouns": null,
+      "role": "sra",
+      "title": "Data Analyst III",
+      "lab": "coleman",
+      "description": "Data Analysis",
+      "startDate": "2024-12-01",
+      "endDate": null,
+      "email": "yingzheng@mednet.ucla.edu",
+      "links": {
+        "orcid": "0000-0002-6548-7804"
+      },
+      "photo": null
     }
   ]
 }
