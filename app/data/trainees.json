@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T05:03:32.319Z",
+  "generatedAt": "2026-10-16T14:44:45.196Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -159,6 +159,40 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/ting-hao-liu-ceae1b920d.jpg"
+    },
+    {
+      "slug": "matthew-nepo",
+      "name": "Matthew Nepo",
+      "sortName": "Nepo Matthew",
+      "pronouns": null,
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "barzalay",
+      "description": "Matthew studies electromechanical properties of the eye, in the context of their use as diagnostic and surgical planning tools. His research focuses on bioimpedance for tissue diagnostics and simulation of scleral elasticity for intravitreal injection optimization.",
+      "startDate": "2023-01-15",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": null
+    },
+    {
+      "slug": "eli-neimark",
+      "name": "Eli Neimark",
+      "sortName": "Neimark Eli",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Pediatric Ophthalmology and Strabismus Fellow",
+      "lab": "demer",
+      "description": "Dr. Eli Neimark conducts research on strabismus, leveraging large-scale datasets and artificial intelligence to investigate its underlying causes and optimize surgical dosing.",
+      "startDate": "2025-10-01",
+      "endDate": null,
+      "email": null,
+      "links": {
+        "website": "https://drneimark.co.il/",
+        "orcid": "0000-0002-5366-6864",
+        "scholar": "https://scholar.google.com/citations?user=6rk6iNUAAAAJ"
+      },
+      "photo": "/images/trainees/eli-neimark-2b06b4c00f.jpg"
     }
   ]
 }
