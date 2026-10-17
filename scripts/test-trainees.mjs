@@ -60,7 +60,7 @@ ok(records.find((r) => r.name === 'Example Research Associate').lab === 'tsui-i'
 // Every role offered on the form maps to a role the site knows how to show.
 const siteRoleKeys = [...readFileSync(new URL('../app/data/trainees.js', import.meta.url), 'utf8').matchAll(/key: '([a-z]+)'/g)].map((m) => m[1]);
 ok(Object.values(ROLE_CHOICES).every((k) => siteRoleKeys.includes(k)), `every form role has a site role (${siteRoleKeys.join(', ')})`);
-ok(ROLE_CHOICES['Medical Student'] === 'med' && ROLE_CHOICES['Project Scientist'] === 'projsci', 'Medical Student and Project Scientist choices map');
+ok(ROLE_CHOICES['Medical Student'] === 'grad' && ROLE_CHOICES['Project Scientist'] === 'postdoc', 'Medical Students list as grad, Project Scientists as postdoc');
 ok(warnings.length === 0, `no warnings (${warnings.join('; ')})`);
 
 let threw = false;

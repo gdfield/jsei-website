@@ -23,11 +23,14 @@ export const FIELDS = {
 };
 
 // Form choice text -> role key used by the site (app/data/trainees.js ROLES).
+// Project Scientists are listed with the postdocs and Medical Students with the
+// graduate students (Greg's decision, 2026-10-16); the person's own Title field
+// still shows their exact position.
 export const ROLE_CHOICES = {
-  'Project Scientist': 'projsci',
+  'Project Scientist': 'postdoc',
   'Postdoctoral Scholar / Fellow': 'postdoc',
   'Graduate Student': 'grad',
-  'Medical Student': 'med',
+  'Medical Student': 'grad',
   'Staff Research Associate / Research Technician': 'sra',
 };
 
