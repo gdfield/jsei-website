@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T00:34:54.444Z",
+  "generatedAt": "2026-10-17T15:23:27.331Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -265,6 +265,25 @@
         "orcid": "0000-0002-6548-7804"
       },
       "photo": "/images/trainees/ying-zheng-9749322dd0.jpg"
+    },
+    {
+      "slug": "nathapon-treewipanon",
+      "name": "Nathapon Treewipanon",
+      "sortName": "Treewipanon Nathapon",
+      "pronouns": "he/him",
+      "role": "postdoc",
+      "title": "Visiting Fellow",
+      "lab": "tsui-e",
+      "description": "His research focuses on multimodal imaging in uveitis, with a particular interest in using advanced imaging to better assess and monitor ocular inflammation. He is also involved in studies of long-term outcomes in posterior uveitis.",
+      "startDate": "2026-07-01",
+      "endDate": null,
+      "email": "nathapontr@gmail.com",
+      "links": {
+        "orcid": "0000-0002-8276-9344",
+        "scholar": "https://scholar.google.com/citations?user=3JMunLYAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/nathapon-treewipanon"
+      },
+      "photo": "/images/trainees/nathapon-treewipanon-8cebeff797.jpg"
     }
   ]
 }
