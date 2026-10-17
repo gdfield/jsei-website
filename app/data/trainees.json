@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T20:01:24.983Z",
+  "generatedAt": "2026-10-17T00:34:54.444Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -213,6 +213,43 @@
       "photo": "/images/trainees/ahmad-santina-210d04c2f7.jpg"
     },
     {
+      "slug": "diana-ibrahim",
+      "name": "Diana Ibrahim",
+      "sortName": "Ibrahim Diana",
+      "pronouns": "She/her",
+      "role": "grad",
+      "title": "PhD Student, Molecular Biology IDP",
+      "lab": "peng",
+      "description": "Diana studies the spatial and temporal mechanisms that control the development of the human fovea.",
+      "startDate": "2026-07-01",
+      "endDate": null,
+      "email": null,
+      "links": {
+        "orcid": "0009-0006-3002-7468",
+        "linkedin": "https://www.linkedin.com/in/diana-ibrahim-94241b1ab/"
+      },
+      "photo": "/images/trainees/diana-ibrahim-220275b7ea.jpg"
+    },
+    {
+      "slug": "sakin-kirti",
+      "name": "Sakin Kirti",
+      "sortName": "Kirti Sakin",
+      "pronouns": "he/him",
+      "role": "grad",
+      "title": "PhD Student, Bioinformatics IDP",
+      "lab": "zylberberg",
+      "description": "With a background in machine learning, Sakin studies how the retina encodes visual information, using information theory and machine learning to ask why the retina has so many distinct ganglion cell types. He is also interested in comparing computer vision models to the retina, with the goal of using insights from biological vision to build better computer vision systems.",
+      "startDate": "2026-03-16",
+      "endDate": null,
+      "email": null,
+      "links": {
+        "website": "https://sakinkirti.github.io/",
+        "scholar": "https://scholar.google.com/citations?user=sPrCx4AAAAAJ&hl=en&oi=ao",
+        "linkedin": "https://www.linkedin.com/in/sakinkirti"
+      },
+      "photo": "/images/trainees/sakin-kirti-57a4707804.jpg"
+    },
+    {
       "slug": "ying-zheng",
       "name": "Ying Zheng",
       "sortName": "Zheng Ying",
@@ -227,7 +264,7 @@
       "links": {
         "orcid": "0000-0002-6548-7804"
       },
-      "photo": null
+      "photo": "/images/trainees/ying-zheng-9749322dd0.jpg"
     }
   ]
 }
