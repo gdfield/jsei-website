@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T15:23:27.331Z",
+  "generatedAt": "2026-10-18T00:44:19.132Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -284,6 +284,21 @@
         "linkedin": "https://www.linkedin.com/in/nathapon-treewipanon"
       },
       "photo": "/images/trainees/nathapon-treewipanon-8cebeff797.jpg"
+    },
+    {
+      "slug": "saki-sakakura",
+      "name": "Saki Sakakura",
+      "sortName": "Sakakura Saki",
+      "pronouns": "she/her",
+      "role": "postdoc",
+      "title": "postdoctoral scholar",
+      "lab": "deng",
+      "description": "My research interest is to investigate into the mechanism of extracellular vesicles treatment to corneal scar.",
+      "startDate": "2024-09-01",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": null
     }
   ]
 }
