@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T00:44:19.132Z",
+  "generatedAt": "2026-10-20T00:15:40.576Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -299,6 +299,25 @@
       "email": null,
       "links": {},
       "photo": null
+    },
+    {
+      "slug": "saad-idrees",
+      "name": "Saad Idrees",
+      "sortName": "Idrees Saad",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "zylberberg",
+      "description": "Saad works at the intersection of neuroscience and machine learning, developing interpretable, accurate, and generalizable computational models of retinal circuits under natural viewing conditions. He uses these models to investigate how the retina encodes information, particularly at scales that are difficult to access experimentally. His broader interests include using biologically grounded models to probe mechanisms underlying retinal diseases, and developing bio-inspired AI architectures that enable generalization to unfamiliar conditions.",
+      "startDate": "2026-04-14",
+      "endDate": null,
+      "email": "sidrees@ucla.edu",
+      "links": {
+        "orcid": "0000-0002-8514-1237",
+        "scholar": "https://scholar.google.com/citations?user=3HNPrOsAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/sidrees/"
+      },
+      "photo": "/images/trainees/saad-idrees-ddb6900a25.jpg"
     }
   ]
 }
