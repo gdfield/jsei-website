@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T00:15:40.576Z",
+  "generatedAt": "2026-10-22T23:48:27.726Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -318,6 +318,36 @@
         "linkedin": "https://www.linkedin.com/in/sidrees/"
       },
       "photo": "/images/trainees/saad-idrees-ddb6900a25.jpg"
+    },
+    {
+      "slug": "maddie-canter",
+      "name": "Maddie Canter",
+      "sortName": "Canter Maddie",
+      "pronouns": "she/her",
+      "role": "sra",
+      "title": "Staff Research Associate III",
+      "lab": "deng",
+      "description": "Maddie is the lab manager of the Cornea Biology Laboratory. She also serves as the GMP team lead for an ongoing Phase I clinical trial for autologous limbal stem cell transplants, and a pre-clinical trial focusing on corneal stromal scar repair using extracellular vesicles.",
+      "startDate": "2023-06-12",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/maddie-canter-003718c363.jpg"
+    },
+    {
+      "slug": "yu-wen-hung",
+      "name": "Yu-Wen Hung",
+      "sortName": "Hung Yu-Wen",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "deng",
+      "description": "Yu-Wen investigates the mechanisms by which small molecules activate Wnt in limbal stem cells, assesses dose-dependent toxicity, and explores potential translational studies for safe clinical applications in LSC deficiency.",
+      "startDate": "2026-02-23",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": null
     }
   ]
 }
