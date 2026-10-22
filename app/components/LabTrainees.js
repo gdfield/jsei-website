@@ -1,5 +1,5 @@
 import React from 'react';
-import { traineesForLab, ROLES } from '@/app/data/trainees';
+import { traineesForLab, LAB_ROLES } from '@/app/data/trainees';
 import TraineeCard from './TraineeCard';
 
 // "Lab Members" section for a lab page, placed inside the page container just
@@ -8,7 +8,7 @@ import TraineeCard from './TraineeCard';
 const LabTrainees = ({ lab }) => {
   const members = traineesForLab(lab);
   if (members.length === 0) return null;
-  const groups = ROLES.map((r) => ({ ...r, people: members.filter((t) => t.role === r.key) })).filter(
+  const groups = LAB_ROLES.map((r) => ({ ...r, people: members.filter((t) => t.role === r.key) })).filter(
     (g) => g.people.length > 0
   );
   return (

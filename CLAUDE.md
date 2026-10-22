@@ -53,7 +53,7 @@ Fields:
 
 - `name`, `title`, `research`, `description`, `profileImage`, `pageUrl`
 - `researchAreas`: array of area tags. Must exactly match one of: `Therapeutics and Regeneration`, `Retinal Biology`, `Visual Neuroscience`, `Ocular Imaging`, `Eye Surface and Lens`, `AI and Robotics`, `Bioinformatics and Population Health`, `Eye Mobility and Rehabilitation`. A typo silently drops the person from that area page.
-- `projectScientist` (boolean, optional): a scientist who does not run a lab. Listed in a Project Scientists group on `/scientists` (shown only when someone has the flag), and left out of the Basic/Clinical groups, the home-page lab count, and the trainee form's Lab list. A `pageUrl` is still needed for their card to link somewhere.
+- `projectScientist` (boolean, optional): a scientist who does not run a lab (most project scientists instead join through the trainee intake form; see below). Listed in a Project Scientists group on `/scientists` (shown only when someone has the flag), and left out of the Basic/Clinical groups, the home-page lab count, and the trainee form's Lab list. A `pageUrl` is still needed for their card to link somewhere.
 - `basicScience`, `clinicalScience`, `emeritus` (booleans): drive grouping on `/scientists`. Basic = `basicScience && !emeritus`; Clinical = `(clinicalScience || !basicScience) && !emeritus`; Emeritus = `emeritus`. Emeritus faculty are excluded from Research Area pages, the home-page count, Publications, and Funding.
 - `orcid` (optional): ORCID iD. Required for the person's work to appear on `/publications` and for ORCID-sourced funding.
 - `nihName` (optional): `{ lastName, firstName, altFirstNames?, altLastNames? }` used to search NIH RePORTER. Hyphenated names are automatically also searched with a space, joined, and (last names) by the first segment. Use `altFirstNames`/`altLastNames` for other spellings (e.g. Glasgow has `altFirstNames: ["Ben"]`).
@@ -74,6 +74,7 @@ Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri
 | `/funding` | `app/funding/page.js` | NIH RePORTER + ORCID fundings, last 5 fiscal years (see below) |
 | `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
 | `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
+| `/scientists/<slug>` | `app/scientists/[slug]/page.js` | Profiles of project scientists from the intake form (same layout as trainee profiles) |
 | `/sitemap.xml` | `app/sitemap.js` | Static pages, the eight research-area pages, every `facultyData` entry with a `pageUrl`, and active trainees |
 | `/robots.txt` | `app/robots.js` | Allows all crawlers on production and lists the sitemap; Vercel previews get `Disallow: /` |
 
@@ -106,7 +107,7 @@ The page lists **new and competitively renewed** grants only, not every active g
 
 ### Trainee profiles (postdocs, graduate students, SRAs, undergraduates)
 
-The site lists four roles (`ROLES` in `app/data/trainees.js`). The form also offers Project Scientist and Medical Student; `ROLE_CHOICES` in `scripts/trainees/fields.mjs` lists them as postdoc and grad respectively, and their own Title field shows the exact position. Undergraduates (`ugrad`) must give an "Expected graduation date" (a required form section reached only by that Role choice); `transform.mjs` uses it as their end date and skips any undergraduate without one.
+The Trainees page lists four roles (`ROLES` in `app/data/trainees.js`). The form also offers Medical Student, which `ROLE_CHOICES` in `scripts/trainees/fields.mjs` lists as grad (their own Title field shows the exact position), and Project Scientist (`projsci`, `PROJECT_SCIENTIST`). Project scientists are not trainees: they appear in the Project Scientists group on `/scientists` and in their lab's Lab Members (`LAB_ROLES`), with profiles at `/scientists/<slug>`, and never on `/trainees`; they are also left out of `trainees-meta.json` `count`. Use `profilePath()` (or the `path` field from `activeProfiles()`) for profile links. Both profile routes render `app/components/PersonProfile.js`. Undergraduates (`ugrad`) must give an "Expected graduation date" (a required form section reached only by that Role choice); `transform.mjs` uses it as their end date and skips any undergraduate without one.
 
 Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves rows in the linked Sheet (approved rows are copied to its "Published" tab by Apps Script triggers in `scripts/google/create-trainee-form.gs`); the nightly GitHub Action `.github/workflows/sync-trainees.yml` runs `scripts/sync-trainees.mjs`, which writes `app/data/trainees.json`, `app/data/trainees-meta.json`, `scripts/trainees/slug-registry.json`, and 600x600 headshots in `public/images/trainees/`, then commits to `main`.
 

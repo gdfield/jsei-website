@@ -9,11 +9,20 @@ const FacultyCard = ({ faculty }) => {
       className="group relative flex gap-5 rounded-2xl border border-mist bg-surface p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-sea/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea"
     >
       <div className="relative flex-none">
-        <img
-          src={faculty.profileImage}
-          alt={faculty.name}
-          className="h-24 w-24 rounded-full object-cover ring-2 ring-mist transition-all duration-300 group-hover:ring-gold/60"
-        />
+        {faculty.profileImage ? (
+          <img
+            src={faculty.profileImage}
+            alt={faculty.name}
+            className="h-24 w-24 rounded-full object-cover ring-2 ring-mist transition-all duration-300 group-hover:ring-gold/60"
+          />
+        ) : (
+          <span
+            className="grid h-24 w-24 place-items-center rounded-full bg-sea/10 font-display text-3xl font-semibold text-sea-600"
+            aria-hidden="true"
+          >
+            {faculty.name.charAt(0)}
+          </span>
+        )}
       </div>
 
       <div className="min-w-0 flex-1">
@@ -30,7 +39,7 @@ const FacultyCard = ({ faculty }) => {
         </div>
         <p className="text-sm text-muted">{faculty.title}</p>
         <p className="mt-1 font-medium text-sea-600">{faculty.research}</p>
-        <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+        <p className={`mt-3 text-sm leading-relaxed text-ink-soft${faculty.clampDescription ? ' line-clamp-4' : ''}`}>
           {faculty.description}
         </p>
 

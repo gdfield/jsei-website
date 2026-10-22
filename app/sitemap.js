@@ -1,5 +1,5 @@
 import { facultyData } from './data/faculty';
-import { activeTrainees } from './data/trainees';
+import { activeTrainees, activeProjectScientists } from './data/trainees';
 
 const BASE = 'https://julessteinlabs.org';
 
@@ -41,5 +41,7 @@ export default function sitemap() {
       ]
     : [];
 
-  return [...staticPages, ...areaPages, ...labPages, ...traineePages];
+  const scientistPages = activeProjectScientists().map((t) => ({ url: `${BASE}${t.path}`, lastModified: now, priority: 0.5 }));
+
+  return [...staticPages, ...areaPages, ...labPages, ...scientistPages, ...traineePages];
 }

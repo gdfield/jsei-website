@@ -20,7 +20,8 @@ Trainee fills in Google Form (signs in with Google to upload a headshot)
 - `/trainees/<name>`: one profile page per person (photo, name, pronouns, title, lab, description, optional public email and links).
 - Every lab page gets a **Lab Members** section listing that lab's trainees. It is hidden while a lab has none.
 - A profile is shown from its start date until its expected end date, then disappears automatically (pages re-check daily).
-- Roles shown: Postdoctoral Scholars (including Project Scientists), Graduate Students (including Medical Students), Staff Research Associates, and Undergraduate Students.
+- Roles shown on the Trainees page: Postdoctoral Scholars, Graduate Students (including Medical Students), Staff Research Associates, and Undergraduate Students.
+- **Project Scientists** use the same form but are not listed as trainees: they appear in the Project Scientists section of the Scientists page (after Clinical Science, before Emeritus) and in their lab's Lab Members, with their profile at `/scientists/<name>`.
 - **Undergraduates** must give an expected graduation date: choosing "Undergraduate Student" in the form leads to a section where it is required, and it is used as their end date, so they drop off the site after graduating. As a backstop, the sync never publishes an undergraduate without a date (the Action log names them).
 
 What is never published: the Google account email the trainee signed in with, Drive file IDs, and anything in rows you have not approved. Headshots are cropped to 600 x 600 and their metadata (including any location data) is removed.

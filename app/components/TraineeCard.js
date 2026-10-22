@@ -8,7 +8,7 @@ const TraineeCard = ({ trainee, showLab = true, headingLevel = 3 }) => {
   const Heading = `h${headingLevel}`;
   return (
     <Link
-      href={`/trainees/${trainee.slug}`}
+      href={trainee.path ?? `/trainees/${trainee.slug}`}
       className="group flex h-full flex-col rounded-2xl border border-mist bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-sea/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea"
     >
       <div className="flex items-center gap-4">

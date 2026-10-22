@@ -139,7 +139,8 @@ async function main() {
   }
 
   const changed = JSON.stringify(previous.trainees) !== JSON.stringify(records);
-  const meta = { count: records.filter((r) => isActive(r)).length };
+  // Trainees only: project scientists are listed on the Scientists page instead.
+  const meta = { count: records.filter((r) => isActive(r) && r.role !== 'projsci').length };
   const metaChanged = JSON.stringify(readJson(META, {})) !== JSON.stringify(meta);
 
   const stalePhotos =

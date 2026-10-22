@@ -7,6 +7,7 @@ import Reveal from '../components/Reveal';
 import SectionHeading from '../components/SectionHeading';
 import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';
+import { activeProjectScientists } from '../data/trainees';
 import { pageMeta } from '../lib/seo';
 
 export const metadata = pageMeta({
@@ -15,14 +16,33 @@ export const metadata = pageMeta({
   description: 'The faculty and project scientists of the Jules Stein Eye Institute, UCLA, in basic and clinical research on the retina, vision, cornea, glaucoma, and more.',
 });
 
+// Re-check daily so project scientists from the intake form follow their
+// start and end dates without a deploy.
+export const revalidate = 86400;
+
+// Project scientists who joined through the intake form, shaped for FacultyCard.
+const formProjectScientists = () =>
+  activeProjectScientists().map((t) => ({
+    name: t.name,
+    title: t.title,
+    research: t.labName,
+    description: t.description,
+    profileImage: t.photo || null,
+    pageUrl: t.path,
+    projectScientist: true,
+    clampDescription: true,
+  }));
+
 // Faculty who run labs are grouped Basic / Clinical / Emeritus. Project scientists
-// (projectScientist: true in faculty.js) do not run their own lab and get their
-// own group, shown only once at least one is listed.
+// do not run their own lab and get their own group, shown only once at least one
+// is listed: from faculty.js (projectScientist: true) or from the intake form.
 const ScientistsPage = () => {
   const labHeads = facultyData.filter((f) => !f.projectScientist);
   const basicScience = labHeads.filter((f) => f.basicScience && !f.emeritus);
   const clinicalScience = labHeads.filter((f) => (f.clinicalScience || !f.basicScience) && !f.emeritus);
-  const projectScientists = facultyData.filter((f) => f.projectScientist && !f.emeritus);
+  const projectScientists = [...facultyData.filter((f) => f.projectScientist && !f.emeritus), ...formProjectScientists()].sort(
+    (a, b) => a.name.split(' ').pop().localeCompare(b.name.split(' ').pop())
+  );
   const emeritusFaculty = facultyData.filter((f) => f.emeritus);
 
   const groups = [

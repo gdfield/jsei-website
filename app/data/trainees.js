@@ -1,4 +1,7 @@
-// Trainee profiles (postdocs, graduate students, SRAs, undergraduates). The intake form also
+// People profiles from the intake form: trainees (postdocs, graduate students,
+// SRAs, undergraduates) and project scientists. Project scientists are not
+// trainees: they are listed on the Scientists page and their lab page, with
+// profiles at /scientists/<slug>, and never on the Trainees page. The intake form also
 // offers Project Scientist (listed as postdoc) and Medical Student (listed as
 // grad); see ROLE_CHOICES in scripts/trainees/fields.mjs.
 //
@@ -15,7 +18,13 @@ export const ROLES = [
   { key: 'sra', label: 'Staff Research Associates', singular: 'Staff Research Associate' },
   { key: 'ugrad', label: 'Undergraduate Students', singular: 'Undergraduate Student' },
 ];
-export const roleByKey = Object.fromEntries(ROLES.map((r) => [r.key, r]));
+export const PROJECT_SCIENTIST = { key: 'projsci', label: 'Project Scientists', singular: 'Project Scientist' };
+// Lab pages list project scientists first, then the trainee roles.
+export const LAB_ROLES = [PROJECT_SCIENTIST, ...ROLES];
+export const roleByKey = Object.fromEntries(LAB_ROLES.map((r) => [r.key, r]));
+
+export const isProjectScientist = (t) => t.role === PROJECT_SCIENTIST.key;
+export const profilePath = (t) => `/${isProjectScientist(t) ? 'scientists' : 'trainees'}/${t.slug}`;
 
 const todayIso = () => new Date().toISOString().slice(0, 10);
 
@@ -27,19 +36,26 @@ export function isActive(t, today = todayIso()) {
   return true;
 }
 
-// Adds the lab's display name so client components don't need the lab list.
-const withLab = (t) => ({ ...t, labName: labBySlug[t.lab]?.labName ?? null });
+// Adds the lab's display name and profile URL so client components don't need
+// the lab list or these helpers.
+const withLab = (t) => ({ ...t, labName: labBySlug[t.lab]?.labName ?? null, path: profilePath(t) });
 
-export function activeTrainees(today = todayIso()) {
+// Everyone from the form who is currently active, trainees and project scientists.
+export function activeProfiles(today = todayIso()) {
   return data.trainees
     .filter((t) => isActive(t, today) && labBySlug[t.lab])
     .map(withLab)
     .sort((a, b) => a.sortName.localeCompare(b.sortName));
 }
 
+export const activeTrainees = (today = todayIso()) => activeProfiles(today).filter((t) => !isProjectScientist(t));
+export const activeProjectScientists = (today = todayIso()) => activeProfiles(today).filter(isProjectScientist);
+
+// Lab Members on a lab page: trainees and project scientists.
 export const traineesForLab = (labSlug, today = todayIso()) =>
-  activeTrainees(today).filter((t) => t.lab === labSlug);
+  activeProfiles(today).filter((t) => t.lab === labSlug);
 
 export const traineeBySlug = (slug) => data.trainees.find((t) => t.slug === slug) ?? null;
 
-export const allTraineeSlugs = () => data.trainees.map((t) => t.slug);
+export const allTraineeSlugs = () => data.trainees.filter((t) => !isProjectScientist(t)).map((t) => t.slug);
+export const allProjectScientistSlugs = () => data.trainees.filter(isProjectScientist).map((t) => t.slug);
