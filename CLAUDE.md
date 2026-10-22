@@ -47,13 +47,14 @@ There is no CMS and no database. Content is a mix of:
 
 ### Data: `app/data/faculty.js`
 
-Exports `facultyData`, the single source of truth for which faculty appear on the Laboratories page, Research Area pages, home-page lab count, sitemap, Publications page, and Funding page.
+Exports `facultyData`, the single source of truth for which faculty appear on the Scientists page, Research Area pages, home-page lab count, sitemap, Publications page, and Funding page.
 
 Fields:
 
 - `name`, `title`, `research`, `description`, `profileImage`, `pageUrl`
 - `researchAreas`: array of area tags. Must exactly match one of: `Therapeutics and Regeneration`, `Retinal Biology`, `Visual Neuroscience`, `Ocular Imaging`, `Eye Surface and Lens`, `AI and Robotics`, `Bioinformatics and Population Health`, `Eye Mobility and Rehabilitation`. A typo silently drops the person from that area page.
-- `basicScience`, `clinicalScience`, `emeritus` (booleans): drive grouping on `/laboratories`. Basic = `basicScience && !emeritus`; Clinical = `(clinicalScience || !basicScience) && !emeritus`; Emeritus = `emeritus`. Emeritus faculty are excluded from Research Area pages, the home-page count, Publications, and Funding.
+- `projectScientist` (boolean, optional): a scientist who does not run a lab. Listed in a Project Scientists group on `/scientists` (shown only when someone has the flag), and left out of the Basic/Clinical groups, the home-page lab count, and the trainee form's Lab list. A `pageUrl` is still needed for their card to link somewhere.
+- `basicScience`, `clinicalScience`, `emeritus` (booleans): drive grouping on `/scientists`. Basic = `basicScience && !emeritus`; Clinical = `(clinicalScience || !basicScience) && !emeritus`; Emeritus = `emeritus`. Emeritus faculty are excluded from Research Area pages, the home-page count, Publications, and Funding.
 - `orcid` (optional): ORCID iD. Required for the person's work to appear on `/publications` and for ORCID-sourced funding.
 - `nihName` (optional): `{ lastName, firstName, altFirstNames?, altLastNames? }` used to search NIH RePORTER. Hyphenated names are automatically also searched with a space, joined, and (last names) by the first segment. Use `altFirstNames`/`altLastNames` for other spellings (e.g. Glasgow has `altFirstNames: ["Ben"]`).
 
@@ -66,7 +67,7 @@ Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri
 | `/` | `app/page.js` | Hero, stats (lab count computed from `facultyData`), five section cards |
 | `/researchAreas` | `app/researchAreas/page.js` | Index of 8 areas (titles, blurbs, images, links in a local array) |
 | `/researchAreas/<area>` | `app/researchAreas/*/page.js` | Each filters `facultyData` on one `researchAreas` tag. `bioinfo/` is a legacy duplicate of the AI page and is not linked |
-| `/laboratories` | `app/laboratories/page.js` | FacultyCards grouped Basic / Clinical / Emeritus |
+| `/scientists` | `app/scientists/page.js` | FacultyCards grouped Basic / Clinical / Project Scientists / Emeritus. Was `/laboratories`; `next.config.js` redirects the old address (individual lab pages stay at `/laboratories/<slug>`) |
 | `/laboratories/<slug>` | `app/laboratories/<slug>/page.js` | Self-contained lab pages (see below) |
 | `/core` | `app/core/page.js` | Four P30 cores (directors and staff in a local array) |
 | `/publications` | `app/publications/page.js` | ORCID works for all non-emeritus faculty with `orcid`, last 5 years, grouped by year |
@@ -103,9 +104,9 @@ The page lists **new and competitively renewed** grants only, not every active g
 - ORCID: non-NIH entries whose grant number does not contain an NIH core project number already shown, listed under their start year if it falls in the window. ORCID cannot distinguish renewals, so start year is the only signal. Non-grant entries (awards, fellowships) are listed separately on the same rule.
 - Run `npm run test:funding` after changing this logic.
 
-### Trainee profiles (postdocs, graduate students, SRAs)
+### Trainee profiles (postdocs, graduate students, SRAs, undergraduates)
 
-The site lists three roles (`ROLES` in `app/data/trainees.js`). The form also offers Project Scientist and Medical Student; `ROLE_CHOICES` in `scripts/trainees/fields.mjs` lists them as postdoc and grad respectively, and their own Title field shows the exact position.
+The site lists four roles (`ROLES` in `app/data/trainees.js`). The form also offers Project Scientist and Medical Student; `ROLE_CHOICES` in `scripts/trainees/fields.mjs` lists them as postdoc and grad respectively, and their own Title field shows the exact position. Undergraduates (`ugrad`) must give an "Expected graduation date" (a required form section reached only by that Role choice); `transform.mjs` uses it as their end date and skips any undergraduate without one.
 
 Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves rows in the linked Sheet (approved rows are copied to its "Published" tab by Apps Script triggers in `scripts/google/create-trainee-form.gs`); the nightly GitHub Action `.github/workflows/sync-trainees.yml` runs `scripts/sync-trainees.mjs`, which writes `app/data/trainees.json`, `app/data/trainees-meta.json`, `scripts/trainees/slug-registry.json`, and 600x600 headshots in `public/images/trainees/`, then commits to `main`.
 
@@ -118,7 +119,7 @@ Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves row
 
 ### Shared components (`app/components/`)
 
-- `Navbar.js` (client): sticky header, hardcoded `links` (Research Areas, Laboratories, Core Facilities, Publications, Funding), accessible mobile menu.
+- `Navbar.js` (client): sticky header, hardcoded `links` (Research Areas, Scientists, Core Facilities, Publications, Funding), accessible mobile menu.
 - `Footer.js`: shared footer with the same links, address, and copyright. Used on every page.
 - `Hero.js` (client): auto-rotating banner carousel with pause/play. Props: `title`, `subtitle`, `description`, `eyebrow`, `compact`.
 - `FacultyCard.js`: card linking to `faculty.pageUrl`.

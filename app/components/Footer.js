@@ -4,7 +4,7 @@ import traineesMeta from '@/app/data/trainees-meta.json';
 
 const footerLinks = [
   { label: 'Research Areas', href: '/researchAreas' },
-  { label: 'Laboratories', href: '/laboratories' },
+  { label: 'Scientists', href: '/scientists' },
   // Shown once at least one trainee profile has been published.
   ...(traineesMeta.count > 0 ? [{ label: 'Trainees', href: '/trainees' }] : []),
   { label: 'Core Facilities', href: '/core' },

@@ -1,4 +1,4 @@
-// Trainee profiles (postdocs, graduate students, SRAs). The intake form also
+// Trainee profiles (postdocs, graduate students, SRAs, undergraduates). The intake form also
 // offers Project Scientist (listed as postdoc) and Medical Student (listed as
 // grad); see ROLE_CHOICES in scripts/trainees/fields.mjs.
 //
@@ -13,6 +13,7 @@ export const ROLES = [
   { key: 'postdoc', label: 'Postdoctoral Scholars', singular: 'Postdoctoral Scholar' },
   { key: 'grad', label: 'Graduate Students', singular: 'Graduate Student' },
   { key: 'sra', label: 'Staff Research Associates', singular: 'Staff Research Associate' },
+  { key: 'ugrad', label: 'Undergraduate Students', singular: 'Undergraduate Student' },
 ];
 export const roleByKey = Object.fromEntries(ROLES.map((r) => [r.key, r]));
 

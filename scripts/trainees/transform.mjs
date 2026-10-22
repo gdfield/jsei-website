@@ -146,7 +146,13 @@ export function rowToRecord(row, idx, labByFormLabel) {
   if (description.length > DESCRIPTION_MAX) description = `${description.slice(0, DESCRIPTION_MAX - 1).trimEnd()}…`;
 
   const startDate = toIsoDate(get('startDate'));
-  const endDate = toIsoDate(get('endDate'));
+  let endDate = toIsoDate(get('endDate'));
+  // Undergraduates must give a graduation date; it is their end date, so their
+  // profile disappears on its own. Without one they are not published.
+  if (role === 'ugrad') {
+    endDate = toIsoDate(get('gradDate')) || endDate;
+    if (!endDate) return { error: `${name}: undergraduate without an expected graduation date (not published)` };
+  }
   if (startDate && endDate && endDate < startDate) return { error: `${name}: end date before start date` };
 
   const email = clean(get('publicEmail'));

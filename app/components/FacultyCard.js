@@ -5,7 +5,7 @@ const FacultyCard = ({ faculty }) => {
   return (
     <a
       href={faculty.pageUrl}
-      aria-label={`Visit ${faculty.name}'s laboratory page`}
+      aria-label={`Visit ${faculty.name}'s ${faculty.projectScientist ? 'profile' : 'laboratory'} page`}
       className="group relative flex gap-5 rounded-2xl border border-mist bg-surface p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-sea/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea"
     >
       <div className="relative flex-none">

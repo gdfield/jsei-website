@@ -7,7 +7,7 @@ import traineesMeta from '@/app/data/trainees-meta.json';
 
 const links = [
   { label: 'Research Areas', href: '/researchAreas' },
-  { label: 'Laboratories', href: '/laboratories' },
+  { label: 'Scientists', href: '/scientists' },
   // Shown once at least one trainee profile has been published.
   ...(traineesMeta.count > 0 ? [{ label: 'Trainees', href: '/trainees' }] : []),
   { label: 'Core Facilities', href: '/core' },
@@ -55,7 +55,9 @@ const Navbar = () => {
   }, [open]);
 
   const isActive = (href) =>
-    href === '/' ? pathname === '/' : pathname.startsWith(href);
+    href === '/'
+      ? pathname === '/'
+      : pathname.startsWith(href) || (href === '/scientists' && pathname.startsWith('/laboratories/'));
 
   return (
     <header

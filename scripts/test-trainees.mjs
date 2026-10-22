@@ -70,6 +70,28 @@ const evil = JSON.parse(JSON.stringify(values));
 evil[1][2] = '</script><script>alert(1)</script>Example Postdoc';
 const { records: er } = buildRecords(evil, labByFormLabel);
 ok(!er.some((r) => /[<>]/.test(r.name)), 'angle brackets stripped from names');
+// Undergraduates: graduation date required and used as the end date.
+{
+  const h = [...values[0], 'Expected graduation date'];
+  const base = [...values[1], ''];
+  const ug = (acct, grad, end = '') => {
+    const r = [...base];
+    r[h.indexOf('Email address')] = acct;
+    r[h.indexOf('Full name')] = `Example Undergrad ${acct}`;
+    r[h.indexOf('Role')] = 'Undergraduate Student';
+    r[h.indexOf('Expected end date')] = end;
+    r[h.indexOf('Expected graduation date')] = grad;
+    return r;
+  };
+  const out = buildRecords([h, ug('u1@x.org', '6/15/2027'), ug('u2@x.org', ''), ug('u3@x.org', '', '6/1/2028')], labByFormLabel);
+  const u1 = out.records.find((r) => r.name.endsWith('u1@x.org'));
+  ok(u1 && u1.role === 'ugrad' && u1.endDate === '2027-06-15', 'undergraduate graduation date becomes end date');
+  ok(!out.records.some((r) => r.name.endsWith('u2@x.org')), 'undergraduate without a graduation date is not published');
+  ok(out.warnings.some((w) => /u2@x\.org.*graduation date/.test(w)), 'missing graduation date is reported');
+  ok(out.records.find((r) => r.name.endsWith('u3@x.org'))?.endDate === '2028-06-01', 'falls back to Expected end date if no graduation date');
+  const old = buildRecords([values[0], ug('u4@x.org', '').slice(0, -1)], labByFormLabel);
+  ok(old.records.length === 0, 'Sheet without the graduation-date column still refuses dateless undergrads');
+}
 ok(records.every((r) => r.accountKey && !String(r.accountKey).includes('@')), 'account key is a hash, not an email');
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

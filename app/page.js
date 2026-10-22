@@ -17,7 +17,7 @@ export const metadata = pageMeta({
   absoluteTitle: true,
 });
 
-const labCount = facultyData.filter((f) => !f.emeritus).length;
+const labCount = facultyData.filter((f) => !f.emeritus && !f.projectScientist).length;
 
 const stats = [
   { value: 8, suffix: '', label: 'Research areas' },
@@ -26,7 +26,7 @@ const stats = [
   { value: 1966, suffix: '', label: 'Founded', plain: true },
 ];
 
-// Feature pillars (Research Areas + Laboratories) lead; the three
+// Feature pillars (Research Areas + Scientists) lead; the three
 // resource pillars follow. Copy is tightened to say what each section is.
 const featurePillars = [
   {
@@ -37,10 +37,10 @@ const featurePillars = [
     imageUrl: '/images/mission/research.jpg',
   },
   {
-    title: 'Laboratories',
+    title: 'Scientists',
     description:
       'Independent labs, shared purpose. The basic and clinical scientists driving discovery across the institute.',
-    linkUrl: '/laboratories',
+    linkUrl: '/scientists',
     imageUrl: '/images/mission/laboratories.jpg',
   },
 ];
@@ -239,15 +239,15 @@ const ResearchDivisionPage = () => {
                 collaborating.
               </h2>
               <p className="mt-4 text-lg text-white/70">
-                Explore the laboratories to find a research home, or browse the core
+                Meet our scientists to find a research home, or browse the core
                 facilities open to investigators across UCLA and beyond.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="/laboratories"
+                  href="/scientists"
                   className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-medium text-ink transition-transform duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  Browse laboratories
+                  Browse scientists
                   <ArrowUpRight size={18} aria-hidden="true" />
                 </a>
                 <a

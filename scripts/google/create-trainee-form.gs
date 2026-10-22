@@ -21,6 +21,13 @@
  * match app/data/labs.js. To refresh the Lab list after labs change, run
  *   npm run trainees:lab-choices
  * and paste the output over LAB_CHOICES below, then run updateLabChoices.
+ *
+ * Undergraduates (added 2026-10-22): choosing "Undergraduate Student" as Role
+ * sends the person to a short section with a required "Expected graduation date",
+ * which becomes their end date so their profile is removed after graduation.
+ * Everyone else skips that section. To add this to a form created before then,
+ * paste this file into the existing Apps Script project and run
+ * addUndergraduateSection once.
  */
 
 const FORM_TITLE = 'Jules Stein Eye Institute: Trainee Profile';
@@ -62,7 +69,38 @@ const ROLE_CHOICES = [
     "Graduate Student",
     "Medical Student",
     "Staff Research Associate / Research Technician",
+    "Undergraduate Student",
 ];
+
+const UNDERGRAD_CHOICE = "Undergraduate Student";
+const UNDERGRAD_SECTION = "Undergraduate students";
+const PROFILE_SECTION = "Your profile";
+const END_DATE_HELP =
+  'Optional. Your profile is hidden automatically after this date. You can update it later. ' +
+  'Undergraduates: leave blank, your graduation date is used.';
+
+// Adds the undergraduate section and the section that follows it, then points
+// the Role choices at them: undergraduates go to the graduation-date section,
+// everyone else skips straight to the profile section.
+function addUndergradBranch_(form, roleItem) {
+  const ugrad = form
+    .addPageBreakItem()
+    .setTitle(UNDERGRAD_SECTION)
+    .setHelpText('Undergraduate profiles are removed automatically after graduation.');
+  form
+    .addDateItem()
+    .setTitle("Expected graduation date")
+    .setHelpText('Required. Your profile is removed after this date. If your plans change, edit your response.')
+    .setRequired(true);
+  const profile = form.addPageBreakItem().setTitle(PROFILE_SECTION);
+  const mc = roleItem.asMultipleChoiceItem();
+  mc.setChoices(
+    ROLE_CHOICES.map(function (c) {
+      return mc.createChoice(c, c === UNDERGRAD_CHOICE ? ugrad : profile);
+    })
+  );
+  return { ugrad: ugrad, profile: profile };
+}
 
 function createTraineeForm() {
   const form = FormApp.create(FORM_TITLE);
@@ -87,7 +125,8 @@ function createTraineeForm() {
 
   form.addTextItem().setTitle("Full name").setHelpText('As it should appear on the website.').setRequired(true);
   form.addTextItem().setTitle("Pronouns").setHelpText('Optional, e.g. she/her, he/him, they/them.');
-  form.addMultipleChoiceItem().setTitle("Role").setChoiceValues(ROLE_CHOICES).setRequired(true);
+  const roleItem = form.addMultipleChoiceItem().setTitle("Role").setChoiceValues(ROLE_CHOICES).setRequired(true);
+  addUndergradBranch_(form, roleItem);
   form
     .addTextItem()
     .setTitle("Title")
@@ -113,7 +152,7 @@ function createTraineeForm() {
   form
     .addDateItem()
     .setTitle("Expected end date")
-    .setHelpText('Optional. Your profile is hidden automatically after this date. You can update it later.');
+    .setHelpText(END_DATE_HELP);
 
   const emailValidation = FormApp.createTextValidation().requireTextIsEmail().build();
   form
@@ -269,4 +308,41 @@ function updateLabChoices() {
   })[0];
   item.asListItem().setChoiceValues(LAB_CHOICES);
   Logger.log('Lab choices updated (' + LAB_CHOICES.length + ' labs).');
+}
+
+/**
+ * One-time update for a form created before 2026-10-22: adds "Undergraduate
+ * Student" to Role and the required graduation-date section. Existing questions
+ * and responses are not changed. Safe to run again: it stops if the section exists.
+ */
+function addUndergraduateSection() {
+  const formId = PropertiesService.getScriptProperties().getProperty('formId');
+  const form = FormApp.openById(formId);
+  const items = form.getItems();
+  const byTitle = function (t) {
+    return items.filter(function (i) { return i.getTitle() === t; })[0];
+  };
+  if (byTitle(UNDERGRAD_SECTION)) {
+    Logger.log('The undergraduate section already exists; nothing to do.');
+    return;
+  }
+  const role = byTitle("Role");
+  if (!role) throw new Error('Could not find the "Role" question.');
+  const roleIndex = role.getIndex();
+  // Questions after Role (Title, Lab, ...) end up in the new "Your profile" section.
+  const branch = addUndergradBranch_(form, role);
+  // New items were added at the end; move them to sit right after Role.
+  const gradItem = byTitleFresh_(form, "Expected graduation date");
+  // moveItem by index; re-read each index because every move shifts the others.
+  form.moveItem(branch.ugrad.getIndex(), roleIndex + 1);
+  form.moveItem(gradItem.getIndex(), roleIndex + 2);
+  form.moveItem(branch.profile.getIndex(), roleIndex + 3);
+  const end = byTitleFresh_(form, "Expected end date");
+  if (end) end.asDateItem().setHelpText(END_DATE_HELP);
+  Logger.log('Done. Role now offers "' + UNDERGRAD_CHOICE + '", which leads to a required "Expected graduation date".');
+  Logger.log('Check the form with the Preview (eye) button: choose Undergraduate Student, then another role.');
+}
+
+function byTitleFresh_(form, title) {
+  return form.getItems().filter(function (i) { return i.getTitle() === title; })[0];
 }

@@ -1,11 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
 
-export const metadata = pageMeta({
-  path: '/laboratories',
-  title: "Research Laboratories",
-  description: "The basic science and clinical research laboratories of the Jules Stein Eye Institute, UCLA, spanning retina, visual neuroscience, cornea, glaucoma, and more.",
-});
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
@@ -14,9 +9,20 @@ import FacultyCard from '../components/FacultyCard';
 import { facultyData } from '../data/faculty';
 import { pageMeta } from '../lib/seo';
 
-const LaboratoriesPage = () => {
-  const basicScience = facultyData.filter((f) => f.basicScience && !f.emeritus);
-  const clinicalScience = facultyData.filter((f) => (f.clinicalScience || !f.basicScience) && !f.emeritus);
+export const metadata = pageMeta({
+  path: '/scientists',
+  title: 'Scientists',
+  description: 'The faculty and project scientists of the Jules Stein Eye Institute, UCLA, in basic and clinical research on the retina, vision, cornea, glaucoma, and more.',
+});
+
+// Faculty who run labs are grouped Basic / Clinical / Emeritus. Project scientists
+// (projectScientist: true in faculty.js) do not run their own lab and get their
+// own group, shown only once at least one is listed.
+const ScientistsPage = () => {
+  const labHeads = facultyData.filter((f) => !f.projectScientist);
+  const basicScience = labHeads.filter((f) => f.basicScience && !f.emeritus);
+  const clinicalScience = labHeads.filter((f) => (f.clinicalScience || !f.basicScience) && !f.emeritus);
+  const projectScientists = facultyData.filter((f) => f.projectScientist && !f.emeritus);
   const emeritusFaculty = facultyData.filter((f) => f.emeritus);
 
   const groups = [
@@ -32,6 +38,14 @@ const LaboratoriesPage = () => {
       intro: 'Clinician-scientists translating discovery into diagnosis and treatment for patients.',
       faculty: clinicalScience,
     },
+    ...(projectScientists.length > 0
+      ? [{
+          eyebrow: 'Project Scientists',
+          title: 'Project Scientists',
+          intro: 'Scientists who lead shared projects, technologies, and infrastructure across the institute.',
+          faculty: projectScientists,
+        }]
+      : []),
     ...(emeritusFaculty.length > 0
       ? [{
           eyebrow: 'Emeritus',
@@ -47,8 +61,8 @@ const LaboratoriesPage = () => {
       <Navbar />
       <main id="main-content">
         <Hero
-          eyebrow="The Laboratories"
-          title="Research Laboratories"
+          eyebrow="The Scientists"
+          title="Scientists"
           subtitle="Independent labs, shared purpose"
           description="Advancing our understanding of vision through innovative research."
           compact
@@ -77,4 +91,4 @@ const LaboratoriesPage = () => {
   );
 };
 
-export default LaboratoriesPage;
+export default ScientistsPage;

@@ -11,7 +11,7 @@ export default function sitemap() {
 
   const staticPages = [
     { url: BASE, lastModified: now, priority: 1.0 },
-    { url: `${BASE}/laboratories`, lastModified: now, priority: 0.9 },
+    { url: `${BASE}/scientists`, lastModified: now, priority: 0.9 },
     { url: `${BASE}/publications`, lastModified: now, priority: 0.8 },
     { url: `${BASE}/funding`, lastModified: now, priority: 0.8 },
     { url: `${BASE}/researchAreas`, lastModified: now, priority: 0.8 },

@@ -33,7 +33,7 @@ Commands: `npm run dev`, `npm run build`, `npm start`, `npm run test:contrast`, 
 
 ### Primary navigation (header and footer)
 
-Research Areas, Laboratories, Core Facilities, Publications, Funding. The wordmark links home ("Jules Stein Eye Institute / UCLA · Vision Research").
+Research Areas, Scientists, Core Facilities, Publications, Funding (plus Trainees once profiles exist). The wordmark links home ("Jules Stein Eye Institute / UCLA · Vision Research").
 
 ### Pages
 
@@ -50,7 +50,7 @@ Research Areas, Laboratories, Core Facilities, Publications, Funding. The wordma
 | `/researchAreas/health` | | via index | Bioinformatics and Population Health |
 | `/researchAreas/rehab` | | via index | Eye Mobility and Rehabilitation |
 | `/researchAreas/bioinfo` | | No | Legacy page; duplicates the AI page (see Issues) |
-| `/laboratories` | `app/laboratories/page.js` | Yes | Faculty cards in Basic Science, Clinical Science, Emeritus groups |
+| `/scientists` | `app/scientists/page.js` | Yes | Renamed from Laboratories 2026-10-22 (old `/laboratories` address redirects). Faculty cards in Basic Science, Clinical Science, Project Scientists (shown once anyone has `projectScientist: true` in `faculty.js`), and Emeritus groups |
 | `/laboratories/<slug>` | 33 lab page folders | via cards | Self-contained server-component pages; template is `app/laboratories/field/page.js` |
 | `/core` | `app/core/page.js` | Yes | Four P30 Vision Research Cores |
 | `/publications` | `app/publications/page.js` | Yes | ORCID-driven, last 5 years |
@@ -115,7 +115,7 @@ Suraj Bhat, Dean Bok, Deborah Farber, Wayne L. Hubbell, Steven Nusinowitz. Emeri
 
 ### Lab pages not in `faculty.js`
 
-Four lab pages exist in `app/laboratories/` and are live by direct URL, but by design have no card on `/laboratories`, are not in the sitemap, and are not linked anywhere: `/laboratories/brecha` (Nicholas Brecha), `/laboratories/gorin` (Michael Gorin), `/laboratories/huk` (Alex Huk), `/laboratories/piri` (Natik Piri).
+Four lab pages exist in `app/laboratories/` and are live by direct URL, but by design have no card on `/scientists`, are not in the sitemap, and are not linked anywhere: `/laboratories/brecha` (Nicholas Brecha), `/laboratories/gorin` (Michael Gorin), `/laboratories/huk` (Alex Huk), `/laboratories/piri` (Natik Piri).
 
 ### Lab page structure (Field page as canonical example)
 
@@ -175,6 +175,8 @@ Setup completed 2026-10-14 (all under gregfield@g.ucla.edu):
 - First real profile (Maya Carleton, Field Lab) published 2026-10-14. Form sent to the Field and Sampath labs.
 - 2026-10-14, commits dd9cc20 and f4005fb on `main`: Lab Members now sits inside the page container directly above the publications section on all 33 lab pages; design-token colors now support Tailwind opacity modifiers (R G B channel vars `--x-rgb` in `globals.css`, `rgb(var(--x-rgb) / <alpha-value>)` in `tailwind.config.js`, extra `opacity: { 8 }` step). This fixed the no-photo placeholder tint and about 25 previously dead classes site-wide (frosted header, navy scrim on lab banners, tag pills, hover borders).
 - 2026-10-14, commit becccd9 on `main`: added roles Project Scientist (`projsci`) and Medical Student (`med`); Greg adds the matching choices to the form by hand. Headshot question made optional in the form (site already shows the initial when there is no photo).
+- 2026-10-16 (Greg's decision), commit 41c52d3: the Project Scientist and Medical Student groups were removed from the site; the form still offers both, and they are listed under Postdoctoral Scholars and Graduate Students. Each person's Title field shows their exact position.
+- 2026-10-22 (Greg's decision): added Undergraduate Students (`ugrad`). Choosing "Undergraduate Student" in the form leads to a section with a required "Expected graduation date", used as their end date so they drop off after graduating; the sync also refuses any undergraduate without a date. Greg runs `addUndergraduateSection` once in the form's Apps Script project to update the live form.
 - 2026-10-14: `design/lab-profile-layout` (merged to `main`; email later moved back under the name and titles) moved all 33 lab pages to a shared `LabProfile` component: desktop shows photo, name, and titles left with links in a row under the research text; phone shows a two-column link grid above the text. Lab banners were also unified to the compact `LabBanner` component (all labs like Greg's page). Pre-existing content issues noticed: Au's email link shows AAu@mednet.ucla.edu but points to adrianau@jsei.ucla.edu; Nouri-Mahdavi title typo "Advaced".
 - Parked (Greg, 2026-10-14): a "Headshot override" Sheet column so Greg can add photos by hand that survive response edits. Code was written and tested (commit 32b3ae5 on a local branch, patch `headshot-override.patch`) but not applied; revisit only if many people cannot upload photos. Also not yet applied: `docs/TRAINEES.md` still says to mark Headshot Required.
 - Known minor item: `actions/checkout@v4` and `setup-node@v4` trigger a Node 20 deprecation warning (bump versions).

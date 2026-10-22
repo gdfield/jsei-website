@@ -12,6 +12,9 @@ export const FIELDS = {
   description: 'Research interests and role',
   startDate: 'Start date',
   endDate: 'Expected end date',
+  // Undergraduates only: asked in its own required form section, and used as
+  // their end date so their profile is removed automatically after graduation.
+  gradDate: 'Expected graduation date',
   publicEmail: 'Public contact email',
   website: 'Personal website',
   orcid: 'ORCID iD',
@@ -32,6 +35,7 @@ export const ROLE_CHOICES = {
   'Graduate Student': 'grad',
   'Medical Student': 'grad',
   'Staff Research Associate / Research Technician': 'sra',
+  'Undergraduate Student': 'ugrad',
 };
 
 export const DESCRIPTION_MAX = 1200;

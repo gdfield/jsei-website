@@ -17,7 +17,7 @@ const lastName = (name) => name.replace(/,.*$/, '').trim().split(/\s+/).pop();
 
 const baseLabs = [
   ...facultyData
-    .filter((f) => f.pageUrl && !f.emeritus)
+    .filter((f) => f.pageUrl && !f.emeritus && !f.projectScientist)
     .map((f) => ({ slug: slugFromUrl(f.pageUrl), piName: f.name })),
   ...STANDALONE_LABS,
 ];

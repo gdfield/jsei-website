@@ -20,6 +20,8 @@ Trainee fills in Google Form (signs in with Google to upload a headshot)
 - `/trainees/<name>`: one profile page per person (photo, name, pronouns, title, lab, description, optional public email and links).
 - Every lab page gets a **Lab Members** section listing that lab's trainees. It is hidden while a lab has none.
 - A profile is shown from its start date until its expected end date, then disappears automatically (pages re-check daily).
+- Roles shown: Postdoctoral Scholars (including Project Scientists), Graduate Students (including Medical Students), Staff Research Associates, and Undergraduate Students.
+- **Undergraduates** must give an expected graduation date: choosing "Undergraduate Student" in the form leads to a section where it is required, and it is used as their end date, so they drop off the site after graduating. As a backstop, the sync never publishes an undergraduate without a date (the Action log names them).
 
 What is never published: the Google account email the trainee signed in with, Drive file IDs, and anything in rows you have not approved. Headshots are cropped to 600 x 600 and their metadata (including any location data) is removed.
 
@@ -88,6 +90,10 @@ To check new profiles before they go live, type a branch name such as `trainee-p
 ### 6. Branch protection
 
 The Action commits directly to `main`. If you later add branch protection that requires pull requests or status checks on `main`, allow GitHub Actions to bypass it or the nightly sync will fail to push.
+
+## Adding the undergraduate option to an existing form
+
+Forms created before 2026-10-22 do not have it. In the form's Apps Script project, replace the code with the current `scripts/google/create-trainee-form.gs`, save, choose `addUndergraduateSection` in the function menu, and click Run. It adds "Undergraduate Student" to Role, a new "Undergraduate students" section with a required "Expected graduation date", and puts the remaining questions in a "Your profile" section that everyone else jumps to. Existing responses are not changed, and running it again does nothing. Check it with the form's Preview button.
 
 ## When labs change
 
