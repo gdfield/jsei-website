@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T17:35:12.147Z",
+  "generatedAt": "2026-10-23T18:15:42.316Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -365,6 +365,56 @@
         "linkedin": "https://www.linkedin.com/in/arushi-somani/"
       },
       "photo": "/images/trainees/arushi-somani-e267b027d7.jpg"
+    },
+    {
+      "slug": "xiaoqingsong",
+      "name": "xiaoqingsong",
+      "sortName": "xiaoqingsong",
+      "pronouns": "he",
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "deng",
+      "description": "Multi-Omics Profiling of Corneal Stromal Stem Cell-Derived Extracellular Vesicles Identifies Functional Biomarkers for Corneal Scarring",
+      "startDate": "2025-07-31",
+      "endDate": null,
+      "email": "xiaoqingsong@mednet.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/xiaoqingsong-f141c728c2.jpg"
+    },
+    {
+      "slug": "kyle-kim",
+      "name": "Kyle Kim",
+      "sortName": "Kim Kyle",
+      "pronouns": null,
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "sampath",
+      "description": "My broad interests largely focus on the mechanisms of neurodegenerative diseases. My current dissertation work focuses on how bipolar cells respond to loss of photoreceptor input in retinal degeneration (i.e. retinitis pigmentosa).",
+      "startDate": "2024-08-23",
+      "endDate": "2028-06-30",
+      "email": "KyleKim@mednet.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=ew1hM3AAAAAJ"
+      },
+      "photo": "/images/trainees/kyle-kim-a2ad68b73b.jpg"
+    },
+    {
+      "slug": "rikard-frederiksen",
+      "name": "Rikard Frederiksen",
+      "sortName": "Frederiksen Rikard",
+      "pronouns": "he/him",
+      "role": "projsci",
+      "title": "Assistant Researcher",
+      "lab": "sampath",
+      "description": "Rikard studies adaptation mechanisms in photoreceptors and bipolar cells.",
+      "startDate": "2017-07-01",
+      "endDate": null,
+      "email": "frederiksen@jsei.ucla.edu",
+      "links": {
+        "orcid": "0000-0001-7999-8480",
+        "scholar": "https://scholar.google.com/citations?user=H-tVbzYAAAAJ&hl=en"
+      },
+      "photo": "/images/trainees/rikard-frederiksen-580e1dc255.jpg"
     }
   ]
 }
