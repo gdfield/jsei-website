@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T20:17:18.161Z",
+  "generatedAt": "2026-10-23T21:36:58.334Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -430,6 +430,25 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/simran-purohit-f124f63e2b.jpg"
+    },
+    {
+      "slug": "yasamin-sadat-mousavimotlagh-md",
+      "name": "Yasamin Sadat Mousavimotlagh, MD",
+      "sortName": "MD Yasamin Sadat Mousavimotlagh,",
+      "pronouns": "She/her",
+      "role": "postdoc",
+      "title": "Research Fellow",
+      "lab": "barzalay",
+      "description": "Yasamin Sadat Mousavi Motlagh, MD, is a Research Fellow at the UCLA Jules Stein Eye Institute, focusing on innovative microsurgical techniques, robotic technologies, and image-guided ophthalmic surgery. Her research includes whole-eye transplantation, with an emphasis on orbital and skull-base surgical anatomy, vascular access, and intraoperative imaging. She also contributes to research on robotic-assisted ophthalmic microsurgery and advanced retinal therapeutic delivery techniques, including subretinal injections. Her work aims to improve surgical precision, safety, and outcomes through interdisciplinary research and technological innovation.",
+      "startDate": "2024-10-01",
+      "endDate": null,
+      "email": "YMousavimotlagh@mednet.ucla.edu",
+      "links": {
+        "orcid": "0009-0002-1500-4656",
+        "scholar": "https://scholar.google.com/citations?user=XWIUbqkAAAAJ",
+        "linkedin": "https://www.linkedin.com/in/jasmine-mousavi-186594273"
+      },
+      "photo": "/images/trainees/yasamin-sadat-mousavimotlagh-md-f785dea411.jpg"
     }
   ]
 }
