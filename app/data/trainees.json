@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T23:48:27.726Z",
+  "generatedAt": "2026-10-23T17:35:12.147Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -348,6 +348,23 @@
       "email": null,
       "links": {},
       "photo": null
+    },
+    {
+      "slug": "arushi-somani",
+      "name": "Arushi Somani",
+      "sortName": "Somani Arushi",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "deng",
+      "description": "Arushi studies microRNAs involved in corneal stem cell function and regeneration. Her research focuses on identifying miRNA biomarkers associated with corneal stem and progenitor cells.",
+      "startDate": "2026-01-05",
+      "endDate": "2027-06-12",
+      "email": null,
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/arushi-somani/"
+      },
+      "photo": "/images/trainees/arushi-somani-e267b027d7.jpg"
     }
   ]
 }
