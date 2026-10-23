@@ -19,12 +19,29 @@ export const metadata = pageMeta({
 
 const labCount = facultyData.filter((f) => !f.emeritus && !f.projectScientist).length;
 
+// Each counter with an href links to its section ("Laboratories" counts labs but
+// opens the Scientists page). "Founded" is a fact, not a destination.
 const stats = [
-  { value: 8, suffix: '', label: 'Research areas' },
-  { value: labCount, suffix: '', label: 'Laboratories' },
-  { value: 4, suffix: '', label: 'Core facilities' },
+  { value: 8, suffix: '', label: 'Research areas', href: '/researchAreas' },
+  { value: labCount, suffix: '', label: 'Laboratories', href: '/scientists' },
+  { value: 4, suffix: '', label: 'Core facilities', href: '/core' },
   { value: 1966, suffix: '', label: 'Founded', plain: true },
 ];
+
+const statInner = (stat) => (
+  <>
+    <div className="font-display text-4xl font-semibold tabular-nums text-ink sm:text-5xl">
+      {stat.plain ? stat.value : <CountUp end={stat.value} suffix={stat.suffix} />}
+    </div>
+    <div
+      className={`mt-2 font-mono text-xs uppercase tracking-[0.18em] ${
+        stat.href ? 'text-muted transition-colors duration-200 group-hover:text-sea-600' : 'text-muted'
+      }`}
+    >
+      {stat.label}
+    </div>
+  </>
+);
 
 // Feature pillars (Research Areas + Scientists) lead; the three
 // resource pillars follow. Copy is tightened to say what each section is.
@@ -102,20 +119,28 @@ const ResearchDivisionPage = () => {
 
               <Reveal delay={120}>
                 <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-mist bg-mist">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="bg-surface p-6 sm:p-8">
-                      <div className="font-display text-4xl font-semibold text-ink sm:text-5xl">
-                        {stat.plain ? (
-                          stat.value
-                        ) : (
-                          <CountUp end={stat.value} suffix={stat.suffix} />
-                        )}
+                  {stats.map((stat) =>
+                    stat.href ? (
+                      <a
+                        key={stat.label}
+                        href={stat.href}
+                        // A fixed label, so screen readers do not hear the count animating.
+                        aria-label={`${stat.value} ${stat.label.toLowerCase()}`}
+                        className="group relative bg-surface p-6 transition-colors duration-200 hover:bg-sea/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sea sm:p-8"
+                      >
+                        <div aria-hidden="true">{statInner(stat)}</div>
+                        <ArrowUpRight
+                          size={18}
+                          aria-hidden="true"
+                          className="absolute right-4 top-4 text-sea opacity-40 transition-[opacity,transform,color] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold-deep group-hover:opacity-100 sm:right-5 sm:top-5"
+                        />
+                      </a>
+                    ) : (
+                      <div key={stat.label} className="bg-surface p-6 sm:p-8">
+                        {statInner(stat)}
                       </div>
-                      <div className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-muted">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
+                    )
+                  )}
                 </div>
               </Reveal>
             </div>
