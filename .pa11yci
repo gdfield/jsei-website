@@ -25,6 +25,7 @@
     "http://localhost:3000/researchAreas",
     "http://localhost:3000/researchAreas/visualneuro",
     "http://localhost:3000/scientists",
+    "http://localhost:3000/history",
     "http://localhost:3000/laboratories/field",
     "http://localhost:3000/laboratories/aldave",
     "http://localhost:3000/core",

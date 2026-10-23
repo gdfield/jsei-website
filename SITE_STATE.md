@@ -193,6 +193,10 @@ Commits 4dbd730 (robots.txt) and ea1f82b (titles, descriptions, canonical URLs, 
 - Pre-push audit of 58 built pages: every page has a title containing "UCLA", a canonical URL, an existing og:image, and a description of 160 characters or fewer.
 - Still to do (Greg, manual): Google Search Console Domain property (TXT record in Cloudflare), submit the sitemap; optionally import into Bing Webmaster Tools.
 
+## 9c. Institute History page (unlisted, 2026-10-23)
+
+`/history` is live by direct link only for colleague review: no menu/footer link, not in the sitemap, `noindex`. Content in `app/data/history.js` (12 PubMed-verified discoveries, 9 milestones, bios of Jules Stein, Straatsma, Mondino, Coleman). Review copy: `JSEI-History-page-for-review.docx` (open questions listed there and in `claude/leadership-bios-draft.md`). Portraits: only Coleman's on hand. To launch: remove `noindex`, add History to `Navbar.js`, `Footer.js`, and `app/sitemap.js`.
+
 ## 10. Repository documentation
 
 - `CLAUDE.md`: architecture and conventions for AI-assisted editing. Rewritten 2026-10-04 to match current behavior (live ORCID/RePORTER/CrossRef data, data-model fields, funding logic, unpublished pages, design tokens).

@@ -75,6 +75,7 @@ Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri
 | `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
 | `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
 | `/scientists/<slug>` | `app/scientists/[slug]/page.js` | Profiles of project scientists from the intake form (same layout as trainee profiles) |
+| `/history` | `app/history/page.js` | Institute History: discoveries (`DiscoveryCarousel`, scrolls three at a time), milestones timeline, founder and director bios. Content and sources in `app/data/history.js`. **Unlisted while under review:** no menu or footer link, not in the sitemap, `noindex` |
 | `/sitemap.xml` | `app/sitemap.js` | Static pages, the eight research-area pages, every `facultyData` entry with a `pageUrl`, and active trainees |
 | `/robots.txt` | `app/robots.js` | Allows all crawlers on production and lists the sitemap; Vercel previews get `Disallow: /` |
 
