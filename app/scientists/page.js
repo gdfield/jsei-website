@@ -48,12 +48,14 @@ const ScientistsPage = () => {
   const groups = [
     {
       eyebrow: 'Basic Science',
+      id: 'basic',
       title: 'Basic Science Laboratories',
       intro: 'Laboratories working at the molecular, cellular, and circuit level to understand how vision works.',
       faculty: basicScience,
     },
     {
       eyebrow: 'Clinical Science',
+      id: 'clinical',
       title: 'Clinical Science Laboratories',
       intro: 'Clinician-scientists translating discovery into diagnosis and treatment for patients.',
       faculty: clinicalScience,
@@ -61,6 +63,7 @@ const ScientistsPage = () => {
     ...(projectScientists.length > 0
       ? [{
           eyebrow: 'Project Scientists',
+      id: 'project-scientists',
           title: 'Project Scientists',
           intro: 'Scientists who lead shared projects, technologies, and infrastructure across the institute.',
           faculty: projectScientists,
@@ -69,6 +72,7 @@ const ScientistsPage = () => {
     ...(emeritusFaculty.length > 0
       ? [{
           eyebrow: 'Emeritus',
+      id: 'emeritus',
           title: 'Emeritus Faculty',
           intro: 'Faculty whose foundational work continues to shape vision science at JSEI.',
           faculty: emeritusFaculty,
@@ -89,8 +93,25 @@ const ScientistsPage = () => {
         />
 
         <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          {groups.map((group, gi) => (
-            <section key={group.title} className={gi > 0 ? 'mt-20' : ''}>
+          {/* Counts per group, like the Trainees page; each jumps to its section. */}
+          <nav aria-label="Groups on this page">
+            <ul className={`grid list-none grid-cols-2 gap-3 p-0 sm:gap-4 ${groups.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
+              {groups.map((g) => (
+                <li key={g.id}>
+                  <a
+                    href={`#${g.id}`}
+                    className="group block h-full rounded-2xl border border-mist bg-surface p-5 shadow-card transition-[border-color,box-shadow] duration-200 hover:border-sea/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea"
+                  >
+                    <span className="block text-sm text-muted transition-colors duration-200 group-hover:text-sea-600">{g.title}</span>
+                    <span className="mt-1 block font-display text-3xl font-semibold tabular-nums text-ink">{g.faculty.length}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {groups.map((group) => (
+            <section key={group.title} id={group.id} className="mt-20 scroll-mt-24">
               <Reveal>
                 <SectionHeading eyebrow={group.eyebrow} title={group.title} intro={group.intro} />
               </Reveal>
