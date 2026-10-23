@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T18:15:42.316Z",
+  "generatedAt": "2026-10-23T20:17:18.161Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -415,6 +415,21 @@
         "scholar": "https://scholar.google.com/citations?user=H-tVbzYAAAAJ&hl=en"
       },
       "photo": "/images/trainees/rikard-frederiksen-580e1dc255.jpg"
+    },
+    {
+      "slug": "simran-purohit",
+      "name": "Simran Purohit",
+      "sortName": "Purohit Simran",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "radu",
+      "description": "Simran studies how vitamin A-derived lipid accumulation leads to inflammation in STGD1 mouse models using Western blots.",
+      "startDate": "2025-01-22",
+      "endDate": "2028-06-09",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/simran-purohit-f124f63e2b.jpg"
     }
   ]
 }
