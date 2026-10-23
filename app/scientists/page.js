@@ -83,7 +83,7 @@ const ScientistsPage = () => {
         <Hero
           eyebrow="The Scientists"
           title="Scientists"
-          subtitle="Independent labs, shared purpose"
+          subtitle="Discover the Scientists and their laboratories that comprise the research at Jules Stein Eye Institute"
           description="Advancing our understanding of vision through innovative research."
           compact
         />
