@@ -24,7 +24,6 @@ export default function BarzalayPage() {
      authors: "Barzelay-Wollman, A.",
      journal: "EURETINA Annual Meeting, Barcelona, Spain",
      year: "2024",
-     citations: "",
      doi: "#"
    },
    {
@@ -32,7 +31,6 @@ export default function BarzalayPage() {
      authors: "Barzelay-Wollman, A., Lai, Y.T.",
      journal: "IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)",
      year: "2024",
-     citations: "",
      doi: "#"
    },
    {
@@ -40,15 +38,13 @@ export default function BarzalayPage() {
      authors: "Shechter, Y., Cohen, R., Namestnikov, M., Shapira, A., Barak, A., Barzelay-Wollman, A., Dvir, T.",
      journal: "Gels",
      year: "2024",
-     citations: "",
      doi: "https://doi.org/10.3390/gels10050336"
    },
    {
-     title: "Regenerative Effect of Adipose-Derived Mesenchymal Stem Cells on Ganglion Cells in the Hypoxic Organotypic Retina Culture",
+     title: "Regenerative Effect of Adipose Derived Mesenchymal Stem Cells on Ganglion Cells in the Hypoxic Organotypic Retina Culture",
      authors: "Dov, M.B., Krief, B., Benhamou, M., Klein, A., Schwartz, S., Loewenstein, A., Barak, A., Barzelay-Wollman, A.",
      journal: "International Journal of Stem Cells",
      year: "2023",
-     citations: "",
      doi: "https://pubmed.ncbi.nlm.nih.gov/36581366/"
    },
    {
@@ -56,7 +52,6 @@ export default function BarzalayPage() {
      authors: "Krief, B., Algor, S.W., Nakdimon, I., Elhikis, A., Benhamou, M., Kadmon, A.S., Keren, S., Ohana, O., Feldman, I., Cnaan, R., Leibovitch, I., Loewenstein, A., Barak, A., Barzelay-Wollman, A.",
      journal: "Stem Cells International",
      year: "2021",
-     citations: "",
      doi: "https://doi.org/10.1155/2021/7022247"
    }
  ];
@@ -176,7 +171,7 @@ export default function BarzalayPage() {
                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                <p className="text-ink-soft mb-1">{pub.authors}</p>
                <p className="text-muted">
-                 {pub.journal} ({pub.year}) {pub.citations && `• ${pub.citations} citations`}
+                 {pub.journal} ({pub.year}) 
                </p>
                {pub.doi !== "#" && (
                  <a 

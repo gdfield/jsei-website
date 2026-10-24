@@ -18,39 +18,37 @@ export const metadata = pageMeta({
 });
 
 export default function GlasgowPage() {
+  // Checked against PubMed, October 2026. Earlier entries here could not be
+  // found in PubMed and were replaced.
   const publications = [
     {
-      title: "Tear lipocalin: Structure, function, and molecular mechanisms",
-      authors: "Glasgow BJ, Gasymov OK",
-      journal: "Progress in Retinal and Eye Research",
-      year: "2020",
-      citations: "85",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/31838012/"
+      title: "Chronic Eosinophilic Leukemia Presenting as Treatment-Refractory Nodular Scleritis: A Paraneoplastic Autoimmune Syndrome With Multisystem Inflammatory Manifestations.",
+      authors: "Ji BC, Aung T, Castellino J, Kahlon KS, Tsui E, Glasgow BJ",
+      journal: "Cureus",
+      year: "2026",
+      doi: "https://doi.org/10.7759/cureus.105414", // PMID 42005114
     },
     {
-      title: "Lipid binding properties of tear lipocalins and their role in the ocular surface",
-      authors: "Gasymov OK, Abduragimov AR, Glasgow BJ",
-      journal: "Investigative Ophthalmology & Visual Science",
-      year: "2018",
-      citations: "72",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/29933342/"
+      title: "Recognition of Bulbilli Facilitates the Diagnosis of Cladorrhinum bulbillosum.",
+      authors: "Chen AC, Ghaffari R, Glasgow BJ",
+      journal: "Cornea",
+      year: "2026",
+      doi: "https://doi.org/10.1097/ICO.0000000000004085", // PMID 41915916
     },
     {
-      title: "Structural basis for tear film lipid layer stability by tear lipocalin interactions with phospholipids",
-      authors: "Glasgow BJ, Gasymov OK, Abduragimov AR",
-      journal: "Journal of Biological Chemistry",
-      year: "2016",
-      citations: "65",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/26740620/"
+      title: "Thermotropic phase transitions of binary mixtures of wax and cholesteryl esters relevant to tears.",
+      authors: "Glasgow BJ, Abduragimov AR",
+      journal: "Biochemistry and Biophysics Reports",
+      year: "2025",
+      doi: "https://doi.org/10.1016/j.bbrep.2025.102126", // PMID 40688498
     },
     {
-      title: "Pathophysiology of ocular surface disorders and the role of tear lipocalins",
-      authors: "Glasgow BJ, Gasymov OK",
-      journal: "Experimental Eye Research",
-      year: "2014",
-      citations: "59",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/25045864/"
-    }
+      title: "Tear Lipocalin and Lipocalin-Interacting Membrane Receptor.",
+      authors: "Glasgow BJ",
+      journal: "Frontiers in Physiology",
+      year: "2021",
+      doi: "https://doi.org/10.3389/fphys.2021.684211", // PMID 34489718
+    },
   ];
 
   const personSchema = {
@@ -143,7 +141,7 @@ export default function GlasgowPage() {
                 <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                 <p className="text-ink-soft mb-1">{pub.authors}</p>
                 <p className="text-muted">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 {pub.doi && (
                   <a 

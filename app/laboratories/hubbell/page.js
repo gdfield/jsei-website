@@ -24,32 +24,28 @@ export default function HubbellPage() {
       authors: "DL Farrens, C Altenbach, K Yang, WL Hubbell, HG Khorana",
       journal: "Science",
       year: "1996",
-      citations: "1548",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/8895462/"
+      doi: "https://doi.org/10.1126/science.274.5288.768" // PMID 8864113
     },
     {
       title: "Identifying conformational changes with site-directed spin labeling",
       authors: "WL Hubbell, DS Cafiso, C Altenbach",
       journal: "Nature Structural Biology",
       year: "2000",
-      citations: "1045",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/10966641/"
+      doi: "https://doi.org/10.1038/78956" // PMID 10966640
     },
     {
       title: "High-resolution distance mapping in rhodopsin reveals the pattern of helix movement due to activation",
       authors: "C Altenbach, AK Kusnetzow, OP Ernst, KP Hofmann, WL Hubbell",
       journal: "Proceedings of the National Academy of Sciences USA",
       year: "2008",
-      citations: "574",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/18474870/"
+      doi: "https://doi.org/10.1073/pnas.0802515105" // PMID 18490656
     },
     {
       title: "Watching proteins move using site-directed spin labeling",
       authors: "WL Hubbell, HS Mchaourab, C Altenbach, MA Lietzow",
       journal: "Structure",
       year: "1996",
-      citations: "584",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/8805552/"
+      doi: "https://doi.org/10.1016/s0969-2126(96)00085-8" // PMID 8805569
     }
   ];
 
@@ -147,7 +143,7 @@ export default function HubbellPage() {
                 <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                 <p className="text-ink-soft mb-1">{pub.authors}</p>
                 <p className="text-muted">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 {pub.doi && (
                   <a 

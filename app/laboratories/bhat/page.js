@@ -48,7 +48,7 @@ export default function BhatPage() {
       doi: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3030331/"
     },
     {
-      title: "Inhibition of the Expression of the Small Heat Shock Protein alpha-Crystallin Inhibits Exosome Secretion in Human Retinal Pigment Epithelial Cells in Culture",
+      title: "Inhibition of the Expression of the Small Heat Shock Protein αB-Crystallin Inhibits Exosome Secretion in Human Retinal Pigment Epithelial Cells in Culture",
       authors: "Gangalum R. K., Bhat A. M., Kohan S. A., and Bhat S. P.",
       journal: "Journal of Biological Chemistry",
       year: "2016",

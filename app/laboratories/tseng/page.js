@@ -41,7 +41,7 @@ export default function FieldPage() {
       doi: "https://pubmed.ncbi.nlm.nih.gov/36058735/"
     },
     {
-      title: "Association between dietary salt intake and open and glaucoma in the Thessaloniki Eye Study",
+      title: "Association Between Dietary Salt Intake and Open Angle Glaucoma in the Thessaloniki Eye Study",
       authors: "Tseng VL, Topouzis F, Yu F, Keskini C, Pappas T, Founti P, Anastasopoulos E, Harris A, Wilson MR, Coleman AL",
       journal: "Journal of Glaucoma",
       year: "2022",

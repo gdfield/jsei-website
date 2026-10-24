@@ -18,40 +18,38 @@ export const metadata = pageMeta({
 });
 
 export default function BrechaPage() {
- const publications = [
-   {
-     title: "Neuronal nitric oxide synthase expression in the mouse retina",
-     authors: "Brecha NC, Eldred W, Kuljis RO",
-     journal: "Brain Research",
-     year: "2023",
-     citations: "4",
-     doi: "https://doi.org/10.1016/j.brainres.2023.0123"
-   },
-   {
-     title: "GABAergic amacrine cells in the mammalian retina",
-     authors: "Brecha NC, Johnson J, Yang CY",
-     journal: "Progress in Retinal and Eye Research",
-     year: "2022",
-     citations: "15", 
-     doi: "https://doi.org/10.1016/j.preteyeres.2022.1234"
-   },
-   {
-     title: "Neuropeptide expression in retinal neurons",
-     authors: "Johnson J, Yang CY, Brecha NC",
-     journal: "Journal of Comparative Neurology",
-     year: "2021",
-     citations: "22",
-     doi: "https://doi.org/10.1002/cne.24123"
-   },
-   {
-     title: "Neurotransmitter systems in the vertebrate retina",
-     authors: "Brecha NC, Eldred W",
-     journal: "Annual Review of Vision Science",
-     year: "2020",
-     citations: "45",
-     doi: "https://doi.org/10.1146/annurev-vision-2020"
-   }
- ];
+ // Checked against PubMed, October 2026. Earlier entries here could not be
+  // found in PubMed and were replaced.
+  const publications = [
+    {
+      title: "Vesicular Release of GABA by Mammalian Horizontal Cells Mediates Inhibitory Output to Photoreceptors.",
+      authors: "Hirano AA, Vuong HE, Kornmann HL, Schietroma C, Stella SL, Barnes S, Brecha NC",
+      journal: "Frontiers in Cellular Neuroscience",
+      year: "2020",
+      doi: "https://doi.org/10.3389/fncel.2020.600777", // PMID 33335476
+    },
+    {
+      title: "Horizontal Cell Feedback to Cone Photoreceptors in Mammalian Retina: Novel Insights From the GABA-pH Hybrid Model.",
+      authors: "Barnes S, Grove JCR, McHugh CF, Hirano AA, Brecha NC",
+      journal: "Frontiers in Cellular Neuroscience",
+      year: "2020",
+      doi: "https://doi.org/10.3389/fncel.2020.595064", // PMID 33328894
+    },
+    {
+      title: "Multiple cell types form the VIP amacrine cell population.",
+      authors: "Pérez de Sevilla Müller L, Solomon A, Sheets K, Hapukino H, Rodriguez AR, Brecha NC",
+      journal: "Journal of Comparative Neurology",
+      year: "2019",
+      doi: "https://doi.org/10.1002/cne.24234", // PMID 28472856
+    },
+    {
+      title: "Prox1 Is a Marker for AII Amacrine Cells in the Mouse Retina.",
+      authors: "Pérez de Sevilla Müller L, Azar SS, de Los Santos J, Brecha NC",
+      journal: "Frontiers in Neuroanatomy",
+      year: "2017",
+      doi: "https://doi.org/10.3389/fnana.2017.00039", // PMID 28529477
+    },
+  ];
 
   const personSchema = {
   "@context": "https://schema.org",
@@ -142,7 +140,7 @@ export default function BrechaPage() {
                <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                <p className="text-ink-soft mb-1">{pub.authors}</p>
                <p className="text-muted">
-                 {pub.journal} ({pub.year}) • {pub.citations} citations
+                 {pub.journal} ({pub.year})
                </p>
                <a 
                  href={pub.doi}

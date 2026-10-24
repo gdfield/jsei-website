@@ -21,35 +21,31 @@ export default function PiriPage() {
   const publications = [
     {
       title: "A nonsense mutation in a novel gene is associated with retinitis pigmentosa in a family linked to the RP1 locus",
-      authors: "Guillonneau X, Piriev NI, Danciger M, Kozak CA, Cideciyan AV, Jacobson SG, Farber DB",
+      authors: "Guillonneau X, Piriev NI, Danciger M, Kozak CA, Cideciyan AV, Jacobson SG, et al.",
       journal: "Human Molecular Genetics",
       year: "1999",
-      citations: "450",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/10441338/"
+      doi: "https://doi.org/10.1093/hmg/8.8.1541" // PMID 10401003
     },
     {
-      title: "A deletion in a photoreceptor-specific nuclear receptor mRNA causes retinal degeneration in rd7 mouse",
-      authors: "Piriev NI, Akhmedov NB, Chang B, Rapoport A, Hawes NL, Nishina PM, et al.",
+      title: "A deletion in a photoreceptor-specific nuclear receptor mRNA causes retinal degeneration in the rd7 mouse",
+      authors: "Akhmedov NB, Piriev NI, Chang B, Rapoport AL, Hawes NL, Nishina PM, et al.",
       journal: "Proceedings of the National Academy of Sciences USA",
       year: "2000",
-      citations: "390",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/10805796/"
+      doi: "https://doi.org/10.1073/pnas.97.10.5551" // PMID 10805811
     },
     {
-      title: "Regulation of rod photoreceptor cGMP-phosphodiesterase alpha and beta subunits expression: mRNA and protein levels",
+      title: "Differential expression of rod photoreceptor cGMP-phosphodiesterase alpha and beta subunits: mRNA and protein levels",
       authors: "Piri N, Yamashita CK, Shih J, Akhmedov NB, Farber DB",
       journal: "Journal of Biological Chemistry",
       year: "2003",
-      citations: "320",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/12832427/"
+      doi: "https://doi.org/10.1074/jbc.M303710200" // PMID 12871955
     },
     {
-      title: "Focus on HSP70 and alpha crystallins in ganglion cell survival",
-      authors: "Piri N, Gao Y, Danciger M, Mendoza E, Fishman GA, Farber DB",
+      title: "Heat shock proteins in the retina: Focus on HSP70 and alpha crystallins in ganglion cell survival",
+      authors: "Piri N, Kwong JM, Gu L, Caprioli J",
       journal: "Progress in Retinal and Eye Research",
       year: "2016",
-      citations: "511",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/27017896/"
+      doi: "https://doi.org/10.1016/j.preteyeres.2016.03.001" // PMID 27017896
     }
   ];
 
@@ -134,7 +130,7 @@ export default function PiriPage() {
                 <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                 <p className="text-ink-soft mb-1">{pub.authors}</p>
                 <p className="text-muted">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 {pub.doi && (
                   <a 

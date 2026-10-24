@@ -24,7 +24,6 @@ export default function HukPage() {
       authors: "J Palmer, AC Huk, MN Shadlen",
       journal: "Journal of Vision",
       year: "2005",
-      citations: "817",
       doi: "https://pubmed.ncbi.nlm.nih.gov/16097871/"
     },
     {
@@ -32,7 +31,6 @@ export default function HukPage() {
       authors: "AC Huk, RF Dougherty, DJ Heeger",
       journal: "Journal of Neuroscience",
       year: "2002",
-      citations: "729",
       doi: "https://pubmed.ncbi.nlm.nih.gov/12177214/"
     },
     {
@@ -40,15 +38,13 @@ export default function HukPage() {
       authors: "AC Huk, MN Shadlen",
       journal: "Journal of Neuroscience",
       year: "2005",
-      citations: "616",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/16291934/"
+      doi: "https://pubmed.ncbi.nlm.nih.gov/16280581/"
     },
     {
       title: "Single-trial spike trains in parietal cortex reveal discrete steps during decision-making",
       authors: "KW Latimer, JL Yates, MLR Meister, AC Huk, JW Pillow",
       journal: "Science",
       year: "2015",
-      citations: "337",
       doi: "https://pubmed.ncbi.nlm.nih.gov/26160947/"
     }
   ];
@@ -139,7 +135,7 @@ export default function HukPage() {
                 <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                 <p className="text-ink-soft mb-1">{pub.authors}</p>
                 <p className="text-muted">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 {pub.doi && (
                   <a 

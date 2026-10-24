@@ -7,93 +7,18 @@ import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 
-const FACULTY_ORCID = '0009-0006-9866-9846';
+// Hand-checked against PubMed (October 2026). The ORCID iD this page used to
+// have (0009-0006-9866-9846) belongs to a different Hui Sun, so publications
+// are listed by hand until Dr. Sun's own ORCID iD is confirmed.
+const PUBLICATIONS = [
+  { title: 'Regulatory mechanism for the transmembrane receptor that mediates bidirectional vitamin A transport.', authors: ['Zhong M', 'Kawaguchi R', 'Costabile B', 'Tang Y', 'Hu J', 'Cheng G', '\u2026', 'Sun H'], journal: 'Proceedings of the National Academy of Sciences of the United States of America', year: '2020', doi: '10.1073/pnas.1918540117' }, // PMID 32300017
+  { title: 'Peropsin modulates transit of vitamin A from retina to retinal pigment epithelium.', authors: ['Cook JD', 'Ng SY', 'Lloyd M', 'Eddington S', 'Sun H', 'Nathans J', 'et al.'], journal: 'Journal of Biological Chemistry', year: '2017', doi: '10.1074/jbc.M117.812701' }, // PMID 29109151
+  { title: 'Vitamin A Transport Mechanism of the Multitransmembrane Cell-Surface Receptor STRA6.', authors: ['Kawaguchi R', 'Zhong M', 'Kassai M', 'Ter-Stepanian M', 'Sun H'], journal: 'Membranes', year: '2015', doi: '10.3390/membranes5030425' }, // PMID 26343735
+  { title: 'A genetic clog in the vitamin A transport machinery.', authors: ['Zhong M', 'Sun H'], journal: 'Cell', year: '2015', doi: '10.1016/j.cell.2015.04.020' }, // PMID 25910203
+  { title: 'Identification of PLXDC1 and PLXDC2 as the transmembrane receptors for the multifunctional factor PEDF.', authors: ['Cheng G', 'Zhong M', 'Kawaguchi R', 'Kassai M', 'Al-Ubaidi M', 'Deng J', 'Ter-Stepanian M', 'Sun H'], journal: 'eLife', year: '2014', doi: '10.7554/eLife.05401' }, // PMID 25535841
+  { title: 'To investigate the necessity of STRA6 upregulation in T cells during T cell immune responses.', authors: ['Terra R', 'Wang X', 'Hu Y', 'Charpentier T', 'Lamarre A', 'Zhong M', '\u2026', 'Sun H', 'et al.'], journal: 'PLoS One', year: '2013', doi: '10.1371/journal.pone.0082808' }, // PMID 24391722
+];
 
-async function fetchRecentPublications(orcid, limit = 10) {
-  try {
-    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
-      headers: { Accept: 'application/json' },
-      next: { revalidate: 86400 },
-    });
-    if (!summaryRes.ok) return [];
-    const summaryData = await summaryRes.json();
-
-    const sorted = (summaryData.group || [])
-      .map((g) => ({
-        putCode: g['work-summary'][0]['put-code'],
-        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
-        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
-      }))
-      .sort((a, b) => b.year - a.year || b.month - a.month)
-      .slice(0, limit * 2 + 5);
-
-    if (sorted.length === 0) return [];
-
-    const putCodes = sorted.map((s) => s.putCode);
-    const fullRes = await fetch(
-      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
-      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
-    );
-    if (!fullRes.ok) return [];
-    const fullData = await fullRes.json();
-
-    const pubs = (fullData.bulk || [])
-      .map((item) => {
-        const work = item.work;
-        const authors = (work?.contributors?.contributor || [])
-          .filter((c) => { const role = c['contributor-attributes']?.['contributor-role']; return !role || role === 'author'; })
-          .map((c) => c['credit-name']?.value)
-          .filter(Boolean);
-        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
-          .find((id) => id['external-id-type'] === 'doi');
-        return {
-          title: work?.title?.title?.value ?? '',
-          journal: work?.['journal-title']?.value ?? '',
-          year: work?.['publication-date']?.year?.value ?? '',
-          doi: doiEntry?.['external-id-value'] ?? null,
-          authors,
-        };
-      })
-      .filter((p) => {
-        if (!p.title) return false;
-        const journal = p.journal.toLowerCase();
-        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
-        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
-        return true;
-      })
-      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
-      .slice(0, limit);
-
-    await Promise.all(
-      pubs
-        .filter((p) => (!p.journal || p.authors.length === 0) && p.doi)
-        .map(async (p) => {
-          try {
-            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
-              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
-              next: { revalidate: 86400 },
-            });
-            if (!r.ok) return;
-            const data = await r.json();
-            const msg = data?.message;
-            if (!p.journal) {
-              const containerTitle = msg?.['container-title']?.[0];
-              if (containerTitle) p.journal = containerTitle;
-            }
-            if (p.authors.length === 0 && msg?.author) {
-              p.authors = msg.author
-                .map((a) => [a.given, a.family].filter(Boolean).join(' '))
-                .filter(Boolean);
-            }
-          } catch {}
-        })
-    );
-
-    return pubs;
-  } catch {
-    return [];
-  }
-}
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
@@ -107,7 +32,7 @@ export const metadata = pageMeta({
 });
 
 export default async function SunPage() {
-  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+  const publications = PUBLICATIONS;
 
   
   const personSchema = {
@@ -161,7 +86,6 @@ export default async function SunPage() {
           links={[
             { kind: "email", href: "mailto:hsun@mednet.ucla.edu", label: "hsun@mednet.ucla.edu" },
             { kind: "profile", href: "https://profiles.ucla.edu/hui.sun", label: "Faculty profile" },
-            { kind: "orcid", href: `https://orcid.org/${FACULTY_ORCID}`, label: "ORCID" },
           ]}
         >
   <p className="text-ink-soft">
@@ -186,7 +110,7 @@ export default async function SunPage() {
 
         {/* Publications Section */}
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-ink mb-4">Recent Publications</h2>
+          <h2 className="text-2xl font-bold text-ink mb-4">Selected Publications</h2>
           <div className="space-y-3">
                 {publications.map((pub, index) => (
       <div key={index} className="rounded-xl border border-mist bg-surface p-4 shadow-card transition-shadow hover:shadow-lift">

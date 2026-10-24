@@ -274,7 +274,7 @@
       pageUrl: "/laboratories/sun",
       researchAreas: ["Therapeutics and Regeneration", "Retinal Biology"],
       basicScience: true,
-      orcid: "0009-0006-9866-9846",
+      // orcid removed 2026-10-23: 0009-0006-9866-9846 belongs to a different Hui Sun. Add his own iD when confirmed.
       nihName: { lastName: "Sun", firstName: "Hui" }
     },
     {

@@ -3,97 +3,13 @@ import LabTrainees from '@/app/components/LabTrainees';
 import LabProfile from '@/app/components/LabProfile';
 import LabBanner from '@/app/components/LabBanner';
 import { pageMeta } from '@/app/lib/seo';
+import { fetchRecentPublications } from '@/app/lib/orcidPublications';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 
 
 const FACULTY_ORCID = '0000-0003-4109-5336';
 
-async function fetchRecentPublications(orcid, limit = 10) {
-  try {
-    const summaryRes = await fetch(`https://pub.orcid.org/v3.0/${orcid}/works`, {
-      headers: { Accept: 'application/json' },
-      next: { revalidate: 86400 },
-    });
-    if (!summaryRes.ok) return [];
-    const summaryData = await summaryRes.json();
-
-    const sorted = (summaryData.group || [])
-      .map((g) => ({
-        putCode: g['work-summary'][0]['put-code'],
-        year: parseInt(g['work-summary'][0]['publication-date']?.year?.value ?? '0'),
-        month: parseInt(g['work-summary'][0]['publication-date']?.month?.value ?? '0'),
-      }))
-      .sort((a, b) => b.year - a.year || b.month - a.month)
-      .slice(0, limit * 2 + 5);
-
-    if (sorted.length === 0) return [];
-
-    const putCodes = sorted.map((s) => s.putCode);
-    const fullRes = await fetch(
-      `https://pub.orcid.org/v3.0/${orcid}/works/${putCodes.join(',')}`,
-      { headers: { Accept: 'application/json' }, next: { revalidate: 86400 } }
-    );
-    if (!fullRes.ok) return [];
-    const fullData = await fullRes.json();
-
-    const pubs = (fullData.bulk || [])
-      .map((item) => {
-        const work = item.work;
-        const authors = (work?.contributors?.contributor || [])
-          .filter((c) => { const role = c['contributor-attributes']?.['contributor-role']; return !role || role === 'author'; })
-          .map((c) => c['credit-name']?.value)
-          .filter(Boolean);
-        const doiEntry = (work?.['external-ids']?.['external-id'] || [])
-          .find((id) => id['external-id-type'] === 'doi');
-        return {
-          title: work?.title?.title?.value ?? '',
-          journal: work?.['journal-title']?.value ?? '',
-          year: work?.['publication-date']?.year?.value ?? '',
-          doi: doiEntry?.['external-id-value'] ?? null,
-          authors,
-        };
-      })
-      .filter((p) => {
-        if (!p.title) return false;
-        const journal = p.journal.toLowerCase();
-        if (journal.includes('biorxiv') || journal.includes('arxiv')) return false;
-        if (p.doi && /^10\.(1101|48550)\//.test(p.doi)) return false;
-        return true;
-      })
-      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
-      .slice(0, limit);
-
-    await Promise.all(
-      pubs
-        .filter((p) => (!p.journal || p.authors.length === 0) && p.doi)
-        .map(async (p) => {
-          try {
-            const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(p.doi)}`, {
-              headers: { 'User-Agent': 'JSEI-Website/1.0 (mailto:gregfield@ucla.edu)' },
-              next: { revalidate: 86400 },
-            });
-            if (!r.ok) return;
-            const data = await r.json();
-            const msg = data?.message;
-            if (!p.journal) {
-              const containerTitle = msg?.['container-title']?.[0];
-              if (containerTitle) p.journal = containerTitle;
-            }
-            if (p.authors.length === 0 && msg?.author) {
-              p.authors = msg.author
-                .map((a) => [a.given, a.family].filter(Boolean).join(' '))
-                .filter(Boolean);
-            }
-          } catch {}
-        })
-    );
-
-    return pubs;
-  } catch {
-    return [];
-  }
-}
 
 // Re-evaluate daily so the Lab Members section follows trainee start/end dates.
 export const revalidate = 86400;
@@ -107,7 +23,7 @@ export const metadata = pageMeta({
 });
 
 export default async function GilhooleyPage() {
-  const publications = await fetchRecentPublications(FACULTY_ORCID, 10);
+  const publications = await fetchRecentPublications(FACULTY_ORCID, 10, { surname: 'Gilhooley' });
 
   
   const personSchema = {

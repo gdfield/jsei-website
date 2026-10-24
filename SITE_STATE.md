@@ -197,6 +197,17 @@ Commits 4dbd730 (robots.txt) and ea1f82b (titles, descriptions, canonical URLs, 
 
 `/history` is live by direct link only for colleague review: no menu/footer link, not in the sitemap, `noindex`. Content in `app/data/history.js` (12 PubMed-verified discoveries, 9 milestones, bios of Jules Stein, Straatsma, Mondino, Coleman). Review copy: `JSEI-History-page-for-review.docx` (open questions listed there and in `claude/leadership-bios-draft.md`). Portraits: only Coleman's on hand. To launch: remove `noindex`, add History to `Navbar.js`, `Footer.js`, and `app/sitemap.js`.
 
+## 9d. Publication accuracy audit (2026-10-23)
+
+Prompted by a Wikipedia-feasibility review. Findings and fixes (branch fix/publication-accuracy, patch publication-accuracy.patch):
+- Hui Sun's ORCID iD 0009-0006-9866-9846 belonged to a different Hui Sun (Xiamen / Chengdu); removed from his page and faculty.js (also stops wrong works on /publications and /funding). Page now lists 6 PubMed-verified papers by hand. His own iD is not yet known.
+- All four citations on the Brecha, Glasgow and Gorin pages did not exist in PubMed (made up when the pages were written), with made-up citation counts; replaced with recent PubMed-verified first/last-author papers. Citation counts removed site-wide.
+- Wrong PubMed links fixed: Hubbell (4), Huk (1), Piri (3, plus titles/authors on 3). Title fixes: Tseng (salt/glaucoma), Bhat (alphaB-crystallin), Barzelay-Wollman (hyphen). Tseng years match PubMed print years.
+- ORCID-driven pages now use app/lib/orcidPublications.js: CrossRef author lists, and works without the investigator's surname are dropped (fixes Williams "et al.", Nouri-Mahdavi first authors, Travis's misattributed 2025 review).
+- Zheng: page heading, name, and photo alt said "Zhang"; fixed (slug stays /laboratories/zhang).
+- Williams: chair updated to Dolly Green Chair in Ophthalmology (UCLA Profiles: since 9/1/2025; Kirchgessner chair ended 8/31/2025).
+- Open: named chairs for Nouri-Mahdavi, Aldave, Yang, Field (Profiles conflicts or not public); Hui Sun's ORCID; Travis should remove the misattributed review from his ORCID (it may still appear on /publications); Piri's 1999-2000 papers list "Piriev NI" (confirm same person); Barzelay-Wollman's 2 conference items are not in PubMed (could not check); NIH grants on /funding could not be re-checked this session (no access to NIH RePORTER).
+
 ## 10. Repository documentation
 
 - `CLAUDE.md`: architecture and conventions for AI-assisted editing. Rewritten 2026-10-04 to match current behavior (live ORCID/RePORTER/CrossRef data, data-model fields, funding logic, unpublished pages, design tokens).

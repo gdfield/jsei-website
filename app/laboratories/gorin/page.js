@@ -18,39 +18,37 @@ export const metadata = pageMeta({
 });
 
 export default function GorinPage() {
+  // Checked against PubMed, October 2026. Earlier entries here could not be
+  // found in PubMed and were replaced.
   const publications = [
     {
-      title: "Genome-wide association study identifies novel genetic loci for primary open-angle glaucoma",
-      authors: "Gorin MB, Chen Y, Craig JE",
-      journal: "Nature Genetics",
-      year: "2023",
-      citations: "12",
-      doi: "https://doi.org/10.1038/ng.2023.5678"
-    },
-    {
-      title: "Genetic risk factors for age-related macular degeneration in diverse populations",
-      authors: "Gorin MB, Wang JJ, Klein R",
-      journal: "Ophthalmology",
-      year: "2022",
-      citations: "35",
-      doi: "https://doi.org/10.1016/j.ophtha.2022.4321"
-    },
-    {
-      title: "Multi-ethnic analysis of glaucoma endophenotypes",
-      authors: "Chen Y, Craig JE, Gorin MB",
+      title: "Safety and Effects of Gildeuretinol Acetate on Retinal Atrophic Lesions in Stargardt Disease: The TEASE-1 Randomized Clinical Trial.",
+      authors: "Kay CN, Saad L, DeBartolomeo G, Bressler N, Tsang SH, Stepien K, …, Gorin MB",
       journal: "JAMA Ophthalmology",
-      year: "2021",
-      citations: "28",
-      doi: "https://doi.org/10.1001/jamaophthalmol.2021.8765"
+      year: "2026",
+      doi: "https://doi.org/10.1001/jamaophthalmol.2026.3662", // PMID 42690655
     },
     {
-      title: "Genetic architecture of primary open-angle glaucoma in African populations",
-      authors: "Gorin MB, Ritch R, Allingham RR",
-      journal: "Progress in Retinal and Eye Research",
+      title: "Assessing Variant Causality and Severity Using Retinal Pigment Epithelial Cells Derived from Stargardt Disease Patients.",
+      authors: "Matynia A, Wang J, Kim S, Li Y, Dimashkie A, Jiang Z, …, Gorin MB",
+      journal: "Translational Vision Science & Technology",
+      year: "2022",
+      doi: "https://doi.org/10.1167/tvst.11.3.33", // PMID 35348597
+    },
+    {
+      title: "Assessing the Clinical Utility of Expanded Macular OCTs Using Machine Learning.",
+      authors: "Lin AC, Lee CS, Blazes M, Lee AY, Gorin MB",
+      journal: "Translational Vision Science & Technology",
+      year: "2021",
+      doi: "https://doi.org/10.1167/tvst.10.6.32", // PMID 34038502
+    },
+    {
+      title: "Predictive genetics for AMD: Hype and hopes for genetics-based strategies for treatment and prevention.",
+      authors: "Gorin MB, daSilva MJ",
+      journal: "Experimental Eye Research",
       year: "2020",
-      citations: "56",
-      doi: "https://doi.org/10.1016/j.preteyeres.2020.1234"
-    }
+      doi: "https://doi.org/10.1016/j.exer.2019.107894", // PMID 31862397
+    },
   ];
 
   const personSchema = {
@@ -141,7 +139,7 @@ export default function GorinPage() {
                 <h3 className="text-lg font-bold text-ink mb-2">{pub.title}</h3>
                 <p className="text-ink-soft mb-1">{pub.authors}</p>
                 <p className="text-muted">
-                  {pub.journal} ({pub.year}) • {pub.citations} citations
+                  {pub.journal} ({pub.year})
                 </p>
                 <a 
                   href={pub.doi}
