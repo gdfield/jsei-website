@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T00:15:08.230Z",
+  "generatedAt": "2026-10-24T01:11:54.693Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -449,6 +449,24 @@
         "linkedin": "https://www.linkedin.com/in/jasmine-mousavi-186594273"
       },
       "photo": "/images/trainees/yasamin-sadat-mousavimotlagh-md-f785dea411.jpg"
+    },
+    {
+      "slug": "marija-rudzite",
+      "name": "Marija Rudzite",
+      "sortName": "Rudzite Marija",
+      "pronouns": null,
+      "role": "grad",
+      "title": "PhD Candidate",
+      "lab": "field",
+      "description": "I'm a “bi-coastal” graduate student at Duke Neurobiology Ph.D. program working with the Sommer Lab to understand what visual signals the retina sends to different brain regions. I'm also interested in how the synaptic organization of retinal circuits relates to mathematical descriptions of neural code and visual processing. As a training retinal physiologist, I spend most of my time in the dark, but when I do see the light, I love to be outside hiking, gardening, or biking.",
+      "startDate": "2022-09-01",
+      "endDate": null,
+      "email": "amrudzite@gmail.com",
+      "links": {
+        "website": "https://retinalcircuits.com/team",
+        "orcid": "0000-0002-5835-7278"
+      },
+      "photo": "/images/trainees/marija-rudzite-8a1e0f8e7f.jpg"
     },
     {
       "slug": "eesha-vaghasia",
