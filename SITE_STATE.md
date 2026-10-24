@@ -115,7 +115,7 @@ Suraj Bhat, Dean Bok, Deborah Farber, Wayne L. Hubbell, Steven Nusinowitz. Emeri
 
 ### Lab pages not in `faculty.js`
 
-Four lab pages exist in `app/laboratories/` and are live by direct URL, but by design have no card on `/scientists`, are not in the sitemap, and are not linked anywhere: `/laboratories/brecha` (Nicholas Brecha), `/laboratories/gorin` (Michael Gorin), `/laboratories/huk` (Alex Huk), `/laboratories/piri` (Natik Piri).
+Two lab pages exist in `app/laboratories/` and are live by direct URL, but by design have no card on `/scientists`, are not in the sitemap, and are not linked anywhere: `/laboratories/gorin` (Michael Gorin), `/laboratories/huk` (Alex Huk). The Brecha and Piri pages were removed on 2026-10-23 (Greg's decision); their addresses redirect to `/scientists`.
 
 ### Lab page structure (Field page as canonical example)
 
@@ -206,7 +206,8 @@ Prompted by a Wikipedia-feasibility review. Findings and fixes (branch fix/publi
 - ORCID-driven pages now use app/lib/orcidPublications.js: CrossRef author lists, and works without the investigator's surname are dropped (fixes Williams "et al.", Nouri-Mahdavi first authors, Travis's misattributed 2025 review).
 - Zheng: page heading, name, and photo alt said "Zhang"; fixed (slug stays /laboratories/zhang).
 - Williams: chair updated to Dolly Green Chair in Ophthalmology (UCLA Profiles: since 9/1/2025; Kirchgessner chair ended 8/31/2025).
-- Open: named chairs for Nouri-Mahdavi, Aldave, Yang, Field (Profiles conflicts or not public); Hui Sun's ORCID; Travis should remove the misattributed review from his ORCID (it may still appear on /publications); Piri's 1999-2000 papers list "Piriev NI" (confirm same person); Barzelay-Wollman's 2 conference items are not in PubMed (could not check); NIH grants on /funding could not be re-checked this session (no access to NIH RePORTER).
+- Chairs settled by Greg 2026-10-23: Field keeps Fran and Ray Stark Chair (UCLA Profiles is out of date); Yang added as Dolly Green Chair in Vision Science. Brecha and Piri pages removed.
+- Open: named chairs for Nouri-Mahdavi and Aldave (not public); Hui Sun's ORCID; Travis should remove the misattributed review from his ORCID (it may still appear on /publications); Barzelay-Wollman's 2 conference items are not in PubMed (could not check); NIH grants on /funding could not be re-checked this session (no access to NIH RePORTER).
 
 ## 10. Repository documentation
 

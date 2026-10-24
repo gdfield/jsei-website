@@ -54,17 +54,6 @@
       orcid: "0000-0002-9498-2230",
       nihName: { lastName: "Bittner", firstName: "Ava" }
     },
-    /*
-     {
-      name: "Nicholas Brecha",
-      title: "Professor",
-      research: "Retinal Neurobiology",
-      description: "Dr. Brecha studies the organization and function of neural circuits in the retina. His research focuses on understanding neurotransmitter systems and their role in retinal signal processing, with particular emphasis on inhibitory circuits and neuromodulation.",
-      profileImage: "/images/faculty/brecha.jpg",
-      pageUrl: "/laboratories/brecha",
-      researchAreas: ["Visual Neuroscience", "Retinal Biology"]
-    },
-    */
     {
       name: "Dean Bok",
       title: "Professor Emeritus",
@@ -230,17 +219,6 @@
       orcid: "0000-0002-5689-2779",
       nihName: { lastName: "Peng", firstName: "Yi-Rong" }
     },
-    /*
-    {
-      name: "Natik Piri",
-      title: "Professor",
-      research: "Glaucoma and Retinal Neurodegeneration",
-      description: "Dr. Piri's research focuses on how glaucoma impacts retinal ganglion cell survival. He is interested in how we can make ganglion cells more robust to glaucoma and what triggers their cell death",
-      profileImage: "/images/faculty/piri.jpg",
-      pageUrl: "/laboratories/piri",
-      researchAreas: ["Retinal Biology", "Therapeutics and Regeneration", "Visual Neuroscience"]
-    },
-    */
     {
       name: "Roxana A. Radu",
       title: "Associate Professor In-Residence",

@@ -6,10 +6,8 @@ import { facultyData } from './faculty.js';
 
 // Lab pages that intentionally have no entry in faculty.js.
 const STANDALONE_LABS = [
-  { slug: 'brecha', piName: 'Nicholas Brecha' },
   { slug: 'gorin', piName: 'Michael Gorin' },
   { slug: 'huk', piName: 'Alex Huk' },
-  { slug: 'piri', piName: 'Natik Piri' },
 ];
 
 const slugFromUrl = (url) => url.replace(/\/$/, '').split('/').pop();

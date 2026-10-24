@@ -58,7 +58,7 @@ Fields:
 - `orcid` (optional): ORCID iD. Required for the person's work to appear on `/publications` and for ORCID-sourced funding.
 - `nihName` (optional): `{ lastName, firstName, altFirstNames?, altLastNames? }` used to search NIH RePORTER. Hyphenated names are automatically also searched with a space, joined, and (last names) by the first segment. Use `altFirstNames`/`altLastNames` for other spellings (e.g. Glasgow has `altFirstNames: ["Ben"]`).
 
-Not every lab page has a `faculty.js` entry: `brecha`, `gorin`, `huk`, and `piri` are intentionally standalone pages, reachable by URL only (no card, not in the sitemap).
+Not every lab page has a `faculty.js` entry: `gorin` and `huk` are intentionally standalone pages, reachable by URL only (no card, not in the sitemap). The `brecha` and `piri` pages were removed on 2026-10-23; their old addresses redirect to `/scientists` (`next.config.js`).
 
 ### Pages
 
@@ -94,7 +94,7 @@ Each `app/laboratories/<slug>/page.js` is self-contained: bio, links, research t
 The top section of every lab page is `<LabProfile photo alt name titles links>` (`app/components/LabProfile.js`) wrapping the research description. Desktop: photo, name, titles, and email on the left; research text on the right with the other links (lab site, publications, profiles) in a row beneath it. Phone: photo, name, titles, email, the other links in a two-column grid, then the research text. `links` items are `{ kind, href, label }`, where `kind` (email, lab, pubs, profile, orcid, web) picks the icon. Use sentence-case labels ("Laboratory website", "Faculty profile", "ORCID").
 
 - **ORCID-driven (20 pages):** define `FACULTY_ORCID` and call `fetchRecentPublications(orcid, 10, { surname })` from `app/lib/orcidPublications.js`. For every work with a DOI it takes the author list from CrossRef and drops the work if `surname` is not among the authors (ORCID records can hold wrongly claimed works and hand-typed author lists); preprints are dropped; `exclude: [doi]` hides a work by hand. Render "Recent Publications" and link to the ORCID profile. Au's page falls back to a hardcoded list if ORCID returns nothing. **Verify a new ORCID iD belongs to the person** (PubMed: search `<iD>[auid]`) before adding it; Hui Sun's former iD belonged to someone else.
-- **Hardcoded publications:** barzalay, bhat, bok, brecha, farber, glasgow, gorin, hubbell, huk, nusinowitz, piri, sun, tseng (bok, farber, nusinowitz currently empty). Every entry must be checked against PubMed (title, authors, year, journal, and that the link opens that paper); note the PMID in a comment. Do not show citation counts. All entries were audited October 2026.
+- **Hardcoded publications:** barzalay, bhat, bok, farber, glasgow, gorin, hubbell, huk, nusinowitz, sun, tseng (bok, farber, nusinowitz currently empty). Every entry must be checked against PubMed (title, authors, year, journal, and that the link opens that paper); note the PMID in a comment. Do not show citation counts. All entries were audited October 2026.
 - Slugs do not always match surnames: Jie J. Zheng is `/laboratories/zhang`, Aya Barzelay-Wollman is `/laboratories/barzalay`.
 
 ### Funding page logic (`app/funding/page.js`)
@@ -113,7 +113,7 @@ The Trainees page lists four roles (`ROLES` in `app/data/trainees.js`). The form
 Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves rows in the linked Sheet (approved rows are copied to its "Published" tab by Apps Script triggers in `scripts/google/create-trainee-form.gs`); the nightly GitHub Action `.github/workflows/sync-trainees.yml` runs `scripts/sync-trainees.mjs`, which writes `app/data/trainees.json`, `app/data/trainees-meta.json`, `scripts/trainees/slug-registry.json`, and 600x600 headshots in `public/images/trainees/`, then commits to `main`.
 
 - **Never hand-edit** `trainees.json`, `trainees-meta.json`, or `slug-registry.json`; the next sync overwrites them. Never commit fixture data (`--fixture ... --write` is for local previews only).
-- `app/data/labs.js` is the single lab list (non-emeritus `facultyData` plus the standalone brecha, gorin, huk, piri pages) shared by the form's Lab dropdown, the sync, and the pages. Question titles live in `scripts/trainees/fields.mjs` and must match the form.
+- `app/data/labs.js` is the single lab list (non-emeritus `facultyData` plus the standalone gorin and huk pages) shared by the form's Lab dropdown, the sync, and the pages. Question titles live in `scripts/trainees/fields.mjs` and must match the form.
 - `app/data/trainees.js`: `activeTrainees()` (between start and end date, adds `labName`), `traineesForLab()`, `traineeBySlug()`, `ROLES`.
 - Every lab page renders `<LabTrainees lab="<slug>" />` inside the page container, just above the publications section, and exports `revalidate = 86400`, so the Lab Members section follows start/end dates without a deploy. Include both when creating a new lab page.
 - The Trainees nav/footer link appears only when `trainees-meta.json` has `count > 0`.

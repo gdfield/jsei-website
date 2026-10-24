@@ -72,6 +72,7 @@ export default async function YangPage() {
           name="Xian-Jie Yang, Ph.D."
           titles={[
             "Professor",
+            "Dolly Green Chair in Vision Science",
             "Department of Ophthalmology",
             "Director, Molecular Biology and Gene Delivery Core",
             "Jules Stein Eye Institute",
