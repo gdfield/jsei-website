@@ -209,6 +209,13 @@ Prompted by a Wikipedia-feasibility review. Findings and fixes (branch fix/publi
 - Chairs settled by Greg 2026-10-23: Field keeps Fran and Ray Stark Chair (UCLA Profiles is out of date); Yang added as Dolly Green Chair in Vision Science. Brecha and Piri pages removed.
 - Open: named chairs for Nouri-Mahdavi and Aldave (not public); Hui Sun's ORCID; Travis should remove the misattributed review from his ORCID (it may still appear on /publications); Barzelay-Wollman's 2 conference items are not in PubMed (could not check); NIH grants on /funding could not be re-checked this session (no access to NIH RePORTER).
 
+## 9e. Site-wide check (2026-10-23)
+
+- Crawl of 76 pages and 83 images on a local build: no broken internal links or images. 166 external links; ORCID, PubMed, and DOI links were already verified; the rest (UCLA Profiles, UCLA Health, lab sites) are now checked weekly by `.github/workflows/check-links.yml`.
+- Typos fixed: "environemental" (health area), "maintanence" (surface area), "Advaced" (Nouri-Mahdavi).
+- Lab pages and /publications now leave out conference abstracts (ARVO abstracts in IOVS, VSS abstracts in JOV, ORCID conference types) and future-dated works, and list works newest first by full date. Funding lists grants newest first within each year. Hand-typed lists re-sorted (Bhat, Hubbell, Huk, Tseng).
+- Open: Adrian Au's email shows AAu@mednet.ucla.edu but links to adrianau@jsei.ucla.edu (which is right?).
+
 ## 10. Repository documentation
 
 - `CLAUDE.md`: architecture and conventions for AI-assisted editing. Rewritten 2026-10-04 to match current behavior (live ORCID/RePORTER/CrossRef data, data-model fields, funding logic, unpublished pages, design tokens).

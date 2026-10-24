@@ -27,6 +27,13 @@ export default function FieldPage() {
       doi: "https://pubmed.ncbi.nlm.nih.gov/37898281/"
     },
     {
+      title: "Racial and ethnic differences in the prevalence and treatment patterns for neovascular glaucoma in the American Academy of Ophthalmology IRIS Registry",
+      authors: "Tseng VL, Pan D, Kitayama K, Yu F, Coleman AL",
+      journal: "Ophthalmology Glaucoma",
+      year: "2024",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/39032697/"
+    },
+    {
       title: "Social vulnerability, prevalence of glaucoma, and incidence of glaucoma surgery in the California Medicare Population",
       authors: "Tseng VL, Kitayama K, Yu F, Pan D, Coleman AL",
       journal: "Ophthalmology Glaucoma",
@@ -47,13 +54,6 @@ export default function FieldPage() {
       year: "2022",
       doi: "https://pubmed.ncbi.nlm.nih.gov/35474047/"
     },
-    {
-      title: "Racial and ethnic differences in the prevalence and treatment patterns for neovascular glaucoma in the American Academy of Ophthalmology IRIS Registry",
-      authors: "Tseng VL, Pan D, Kitayama K, Yu F, Coleman AL",
-      journal: "Ophthalmology Glaucoma",
-      year: "2024",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/39032697/"
-    }
   ];
 
   const personSchema = {

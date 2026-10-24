@@ -5,10 +5,16 @@
 // with a DOI, the author list is taken from CrossRef (supplied by the publisher),
 // and the work is dropped if the investigator's surname is not among its authors.
 // If CrossRef cannot be reached, the work is kept with ORCID's own author list.
+// Conference abstracts and works dated after today are left out
+// (app/lib/workFilters.js). Works are listed newest first by full publication
+// date: CrossRef's first-published date when there is a DOI, else ORCID's.
 //
 // Usage: fetchRecentPublications(orcid, 10, { surname: 'Nouri-Mahdavi' })
 //   surname  family name as it appears on papers (required for the author check)
 //   exclude  optional list of DOIs to hide by hand
+
+import { orcidDate, crossrefDate, sortKey } from './pubDates';
+import { isConferenceItem, isFutureDate } from './workFilters';
 
 const MAX_AUTHORS = 6; // longer lists are shortened, keeping the investigator visible
 
@@ -89,16 +95,19 @@ export async function fetchRecentPublications(orcid, limit = 10, { surname = '',
           .map((c) => c['credit-name']?.value)
           .filter(Boolean);
         const doiEntry = (work?.['external-ids']?.['external-id'] || []).find((id) => id['external-id-type'] === 'doi');
+        const date = orcidDate(work?.['publication-date']);
         return {
           title: work?.title?.title?.value ?? '',
           journal: work?.['journal-title']?.value ?? '',
-          year: work?.['publication-date']?.year?.value ?? '',
+          type: work?.type ?? '',
+          date,
+          year: date ? String(date.year) : '',
           doi: doiEntry?.['external-id-value'] ?? null,
           authors,
         };
       })
-      .filter((p) => p.title && !isPreprint(p) && !(p.doi && skip.has(p.doi.toLowerCase())))
-      .sort((a, b) => (b.year || '0').localeCompare(a.year || '0'))
+      .filter((p) => p.title && !isPreprint(p) && !isConferenceItem(p) && !(p.doi && skip.has(p.doi.toLowerCase())))
+      .sort((a, b) => sortKey(b.date).localeCompare(sortKey(a.date)))
       .slice(0, limit + 8);
 
     const checked = await Promise.all(
@@ -115,13 +124,20 @@ export async function fetchRecentPublications(orcid, limit = 10, { surname = '',
         }
         if (names.length > 0) p.authors = names;
         if (!p.journal) p.journal = msg['container-title']?.[0] ?? '';
-        if (isPreprint(p)) return null;
+        p.crossrefType = msg.type ?? '';
+        const d = crossrefDate(msg);
+        if (d) {
+          p.date = d;
+          p.year = String(d.year);
+        }
+        if (isPreprint(p) || isConferenceItem(p)) return null;
         return p;
       })
     );
 
     return checked
-      .filter(Boolean)
+      .filter((p) => p && !isFutureDate(p.date))
+      .sort((a, b) => sortKey(b.date).localeCompare(sortKey(a.date)) || a.title.localeCompare(b.title))
       .slice(0, limit)
       .map((p) => ({ ...p, authors: shortenAuthors(p.authors, surname) }));
   } catch {

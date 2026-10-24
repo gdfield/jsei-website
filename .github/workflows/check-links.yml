@@ -1,0 +1,46 @@
+# Checks every link on the live site (internal and external) and reports broken
+# ones. Runs every Monday and on demand (Actions > Check links > Run workflow).
+# A failed run means at least one link is broken: open the run and read its
+# summary for the list. Sites that block automated checks (LinkedIn, Google
+# Scholar, X) are skipped, and "too many requests" answers are not counted.
+name: Check links
+
+on:
+  schedule:
+    - cron: '41 14 * * 1' # Mondays, about 7:41am Pacific
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List pages from the sitemap
+        id: pages
+        run: |
+          curl -fsS https://julessteinlabs.org/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' > pages.txt
+          # Pages that are live but not in the sitemap
+          printf '%s\n' https://julessteinlabs.org/history https://julessteinlabs.org/laboratories/gorin https://julessteinlabs.org/laboratories/huk >> pages.txt
+          echo "Checking $(wc -l < pages.txt) pages"
+          echo "list=$(tr '\n' ' ' < pages.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-concurrency 6
+            --timeout 30
+            --max-retries 3
+            --accept 200..=299,429
+            --exclude 'linkedin\.com'
+            --exclude 'scholar\.google\.com'
+            --exclude '^https?://(www\.)?x\.com'
+            --exclude 'twitter\.com'
+            --exclude '^mailto:'
+            ${{ steps.pages.outputs.list }}
+          output: lychee-report.md
+          jobSummary: true
+          fail: true

@@ -20,18 +20,18 @@ export const metadata = pageMeta({
 export default function HukPage() {
   const publications = [
     {
+      title: "Single-trial spike trains in parietal cortex reveal discrete steps during decision-making",
+      authors: "KW Latimer, JL Yates, MLR Meister, AC Huk, JW Pillow",
+      journal: "Science",
+      year: "2015",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/26160947/"
+    },
+    {
       title: "The effect of stimulus strength on the speed and accuracy of a perceptual decision",
       authors: "J Palmer, AC Huk, MN Shadlen",
       journal: "Journal of Vision",
       year: "2005",
       doi: "https://pubmed.ncbi.nlm.nih.gov/16097871/"
-    },
-    {
-      title: "Retinotopy and functional subdivision of human areas MT and MST",
-      authors: "AC Huk, RF Dougherty, DJ Heeger",
-      journal: "Journal of Neuroscience",
-      year: "2002",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/12177214/"
     },
     {
       title: "Neural activity in macaque parietal cortex reflects temporal integration of visual motion signals during perceptual decision making",
@@ -41,12 +41,12 @@ export default function HukPage() {
       doi: "https://pubmed.ncbi.nlm.nih.gov/16280581/"
     },
     {
-      title: "Single-trial spike trains in parietal cortex reveal discrete steps during decision-making",
-      authors: "KW Latimer, JL Yates, MLR Meister, AC Huk, JW Pillow",
-      journal: "Science",
-      year: "2015",
-      doi: "https://pubmed.ncbi.nlm.nih.gov/26160947/"
-    }
+      title: "Retinotopy and functional subdivision of human areas MT and MST",
+      authors: "AC Huk, RF Dougherty, DJ Heeger",
+      journal: "Journal of Neuroscience",
+      year: "2002",
+      doi: "https://pubmed.ncbi.nlm.nih.gov/12177214/"
+    },
   ];
 
   const personSchema = {

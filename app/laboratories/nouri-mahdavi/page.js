@@ -75,7 +75,7 @@ export default async function NouriMahdaviPage() {
             "Kay K. Pick Endowed Chair in Glaucoma Research",
             "Department of Ophthalmology",
             "Chief, Glaucoma Division",
-            "Director, Glaucoma Advaced Imaging and AI Laboratory",
+            "Director, Glaucoma Advanced Imaging and AI Laboratory",
             "Jules Stein Eye Institute",
           ]}
           links={[

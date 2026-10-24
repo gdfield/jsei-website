@@ -34,7 +34,7 @@ const DevelopmentPage = () => {
           <h2 className="text-3xl font-bold text-ink mb-4">Research Focus</h2>
           <p className="text-ink-soft">
           Without a clear and healthy window from the front of the eye to the retina at the back, vision is not possible.
-          These labs aim to understand the maintanence, deterioration and repair of the eye surface and lens.
+          These labs aim to understand the maintenance, deterioration and repair of the eye surface and lens.
           </p>
           <div className="mt-4">
             <h3 className="text-xl font-bold text-ink mb-2">Key Research Areas:</h3>

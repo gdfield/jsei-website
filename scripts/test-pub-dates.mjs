@@ -48,5 +48,24 @@ ok(calls.length === 3, 'duplicate and empty DOIs fetched once/skipped');
 ok(m.size === 1 && eq(m.get('10.1/a'), { year: 2025, month: 12, day: 2 }), 'failures are skipped, successes kept');
 ok(calls[0] === 'https://api.crossref.org/works/10.1%2Fa', 'DOI is URL-encoded');
 
+// Which works are listed (app/lib/workFilters.js)
+{
+  const { isConferenceItem, isFutureDate } = await import('../app/lib/workFilters.js');
+  ok(isConferenceItem({ journal: 'Investigative Ophthalmology & Visual Science', doi: null }), 'IOVS item without an IOVS DOI is an ARVO abstract');
+  ok(!isConferenceItem({ journal: 'Investigative Ophthalmology & Visual Science', doi: '10.1167/iovs.66.3.12' }), 'IOVS article with an IOVS DOI is kept');
+  ok(!isConferenceItem({ journal: 'Invest Ophthalmol Vis Sci', doi: '10.1167/iovs.18-24567' }), 'older-style IOVS article DOI is kept');
+  ok(isConferenceItem({ journal: 'Journal of Vision', doi: '10.1167/jov.24.10.1234' }), 'VSS abstract in Journal of Vision is left out');
+  ok(!isConferenceItem({ journal: 'Journal of Vision', doi: '10.1167/jov.24.10.5' }), 'regular Journal of Vision article is kept');
+  ok(isConferenceItem({ type: 'conference-abstract', journal: 'Anything' }), 'ORCID conference-abstract type is left out');
+  ok(isConferenceItem({ crossrefType: 'proceedings-article', journal: 'X' }), 'CrossRef proceedings article is left out');
+  ok(!isConferenceItem({ type: 'journal-article', journal: 'Neuron', doi: '10.1016/j.neuron.2025.01.001' }), 'ordinary article is kept');
+  const now = new Date(Date.UTC(2026, 9, 23));
+  ok(isFutureDate({ year: 2027, month: null, day: null }, now), 'next year is future');
+  ok(isFutureDate({ year: 2026, month: 11, day: null }, now), 'next month is future');
+  ok(isFutureDate({ year: 2026, month: 10, day: 30 }, now), 'later this month is future');
+  ok(!isFutureDate({ year: 2026, month: 10, day: null }, now), 'this month without a day is not future');
+  ok(!isFutureDate({ year: 2026, month: 10, day: 23 }, now), 'today is not future');
+  ok(!isFutureDate({ year: 2026, month: null, day: null }, now), 'this year without a month is not future');
+}
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

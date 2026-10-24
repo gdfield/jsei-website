@@ -24,12 +24,13 @@ npm run test:contrast  # WCAG AA contrast check of design tokens (scripts/check-
 npm run test:a11y      # pa11y-ci (axe + HTMLCS) against a running server; URLs in .pa11yci
 npm run test:funding   # Offline checks of the Funding page's grant-matching logic
 npm run test:trainees  # Offline checks of the trainee intake pipeline
+npm run test:pubdates  # Offline checks of publication dates and which works are listed
 npm run sync:trainees  # Sync approved trainee profiles from Google (needs credentials; normally run by CI)
 npm run trainees:lab-choices  # Print the Lab dropdown choices for the Google Form
 npm run lint           # Not yet configured: next lint prompts to set up ESLint
 ```
 
-There is no general unit test suite; `test:funding` (`scripts/test-funding-logic.mjs`) covers only the Funding page helpers and should be run after editing `app/funding/page.js`. The accessibility checks run in CI (`.github/workflows/accessibility.yml`) on every push and PR to `main` and weekly on Mondays. See `ACCESSIBILITY.md`. PRs use the checklist in `.github/PULL_REQUEST_TEMPLATE.md`.
+There is no general unit test suite; `test:funding` (`scripts/test-funding-logic.mjs`) covers only the Funding page helpers and should be run after editing `app/funding/page.js`. `.github/workflows/check-links.yml` checks every link on the live site every Monday (and on demand) and fails, with a list in the run summary, if any is broken. The accessibility checks run in CI (`.github/workflows/accessibility.yml`) on every push and PR to `main` and weekly on Mondays. See `ACCESSIBILITY.md`. PRs use the checklist in `.github/PULL_REQUEST_TEMPLATE.md`.
 
 The build needs network access to fonts.googleapis.com (`next/font/google`); without it the build fails. Without access to ORCID, NIH RePORTER, or CrossRef the build still succeeds, but those sections render empty (fetch errors are caught).
 
@@ -70,7 +71,7 @@ Not every lab page has a `faculty.js` entry: `gorin` and `huk` are intentionally
 | `/scientists` | `app/scientists/page.js` | FacultyCards grouped Basic / Clinical / Project Scientists / Emeritus. Was `/laboratories`; `next.config.js` redirects the old address (individual lab pages stay at `/laboratories/<slug>`) |
 | `/laboratories/<slug>` | `app/laboratories/<slug>/page.js` | Self-contained lab pages (see below) |
 | `/core` | `app/core/page.js` | Four P30 cores (directors and staff in a local array) |
-| `/publications` | `app/publications/page.js` | ORCID works for all non-emeritus faculty with `orcid`, last 5 years, grouped by year |
+| `/publications` | `app/publications/page.js` | ORCID works for all non-emeritus faculty with `orcid`, last 5 years, grouped by year, newest first by CrossRef date; conference abstracts (e.g. ARVO abstracts in IOVS) and future-dated works are left out (`app/lib/workFilters.js`) |
 | `/funding` | `app/funding/page.js` | NIH RePORTER + ORCID fundings, last 5 fiscal years (see below) |
 | `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
 | `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
@@ -93,7 +94,7 @@ Each `app/laboratories/<slug>/page.js` is self-contained: bio, links, research t
 
 The top section of every lab page is `<LabProfile photo alt name titles links>` (`app/components/LabProfile.js`) wrapping the research description. Desktop: photo, name, titles, and email on the left; research text on the right with the other links (lab site, publications, profiles) in a row beneath it. Phone: photo, name, titles, email, the other links in a two-column grid, then the research text. `links` items are `{ kind, href, label }`, where `kind` (email, lab, pubs, profile, orcid, web) picks the icon. Use sentence-case labels ("Laboratory website", "Faculty profile", "ORCID").
 
-- **ORCID-driven (20 pages):** define `FACULTY_ORCID` and call `fetchRecentPublications(orcid, 10, { surname })` from `app/lib/orcidPublications.js`. For every work with a DOI it takes the author list from CrossRef and drops the work if `surname` is not among the authors (ORCID records can hold wrongly claimed works and hand-typed author lists); preprints are dropped; `exclude: [doi]` hides a work by hand. Render "Recent Publications" and link to the ORCID profile. Au's page falls back to a hardcoded list if ORCID returns nothing. **Verify a new ORCID iD belongs to the person** (PubMed: search `<iD>[auid]`) before adding it; Hui Sun's former iD belonged to someone else.
+- **ORCID-driven (20 pages):** define `FACULTY_ORCID` and call `fetchRecentPublications(orcid, 10, { surname })` from `app/lib/orcidPublications.js`. For every work with a DOI it takes the author list from CrossRef and drops the work if `surname` is not among the authors (ORCID records can hold wrongly claimed works and hand-typed author lists); preprints, conference abstracts, and works dated after today are dropped (`app/lib/workFilters.js`, shared with `/publications`); works are listed newest first by full date (CrossRef's first-published date, else ORCID's); `exclude: [doi]` hides a work by hand. Render "Recent Publications" and link to the ORCID profile. Au's page falls back to a hardcoded list if ORCID returns nothing. **Verify a new ORCID iD belongs to the person** (PubMed: search `<iD>[auid]`) before adding it; Hui Sun's former iD belonged to someone else.
 - **Hardcoded publications:** barzalay, bhat, bok, farber, glasgow, gorin, hubbell, huk, nusinowitz, sun, tseng (bok, farber, nusinowitz currently empty). Every entry must be checked against PubMed (title, authors, year, journal, and that the link opens that paper); note the PMID in a comment. Do not show citation counts. All entries were audited October 2026.
 - Slugs do not always match surnames: Jie J. Zheng is `/laboratories/zhang`, Aya Barzelay-Wollman is `/laboratories/barzalay`.
 
@@ -104,6 +105,7 @@ The page lists **new and competitively renewed** grants only, not every active g
 - Window: the current year and the four before it (`FISCAL_YEARS`, `MIN_YEAR`).
 - NIH: query RePORTER per faculty member with all name variants, paging 500 records at a time (capped at 2000). Only NIH application types 1 (new), 2 (competing renewal), and 7 (change of grantee institution, counted only when the receiving organization is UCLA, e.g. a recruit's transferred grant) are kept (`NEW_AWARD_TYPES`). Type 5 (non-competing continuation, the routine yearly funding of an existing grant) is excluded so an older grant does not appear as new; supplements (3), extensions (4), and other administrative changes (6, 9) are excluded too. Results are re-validated by name (normalized; NIH first name must start with ours), then each matched PI profile is confirmed to have at least one UCLA-administered project. Grants are deduplicated by core project number and listed under the fiscal year of their most recent qualifying (type 1, 2, or 7) award.
 - ORCID: non-NIH entries whose grant number does not contain an NIH core project number already shown, listed under their start year if it falls in the window. ORCID cannot distinguish renewals, so start year is the only signal. Non-grant entries (awards, fellowships) are listed separately on the same rule.
+- Within each year, grants are listed newest first (NIH by award notice date, else budget or project start; ORCID by start date).
 - Run `npm run test:funding` after changing this logic.
 
 ### Trainee profiles (postdocs, graduate students, SRAs, undergraduates)

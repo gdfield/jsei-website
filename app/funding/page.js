@@ -14,6 +14,14 @@ export const metadata = pageMeta({
 const CURRENT_YEAR = new Date().getFullYear();
 const FISCAL_YEARS = Array.from({ length: 5 }, (_, i) => CURRENT_YEAR - i);
 const MIN_YEAR = FISCAL_YEARS[FISCAL_YEARS.length - 1];
+
+// Sortable "YYYY-MM-DD" keys (missing parts are "00").
+const pad = (v, n) => String(parseInt(v, 10) || 0).padStart(n, '0');
+const orcidStartKey = (g) => `${pad(g.startYear, 4)}-${pad(g.startMonth, 2)}-${pad(g.startDay, 2)}`;
+const awardDateKey = (entry) =>
+  entry._source === 'nih'
+    ? (entry.data.award_notice_date || entry.data.budget_start || entry.data.project_start_date || `${entry.data.fiscal_year}-00-00`).slice(0, 10)
+    : orcidStartKey(entry.data);
 // NIH Reporter returns at most 500 records per request; page through anything larger.
 const NIH_PAGE_SIZE = 500;
 const NIH_MAX_RECORDS = 2000;
@@ -43,6 +51,8 @@ async function fetchOrcidFunding(faculty) {
         type: s.type ?? 'grant',
         funder: s.organization?.name ?? null,
         startYear: s['start-date']?.year?.value ?? null,
+        startMonth: s['start-date']?.month?.value ?? null,
+        startDay: s['start-date']?.day?.value ?? null,
         endYear: s['end-date']?.year?.value ?? null,
         grantNumbers,
         url,
@@ -111,7 +121,7 @@ async function fetchGrants(faculty) {
             'ProjectTitle', 'FiscalYear', 'AwardAmount', 'ProjectStartDate',
             'ProjectEndDate', 'AgencyIcAdmin', 'ActivityCode', 'ProjectNum',
             'CoreProjectNum', 'PrincipalInvestigators', 'IsActive', 'ProjectDetailUrl',
-            'Organization', 'AwardType',
+            'Organization', 'AwardType', 'AwardNoticeDate', 'BudgetStart',
           ],
           offset,
           limit: NIH_PAGE_SIZE,
@@ -272,6 +282,10 @@ export default async function FundingPage() {
     (grantsByYear[orcidStartYear(g)] ??= []).push({ _source: 'orcid', data: g });
   });
   const sortedYears = Object.keys(grantsByYear).sort((a, b) => parseInt(b) - parseInt(a));
+  // Within each year, newest award first: NIH by award notice date (else budget
+  // or project start), ORCID by start date.
+  for (const y of sortedYears) grantsByYear[y].sort((a, b) => awardDateKey(b).localeCompare(awardDateKey(a)));
+  orcidAwards.sort((a, b) => orcidStartKey(b).localeCompare(orcidStartKey(a)));
 
   // Lookup map: "lastname:firstname" (lowercase) → preferred faculty display name
   // Keyed on both names to avoid collisions between faculty with the same last name

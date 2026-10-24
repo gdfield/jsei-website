@@ -20,6 +20,13 @@ export const metadata = pageMeta({
 export default function BhatPage() {
   const publications = [
     {
+      title: "Transcriptional profiling of single fiber cells in a transgenic paradigm of an inherited childhood cataract reveals absence of molecular heterogeneity",
+      authors: "Bhat S. P., Gangalum R. K., Kim D., Mangul S., Kashyap R. K., Zhou X., and Elashoff D.",
+      journal: "Journal of Biological Chemistry",
+      year: "2019",
+      doi: "https://www.jbc.org/article/S0021-9258(20)33190-2/fulltext"
+    },
+    {
       title: "Spatial Analysis of Single Fiber Cells of the Developing Ocular Lens Reveals Regulated Heterogeneity of Gene Expression",
       authors: "Gangalum R. K., Kim D., Kashyap R. K., Mangul S., Zhou X., Elashoff D., and Bhat S. P.",
       journal: "iScience",
@@ -27,11 +34,11 @@ export default function BhatPage() {
       doi: "https://www.sciencedirect.com/science/article/pii/S2589004218302141"
     },
     {
-      title: "Transcriptional profiling of single fiber cells in a transgenic paradigm of an inherited childhood cataract reveals absence of molecular heterogeneity",
-      authors: "Bhat S. P., Gangalum R. K., Kim D., Mangul S., Kashyap R. K., Zhou X., and Elashoff D.",
+      title: "Inhibition of the Expression of the Small Heat Shock Protein αB-Crystallin Inhibits Exosome Secretion in Human Retinal Pigment Epithelial Cells in Culture",
+      authors: "Gangalum R. K., Bhat A. M., Kohan S. A., and Bhat S. P.",
       journal: "Journal of Biological Chemistry",
-      year: "2019",
-      doi: "https://www.jbc.org/article/S0021-9258(20)33190-2/fulltext"
+      year: "2016",
+      doi: "https://www.sciencedirect.com/science/article/pii/S0021925820394400?via%3Dihub"
     },
     {
       title: "Expression of the HSF4 DNA binding domain-EGFP hybrid gene recreates early childhood lamellar cataract in transgenic mice",
@@ -47,13 +54,6 @@ export default function BhatPage() {
       year: "2011",
       doi: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3030331/"
     },
-    {
-      title: "Inhibition of the Expression of the Small Heat Shock Protein αB-Crystallin Inhibits Exosome Secretion in Human Retinal Pigment Epithelial Cells in Culture",
-      authors: "Gangalum R. K., Bhat A. M., Kohan S. A., and Bhat S. P.",
-      journal: "Journal of Biological Chemistry",
-      year: "2016",
-      doi: "https://www.sciencedirect.com/science/article/pii/S0021925820394400?via%3Dihub"
-    }
   ];
 
   const personSchema = {

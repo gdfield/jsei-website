@@ -65,9 +65,10 @@ export const isoDate = (d) =>
         ? String(d.year)
         : undefined;
 
-// Look up CrossRef dates for many DOIs with limited concurrency. Returns a
-// Map doi -> date; DOIs that fail are simply absent (callers keep ORCID's date).
-export async function fetchCrossrefDates(dois, { concurrency = 8, fetchImpl = fetch } = {}) {
+// Look up CrossRef records for many DOIs with limited concurrency. Returns a
+// Map doi -> { date, type } (type is CrossRef's, e.g. "journal-article");
+// DOIs that fail are simply absent (callers keep ORCID's date).
+export async function fetchCrossrefMeta(dois, { concurrency = 8, fetchImpl = fetch } = {}) {
   const out = new Map();
   const queue = [...new Set(dois.filter(Boolean))];
   async function worker() {
@@ -80,13 +81,20 @@ export async function fetchCrossrefDates(dois, { concurrency = 8, fetchImpl = fe
         });
         if (!res.ok) continue;
         const data = await res.json();
-        const d = crossrefDate(data?.message);
-        if (d) out.set(doi, d);
+        out.set(doi, { date: crossrefDate(data?.message), type: data?.message?.type ?? '' });
       } catch {
         // keep ORCID's date
       }
     }
   }
   await Promise.all(Array.from({ length: Math.min(concurrency, queue.length) }, worker));
+  return out;
+}
+
+// Map doi -> date only (kept for callers and tests that need just dates).
+export async function fetchCrossrefDates(dois, opts) {
+  const meta = await fetchCrossrefMeta(dois, opts);
+  const out = new Map();
+  for (const [doi, m] of meta) if (m.date) out.set(doi, m.date);
   return out;
 }

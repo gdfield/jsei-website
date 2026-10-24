@@ -2,7 +2,8 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import { facultyData } from '../data/faculty';
-import { orcidDate, fetchCrossrefDates, sortKey, formatDate, isoDate } from '../lib/pubDates';
+import { orcidDate, fetchCrossrefMeta, sortKey, formatDate, isoDate } from '../lib/pubDates';
+import { isConferenceItem, isFutureDate } from '../lib/workFilters';
 import { pageMeta } from '../lib/seo';
 
 export const metadata = pageMeta({
@@ -110,13 +111,17 @@ export default async function PublicationsPage() {
   });
   // Use the date each paper was first published (earliest of CrossRef's online
   // and print dates) when it has a DOI; otherwise keep the date from ORCID.
-  const crossrefDates = await fetchCrossrefDates(Array.from(pubMap.values()).map((p) => p.doi));
+  // Conference abstracts and anything dated after today are left out
+  // (app/lib/workFilters.js).
+  const crossref = await fetchCrossrefMeta(Array.from(pubMap.values()).map((p) => p.doi));
   const unique = Array.from(pubMap.values())
     .map((p) => {
-      const date = (p.doi && crossrefDates.get(p.doi)) || p.date;
-      return { ...p, date, year: date ? String(date.year) : p.year };
+      const meta = p.doi ? crossref.get(p.doi) : null;
+      const date = meta?.date || p.date;
+      return { ...p, date, crossrefType: meta?.type ?? '', year: date ? String(date.year) : p.year };
     })
-    .filter((p) => !p.date || p.date.year >= CUTOFF_YEAR);
+    .filter((p) => !p.date || p.date.year >= CUTOFF_YEAR)
+    .filter((p) => !isConferenceItem(p) && !isFutureDate(p.date));
 
   // Newest first. Papers known only to the month or year sort after fully
   // dated papers from the same month or year.
@@ -142,7 +147,6 @@ export default async function PublicationsPage() {
 
   const TYPE_LABELS = {
     preprint: 'Preprint',
-    'conference-paper': 'Conference Paper',
     'book-chapter': 'Book Chapter',
     book: 'Book',
     'data-set': 'Dataset',

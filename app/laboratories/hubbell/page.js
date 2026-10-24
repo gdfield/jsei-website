@@ -20,11 +20,11 @@ export const metadata = pageMeta({
 export default function HubbellPage() {
   const publications = [
     {
-      title: "Requirement of rigid-body motion of transmembrane helices for light activation of rhodopsin",
-      authors: "DL Farrens, C Altenbach, K Yang, WL Hubbell, HG Khorana",
-      journal: "Science",
-      year: "1996",
-      doi: "https://doi.org/10.1126/science.274.5288.768" // PMID 8864113
+      title: "High-resolution distance mapping in rhodopsin reveals the pattern of helix movement due to activation",
+      authors: "C Altenbach, AK Kusnetzow, OP Ernst, KP Hofmann, WL Hubbell",
+      journal: "Proceedings of the National Academy of Sciences USA",
+      year: "2008",
+      doi: "https://doi.org/10.1073/pnas.0802515105" // PMID 18490656
     },
     {
       title: "Identifying conformational changes with site-directed spin labeling",
@@ -34,11 +34,11 @@ export default function HubbellPage() {
       doi: "https://doi.org/10.1038/78956" // PMID 10966640
     },
     {
-      title: "High-resolution distance mapping in rhodopsin reveals the pattern of helix movement due to activation",
-      authors: "C Altenbach, AK Kusnetzow, OP Ernst, KP Hofmann, WL Hubbell",
-      journal: "Proceedings of the National Academy of Sciences USA",
-      year: "2008",
-      doi: "https://doi.org/10.1073/pnas.0802515105" // PMID 18490656
+      title: "Requirement of rigid-body motion of transmembrane helices for light activation of rhodopsin",
+      authors: "DL Farrens, C Altenbach, K Yang, WL Hubbell, HG Khorana",
+      journal: "Science",
+      year: "1996",
+      doi: "https://doi.org/10.1126/science.274.5288.768" // PMID 8864113
     },
     {
       title: "Watching proteins move using site-directed spin labeling",
@@ -46,7 +46,7 @@ export default function HubbellPage() {
       journal: "Structure",
       year: "1996",
       doi: "https://doi.org/10.1016/s0969-2126(96)00085-8" // PMID 8805569
-    }
+    },
   ];
 
   const personSchema = {

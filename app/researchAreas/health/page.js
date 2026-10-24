@@ -33,7 +33,7 @@ const DevelopmentPage = () => {
           <h2 className="text-3xl font-bold text-ink mb-4">Research Focus</h2>
           <p className="text-ink-soft">
             Genetics and environmental factors shape the landscape and prevalence of eye conditions and diseases. 
-            These labs seek to understand these genetic and environemental factors to better target diagnostics and 
+            These labs seek to understand these genetic and environmental factors to better target diagnostics and 
             treatments to individuals and communities.
           </p>
           <div className="mt-4">
