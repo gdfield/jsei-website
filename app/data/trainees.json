@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T21:36:58.334Z",
+  "generatedAt": "2026-10-24T00:15:08.230Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -449,6 +449,21 @@
         "linkedin": "https://www.linkedin.com/in/jasmine-mousavi-186594273"
       },
       "photo": "/images/trainees/yasamin-sadat-mousavimotlagh-md-f785dea411.jpg"
+    },
+    {
+      "slug": "eesha-vaghasia",
+      "name": "Eesha Vaghasia",
+      "sortName": "Vaghasia Eesha",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "radu",
+      "description": "Eesha studies how the expression of the ABCA4 gene can influence various inflammasome pathways in relation to photoreceptors and the RPE. Her current research focuses on the activation of the NLRP3 inflammasome and subsequent age related acceleration of Stargardt Disease.",
+      "startDate": "2025-11-01",
+      "endDate": "2029-06-30",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/eesha-vaghasia-594aa72442.jpg"
     }
   ]
 }
