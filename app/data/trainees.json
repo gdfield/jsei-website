@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T01:11:54.693Z",
+  "generatedAt": "2026-10-25T15:48:51.921Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -482,6 +482,21 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/eesha-vaghasia-594aa72442.jpg"
+    },
+    {
+      "slug": "menglin-li",
+      "name": "Menglin Li",
+      "sortName": "Li Menglin",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "peng",
+      "description": "Menglin studies how primate fovea is developed using spatial transcriptomics and single-cell multiomics",
+      "startDate": "2023-11-20",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/menglin-li-c97a96612b.jpg"
     }
   ]
 }
