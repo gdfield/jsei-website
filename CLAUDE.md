@@ -76,7 +76,7 @@ Not every lab page has a `faculty.js` entry: `gorin` and `huk` are intentionally
 | `/trainees` | `app/trainees/page.js` | Active trainee directory, filterable by role and lab (see below) |
 | `/trainees/<slug>` | `app/trainees/[slug]/page.js` | One profile per trainee; 404 outside their start/end dates |
 | `/scientists/<slug>` | `app/scientists/[slug]/page.js` | Profiles of project scientists from the intake form (same layout as trainee profiles) |
-| `/history` | `app/history/page.js` | Institute History: discoveries (`DiscoveryCarousel`, scrolls three at a time), milestones timeline, founder and director bios. Content and sources in `app/data/history.js`. **Unlisted while under review:** no menu or footer link, not in the sitemap, `noindex` |
+| `/history` | `app/history/page.js` | Institute History: discoveries (`DiscoveryCarousel`, a slow continuous upward scroll with pause), milestones timeline, founder and director bios. Content and sources in `app/data/history.js`. **Unlisted while under review:** no menu or footer link, not in the sitemap, `noindex` |
 | `/sitemap.xml` | `app/sitemap.js` | Static pages, the eight research-area pages, every `facultyData` entry with a `pageUrl`, and active trainees. `<lastmod>` is the date each page's source last changed in git, from `app/data/sitemap-dates.json` (a committed snapshot refreshed by `scripts/sitemap-dates.mjs`, which runs before every build and dev start; on Vercel's shallow clone it updates recently changed pages and keeps the snapshot for the rest). Individual trainee and project-scientist profiles have no date. Commit the refreshed JSON with any page change |
 | `/robots.txt` | `app/robots.js` | Allows all crawlers on production and lists the sitemap; Vercel previews get `Disallow: /` |
 
