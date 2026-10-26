@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T00:38:38.325Z",
+  "generatedAt": "2026-10-26T16:41:04.564Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -561,6 +561,70 @@
         "linkedin": "https://www.linkedin.com/in/fazilonuralpardic"
       },
       "photo": "/images/trainees/fazil-onuralp-ardic-0a5bb69567.jpg"
+    },
+    {
+      "slug": "eudia-sze-rou-ng",
+      "name": "Eudia Sze Rou Ng",
+      "sortName": "Ng Eudia Sze Rou",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "“Undergraduate”",
+      "lab": "radu",
+      "description": "Eudia studies morphological developments in retinal pigment epithelium cells of mice with a knock out ABCA4 gene (ABCA4 -/-). She is particularly interested in imaging and mapping early morphological changes in the RPE prior to overt cell degradation.",
+      "startDate": "2024-10-25",
+      "endDate": "2028-06-16",
+      "email": "eudiang@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/eudia-sze-rou-ng-f6d0d25441.jpg"
+    },
+    {
+      "slug": "fanny-zheng",
+      "name": "Fanny Zheng",
+      "sortName": "Zheng Fanny",
+      "pronouns": "She/Her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "radu",
+      "description": "Fanny studies the cellular mechanisms regulating autophagic flux in Stargardt disease. Her current research focuses on assessing LC3 lipidation in Retinal Pigment Epithelium (RPE) cells.",
+      "startDate": "2026-06-01",
+      "endDate": "2028-06-01",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/fanny-zheng-db3abd4331.jpg"
+    },
+    {
+      "slug": "noah-st-clair",
+      "name": "Noah St Clair",
+      "sortName": "Clair Noah St",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "sampath",
+      "description": "Noah investigates the metabolic mechanisms underlying retinal photoreceptor function. Using ex vivo electroretinography (ERG) in isolated mouse retinas, he examines how glucose availability, alternative metabolic substrates, and oxygen tension influence photoreceptor responses.",
+      "startDate": "2024-01-10",
+      "endDate": "2027-06-11",
+      "email": null,
+      "links": {
+        "orcid": "0009-0009-1461-7435"
+      },
+      "photo": "/images/trainees/noah-st-clair-4991bfb218.jpg"
+    },
+    {
+      "slug": "bryant-a-cruz",
+      "name": "Bryant A. Cruz",
+      "sortName": "Cruz Bryant A.",
+      "pronouns": "He/Him/His",
+      "role": "sra",
+      "title": "Staff Research Associate",
+      "lab": "field",
+      "description": "Bryant studies how the retina adapts to different light intensities in the natural environment by developing custom camera systems for mice and primates that mimic their visual perception, capturing the statistical properties of naturalistic light changes. This work uses computational and statistical analyses of visual environments to uncover principles underlying the organization of the retina and visual system. Bryant also contributes to generating and characterizing a mouse model of Autosomal Dominant Optic Atrophy (ADOA), employing immunohistochemistry techniques to validate that the model faithfully recapitulates key features of the disease.",
+      "startDate": "2023-02-01",
+      "endDate": "2039-06-26",
+      "email": "bryantcruz@mednet.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/cruzbryant"
+      },
+      "photo": "/images/trainees/bryant-a-cruz-3aff09948b.jpg"
     }
   ]
 }
