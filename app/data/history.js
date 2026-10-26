@@ -104,7 +104,6 @@ export const milestones = [
   { year: '1966', text: 'The Jules Stein Eye Institute opens, with Straatsma as its first director.' },
   { year: '1968', text: 'UCLA establishes the Department of Ophthalmology, and Congress creates the National Eye Institute after a campaign led by Stein.' },
   { year: '1994', text: 'Bartly Mondino succeeds Straatsma as director and chair.' },
-  { year: '2013', text: 'The affiliation with the Doheny Eye Institute creates a single UCLA Department of Ophthalmology.' },
   { year: '2017', text: 'The renovated Jules Stein Building reopens in the institute’s 50th anniversary year.' },
   { year: '2022', text: 'Anne Coleman becomes director and chair.' },
 ];
@@ -141,7 +140,7 @@ export const leaders = [
     photo: null, // e.g. '/images/history/mondino.jpg'
     bio: [
       'Bartly Mondino succeeded Bradley Straatsma in 1994 and led the Jules Stein Eye Institute and the UCLA Department of Ophthalmology for 28 years. He earned his medical degree at Stanford in 1971, completed his ophthalmology residency at New York Hospital, Cornell University Medical Center, and trained in cornea and external disease at the University of Pittsburgh. His research on corneal and external eye disease and ocular immunology produced more than 300 publications and two NIH R01 grants that he held for nearly 20 years.',
-      'As director, Mondino grew the institute into a vision science campus. He brought the 2013 affiliation with the Doheny Eye Institute to completion, creating a single, integrated UCLA Department of Ophthalmology, and he raised more than $317 million in support, including funds for 33 endowed chairs. He served as executive vice president of the Association of University Professors of Ophthalmology and was the American Academy of Ophthalmology’s Guest of Honor in 2020. He stepped down as director and chair in 2022 and remains a Distinguished Professor of Ophthalmology.',
+      'As director, Mondino grew the institute into a vision science campus and raised more than $317 million in support, including funds for 33 endowed chairs. He served as executive vice president of the Association of University Professors of Ophthalmology and was the American Academy of Ophthalmology’s Guest of Honor in 2020. He stepped down as director and chair in 2022 and remains a Distinguished Professor of Ophthalmology.',
     ],
   },
   {
@@ -151,7 +150,7 @@ export const leaders = [
     years: 'since 2022',
     photo: '/images/faculty/coleman.jpg',
     bio: [
-      'Anne Coleman became director of the Stein Eye Institute, chair of the UCLA Department of Ophthalmology, and affiliation chair of the Doheny Eye Institute on July 1, 2022, the first woman to hold these roles. A native of Richmond, Virginia, she earned a chemistry degree at Duke and her medical degree at the Medical College of Virginia, completed her residency at the University of Illinois at Chicago and a glaucoma fellowship at the Wilmer Eye Institute, and later earned a PhD in epidemiology at the UCLA Fielding School of Public Health in 1997.',
+      'Anne Coleman became director of the Stein Eye Institute and chair of the UCLA Department of Ophthalmology on July 1, 2022, the first woman to hold these roles. A native of Richmond, Virginia, she earned a chemistry degree at Duke and her medical degree at the Medical College of Virginia, completed her residency at the University of Illinois at Chicago and a glaucoma fellowship at the Wilmer Eye Institute, and later earned a PhD in epidemiology at the UCLA Fielding School of Public Health in 1997.',
       'Coleman’s research spans the diagnosis, risk factors, gene-environment interactions, and public health burden of glaucoma, cataract, myopia, amblyopia, and macular degeneration, and she led a clinical trial that pioneered use of the Ahmed glaucoma valve. As director of the UCLA Mobile Eye Clinic since 2012, she has overseen screening and treatment for more than 180,000 low-income children and adults in Southern California. She holds the Bradley R. Straatsma, MD, Endowed Chair in Ophthalmology, served as the 2020 president of the American Academy of Ophthalmology, and was elected to the National Academy of Medicine in 2016.',
     ],
   },
