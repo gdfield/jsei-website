@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T19:20:48.910Z",
+  "generatedAt": "2026-10-26T23:13:24.768Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -662,6 +662,40 @@
         "linkedin": "https://www.linkedin.com/in/jhuwala-venkatakrishnan"
       },
       "photo": "/images/trainees/jhuwala-venkatakrishnan-b9244b7796.jpg"
+    },
+    {
+      "slug": "alison-oak",
+      "name": "Alison Oak",
+      "sortName": "Oak Alison",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "description": "Alison is currently working on a project that studies the functionality of rods in OPA1 knowckout heterozygous and homozygous mice. Alison will also take to studing the morphology of the mitochondria in the OPA1 affected rods. Alison is extremely interested in learning about the structure and functions of the eye and is enthusaiticly contributing to the greater goal of finding solutions for RDS and diseases such as glaucoma. Alison is also very interested in the field of opthamology and finds what the Yang Lab is doing essential in helping cure eye disease.",
+      "startDate": "2024-02-15",
+      "endDate": "2027-06-13",
+      "email": "aoak8@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/alison-oak-052a85adae.jpg"
+    },
+    {
+      "slug": "nan-hultgren",
+      "name": "Nan Hultgren",
+      "sortName": "Hultgren Nan",
+      "pronouns": "she/her",
+      "role": "projsci",
+      "title": "Assistant Project Scientist",
+      "lab": "williams",
+      "description": "Nan studies how intracellular organelle dynamics and metabolic organization enable the retinal pigment epithelium (RPE) to support photoreceptor function and maintain retinal homeostasis. Her current work focuses on how mitochondrial positioning and inter-organelle interactions coordinate lipid processing during the daily phagocytosis of photoreceptor outer segments. Using advanced live-cell imaging, metabolic profiling, and disease-relevant RPE models, she studies how mitochondria, the endoplasmic reticulum, and lipid droplets dynamically interact to manage the substantial lipid load associated with photoreceptor renewal. Her work further examines how disruption of these processes contributes to lipid dysregulation and retinal degeneration.",
+      "startDate": "2019-01-14",
+      "endDate": "2027-01-31",
+      "email": null,
+      "links": {
+        "orcid": "0000-0002-4116-391X",
+        "scholar": "https://scholar.google.com/citations?hl=en&user=idwoXXUAAAAJ",
+        "linkedin": "https://www.linkedin.com/in/nanwu2/"
+      },
+      "photo": null
     }
   ]
 }
