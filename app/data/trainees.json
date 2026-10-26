@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T15:48:51.921Z",
+  "generatedAt": "2026-10-26T00:38:38.325Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -497,6 +497,70 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/menglin-li-c97a96612b.jpg"
+    },
+    {
+      "slug": "xiangmei-zhang-md",
+      "name": "Xiangmei Zhang , MD",
+      "sortName": "MD Xiangmei Zhang ,",
+      "pronouns": "She/her",
+      "role": "sra",
+      "title": "Staff Research Associate IV",
+      "lab": "yang",
+      "description": "Our research focuses on retinal development and the differentiation of retinal ganglion cells (RGCs) and photoreceptors, with the ultimate goal of establishing retinal disease models and developing curative gene therapies. Alongside my research, I serve as the lab manager, overseeing lab administrative and non-scientific operations to ensure daily efficiency. In this role, I manage mouse colonies, train incoming lab members, and simultaneously carry multiple scientific projects to drive our research goals forward.",
+      "startDate": "1996-07-01",
+      "endDate": null,
+      "email": "xiang-meizhang@mednet.ucla.edu",
+      "links": {},
+      "photo": null
+    },
+    {
+      "slug": "varsha-venkataraman",
+      "name": "Varsha Venkataraman",
+      "sortName": "Venkataraman Varsha",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "field",
+      "description": "Varsha studies retinal ganglion cell morphology in primate models, using neuron tracing, confocal microscopy, and histology to characterize and classify cell types.",
+      "startDate": "2025-09-20",
+      "endDate": "2028-06-09",
+      "email": "varsharaman20@g.ucla.edu",
+      "links": {},
+      "photo": null
+    },
+    {
+      "slug": "nicole-lui",
+      "name": "Nicole Lui",
+      "sortName": "Lui Nicole",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "au",
+      "description": "Nicole reviews and grades Optical Coherence Tomography images from Age-related Macular Degeneration cohorts, documenting differences in structural features and disease severity. She identifies imaging characteristics that may define clinically significant AMD subgroups and evaluates whether these phenotypes are associated with specific genetic variants.",
+      "startDate": "2025-07-02",
+      "endDate": "2027-06-13",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/nicole-lui-d8619a856a.jpg"
+    },
+    {
+      "slug": "fazil-onuralp-ardic",
+      "name": "Fazil Onuralp Ardic",
+      "sortName": "Ardic Fazil Onuralp",
+      "pronouns": "he/him",
+      "role": "grad",
+      "title": "PhD Student",
+      "lab": "zylberberg",
+      "description": "Fazil Onuralp develops machine learning models of retinal activity to better understand neural computations underlying vision. His research focuses on modeling retinal ganglion cell responses to dynamic visual stimuli, with an emphasis on temporal processing, neural dynamics, and context-dependent visual encoding.",
+      "startDate": "2025-09-20",
+      "endDate": "2030-06-25",
+      "email": "foardic@ucla.edu",
+      "links": {
+        "orcid": "0009-0006-3968-3875",
+        "scholar": "https://scholar.google.com/citations?user=HsUEnSwAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/fazilonuralpardic"
+      },
+      "photo": "/images/trainees/fazil-onuralp-ardic-0a5bb69567.jpg"
     }
   ]
 }
