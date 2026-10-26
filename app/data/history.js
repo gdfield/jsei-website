@@ -5,9 +5,9 @@
 // the JSEI Website project (Straatsma's AJO editorship years, Mondino's name
 // spelling, Coleman "first woman").
 //
-// Photos: put a portrait in public/images/history/ (or reuse one in
-// public/images/faculty/) and set `photo` below. Until then the page shows the
-// person's initials. Use only photos JSEI has the right to publish.
+// Photos: portraits live in public/images/faculty/ and are set with `photo`
+// below; a person without one is shown by their initials. Use only photos JSEI
+// has the right to publish.
 
 // Research achievements for the opening section, oldest first. Each entry was
 // checked against its PubMed record (October 2026); `paper` links to it.
@@ -115,7 +115,7 @@ export const leaders = [
     name: 'Jules C. Stein, MD',
     role: 'Founder',
     years: '1896 to 1981',
-    photo: null, // e.g. '/images/history/stein.jpg'
+    photo: '/images/faculty/stein.jpg',
     bio: [
       'Jules Stein trained as an ophthalmologist before building one of the most influential companies in American entertainment, and he spent the second half of his life fighting blindness. Born in South Bend, Indiana, in 1896, he graduated from the University of Chicago in 1915 and earned his medical degree at Rush Medical College in 1921, followed by a year of study at the University of Vienna. He paid for medical school by booking bands for Chicago nightclubs, and in 1924 he founded the Music Corporation of America (MCA), leaving clinical practice soon after.',
       'Stein never left ophthalmology behind. In 1960 he founded Research to Prevent Blindness, a nonprofit that funds eye research at universities nationwide, and his campaign before Congress helped establish the National Eye Institute in 1968. With his wife, Doris, he created the Jules Stein Eye Institute at UCLA, which opened in 1966 as a home for research, patient care, and training under one roof. He received the Albert Lasker Public Service Award in 1975 and died in Los Angeles in 1981. The Doris Stein Eye Research Center, dedicated in 1989, carries his wife’s name.',
@@ -126,7 +126,7 @@ export const leaders = [
     name: 'Bradley R. Straatsma, MD, JD',
     role: 'Founding Director',
     years: 'Director 1966 to 1994',
-    photo: null, // e.g. '/images/history/straatsma.jpg'
+    photo: '/images/faculty/straatsma.jpeg',
     bio: [
       'Bradley Straatsma built UCLA ophthalmology from a small division into the Jules Stein Eye Institute and led it for nearly three decades. Born in Grand Rapids, Michigan, he earned his medical degree at Yale in 1951, served in the U.S. Navy’s Underwater Demolition Team, and trained at Columbia’s Harkness Eye Institute, the Armed Forces Institute of Pathology, and the Wilmer Eye Institute at Johns Hopkins. He came to UCLA in 1959 as the first chief of its Division of Ophthalmology.',
       'In 1961 Straatsma began working with Jules Stein on the plan that became the institute, and he served as its first director when it opened in 1966. He became founding chair of the Department of Ophthalmology in 1968 and led both until 1994. A specialist in vitreoretinal disease and ocular tumors, he wrote more than 575 scientific papers, was editor-in-chief of the American Journal of Ophthalmology until 2002, and served as president of the American Academy of Ophthalmology and the American Ophthalmological Society. He earned a law degree in 2002, helped establish the Magrabi ICO Cameroon Eye Institute, which opened in 2016, and died in Los Angeles on April 16, 2026, at 98.',
@@ -137,7 +137,7 @@ export const leaders = [
     name: 'Bartly J. Mondino, MD',
     role: 'Director',
     years: '1994 to 2022',
-    photo: null, // e.g. '/images/history/mondino.jpg'
+    photo: '/images/faculty/mondino.webp',
     bio: [
       'Bartly Mondino succeeded Bradley Straatsma in 1994 and led the Jules Stein Eye Institute and the UCLA Department of Ophthalmology for 28 years. He earned his medical degree at Stanford in 1971, completed his ophthalmology residency at New York Hospital, Cornell University Medical Center, and trained in cornea and external disease at the University of Pittsburgh. His research on corneal and external eye disease and ocular immunology produced more than 300 publications and two NIH R01 grants that he held for nearly 20 years.',
       'As director, Mondino grew the institute into a vision science campus and raised more than $317 million in support, including funds for 33 endowed chairs. He served as executive vice president of the Association of University Professors of Ophthalmology and was the American Academy of Ophthalmology’s Guest of Honor in 2020. He stepped down as director and chair in 2022 and remains a Distinguished Professor of Ophthalmology.',
