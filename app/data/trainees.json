@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T16:41:04.564Z",
+  "generatedAt": "2026-10-26T19:20:48.910Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -625,6 +625,43 @@
         "linkedin": "https://www.linkedin.com/in/cruzbryant"
       },
       "photo": "/images/trainees/bryant-a-cruz-3aff09948b.jpg"
+    },
+    {
+      "slug": "duc-a-hoang",
+      "name": "DUC A. HOANG",
+      "sortName": "HOANG DUC A.",
+      "pronouns": "He",
+      "role": "projsci",
+      "title": "Associate Specialist",
+      "lab": "yang",
+      "description": "Duc studies inherited retinal diseases, including retinitis pigmentosa (RP) and dominant optic atrophy (DOA), and develops innovative therapies. His research spans gene therapy, AAV and lentiviral vector engineering, CRISPR-based genome editing, and quantitative microscopy. He also oversees the JSEI Biochemistry and Molecular Biology Instrumentation (BMBI) Core and Microscopy and Imaging Analysis (M&I) Core, including equipment training and management to ensure reliable, effective operation.",
+      "startDate": "2022-11-01",
+      "endDate": "2027-10-31",
+      "email": "duchoang@ucla.edu",
+      "links": {
+        "orcid": "0009-0002-9242-0821",
+        "scholar": "https://scholar.google.com/citations?user=SSuCFlsAAAAJ&hl=en"
+      },
+      "photo": "/images/trainees/duc-a-hoang-a788cfe2e3.jpg"
+    },
+    {
+      "slug": "jhuwala-venkatakrishnan",
+      "name": "Jhuwala Venkatakrishnan",
+      "sortName": "Venkatakrishnan Jhuwala",
+      "pronouns": "She/Her",
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "aldave",
+      "description": "Jhuwala is a postdoctoral researcher in the Cornea Genetics Laboratory. Her current research focuses on understanding the pathomechanisms of inherited corneal disorders (CHED, PMED, FECD, and TGFBI corneal dystrophies). She also plays a key role in preclinical investigations advancing an AAV gene therapy for CHED associated with loss of function of SLC4A11.",
+      "startDate": "2024-03-01",
+      "endDate": null,
+      "email": "jhuwala@ucla.edu",
+      "links": {
+        "orcid": "0009-0007-9820-3306",
+        "scholar": "https://scholar.google.com/citations?user=3q0XekcAAAAJ&hl=en&oi=ao",
+        "linkedin": "https://www.linkedin.com/in/jhuwala-venkatakrishnan"
+      },
+      "photo": "/images/trainees/jhuwala-venkatakrishnan-b9244b7796.jpg"
     }
   ]
 }
