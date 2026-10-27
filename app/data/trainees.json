@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T19:24:03.852Z",
+  "generatedAt": "2026-10-27T23:36:54.849Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -839,24 +839,6 @@
       "photo": "/images/trainees/shaurya-mahajan-c54f0d9dd2.jpg"
     },
     {
-      "slug": "uma-ram",
-      "name": "Uma Ram",
-      "sortName": "Ram Uma",
-      "pronouns": "she/her",
-      "role": "ugrad",
-      "title": "Undergraduate",
-      "lab": "yang",
-      "labs": [
-        "yang"
-      ],
-      "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
-      "startDate": "2024-10-02",
-      "endDate": "2027-06-13",
-      "email": "umaram108@g.ucla.edu",
-      "links": {},
-      "photo": "/images/trainees/uma-ram-c2c67f6c98.jpg"
-    },
-    {
       "slug": "nan-hultgren",
       "name": "Nan Hultgren",
       "sortName": "Hultgren Nan",
@@ -915,6 +897,65 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/roni-a-hazim-501ef25504.jpg"
+    },
+    {
+      "slug": "divya-mishra",
+      "name": "Divya Mishra",
+      "sortName": "Mishra Divya",
+      "pronouns": "she/her",
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "aldave",
+      "labs": [
+        "aldave"
+      ],
+      "description": "Divya is a postdoctoral researcher in the Cornea Genetics and Cornea Neuroscience Laboratories. In the Cornea Genetics Laboratory, she investigates the pathomechanisms underlying congenital hereditary endothelial dystrophy (CHED) and advances the development of AAV-hSLC4A11 gene therapy as a potential treatment. In the Cornea Neuroscience Laboratory, she investigates neuronal-epithelial interactions in neurotrophic keratitis using human iPSC-derived trigeminal neurons, with a focus on corneal nerve regeneration and epithelial repair.",
+      "startDate": "2025-09-01",
+      "endDate": null,
+      "email": "Dmishra@mednet.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?user=pwPc1wUAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/divya-mishra-ph-d-74a065164"
+      },
+      "photo": "/images/trainees/divya-mishra-e30cb448ed.jpg"
+    },
+    {
+      "slug": "uma-ram",
+      "name": "Uma Ram",
+      "sortName": "Ram Uma",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
+      "startDate": "2024-10-02",
+      "endDate": "2027-09-10",
+      "email": "umaram108@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/uma-ram-c2c67f6c98.jpg"
+    },
+    {
+      "slug": "abigail-o-brien",
+      "name": "Abigail O’Brien",
+      "sortName": "O’Brien Abigail",
+      "pronouns": "She/her",
+      "role": "ugrad",
+      "title": "Undergraduate Researcher",
+      "lab": "deng",
+      "labs": [
+        "deng"
+      ],
+      "description": "Abigail investigates the role of Wnt signaling on limbal stem cell phenotype and renewal for potential treatment of limbal stem cell deficiency.",
+      "startDate": "2024-10-01",
+      "endDate": "2027-06-12",
+      "email": "Abbyobrien@g.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/abigail-o-brien-3468802a9"
+      },
+      "photo": "/images/trainees/abigail-o-brien-bfc236c711.jpg"
     }
   ]
 }
