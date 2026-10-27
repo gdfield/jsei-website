@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T03:34:58.976Z",
+  "generatedAt": "2026-10-27T17:37:27.719Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -711,6 +711,40 @@
       "email": null,
       "links": {},
       "photo": null
+    },
+    {
+      "slug": "shaurya-mahajan",
+      "name": "Shaurya Mahajan",
+      "sortName": "Mahajan Shaurya",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate Research Assistant",
+      "lab": "au",
+      "description": "Shaurya Mahajan studies optical coherence tomography (OCT) images to identify retinal biomarkers and characterize disease morphology in patients with retinal vein occlusion (RVO) and geographic atrophy.",
+      "startDate": "2025-08-01",
+      "endDate": "2029-06-01",
+      "email": "smahajan1013@ucla.edu",
+      "links": {
+        "orcid": "0009-0008-6800-7512",
+        "scholar": "https://scholar.google.com/citations?user=0pnAbi4AAAAJ&hl=en&oi=ao",
+        "linkedin": "https://www.linkedin.com/in/shaurya-mahajan101307/"
+      },
+      "photo": "/images/trainees/shaurya-mahajan-c54f0d9dd2.jpg"
+    },
+    {
+      "slug": "uma-ram",
+      "name": "Uma Ram",
+      "sortName": "Ram Uma",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
+      "startDate": "2024-10-02",
+      "endDate": "2027-06-13",
+      "email": "umaram108@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/uma-ram-c2c67f6c98.jpg"
     }
   ]
 }
