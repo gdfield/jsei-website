@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T23:13:24.768Z",
+  "generatedAt": "2026-10-27T03:34:58.976Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -695,6 +695,21 @@
         "scholar": "https://scholar.google.com/citations?hl=en&user=idwoXXUAAAAJ",
         "linkedin": "https://www.linkedin.com/in/nanwu2/"
       },
+      "photo": null
+    },
+    {
+      "slug": "yuekan-jiao",
+      "name": "Yuekan Jiao",
+      "sortName": "Jiao Yuekan",
+      "pronouns": null,
+      "role": "projsci",
+      "title": "Specialist",
+      "lab": "williams",
+      "description": "Dr. Jiao works on biological electron microscopy, super-resolution light microscopy and image analysis. His work spans running, supporting and training with the microscopes; supporting with ImageJ and Imaris; and developing ImageJ plugins. Dr. Jiao also conducts eye research through collaborating with research labs.",
+      "startDate": "2022-01-03",
+      "endDate": null,
+      "email": null,
+      "links": {},
       "photo": null
     }
   ]
