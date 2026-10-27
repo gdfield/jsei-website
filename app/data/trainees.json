@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T18:23:39.643Z",
+  "generatedAt": "2026-10-27T19:24:03.852Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -9,6 +9,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "My research focuses on understanding how retinal diseases, particularly glaucoma, affect the structure and function of retinal ganglion cells, the neurons responsible for transmitting visual information from the retina to the brain. I am particularly interested in how changes in dendritic architecture relate to alterations in their receptive fields—the regions of the visual field that influence neuronal responses to visual stimuli—and how these structural and functional changes may contribute to visual dysfunction in glaucoma.",
       "startDate": "2023-10-01",
       "endDate": "2027-10-01",
@@ -27,6 +30,9 @@
       "role": "sra",
       "title": "Staff Research Associate",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Yasmine studies different ways to analyze the responses of retinal ganglion cells to varying stimuli, using multi-electrode array recordings. She is particulary interested in contributing to robust analysis pipelines for comparing electrophysiological experiments at different light levels.",
       "startDate": "2024-11-01",
       "endDate": null,
@@ -44,6 +50,9 @@
       "role": "sra",
       "title": "Lab Assistant I",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Anushka is researching morphological diversity in retinal ganglion cells that project to the superior colliculus, and computational tools to analyze and classify those cells.",
       "startDate": "2024-06-14",
       "endDate": "2027-06-14",
@@ -63,6 +72,9 @@
       "role": "grad",
       "title": "PhD Student",
       "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
       "description": "Through the use of microspectrophotometry and ex-vivo electroretinograms, Chris investigates the light-driven visual pigment regeneration that allows cones to remain sensitive to stimuli. While his primary focus is on cones, he has also done work studying the effects of pigment lifetime in rod dark adaptation.",
       "startDate": "2024-07-01",
       "endDate": "2029-12-31",
@@ -81,6 +93,9 @@
       "role": "sra",
       "title": "Staff Research Associate I",
       "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
       "description": "Annabelle investigates how metabolism shapes rod photoreceptor computation and how retinal circuits remodel during degeneration, using ex-vivo electroretinography and targeted pharmacology.",
       "startDate": "2023-10-05",
       "endDate": "2027-10-01",
@@ -99,6 +114,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Huakun Li is a postdoctoral scholar in the Field Lab. He is passionate about developing state-of-the-art functional interrogation platforms to advance retinal physiology research.",
       "startDate": "2026-08-01",
       "endDate": "2031-07-31",
@@ -119,6 +137,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Fellow",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Maya is a postdoctoral researcher in the Field lab. Her current research interests focus on understanding how the retina allocates energy for encoding visual signals and how it may be perturbed in disease.",
       "startDate": "2026-06-15",
       "endDate": "2029-06-14",
@@ -136,6 +157,9 @@
       "role": "grad",
       "title": "PhD Candidate",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Nilou is interested in understanding how different retinal ganglion cell (RGC) types contribute to downstream visual processing and perception. Her research focuses on developing a computational framework to design visual stimuli that can selectively manipulate the activity of specific RGC types.",
       "startDate": "2023-09-01",
       "endDate": "2028-09-01",
@@ -153,6 +177,9 @@
       "role": "grad",
       "title": "PhD Candidate",
       "lab": "barzalay",
+      "labs": [
+        "barzalay"
+      ],
       "description": "Ting-Hao’s research focuses on sensing and control for medical robotics, image-processing algorithms, and fluidic pump control systems. His current work involves developing multimodal sensing technologies to assist surgeons in performing procedures within the confined orbital region.",
       "startDate": "2026-05-01",
       "endDate": "2027-06-30",
@@ -168,6 +195,9 @@
       "role": "grad",
       "title": "PhD Candidate",
       "lab": "barzalay",
+      "labs": [
+        "barzalay"
+      ],
       "description": "Matthew studies electromechanical properties of the eye, in the context of their use as diagnostic and surgical planning tools. His research focuses on bioimpedance for tissue diagnostics and simulation of scleral elasticity for intravitreal injection optimization.",
       "startDate": "2023-01-15",
       "endDate": null,
@@ -183,6 +213,9 @@
       "role": "postdoc",
       "title": "Pediatric Ophthalmology and Strabismus Fellow",
       "lab": "demer",
+      "labs": [
+        "demer"
+      ],
       "description": "Dr. Eli Neimark conducts research on strabismus, leveraging large-scale datasets and artificial intelligence to investigate its underlying causes and optimize surgical dosing.",
       "startDate": "2025-10-01",
       "endDate": null,
@@ -202,6 +235,9 @@
       "role": "sra",
       "title": "Senior Clinical Research Coordinator",
       "lab": "coleman",
+      "labs": [
+        "coleman"
+      ],
       "description": "Ahmad Santina, MD, is a Senior Clinical Research Coordinator at the Stein Eye Institute. His research focuses on ophthalmic epidemiology, health disparities, and access to eye care, with an emphasis on identifying sociodemographic and clinical factors associated with ocular disease and treatment outcomes. He coordinates,contributes, and leads research projects using electronic health records, large-scale databases, and community-based vision screening data to inform clinical practice and public health policy.",
       "startDate": "2024-07-22",
       "endDate": null,
@@ -220,6 +256,9 @@
       "role": "grad",
       "title": "PhD Student, Molecular Biology IDP",
       "lab": "peng",
+      "labs": [
+        "peng"
+      ],
       "description": "Diana studies the spatial and temporal mechanisms that control the development of the human fovea.",
       "startDate": "2026-07-01",
       "endDate": null,
@@ -238,6 +277,9 @@
       "role": "grad",
       "title": "PhD Student, Bioinformatics IDP",
       "lab": "zylberberg",
+      "labs": [
+        "zylberberg"
+      ],
       "description": "With a background in machine learning, Sakin studies how the retina encodes visual information, using information theory and machine learning to ask why the retina has so many distinct ganglion cell types. He is also interested in comparing computer vision models to the retina, with the goal of using insights from biological vision to build better computer vision systems.",
       "startDate": "2026-03-16",
       "endDate": null,
@@ -257,6 +299,9 @@
       "role": "sra",
       "title": "Data Analyst III",
       "lab": "coleman",
+      "labs": [
+        "coleman"
+      ],
       "description": "Data Analysis",
       "startDate": "2024-12-01",
       "endDate": null,
@@ -274,6 +319,9 @@
       "role": "postdoc",
       "title": "Visiting Fellow",
       "lab": "tsui-e",
+      "labs": [
+        "tsui-e"
+      ],
       "description": "His research focuses on multimodal imaging in uveitis, with a particular interest in using advanced imaging to better assess and monitor ocular inflammation. He is also involved in studies of long-term outcomes in posterior uveitis.",
       "startDate": "2026-07-01",
       "endDate": null,
@@ -293,6 +341,9 @@
       "role": "postdoc",
       "title": "postdoctoral scholar",
       "lab": "deng",
+      "labs": [
+        "deng"
+      ],
       "description": "My research interest is to investigate into the mechanism of extracellular vesicles treatment to corneal scar.",
       "startDate": "2024-09-01",
       "endDate": null,
@@ -308,6 +359,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "zylberberg",
+      "labs": [
+        "zylberberg"
+      ],
       "description": "Saad works at the intersection of neuroscience and machine learning, developing interpretable, accurate, and generalizable computational models of retinal circuits under natural viewing conditions. He uses these models to investigate how the retina encodes information, particularly at scales that are difficult to access experimentally. His broader interests include using biologically grounded models to probe mechanisms underlying retinal diseases, and developing bio-inspired AI architectures that enable generalization to unfamiliar conditions.",
       "startDate": "2026-04-14",
       "endDate": null,
@@ -327,6 +381,9 @@
       "role": "sra",
       "title": "Staff Research Associate III",
       "lab": "deng",
+      "labs": [
+        "deng"
+      ],
       "description": "Maddie is the lab manager of the Cornea Biology Laboratory. She also serves as the GMP team lead for an ongoing Phase I clinical trial for autologous limbal stem cell transplants, and a pre-clinical trial focusing on corneal stromal scar repair using extracellular vesicles.",
       "startDate": "2023-06-12",
       "endDate": null,
@@ -342,6 +399,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "deng",
+      "labs": [
+        "deng"
+      ],
       "description": "Yu-Wen investigates the mechanisms by which small molecules activate Wnt in limbal stem cells, assesses dose-dependent toxicity, and explores potential translational studies for safe clinical applications in LSC deficiency.",
       "startDate": "2026-02-23",
       "endDate": null,
@@ -357,6 +417,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "deng",
+      "labs": [
+        "deng"
+      ],
       "description": "Arushi studies microRNAs involved in corneal stem cell function and regeneration. Her research focuses on identifying miRNA biomarkers associated with corneal stem and progenitor cells.",
       "startDate": "2026-01-05",
       "endDate": "2027-06-12",
@@ -374,6 +437,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "deng",
+      "labs": [
+        "deng"
+      ],
       "description": "Multi-Omics Profiling of Corneal Stromal Stem Cell-Derived Extracellular Vesicles Identifies Functional Biomarkers for Corneal Scarring",
       "startDate": "2025-07-31",
       "endDate": null,
@@ -389,6 +455,9 @@
       "role": "grad",
       "title": "PhD Candidate",
       "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
       "description": "My broad interests largely focus on the mechanisms of neurodegenerative diseases. My current dissertation work focuses on how bipolar cells respond to loss of photoreceptor input in retinal degeneration (i.e. retinitis pigmentosa).",
       "startDate": "2024-08-23",
       "endDate": "2028-06-30",
@@ -406,6 +475,9 @@
       "role": "projsci",
       "title": "Assistant Researcher",
       "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
       "description": "Rikard studies adaptation mechanisms in photoreceptors and bipolar cells.",
       "startDate": "2017-07-01",
       "endDate": null,
@@ -424,6 +496,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "radu",
+      "labs": [
+        "radu"
+      ],
       "description": "Simran studies how vitamin A-derived lipid accumulation leads to inflammation in STGD1 mouse models using Western blots.",
       "startDate": "2025-01-22",
       "endDate": "2028-06-09",
@@ -439,6 +514,9 @@
       "role": "postdoc",
       "title": "Research Fellow",
       "lab": "barzalay",
+      "labs": [
+        "barzalay"
+      ],
       "description": "Yasamin Sadat Mousavi Motlagh, MD, is a Research Fellow at the UCLA Jules Stein Eye Institute, focusing on innovative microsurgical techniques, robotic technologies, and image-guided ophthalmic surgery. Her research includes whole-eye transplantation, with an emphasis on orbital and skull-base surgical anatomy, vascular access, and intraoperative imaging. She also contributes to research on robotic-assisted ophthalmic microsurgery and advanced retinal therapeutic delivery techniques, including subretinal injections. Her work aims to improve surgical precision, safety, and outcomes through interdisciplinary research and technological innovation.",
       "startDate": "2024-10-01",
       "endDate": null,
@@ -458,6 +536,9 @@
       "role": "grad",
       "title": "PhD Candidate",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "I'm a “bi-coastal” graduate student at Duke Neurobiology Ph.D. program working with the Sommer Lab to understand what visual signals the retina sends to different brain regions. I'm also interested in how the synaptic organization of retinal circuits relates to mathematical descriptions of neural code and visual processing. As a training retinal physiologist, I spend most of my time in the dark, but when I do see the light, I love to be outside hiking, gardening, or biking.",
       "startDate": "2022-09-01",
       "endDate": null,
@@ -476,6 +557,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "radu",
+      "labs": [
+        "radu"
+      ],
       "description": "Eesha studies how the expression of the ABCA4 gene can influence various inflammasome pathways in relation to photoreceptors and the RPE. Her current research focuses on the activation of the NLRP3 inflammasome and subsequent age related acceleration of Stargardt Disease.",
       "startDate": "2025-11-01",
       "endDate": "2029-06-30",
@@ -491,6 +575,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "peng",
+      "labs": [
+        "peng"
+      ],
       "description": "Menglin studies how primate fovea is developed using spatial transcriptomics and single-cell multiomics",
       "startDate": "2023-11-20",
       "endDate": null,
@@ -506,6 +593,9 @@
       "role": "sra",
       "title": "Staff Research Associate IV",
       "lab": "yang",
+      "labs": [
+        "yang"
+      ],
       "description": "Our research focuses on retinal development and the differentiation of retinal ganglion cells (RGCs) and photoreceptors, with the ultimate goal of establishing retinal disease models and developing curative gene therapies. Alongside my research, I serve as the lab manager, overseeing lab administrative and non-scientific operations to ensure daily efficiency. In this role, I manage mouse colonies, train incoming lab members, and simultaneously carry multiple scientific projects to drive our research goals forward.",
       "startDate": "1996-07-01",
       "endDate": null,
@@ -521,6 +611,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Varsha studies retinal ganglion cell morphology in primate models, using neuron tracing, confocal microscopy, and histology to characterize and classify cell types.",
       "startDate": "2025-09-20",
       "endDate": "2028-06-09",
@@ -536,6 +629,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "au",
+      "labs": [
+        "au"
+      ],
       "description": "Nicole reviews and grades Optical Coherence Tomography images from Age-related Macular Degeneration cohorts, documenting differences in structural features and disease severity. She identifies imaging characteristics that may define clinically significant AMD subgroups and evaluates whether these phenotypes are associated with specific genetic variants.",
       "startDate": "2025-07-02",
       "endDate": "2027-06-13",
@@ -551,6 +647,9 @@
       "role": "grad",
       "title": "PhD Student",
       "lab": "zylberberg",
+      "labs": [
+        "zylberberg"
+      ],
       "description": "Fazil Onuralp develops machine learning models of retinal activity to better understand neural computations underlying vision. His research focuses on modeling retinal ganglion cell responses to dynamic visual stimuli, with an emphasis on temporal processing, neural dynamics, and context-dependent visual encoding.",
       "startDate": "2025-09-20",
       "endDate": "2030-06-25",
@@ -570,6 +669,9 @@
       "role": "ugrad",
       "title": "“Undergraduate”",
       "lab": "radu",
+      "labs": [
+        "radu"
+      ],
       "description": "Eudia studies morphological developments in retinal pigment epithelium cells of mice with a knock out ABCA4 gene (ABCA4 -/-). She is particularly interested in imaging and mapping early morphological changes in the RPE prior to overt cell degradation.",
       "startDate": "2024-10-25",
       "endDate": "2028-06-16",
@@ -585,6 +687,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "radu",
+      "labs": [
+        "radu"
+      ],
       "description": "Fanny studies the cellular mechanisms regulating autophagic flux in Stargardt disease. Her current research focuses on assessing LC3 lipidation in Retinal Pigment Epithelium (RPE) cells.",
       "startDate": "2026-06-01",
       "endDate": "2028-06-01",
@@ -600,6 +705,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
       "description": "Noah investigates the metabolic mechanisms underlying retinal photoreceptor function. Using ex vivo electroretinography (ERG) in isolated mouse retinas, he examines how glucose availability, alternative metabolic substrates, and oxygen tension influence photoreceptor responses.",
       "startDate": "2024-01-10",
       "endDate": "2027-06-11",
@@ -617,6 +725,9 @@
       "role": "sra",
       "title": "Staff Research Associate",
       "lab": "field",
+      "labs": [
+        "field"
+      ],
       "description": "Bryant studies how the retina adapts to different light intensities in the natural environment by developing custom camera systems for mice and primates that mimic their visual perception, capturing the statistical properties of naturalistic light changes. This work uses computational and statistical analyses of visual environments to uncover principles underlying the organization of the retina and visual system. Bryant also contributes to generating and characterizing a mouse model of Autosomal Dominant Optic Atrophy (ADOA), employing immunohistochemistry techniques to validate that the model faithfully recapitulates key features of the disease.",
       "startDate": "2023-02-01",
       "endDate": "2039-06-26",
@@ -634,6 +745,9 @@
       "role": "projsci",
       "title": "Associate Specialist",
       "lab": "yang",
+      "labs": [
+        "yang"
+      ],
       "description": "Duc studies inherited retinal diseases, including retinitis pigmentosa (RP) and dominant optic atrophy (DOA), and develops innovative therapies. His research spans gene therapy, AAV and lentiviral vector engineering, CRISPR-based genome editing, and quantitative microscopy. He also oversees the JSEI Biochemistry and Molecular Biology Instrumentation (BMBI) Core and Microscopy and Imaging Analysis (M&I) Core, including equipment training and management to ensure reliable, effective operation.",
       "startDate": "2022-11-01",
       "endDate": "2027-10-31",
@@ -652,6 +766,9 @@
       "role": "postdoc",
       "title": "Postdoctoral Scholar",
       "lab": "aldave",
+      "labs": [
+        "aldave"
+      ],
       "description": "Jhuwala is a postdoctoral researcher in the Cornea Genetics Laboratory. Her current research focuses on understanding the pathomechanisms of inherited corneal disorders (CHED, PMED, FECD, and TGFBI corneal dystrophies). She also plays a key role in preclinical investigations advancing an AAV gene therapy for CHED associated with loss of function of SLC4A11.",
       "startDate": "2024-03-01",
       "endDate": null,
@@ -671,6 +788,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "yang",
+      "labs": [
+        "yang"
+      ],
       "description": "Alison is currently working on a project that studies the functionality of rods in OPA1 knowckout heterozygous and homozygous mice. Alison will also take to studing the morphology of the mitochondria in the OPA1 affected rods. Alison is extremely interested in learning about the structure and functions of the eye and is enthusaiticly contributing to the greater goal of finding solutions for RDS and diseases such as glaucoma. Alison is also very interested in the field of opthamology and finds what the Yang Lab is doing essential in helping cure eye disease.",
       "startDate": "2024-02-15",
       "endDate": "2027-06-13",
@@ -686,6 +806,9 @@
       "role": "projsci",
       "title": "Specialist",
       "lab": "williams",
+      "labs": [
+        "williams"
+      ],
       "description": "Dr. Jiao works on biological electron microscopy, super-resolution light microscopy and image analysis. His work spans running, supporting and training with the microscopes; supporting with ImageJ and Imaris; and developing ImageJ plugins. Dr. Jiao also conducts eye research through collaborating with research labs.",
       "startDate": "2022-01-03",
       "endDate": null,
@@ -701,6 +824,9 @@
       "role": "ugrad",
       "title": "Undergraduate Research Assistant",
       "lab": "au",
+      "labs": [
+        "au"
+      ],
       "description": "Shaurya Mahajan studies optical coherence tomography (OCT) images to identify retinal biomarkers and characterize disease morphology in patients with retinal vein occlusion (RVO) and geographic atrophy.",
       "startDate": "2025-08-01",
       "endDate": "2029-06-01",
@@ -720,6 +846,9 @@
       "role": "ugrad",
       "title": "Undergraduate",
       "lab": "yang",
+      "labs": [
+        "yang"
+      ],
       "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
       "startDate": "2024-10-02",
       "endDate": "2027-06-13",
@@ -735,6 +864,9 @@
       "role": "projsci",
       "title": "Assistant Project Scientist",
       "lab": "williams",
+      "labs": [
+        "williams"
+      ],
       "description": "Nan studies how intracellular organelle dynamics and metabolic organization enable the retinal pigment epithelium (RPE) to support photoreceptor function and maintain retinal homeostasis. Her current work focuses on how mitochondrial positioning and inter-organelle interactions coordinate lipid processing during the daily phagocytosis of photoreceptor outer segments. Using advanced live-cell imaging, metabolic profiling, and disease-relevant RPE models, she studies how mitochondria, the endoplasmic reticulum, and lipid droplets dynamically interact to manage the substantial lipid load associated with photoreceptor renewal. Her work further examines how disruption of these processes contributes to lipid dysregulation and retinal degeneration.",
       "startDate": "2019-01-14",
       "endDate": "2027-01-31",
@@ -754,6 +886,9 @@
       "role": "sra",
       "title": "Staff Research Associate III",
       "lab": "aldave",
+      "labs": [
+        "aldave"
+      ],
       "description": "Sachin Parikh is a Staff Research Associate 3 focused on translational research, particularly the development of AAV-based gene therapies for pediatric ocular disease. He works across two tissues: the corneal endothelium with Dr. Aldave, studying congenital hereditary endothelial dystrophy (CHED), and the retinal pigment epithelium (RPE) with Dr. Radu, studying Stargardt disease. His goal is to move these therapeutic strategies toward the clinic.",
       "startDate": "2008-10-20",
       "endDate": null,
@@ -762,6 +897,24 @@
         "orcid": "0009-0003-2369-5116"
       },
       "photo": "/images/trainees/sachin-parikh-4677b07f47.jpg"
+    },
+    {
+      "slug": "roni-a-hazim",
+      "name": "Roni A. Hazim",
+      "sortName": "Hazim Roni A.",
+      "pronouns": null,
+      "role": "projsci",
+      "title": "Project Scientist",
+      "lab": "williams",
+      "labs": [
+        "williams"
+      ],
+      "description": "Roni is a retinal cell biologist whose research focuses on understanding how intracellular transport, organelle organization, and mitochondrial metabolism regulate the specialized architecture and function of the retinal pigment epithelium (RPE), a layer of cells essential for supporting the light-sensitive photoreceptors. The aim of his research is to provide insights into the cellular mechanisms that maintain RPE health and to understand how their disruption may contribute to RPE pathologies and retinal degeneration.",
+      "startDate": "2013-09-01",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/roni-a-hazim-501ef25504.jpg"
     }
   ]
 }
