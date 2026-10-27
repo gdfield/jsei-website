@@ -10,12 +10,12 @@ const TraineeDirectory = ({ trainees, roles, labs }) => {
   const [lab, setLab] = useState('all');
 
   const labsWithTrainees = useMemo(
-    () => labs.filter((l) => trainees.some((t) => t.lab === l.slug)),
+    () => labs.filter((l) => trainees.some((t) => t.labs.includes(l.slug))),
     [labs, trainees]
   );
 
   const visible = trainees.filter(
-    (t) => (role === 'all' || t.role === role) && (lab === 'all' || t.lab === lab)
+    (t) => (role === 'all' || t.role === role) && (lab === 'all' || t.labs.includes(lab))
   );
   const groups = roles
     .map((r) => ({ ...r, people: visible.filter((t) => t.role === r.key) }))

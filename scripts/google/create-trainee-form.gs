@@ -131,6 +131,7 @@ function createTraineeForm() {
     .setHelpText('Your official title, e.g. "Postdoctoral Scholar", "PhD Candidate, Neuroscience IDP", "Staff Research Associate II".')
     .setRequired(true);
   form.addListItem().setTitle("Lab").setChoiceValues(LAB_CHOICES).setRequired(true);
+  addOtherLabsItem_(form);
 
   const maxLen = FormApp.createParagraphTextValidation()
     .requireTextLengthLessThanOrEqualTo(1200)
@@ -297,7 +298,16 @@ function publishRow_(sheet, row, approved) {
   }
 }
 
-/** Replaces the Lab dropdown choices with LAB_CHOICES (after labs change). */
+const OTHER_LABS_TITLE = "Additional labs";
+const OTHER_LABS_HELP =
+  'Optional. If you also work in other labs, tick them here. Leave blank if you work in one lab. ' +
+  'You will be listed on each lab\'s page.';
+
+function addOtherLabsItem_(form) {
+  return form.addCheckboxItem().setTitle(OTHER_LABS_TITLE).setHelpText(OTHER_LABS_HELP).setChoiceValues(LAB_CHOICES);
+}
+
+/** Replaces the Lab and Additional labs choices with LAB_CHOICES (after labs change). */
 function updateLabChoices() {
   const formId = PropertiesService.getScriptProperties().getProperty('formId');
   const form = FormApp.openById(formId);
@@ -305,7 +315,31 @@ function updateLabChoices() {
     return i.getTitle() === "Lab";
   })[0];
   item.asListItem().setChoiceValues(LAB_CHOICES);
+  const other = form.getItems(FormApp.ItemType.CHECKBOX).filter(function (i) {
+    return i.getTitle() === OTHER_LABS_TITLE;
+  })[0];
+  if (other) other.asCheckboxItem().setChoiceValues(LAB_CHOICES);
   Logger.log('Lab choices updated (' + LAB_CHOICES.length + ' labs).');
+}
+
+/**
+ * One-time update for a form created before 2026-10-27: adds the optional
+ * "Additional labs" checkboxes right after Lab, for people who work in more than
+ * one lab. Existing questions and responses are not changed. Safe to run again.
+ */
+function addAdditionalLabsQuestion() {
+  const formId = PropertiesService.getScriptProperties().getProperty('formId');
+  const form = FormApp.openById(formId);
+  const items = form.getItems();
+  if (items.some(function (i) { return i.getTitle() === OTHER_LABS_TITLE; })) {
+    Logger.log('"' + OTHER_LABS_TITLE + '" already exists; nothing to do.');
+    return;
+  }
+  const lab = items.filter(function (i) { return i.getTitle() === "Lab"; })[0];
+  if (!lab) throw new Error('Could not find the "Lab" question.');
+  const item = addOtherLabsItem_(form);
+  form.moveItem(item.getIndex(), lab.getIndex() + 1);
+  Logger.log('Added "' + OTHER_LABS_TITLE + '" after Lab. The Sheet gets a new column for it.');
 }
 
 /**

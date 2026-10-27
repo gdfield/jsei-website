@@ -101,7 +101,7 @@ Forms created before 2026-10-22 do not have it. In the form's Apps Script projec
 The form's Lab dropdown must match the labs in `app/data/labs.js` (which come from `app/data/faculty.js` plus the four standalone lab pages). After adding or removing a lab:
 
 1. Run `npm run trainees:lab-choices` and paste the output over `LAB_CHOICES` in the Apps Script project.
-2. Run `updateLabChoices` in Apps Script.
+2. Run `updateLabChoices` in Apps Script (it updates both the Lab dropdown and the Additional labs checkboxes).
 
 A response whose lab is no longer recognized is skipped (and named in the sync log) rather than published under the wrong lab.
 
@@ -127,3 +127,9 @@ Running the real sync on your own computer needs the service-account key in `GOO
 ## Privacy
 
 Publication is opt-in: the form requires the consent checkbox and every profile is approved by a person before it appears. Graduate and medical students may have FERPA directory-information restrictions; confirm UCLA's policy on publishing student information with the Registrar's Office before inviting students. This document is not legal advice.
+
+## People in more than one lab
+
+The form's optional "Additional labs" checkboxes (after Lab) let a person list other labs they work in. Lab stays their primary lab. The sync stores `labs` (primary first) alongside `lab`; the person then appears in Lab Members on every one of those lab pages (the card there reads "Also in ..." for the others), their directory card and profile list all their labs, and the Trainees page lab filter finds them under each.
+
+Forms created before 2026-10-27 lack the question: paste the updated `create-trainee-form.gs` into the Apps Script project and run `addAdditionalLabsQuestion` once. It adds the question and the Sheet gains an "Additional labs" column. To set it for someone without asking them to resubmit, type the exact choice text (e.g. `Radu Lab (Roxana A. Radu)`; separate several with ", ") into their row's Additional labs cell in Form Responses 1. Because the row is already approved, the edit re-publishes it, and the next nightly sync updates the site.

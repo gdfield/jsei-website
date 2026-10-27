@@ -138,6 +138,12 @@ export function rowToRecord(row, idx, labByFormLabel) {
 
   const lab = labByFormLabel[clean(get('lab'))];
   if (!lab) return { error: `${name}: unrecognized lab "${clean(get('lab'))}"` };
+  // Additional labs: unknown labels are ignored (e.g. a lab removed from the site).
+  const labSlugs = [lab.slug];
+  for (const label of String(get('otherLabs') ?? '').split(/,\s*/)) {
+    const other = labByFormLabel[clean(label)];
+    if (other && !labSlugs.includes(other.slug)) labSlugs.push(other.slug);
+  }
 
   const title = cleanText(get('title'));
   if (!title) return { error: `${name}: missing title` };
@@ -172,7 +178,8 @@ export function rowToRecord(row, idx, labByFormLabel) {
       pronouns: cleanText(get('pronouns')) || null,
       role,
       title,
-      lab: lab.slug,
+      lab: lab.slug, // primary lab (the Lab question)
+      labs: labSlugs, // primary first, then any additional labs
       description,
       startDate,
       endDate,

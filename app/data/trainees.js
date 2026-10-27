@@ -36,14 +36,31 @@ export function isActive(t, today = todayIso()) {
   return true;
 }
 
-// Adds the lab's display name and profile URL so client components don't need
-// the lab list or these helpers.
-const withLab = (t) => ({ ...t, labName: labBySlug[t.lab]?.labName ?? null, path: profilePath(t) });
+// Every lab the person belongs to, primary first. Records synced before
+// 2026-10-27 have only `lab`. Labs no longer on the site are dropped.
+export const labsOf = (t) => (t.labs?.length ? t.labs : [t.lab]).filter((s) => labBySlug[s]);
+
+// "Aldave Lab", "Aldave Lab and Radu Lab", "A Lab, B Lab, and C Lab".
+export const joinNames = (names) =>
+  names.length <= 2 ? names.join(' and ') : `${names.slice(0, -1).join(', ')}, and ${names[names.length - 1]}`;
+
+// Adds the labs' display names and the profile URL so client components don't
+// need the lab list or these helpers.
+const withLab = (t) => {
+  const labs = labsOf(t);
+  return {
+    ...t,
+    labs,
+    labNames: labs.map((s) => labBySlug[s].labName),
+    labName: labs.length ? joinNames(labs.map((s) => labBySlug[s].labName)) : null,
+    path: profilePath(t),
+  };
+};
 
 // Everyone from the form who is currently active, trainees and project scientists.
 export function activeProfiles(today = todayIso()) {
   return data.trainees
-    .filter((t) => isActive(t, today) && labBySlug[t.lab])
+    .filter((t) => isActive(t, today) && labsOf(t).length > 0)
     .map(withLab)
     .sort((a, b) => a.sortName.localeCompare(b.sortName));
 }
@@ -53,7 +70,7 @@ export const activeProjectScientists = (today = todayIso()) => activeProfiles(to
 
 // Lab Members on a lab page: trainees and project scientists.
 export const traineesForLab = (labSlug, today = todayIso()) =>
-  activeProfiles(today).filter((t) => t.lab === labSlug);
+  activeProfiles(today).filter((t) => t.labs.includes(labSlug));
 
 export const traineeBySlug = (slug) => data.trainees.find((t) => t.slug === slug) ?? null;
 

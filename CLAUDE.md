@@ -116,7 +116,8 @@ Full guide: `docs/TRAINEES.md`. Trainees submit a Google Form; Greg approves row
 
 - **Never hand-edit** `trainees.json`, `trainees-meta.json`, or `slug-registry.json`; the next sync overwrites them. Never commit fixture data (`--fixture ... --write` is for local previews only).
 - `app/data/labs.js` is the single lab list (non-emeritus `facultyData` plus the standalone gorin and huk pages) shared by the form's Lab dropdown, the sync, and the pages. Question titles live in `scripts/trainees/fields.mjs` and must match the form.
-- `app/data/trainees.js`: `activeTrainees()` (between start and end date, adds `labName`), `traineesForLab()`, `traineeBySlug()`, `ROLES`.
+- `app/data/trainees.js`: `activeTrainees()` (between start and end date, adds `labs`, `labNames`, and a joined `labName`), `traineesForLab()`, `traineeBySlug()`, `labsOf()`, `ROLES`.
+- People can belong to several labs: the form's optional "Additional labs" checkboxes become `labs` (primary `lab` first). They appear in Lab Members on each lab page (the card shows "Also in ..." for the others), and the directory filter and profile list every lab. Records synced before this change have only `lab`; use `labsOf(t)`, never `t.lab` alone, when listing a person's labs.
 - Every lab page renders `<LabTrainees lab="<slug>" />` inside the page container, just above the publications section, and exports `revalidate = 86400`, so the Lab Members section follows start/end dates without a deploy. Include both when creating a new lab page.
 - The Trainees nav/footer link appears only when `trainees-meta.json` has `count > 0`.
 - Privacy: the respondent's Google account email and Drive file IDs must never reach the public data or client bundles; `transform.mjs` builds records from an explicit field list. Keep `app/data/*` imports out of client components (`TraineeDirectory` gets plain props).

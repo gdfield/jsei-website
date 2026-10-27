@@ -92,6 +92,23 @@ ok(!er.some((r) => /[<>]/.test(r.name)), 'angle brackets stripped from names');
   const old = buildRecords([values[0], ug('u4@x.org', '').slice(0, -1)], labByFormLabel);
   ok(old.records.length === 0, 'Sheet without the graduation-date column still refuses dateless undergrads');
 }
+// Additional labs: ticked choices arrive as one ", "-joined cell.
+{
+  const h = [...values[0], 'Additional labs'];
+  const row = (acct, other) => {
+    const r = [...values[1], other];
+    r[h.indexOf('Email address')] = acct;
+    r[h.indexOf('Full name')] = `Example Multi ${acct}`;
+    r[h.indexOf('Lab')] = 'Aldave Lab (Anthony Aldave)';
+    return r;
+  };
+  const out = buildRecords([h, row('m1@x.org', 'Radu Lab (Roxana A. Radu)'), row('m2@x.org', 'Radu Lab (Roxana A. Radu), Aldave Lab (Anthony Aldave), Tsui Lab (Irena Tsui), Gone Lab (Nobody)'), row('m3@x.org', '')], labByFormLabel);
+  const by = (a) => out.records.find((r) => r.name.endsWith(a));
+  ok(JSON.stringify(by('m1@x.org').labs) === '["aldave","radu"]' && by('m1@x.org').lab === 'aldave', 'additional lab added after the primary lab');
+  ok(JSON.stringify(by('m2@x.org').labs) === '["aldave","radu","tsui-i"]', 'several additional labs; duplicates and unknown labels dropped');
+  ok(JSON.stringify(by('m3@x.org').labs) === '["aldave"]', 'no additional labs gives just the primary lab');
+  ok(JSON.stringify(buildRecords(values, labByFormLabel).records[0].labs) === JSON.stringify([buildRecords(values, labByFormLabel).records[0].lab]), 'Sheet without the column still works');
+}
 ok(records.every((r) => r.accountKey && !String(r.accountKey).includes('@')), 'account key is a hash, not an email');
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

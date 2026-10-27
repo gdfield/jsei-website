@@ -9,6 +9,9 @@ export const FIELDS = {
   role: 'Role',
   title: 'Title',
   lab: 'Lab',
+  // Optional checkboxes for people who work in more than one lab. Google Forms
+  // joins the ticked choices with ", " (lab labels contain no commas).
+  otherLabs: 'Additional labs',
   description: 'Research interests and role',
   startDate: 'Start date',
   endDate: 'Expected end date',

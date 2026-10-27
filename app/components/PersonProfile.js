@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { roleByKey, profilePath } from '../data/trainees';
+import { roleByKey, profilePath, labsOf, joinNames } from '../data/trainees';
 import { labBySlug } from '../data/labs';
 import { pageMeta } from '../lib/seo';
 
@@ -17,11 +17,11 @@ const snippet = (text) => {
 };
 
 export function personMeta(t) {
-  const lab = labBySlug[t.lab];
+  const names = labsOf(t).map((s) => labBySlug[s].labName);
   return pageMeta({
     path: profilePath(t),
     title: `${t.name}, ${t.title}`,
-    description: snippet(t.description) || `${t.name}, ${t.title}${lab ? `, ${lab.labName}` : ''}, Jules Stein Eye Institute.`,
+    description: snippet(t.description) || `${t.name}, ${t.title}${names.length ? `, ${joinNames(names)}` : ''}, Jules Stein Eye Institute.`,
     ...(t.photo ? { image: t.photo, imageAlt: t.name } : {}),
   });
 }
@@ -36,8 +36,8 @@ const LINKS = [
 // Full profile page for one person from the intake form. Used by
 // /trainees/<slug> and /scientists/<slug> (project scientists).
 export default function PersonProfile({ person: t, back }) {
-  const lab = labBySlug[t.lab];
-  if (!lab) notFound();
+  const labs = labsOf(t).map((s) => labBySlug[s]);
+  if (labs.length === 0) notFound();
   const role = roleByKey[t.role];
 
   const links = LINKS.filter(([k]) => t.links?.[k]).map(([k, label]) => ({
@@ -103,12 +103,14 @@ export default function PersonProfile({ person: t, back }) {
             </h1>
             {t.pronouns && <p className="mt-2 text-muted">{t.pronouns}</p>}
             <p className="mt-4 text-lg text-ink">{t.title}</p>
-            <p className="mt-1 text-lg">
-              <Link href={lab.pageUrl} className="font-medium text-sea hover:text-gold-deep">
-                {lab.labName}
-              </Link>
-              <span className="text-muted"> · {lab.piName}</span>
-            </p>
+            {labs.map((lab) => (
+              <p key={lab.slug} className="mt-1 text-lg">
+                <Link href={lab.pageUrl} className="font-medium text-sea hover:text-gold-deep">
+                  {lab.labName}
+                </Link>
+                <span className="text-muted"> · {lab.piName}</span>
+              </p>
+            ))}
 
             {t.description && (
               <div className="mt-8 max-w-prose">

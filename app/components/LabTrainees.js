@@ -22,7 +22,7 @@ const LabTrainees = ({ lab }) => {
           <ul className="grid list-none grid-cols-1 gap-5 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {g.people.map((t) => (
               <li key={t.slug}>
-                <TraineeCard trainee={t} showLab={false} headingLevel={4} />
+                <TraineeCard trainee={t} currentLab={lab} headingLevel={4} />
               </li>
             ))}
           </ul>

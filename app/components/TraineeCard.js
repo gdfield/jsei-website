@@ -2,10 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
-// Card used in the trainee directory and on lab pages. `showLab` is false on a
-// lab's own page, where the lab name would be redundant.
-const TraineeCard = ({ trainee, showLab = true, headingLevel = 3 }) => {
+// Same rule as joinNames in app/data/trainees.js (not imported: this card is
+// used inside a client component, which must not bundle app/data/*).
+const joinNames = (n) => (n.length <= 2 ? n.join(' and ') : `${n.slice(0, -1).join(', ')}, and ${n[n.length - 1]}`);
+
+// Card used in the trainee directory and on lab pages. On a lab's own page,
+// `currentLab` is that lab's slug: its name would be redundant, so only the
+// person's other labs (if any) are shown, as "Also in ...".
+const TraineeCard = ({ trainee, currentLab = null, headingLevel = 3 }) => {
   const Heading = `h${headingLevel}`;
+  const names = trainee.labNames ?? [];
+  const others = currentLab ? names.filter((_, i) => trainee.labs[i] !== currentLab) : names;
+  const labLine = others.length === 0 ? null : (currentLab ? 'Also in ' : '') + joinNames(others);
   return (
     <Link
       href={trainee.path ?? `/trainees/${trainee.slug}`}
@@ -39,9 +47,7 @@ const TraineeCard = ({ trainee, showLab = true, headingLevel = 3 }) => {
             )}
           </Heading>
           <p className="mt-1 text-sm text-muted">{trainee.title}</p>
-          {showLab && trainee.labName && (
-            <p className="mt-0.5 text-sm font-medium text-sea-600">{trainee.labName}</p>
-          )}
+          {labLine && <p className="mt-0.5 text-sm font-medium text-sea-600">{labLine}</p>}
         </div>
         <ArrowUpRight
           size={18}
