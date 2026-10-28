@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T15:59:25.285Z",
+  "generatedAt": "2026-10-28T16:50:18.543Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -995,6 +995,24 @@
       "email": "mariejsedrak@gmail.com",
       "links": {},
       "photo": null
+    },
+    {
+      "slug": "jacky-kwong-phd",
+      "name": "Jacky Kwong, PhD",
+      "sortName": "PhD Jacky Kwong,",
+      "pronouns": null,
+      "role": "sra",
+      "title": "Clinical Research Coordinator",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "Jacky Kwong, PhD, is a Clinical Research Coordinator at the Stein Eye Institute. His research focuses on leveraging machine learning approaches to integrate functional and structural measurements for improving glaucoma diagnosis and detecting disease progression.",
+      "startDate": "2000-08-22",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/jacky-kwong-phd-e71623755e.jpg"
     }
   ]
 }
