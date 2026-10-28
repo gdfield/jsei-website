@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T23:36:54.849Z",
+  "generatedAt": "2026-10-28T15:59:25.285Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -920,24 +920,6 @@
       "photo": "/images/trainees/divya-mishra-e30cb448ed.jpg"
     },
     {
-      "slug": "uma-ram",
-      "name": "Uma Ram",
-      "sortName": "Ram Uma",
-      "pronouns": "she/her",
-      "role": "ugrad",
-      "title": "Undergraduate",
-      "lab": "yang",
-      "labs": [
-        "yang"
-      ],
-      "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
-      "startDate": "2024-10-02",
-      "endDate": "2027-09-10",
-      "email": "umaram108@g.ucla.edu",
-      "links": {},
-      "photo": "/images/trainees/uma-ram-c2c67f6c98.jpg"
-    },
-    {
       "slug": "abigail-o-brien",
       "name": "Abigail O’Brien",
       "sortName": "O’Brien Abigail",
@@ -956,6 +938,63 @@
         "linkedin": "https://www.linkedin.com/in/abigail-o-brien-3468802a9"
       },
       "photo": "/images/trainees/abigail-o-brien-bfc236c711.jpg"
+    },
+    {
+      "slug": "uma-ram",
+      "name": "Uma Ram",
+      "sortName": "Ram Uma",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Uma is currently working on a project studying Dominant Optic Atrophy (DOA) and retinal degeneration, with a focus on photoreceptors and retinal ganglion cells (RGCs). Using mouse models, she contributes to research investigating gene therapy approaches aimed at preserving retinal cell function and survival. In addition to research, she helps train new students in lab techniques.",
+      "startDate": "2024-10-02",
+      "endDate": "2027-09-10",
+      "email": "umaram108@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/uma-ram-1bfe96d0e7.jpg"
+    },
+    {
+      "slug": "jinghan-frank-huang",
+      "name": "Jinghan(Frank) Huang",
+      "sortName": "Huang Jinghan(Frank)",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate Student",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Frank studies how OPA1 mutations disrupt retinal ganglion cell function in dominant optic atrophy. His work focuses on how the membrane properties of these cells shift under the metabolic stress such mutations impose, which connects to his collaborative investigation of potassium channel dysfunction at the Barnes Lab. He is pursuing an MD/PhD with a focus on vision neuroscience and neuro-ophthalmology.",
+      "startDate": "2026-10-27",
+      "endDate": "2028-06-13",
+      "email": "jinghan2006@g.ucla.edu",
+      "links": {
+        "orcid": "0009-0001-7491-7554",
+        "linkedin": "https://www.linkedin.com/in/jinghanhuang200623"
+      },
+      "photo": "/images/trainees/jinghan-frank-huang-b7eb0dda59.jpg"
+    },
+    {
+      "slug": "marie-sedrak",
+      "name": "Marie Sedrak",
+      "sortName": "Sedrak Marie",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "As an undergraduate volunteer, Marie will contribute to research that investigates the relationship between metabolism and the survival and function of retinal neurons. She is particularly interested in retinal disease and degeneration and will participate in genetic analysis using mouse models to explore the processes that impact retinal health.",
+      "startDate": "2026-10-16",
+      "endDate": "2029-06-15",
+      "email": "mariejsedrak@gmail.com",
+      "links": {},
+      "photo": null
     }
   ]
 }
