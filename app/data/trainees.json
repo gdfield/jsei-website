@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T16:50:18.543Z",
+  "generatedAt": "2026-10-31T18:37:47.271Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -881,24 +881,6 @@
       "photo": "/images/trainees/sachin-parikh-4677b07f47.jpg"
     },
     {
-      "slug": "roni-a-hazim",
-      "name": "Roni A. Hazim",
-      "sortName": "Hazim Roni A.",
-      "pronouns": null,
-      "role": "projsci",
-      "title": "Project Scientist",
-      "lab": "williams",
-      "labs": [
-        "williams"
-      ],
-      "description": "Roni is a retinal cell biologist whose research focuses on understanding how intracellular transport, organelle organization, and mitochondrial metabolism regulate the specialized architecture and function of the retinal pigment epithelium (RPE), a layer of cells essential for supporting the light-sensitive photoreceptors. The aim of his research is to provide insights into the cellular mechanisms that maintain RPE health and to understand how their disruption may contribute to RPE pathologies and retinal degeneration.",
-      "startDate": "2013-09-01",
-      "endDate": null,
-      "email": null,
-      "links": {},
-      "photo": "/images/trainees/roni-a-hazim-501ef25504.jpg"
-    },
-    {
       "slug": "divya-mishra",
       "name": "Divya Mishra",
       "sortName": "Mishra Divya",
@@ -1013,6 +995,244 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/jacky-kwong-phd-e71623755e.jpg"
+    },
+    {
+      "slug": "roni-a-hazim",
+      "name": "Roni A. Hazim",
+      "sortName": "Hazim Roni A.",
+      "pronouns": null,
+      "role": "projsci",
+      "title": "Project Scientist",
+      "lab": "williams",
+      "labs": [
+        "williams"
+      ],
+      "description": "Roni is a retinal cell biologist whose research focuses on understanding how intracellular transport, organelle organization, and mitochondrial metabolism regulate the specialized architecture and function of the retinal pigment epithelium (RPE), a layer of cells essential for supporting the light-sensitive photoreceptors. The aim of his research is to provide insights into the cellular mechanisms that maintain RPE health and to understand how their disruption may contribute to RPE pathologies and retinal degeneration.",
+      "startDate": "2013-09-01",
+      "endDate": null,
+      "email": "rhazim@ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=roni+hazim&oq="
+      },
+      "photo": "/images/trainees/roni-a-hazim-501ef25504.jpg"
+    },
+    {
+      "slug": "dr-arezoo-miraftabi",
+      "name": "Dr Arezoo Miraftabi",
+      "sortName": "Miraftabi Dr Arezoo",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "International Research Fellow",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "I am working on expanding longitudinal imaging studies to refine predictive markers of progression • Developing multicenter collaborations for surgical outcomes databases • Investigating microvascular biomarkers as therapeutic response indicators • Integrating artificial intelligence–assisted imaging analytics into clinical glaucoma practice",
+      "startDate": "2025-08-01",
+      "endDate": "2027-08-31",
+      "email": null,
+      "links": {
+        "orcid": "0000-0001-9870-8856",
+        "scholar": "https://scholar.google.com/citations?user=acRAJAgAAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/arezoo-miraftabi-b8938b54"
+      },
+      "photo": "/images/trainees/dr-arezoo-miraftabi-d45838cfe9.jpg"
+    },
+    {
+      "slug": "katheryn-zhou",
+      "name": "Katheryn Zhou",
+      "sortName": "Zhou Katheryn",
+      "pronouns": "she/her",
+      "role": "grad",
+      "title": "PhD Student",
+      "lab": "zylberberg",
+      "labs": [
+        "zylberberg"
+      ],
+      "description": "Katheryn studies learning rules within biological and artificial neural networks. She is interested in the intersection between theoretical neuroscience and experimental neuroscience.",
+      "startDate": "2025-03-31",
+      "endDate": null,
+      "email": "katherynzhou@ucla.edu",
+      "links": {
+        "orcid": "0009-0007-2322-1024",
+        "linkedin": "https://www.linkedin.com/in/katheryn-zhou/"
+      },
+      "photo": "/images/trainees/katheryn-zhou-ccaf7ff927.jpg"
+    },
+    {
+      "slug": "rich-lai",
+      "name": "Rich Lai",
+      "sortName": "Lai Rich",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "deng",
+      "labs": [
+        "deng"
+      ],
+      "description": "Rich is interested in corneal biology, regenerative medicine, and understanding how cells respond to injury. In the Deng Lab, he studies how exosomes derived from human corneal stromal stem cells affect corneal wound healing, particularly their role in regulating cell death and inflammation. His current work focuses on identifying different cell death pathways using immunofluorescence staining, confocal microscopy, and image analysis to better understand how exosomes may promote corneal repair.",
+      "startDate": "2025-12-15",
+      "endDate": "2027-06-13",
+      "email": "richlai@ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/rich-lai"
+      },
+      "photo": "/images/trainees/rich-lai-6e93edde40.jpg"
+    },
+    {
+      "slug": "marissa-valdez",
+      "name": "Marissa Valdez",
+      "sortName": "Valdez Marissa",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "radu",
+      "labs": [
+        "radu"
+      ],
+      "description": "Marissa studies the accumulation of NLRP3 in the inflammasome pathways to retinal pigment epithelium (RPE) cells in relation to Stargardt's Disease.",
+      "startDate": "2026-01-12",
+      "endDate": "2028-06-07",
+      "email": "mariv23@g.ucla.edu",
+      "links": {},
+      "photo": null
+    },
+    {
+      "slug": "neusha-barakati",
+      "name": "Neusha Barakati",
+      "sortName": "Barakati Neusha",
+      "pronouns": "she/her",
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Neusha's research focuses on Dominant Optic Atrophy (DOA), an inherited optic neuropathy, and the role of mitochondrial dysfunction in retinal degeneration. Her work aims to understand how mitochondrial abnormalities affect retinal cell structure, survival, and function, with a particular focus on photoreceptors.",
+      "startDate": "2026-08-01",
+      "endDate": null,
+      "email": "neushabarakati@mednet.ucla.edu",
+      "links": {
+        "orcid": "0009-0005-9883-0639"
+      },
+      "photo": "/images/trainees/neusha-barakati-01485f7cbc.jpg"
+    },
+    {
+      "slug": "adeline-peterson",
+      "name": "Adeline Peterson",
+      "sortName": "Peterson Adeline",
+      "pronouns": "She/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Adeline is currently using genetic analysis to study how metabolism affects retina neuronal survival and function, particularly in OPA1 mutations. She is interested in learning how gene editing can be used to understand and treat neural disorders.",
+      "startDate": "2026-10-07",
+      "endDate": "2028-06-08",
+      "email": "adelinepeterson@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/adeline-peterson-29794ddc47.jpg"
+    },
+    {
+      "slug": "paria-jahadi",
+      "name": "Paria Jahadi",
+      "sortName": "Jahadi Paria",
+      "pronouns": "She/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Paria conducts genotyping, cryosectioning, eye-cup dissections, and immunostaining.",
+      "startDate": "2024-10-15",
+      "endDate": "2027-06-15",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/paria-jahadi-6ed1cb961e.jpg"
+    },
+    {
+      "slug": "antonio-e-paniagua",
+      "name": "Antonio E. Paniagua",
+      "sortName": "Paniagua Antonio E.",
+      "pronouns": null,
+      "role": "projsci",
+      "title": "Assistant Project Scientist",
+      "lab": "williams",
+      "labs": [
+        "williams"
+      ],
+      "description": "Antonio studies how photoreceptors build and renew their outer segments. His work focuses on how new disk membranes are formed at the base of the outer segment and how the retinal pigment epithelium ingests and degrades outer segment tips. His expertise includes 3D electron tomography, STED and SIM super-resolution microscopy, live-cell imaging, subretinal AAV delivery, and neonatal retinal electroporation. He held an independent BrightFocus Foundation postdoctoral fellowship (Elizabeth Anderson Award for Macular Degeneration Research, 2021-2023) and currently participates as Co-Investigator in two NIH-NEI R01 grants.",
+      "startDate": "2017-03-13",
+      "endDate": null,
+      "email": "paniagua@ucla.edu",
+      "links": {
+        "orcid": "0000-0002-2526-8412",
+        "scholar": "https://scholar.google.com/citations?user=HJZExvwAAAAJ"
+      },
+      "photo": "/images/trainees/antonio-e-paniagua-bc112b0f11.jpg"
+    },
+    {
+      "slug": "jaclyn-ohanyan",
+      "name": "Jaclyn Ohanyan",
+      "sortName": "Ohanyan Jaclyn",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "radu",
+      "labs": [
+        "radu"
+      ],
+      "description": "Jaclyn studies Retinal Pigmented Epithelial (RPE) cells and organoids in the culture room and their development over time. She is also studying an inflammatory pathway of RPE as a result of varying diets on ABCA4 KO genotype mice.",
+      "startDate": "2024-08-26",
+      "endDate": "2027-06-11",
+      "email": null,
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/jaclynohanyan?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+      },
+      "photo": null
+    },
+    {
+      "slug": "alexander-chatham",
+      "name": "Alexander Chatham",
+      "sortName": "Chatham Alexander",
+      "pronouns": "He/Him",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "deng",
+      "labs": [
+        "deng"
+      ],
+      "description": "Alexander studies the Wnt Signaling Pathway in limbal stem cells (LSCs). He hopes to uncover a deeper understanding of the pathway within the LSC niche.",
+      "startDate": "2025-01-01",
+      "endDate": "2026-06-11",
+      "email": "achatham@g.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/alexander-chatham-3238b1261"
+      },
+      "photo": "/images/trainees/alexander-chatham-a391d18904.jpg"
+    },
+    {
+      "slug": "sanjana-iyer",
+      "name": "Sanjana Iyer",
+      "sortName": "Iyer Sanjana",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "sampath",
+      "labs": [
+        "sampath"
+      ],
+      "description": "Sanjana investigates the origin of vertebrate vision by characterizing the retina of hagfish, using ex-vivo electroretinography (ERG) and semithin section staining to explore its electrophysiology and cellular organization.",
+      "startDate": "2026-04-09",
+      "endDate": "2029-06-15",
+      "email": "sanjanaiyer@g.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/sanjanasiyer"
+      },
+      "photo": "/images/trainees/sanjana-iyer-9d453014bd.jpg"
     }
   ]
 }
