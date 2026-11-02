@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T18:37:47.271Z",
+  "generatedAt": "2026-11-02T20:57:12.032Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -1233,6 +1233,46 @@
         "linkedin": "https://www.linkedin.com/in/sanjanasiyer"
       },
       "photo": "/images/trainees/sanjana-iyer-9d453014bd.jpg"
+    },
+    {
+      "slug": "sophia-jin",
+      "name": "Sophia Jin",
+      "sortName": "Jin Sophia",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "gilhooley",
+      "labs": [
+        "gilhooley"
+      ],
+      "description": "Sophia is working on the isolation of rare intrinsically photosensitive retinal ganglion cells (ipRGCs) from mouse retinas. She hopes to use this protocol to conduct downstream studies that investigate the mechanisms that allow ipRGCs to uniquely survive neurodegeneration in Autosomal Dominant Optic Atrophy.",
+      "startDate": "2026-07-01",
+      "endDate": "2027-06-11",
+      "email": "sgjin@ucla.edu",
+      "links": {},
+      "photo": null
+    },
+    {
+      "slug": "anthony-wu",
+      "name": "Anthony Wu",
+      "sortName": "Wu Anthony",
+      "pronouns": null,
+      "role": "sra",
+      "title": "Staff Research Associate I",
+      "lab": "au",
+      "labs": [
+        "au"
+      ],
+      "description": "Anthony develops deep learning methods for retinal imaging, including 3D OCT and ultra-widefield imaging across several modalities. His current work uses self-supervised learning to build models that capture how retinal disease changes over time.",
+      "startDate": "2025-08-01",
+      "endDate": null,
+      "email": "anthonywu@mednet.ucla.edu",
+      "links": {
+        "orcid": "0009-0006-9900-8388",
+        "scholar": "https://scholar.google.com/citations?user=3Zto9mkAAAAJ",
+        "linkedin": "https://www.linkedin.com/in/anthonytkwu"
+      },
+      "photo": "/images/trainees/anthony-wu-ac2991a50f.jpg"
     }
   ]
 }
