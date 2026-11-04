@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T20:57:12.032Z",
+  "generatedAt": "2026-11-04T01:07:15.074Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -584,24 +584,6 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/menglin-li-c97a96612b.jpg"
-    },
-    {
-      "slug": "xiangmei-zhang-md",
-      "name": "Xiangmei Zhang , MD",
-      "sortName": "MD Xiangmei Zhang ,",
-      "pronouns": "She/her",
-      "role": "sra",
-      "title": "Staff Research Associate IV",
-      "lab": "yang",
-      "labs": [
-        "yang"
-      ],
-      "description": "Our research focuses on retinal development and the differentiation of retinal ganglion cells (RGCs) and photoreceptors, with the ultimate goal of establishing retinal disease models and developing curative gene therapies. Alongside my research, I serve as the lab manager, overseeing lab administrative and non-scientific operations to ensure daily efficiency. In this role, I manage mouse colonies, train incoming lab members, and simultaneously carry multiple scientific projects to drive our research goals forward.",
-      "startDate": "1996-07-01",
-      "endDate": null,
-      "email": "xiang-meizhang@mednet.ucla.edu",
-      "links": {},
-      "photo": null
     },
     {
       "slug": "varsha-venkataraman",
@@ -1273,6 +1255,24 @@
         "linkedin": "https://www.linkedin.com/in/anthonytkwu"
       },
       "photo": "/images/trainees/anthony-wu-ac2991a50f.jpg"
+    },
+    {
+      "slug": "xiangmei-zhang-md",
+      "name": "Xiangmei Zhang , MD",
+      "sortName": "MD Xiangmei Zhang ,",
+      "pronouns": "She/her",
+      "role": "sra",
+      "title": "Staff Research Associate IV",
+      "lab": "yang",
+      "labs": [
+        "yang"
+      ],
+      "description": "Our research focuses on retinal development and the differentiation of retinal ganglion cells (RGCs) and photoreceptors, with the ultimate goal of establishing retinal disease models and developing curative gene therapies. Alongside my research, I serve as the lab manager, overseeing lab administrative and non-scientific operations to ensure daily efficiency. In this role, I manage mouse colonies, train incoming lab members, and simultaneously carry multiple scientific projects to drive our research goals forward.",
+      "startDate": "1996-07-01",
+      "endDate": null,
+      "email": "xiang-meizhang@mednet.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/xiangmei-zhang-md-479e95a92f.jpg"
     }
   ]
 }
