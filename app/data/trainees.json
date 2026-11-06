@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T01:07:15.074Z",
+  "generatedAt": "2026-11-06T23:06:08.469Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -781,24 +781,6 @@
       "photo": "/images/trainees/alison-oak-052a85adae.jpg"
     },
     {
-      "slug": "yuekan-jiao",
-      "name": "Yuekan Jiao",
-      "sortName": "Jiao Yuekan",
-      "pronouns": null,
-      "role": "projsci",
-      "title": "Specialist",
-      "lab": "williams",
-      "labs": [
-        "williams"
-      ],
-      "description": "Dr. Jiao works on biological electron microscopy, super-resolution light microscopy and image analysis. His work spans running, supporting and training with the microscopes; supporting with ImageJ and Imaris; and developing ImageJ plugins. Dr. Jiao also conducts eye research through collaborating with research labs.",
-      "startDate": "2022-01-03",
-      "endDate": null,
-      "email": null,
-      "links": {},
-      "photo": null
-    },
-    {
       "slug": "shaurya-mahajan",
       "name": "Shaurya Mahajan",
       "sortName": "Mahajan Shaurya",
@@ -1273,6 +1255,82 @@
       "email": "xiang-meizhang@mednet.ucla.edu",
       "links": {},
       "photo": "/images/trainees/xiangmei-zhang-md-479e95a92f.jpg"
+    },
+    {
+      "slug": "kishan-talati",
+      "name": "Kishan Talati",
+      "sortName": "Talati Kishan",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "field",
+      "labs": [
+        "field"
+      ],
+      "description": "Kishan studies the dendritic morphology of retinal ganglion cells in primates through the tracing and analysis of confocal images.",
+      "startDate": "2024-10-21",
+      "endDate": "2027-06-11",
+      "email": "kishantalati@g.ucla.edu",
+      "links": {
+        "orcid": "0009-0001-0556-4660"
+      },
+      "photo": "/images/trainees/kishan-talati-4fcae0931a.jpg"
+    },
+    {
+      "slug": "ellie-sul",
+      "name": "Ellie Sul",
+      "sortName": "Sul Ellie",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate Lab Assistant",
+      "lab": "peng",
+      "labs": [
+        "peng"
+      ],
+      "description": "Her previous research experience includes evaluating CBT-based mental health apps and conducting data coding on drivers' emotion regulation behaviors at Yonsei University's Digital Mental Health Lab. She also gained laboratory experience at Yale University's School of Medicine Stem Cell Lab, performing laboratory experiments and analyzing data. As an independent researcher, she conducted research on associations between fentanyl usage and social media use among U.S. teens, as well as machine learning-based biomarkers for enhanced autism diagnosis using fundus images, both published in academic journals. Currently, as a lab assistant in Dr. Yi-Rong Peng's lab at UCLA's Stein Eye Institute, she assists with ophthalmology research and laboratory experiments, focusing on retinal development and its relationship to vision loss.",
+      "startDate": "2025-02-26",
+      "endDate": "2029-06-15",
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/ellie-sul-7279c40d8c.jpg"
+    },
+    {
+      "slug": "tara-shapnick-corcoran",
+      "name": "Tara Shapnick Corcoran",
+      "sortName": "Corcoran Tara Shapnick",
+      "pronouns": null,
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "Tara is currently investigating the long-term patterns of damage and disease progression in fellow eyes of patients with early-onset paracentral visual field loss due to glaucoma through a retrospective cohort study. Her primary research interests include preventative care and diagnostic methods regarding glaucoma.",
+      "startDate": "2026-06-22",
+      "endDate": "2028-06-10",
+      "email": null,
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/tara-corcoran-aa090b420?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+      },
+      "photo": "/images/trainees/tara-shapnick-corcoran-4a45ae8a64.jpg"
+    },
+    {
+      "slug": "yuekan-jiao",
+      "name": "Yuekan Jiao",
+      "sortName": "Jiao Yuekan",
+      "pronouns": null,
+      "role": "projsci",
+      "title": "Specialist",
+      "lab": "williams",
+      "labs": [
+        "williams"
+      ],
+      "description": "Dr. Jiao focuses on biological electron microscopy, super-resolution light microscopy and image analysis. His responsibilities include running, supporting and training with the microscopes; supporting with ImageJ and Imaris; and developing ImageJ plugins. Dr. Jiao also conducts eye research through collaborating with research labs.",
+      "startDate": "2022-01-03",
+      "endDate": null,
+      "email": null,
+      "links": {},
+      "photo": "/images/trainees/yuekan-jiao-4f1e06d388.jpg"
     }
   ]
 }
