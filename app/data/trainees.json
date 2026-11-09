@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T23:06:08.469Z",
+  "generatedAt": "2026-11-09T23:47:33.604Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -1331,6 +1331,64 @@
       "email": null,
       "links": {},
       "photo": "/images/trainees/yuekan-jiao-4f1e06d388.jpg"
+    },
+    {
+      "slug": "aditi-gupta",
+      "name": "Aditi Gupta",
+      "sortName": "Gupta Aditi",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "Aditi is currently studying the structure-function relationship in glaucoma between the retinal nerve fiber layer and visual fields. Her research interests lie in early vision loss detection through statistical and computational methods.",
+      "startDate": "2024-04-20",
+      "endDate": "2027-06-19",
+      "email": "aditiag@g.ucla.edu",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/aditi-gupta-a19139292"
+      },
+      "photo": "/images/trainees/aditi-gupta-365511214f.jpg"
+    },
+    {
+      "slug": "kayla-gonzalez",
+      "name": "Kayla Gonzalez",
+      "sortName": "Gonzalez Kayla",
+      "pronouns": "she/her",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "Kayla contributes to glaucoma clinical research at the UCLA Jules Stein Eye Institute, where she assists with AGPS data entry, reviewing and organizing longitudinal patient data to help researchers better understand glaucoma progression and treatment outcomes. She is also beginning a new research project focused on measuring retinal blood flow using laser speckle contrast imaging (LSCI). Her research interests include ophthalmology, retinal imaging, and improving the understanding and management of eye diseases.",
+      "startDate": "2025-03-03",
+      "endDate": "2028-06-09",
+      "email": "kaylagonzalez010506@gmail.com",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/kayla-gonzalez-542758366/"
+      },
+      "photo": "/images/trainees/kayla-gonzalez-0bf3e8cbe3.jpg"
+    },
+    {
+      "slug": "nathan-chang",
+      "name": "Nathan Chang",
+      "sortName": "Chang Nathan",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "gilhooley",
+      "labs": [
+        "gilhooley"
+      ],
+      "description": "In the Gilhooley lab, Nathan is studying how Opa1 expression affects intrinsically photosensitive retinal ganglion cell (ipRGC) survival and mitochondrial dynamics. He hopes his research will contribute to a greater understanding of preferential ipRGC survival in ADOA and provide future avenues for investigation into clinically effective treatments.",
+      "startDate": "2026-02-01",
+      "endDate": "2029-06-15",
+      "email": "nathanchang02@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/nathan-chang-91e45edd6b.jpg"
     }
   ]
 }
