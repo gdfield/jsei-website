@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T23:47:33.604Z",
+  "generatedAt": "2026-11-13T16:09:02.978Z",
   "trainees": [
     {
       "slug": "alejandro-gallego-ortega",
@@ -1389,6 +1389,66 @@
       "email": "nathanchang02@g.ucla.edu",
       "links": {},
       "photo": "/images/trainees/nathan-chang-91e45edd6b.jpg"
+    },
+    {
+      "slug": "somaye-jafari",
+      "name": "Somaye Jafari",
+      "sortName": "Jafari Somaye",
+      "pronouns": "She/her",
+      "role": "projsci",
+      "title": "Assistant Project Scientist",
+      "lab": "demer",
+      "labs": [
+        "demer"
+      ],
+      "description": "Dr. Somaye Jafari studies the biomechanics of the eye and optic nerve, focusing on how eye movements and tissue properties influence mechanical stress and deformation. She combines experimental tissue testing with computational modeling to investigate the roles of tissue structure, fluid transport, and time-dependent behavior in ocular mechanics. Her research aims to clarify mechanisms that may contribute to optic nerve damage in glaucoma.",
+      "startDate": "2019-03-01",
+      "endDate": null,
+      "email": "sjafari@mednet.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?user=HmgD3LIAAAAJ&hl=en&oi=sra",
+        "linkedin": "https://www.linkedin.com/in/somaye-jafari-60b56088/"
+      },
+      "photo": "/images/trainees/somaye-jafari-f8a7f7bdc7.jpg"
+    },
+    {
+      "slug": "daniel-jiang",
+      "name": "Daniel Jiang",
+      "sortName": "Jiang Daniel",
+      "pronouns": "he/him",
+      "role": "ugrad",
+      "title": "Undergraduate",
+      "lab": "nouri-mahdavi",
+      "labs": [
+        "nouri-mahdavi"
+      ],
+      "description": "Daniel Jiang contributes to the glaucoma clinical research at the Stein Eye Institute, where he is working on determining which points, combinations of location, and spatial patterns of sensitivity loss on a 10-2 visual field are most strongly associated with visual acuity loss. He also aids in AGPS patient data entry and organizing longitudinal databases to help researchers better understand glaucoma progression and treatment outcomes. He will also begin a new research project focused on measuring retinal blood flow using laser speckle contrast imaging (LSCI). His research interests include improving the understanding of glaucoma and determining more accurate prognostic methods in glaucoma care.",
+      "startDate": "2026-03-20",
+      "endDate": "2029-06-15",
+      "email": "danielyjiang@g.ucla.edu",
+      "links": {},
+      "photo": "/images/trainees/daniel-jiang-e99ebe344a.jpg"
+    },
+    {
+      "slug": "elliot-choi",
+      "name": "Elliot Choi",
+      "sortName": "Choi Elliot",
+      "pronouns": null,
+      "role": "postdoc",
+      "title": "Postdoctoral Scholar",
+      "lab": "radu",
+      "labs": [
+        "radu"
+      ],
+      "description": "Elliot is interested in genome engineering and the mechanisms underlying Stargardt disease. His research aims to better understand the disease and develop new treatments.",
+      "startDate": "2025-08-01",
+      "endDate": null,
+      "email": "elliotchoi@mednet.ucla.edu",
+      "links": {
+        "scholar": "https://scholar.google.com/citations?user=Yq4htT0AAAAJ&hl=en",
+        "linkedin": "https://www.linkedin.com/in/elliot-h-choi-946244131/"
+      },
+      "photo": "/images/trainees/elliot-choi-0b5a407a37.jpg"
     }
   ]
 }
